@@ -47,7 +47,7 @@ jobs:
 
       # Set up NPM and deps
       - name: Set up NPM
-        run: pnpm ci
+        run: pnpm install --frozen-lockfile
 
       # Do a build
       - name: Run Deploy
