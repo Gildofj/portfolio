@@ -45,11 +45,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      # Set up NPM and deps
       - name: Set up NPM
         run: pnpm install --frozen-lockfile
 
-      # Do a build
+      - name: Run build
+        run: pnpm run build
+
       - name: Run Deploy
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
