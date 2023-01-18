@@ -51,4 +51,6 @@ jobs:
 
       # Do a build
       - name: Run Deploy
-        run: pnpm run deploy
+        run: |
+          pnpm run predeploy
+          pnpm run deploy
