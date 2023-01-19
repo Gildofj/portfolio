@@ -4,20 +4,20 @@ import { Brand, Container, Divider, Link, StyledList, StyledNav } from "./styles
 const navbarOptions = (urlPath: string) => [
   {
     id: 1,
-    href: "#",
-    text: "Home",
-    active: ["", "#"].includes(urlPath)
+    href: "#about",
+    text: "Sobre",
+    active: ["", "#about"].includes(urlPath)
   },
   {
     id: 2,
-    href: "#about",
-    text: "About",
-    active: urlPath === "#about"
+    href: "#skills",
+    text: "Skills",
+    active: urlPath === "#skills"
   },
   {
     id: 3,
     href: "#contact",
-    text: "Contact",
+    text: "Contato",
     active: urlPath === "#contact"
   },
 ]
@@ -28,7 +28,7 @@ export function Navbar() {
   return (
     <Container>
       <StyledNav>
-        <Brand>Portfolio</Brand>
+        {/* <Brand>Portfolio</Brand> */}
         <StyledList>
           {navbarOptions(urlPath).map(({ id, href, text, active }) => (
             <li key={id}><Link active={active} href={href}>{text}</Link></li>
