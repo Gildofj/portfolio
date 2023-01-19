@@ -1,5 +1,5 @@
 import useReactPath from "../../hooks/useReactPath";
-import { Brand, Container, Divider, Link, StyledList, StyledNav } from "./styles";
+import { Container, Divider, Link, StyledList, StyledNav } from "./styles";
 
 const navbarOptions = (urlPath: string) => [
   {
@@ -28,7 +28,6 @@ export function Navbar() {
   return (
     <Container>
       <StyledNav>
-        {/* <Brand>Portfolio</Brand> */}
         <StyledList>
           {navbarOptions(urlPath).map(({ id, href, text, active }) => (
             <li key={id}><Link active={active} href={href}>{text}</Link></li>
