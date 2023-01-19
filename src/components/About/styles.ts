@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 export const Container = styled.section`
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding-top: 6rem;
@@ -43,16 +44,16 @@ export const Image = styled.div`
 `;
 
 export const Name = styled.h2`
-  font-size: 3.125em;
+  font-size: 3.125rem;
   font-weight: bold;
   color: ${({ theme: { colors } }) => colors.purple_600}
 `;
 
 export const DescriptionProfile = styled.p`
-  font-size: 1.250em;
+  font-size: 1.250rem;
 `;
 
-export const WelcomeText = styled.div`
+export const WelcomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,7 +72,35 @@ export const Brand = styled.h1`
 	-webkit-text-fill-color: transparent;
 `;
 
-export const Text = styled.h3`
-  font-size: 3.125em;
+export const WelcomeText = styled.h3`
+  font-size: 3.125rem;
   font-weight: 600;
+`;
+
+export const PresentationContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const AboutContainer = styled.div`
+ display: flex;
+ margin: 5rem 25rem;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 1rem;
+`;
+
+export const AboutTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: ${({ theme: { colors } }) => colors.pink}
+`;
+
+export const AboutText = styled.h3`
+  font-size: 1;
+  color: ${({ theme: { colors } }) => colors.text};
+  line-height: 2rem;
 `;
