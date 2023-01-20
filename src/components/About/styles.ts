@@ -6,7 +6,7 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-top: 6rem;
+  padding-top: 2rem;
 `;
 
 export const Profile = styled.div`
@@ -15,6 +15,7 @@ export const Profile = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-bottom: 5rem;
 `;
 
 const imageAnimation = keyframes`
@@ -41,6 +42,10 @@ export const Image = styled.div`
   width: 300px;
   height: 300px;
   animation: ${imageAnimation} 8s ease-in-out infinite 1s;
+`;
+
+export const AnchorImage = styled.a`
+  
 `;
 
 export const Name = styled.h2`
@@ -77,16 +82,10 @@ export const WelcomeText = styled.h3`
   font-weight: 600;
 `;
 
-export const PresentationContainer = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 export const AboutContainer = styled.div`
  display: flex;
- margin: 5rem 25rem;
+ max-width: 90rem;
+ margin: 5rem;
  flex-direction: column;
  align-items: center;
  justify-content: center;
@@ -100,7 +99,6 @@ export const AboutTitle = styled.h3`
 `;
 
 export const AboutText = styled.h3`
-  font-size: 1;
   color: ${({ theme: { colors } }) => colors.text};
   line-height: 2rem;
 `;

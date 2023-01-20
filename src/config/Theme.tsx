@@ -48,6 +48,7 @@ export const GlobalStyle = createGlobalStyle`
 	font: inherit;
   color: #E6E6FA;
 	vertical-align: baseline;
+  scroll-behavior: smooth;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
