@@ -32,7 +32,7 @@ const imageAnimation = keyframes`
 `;
 
 export const Image = styled.div`
-  background: url("/assets/images/me.jpg");
+  background: url("/PortifolioGildo/assets/images/me.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
