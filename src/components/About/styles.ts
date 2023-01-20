@@ -44,8 +44,10 @@ export const Image = styled.div`
   transition: .2s;
 
   &:hover, &:focus {
-    width: 315px;
-    height: 315px;
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(.9);
   }
 `;
 
