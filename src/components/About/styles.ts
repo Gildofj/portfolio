@@ -94,17 +94,11 @@ export const WelcomeText = styled.h3`
 export const AboutContainer = styled.div`
  display: flex;
  max-width: 90rem;
- margin: 5rem;
+ margin: 7rem 5rem;
  flex-direction: column;
  align-items: center;
  justify-content: center;
  gap: 1rem;
-`;
-
-export const AboutTitle = styled.h3`
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: ${({ theme: { colors } }) => colors.pink};
 `;
 
 export const AboutText = styled.h3`

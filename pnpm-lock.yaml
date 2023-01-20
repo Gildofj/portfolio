@@ -8,6 +8,7 @@ specifiers:
   gh-pages: ^4.0.0
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-is: ^18.2.0
   styled-components: ^5.3.6
   typescript: ^4.9.3
   vite: ^4.0.0
@@ -15,7 +16,8 @@ specifiers:
 dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
+  react-is: 18.2.0
+  styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
 
 devDependencies:
   '@types/react': 18.0.26
@@ -603,7 +605,7 @@ packages:
       babel-plugin-syntax-jsx: 6.18.0
       lodash: 4.17.21
       picomatch: 2.3.1
-      styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
+      styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
     dev: false
 
   /babel-plugin-syntax-jsx/6.18.0:
@@ -1078,6 +1080,10 @@ packages:
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
+  /react-is/18.2.0:
+    resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
+    dev: false
+
   /react-refresh/0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
@@ -1134,7 +1140,7 @@ packages:
       escape-string-regexp: 1.0.5
     dev: true
 
-  /styled-components/5.3.6_biqbaboplfbrettd7655fr4n2y:
+  /styled-components/5.3.6_7i5myeigehqah43i5u7wbekgba:
     resolution: {integrity: sha512-hGTZquGAaTqhGWldX7hhfzjnIYBZ0IXQXkCYdvF1Sq3DsUaLx6+NTHC5Jj1ooM2F68sBiVz3lvhfwQs/S3l6qg==}
     engines: {node: '>=10'}
     requiresBuild: true
@@ -1153,6 +1159,7 @@ packages:
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-is: 18.2.0
       shallowequal: 1.1.0
       supports-color: 5.5.0
     dev: false

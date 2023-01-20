@@ -7,7 +7,6 @@ export default function useReactPath() {
   });
   const listenToPopstate = () => {
     const winPath = window.location.href.split('/');
-    console.log(winPath[winPath.length - 1]);
     setPath(winPath[winPath.length - 1]);
   };
   useEffect(() => {
