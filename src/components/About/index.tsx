@@ -4,6 +4,8 @@ import {
   AboutTitle,
   AnchorImage,
   Brand,
+  Button,
+  ButtonsGroup,
   Container,
   DescriptionProfile,
   Image,
@@ -17,11 +19,15 @@ export function About() {
   return (
     <Container>
       <Profile>
-        <AnchorImage href="https://github.com/Gildofj">
+        <AnchorImage href="https://github.com/Gildofj" target="_blank">
           <Image />
         </AnchorImage>
         <Name>Gildo Junior</Name>
         <DescriptionProfile>Desenvolvedor Full-Stack</DescriptionProfile>
+        <ButtonsGroup>
+          <Button href="/assets/resume-gildo.pdf" download>Download CV</Button>
+          <Button href="mailto:1gildojunior@gmail.com" target="_blank" transparent>Entre em contato</Button>
+        </ButtonsGroup>
       </Profile>
 
       <WelcomeContainer>

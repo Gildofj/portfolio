@@ -6,7 +6,6 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-top: 2rem;
 `;
 
 export const Profile = styled.div`
@@ -15,7 +14,7 @@ export const Profile = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 `;
 
 const imageAnimation = keyframes`
@@ -33,7 +32,7 @@ const imageAnimation = keyframes`
 `;
 
 export const Image = styled.div`
-  background: url("/assets/me.jpg");
+  background: url("/assets/images/me.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -42,16 +41,24 @@ export const Image = styled.div`
   width: 300px;
   height: 300px;
   animation: ${imageAnimation} 8s ease-in-out infinite 1s;
+  transition: .2s;
+
+  &:hover, &:focus {
+    width: 315px;
+    height: 315px;
+  }
 `;
 
 export const AnchorImage = styled.a`
-  
+  height: 320px;
+  display: flex;
+  align-items: flex-end;
 `;
 
 export const Name = styled.h2`
   font-size: 3.125rem;
   font-weight: bold;
-  color: ${({ theme: { colors } }) => colors.purple_600}
+  color: ${({ theme: { colors } }) => colors.purple_600};
 `;
 
 export const DescriptionProfile = styled.p`
@@ -95,10 +102,52 @@ export const AboutContainer = styled.div`
 export const AboutTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: bold;
-  color: ${({ theme: { colors } }) => colors.pink}
+  color: ${({ theme: { colors } }) => colors.pink};
 `;
 
 export const AboutText = styled.h3`
   color: ${({ theme: { colors } }) => colors.text};
   line-height: 2rem;
+`;
+
+interface ButtonProps {
+  transparent?: boolean;
+}
+
+export const Button = styled.a<ButtonProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  padding: 1rem 1rem;
+  min-width: 11rem;
+  border-radius: 0.625rem;
+  border: 1px solid #1d1160;
+  transition: .2s;
+  ${({ transparent, theme: { colors } }) => transparent ?
+    `background: ${colors.transparent}` :
+    ` background: rgb(29,17,96);
+      background: -moz-linear-gradient(90deg, rgba(29,17,96,1) 0%, rgba(75,0,130,1) 100%);
+      background: -webkit-linear-gradient(90deg, rgba(29,17,96,1) 0%, rgba(75,0,130,1) 100%);
+      background: linear-gradient(90deg, rgba(29,17,96,1) 0%, rgba(75,0,130,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1d1160",endColorstr="#4b0082",GradientType=1);
+    `
+  };
+
+  &:hover {
+    transform: scale(1.1);
+    background: rgb(51,0,111);
+    background: -moz-linear-gradient(90deg, rgba(51,0,111,1) 0%, rgba(114,14,158,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(51,0,111,1) 0%, rgba(114,14,158,1) 100%);
+    background: linear-gradient(90deg, rgba(51,0,111,1) 0%, rgba(114,14,158,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#33006f",endColorstr="#720e9e",GradientType=1);
+  }
+  &:active {
+    transform: scale(.99);
+  }
+`;
+
+export const ButtonsGroup = styled.div`
+  display: flex;
+  gap: 2rem;
 `;

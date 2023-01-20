@@ -28,7 +28,8 @@ const theme = {
     purple_900: "#1d1160",
 
     violet: "#EE82EE",
-    pink: "#DDA0DD"
+    pink: "#DDA0DD",
+    transparent: "#00000000"
   },
   fonts: ["Inter", "Roboto", "sans-serif"],
   fontSizes: {
@@ -38,7 +39,7 @@ const theme = {
   }
 }
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   * {
 	margin: 0;
 	padding: 0;
@@ -81,5 +82,8 @@ a {
 `;
 
 export const Theme = ({ children }: any) => (
-  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    {children}
+  </ThemeProvider>
 );

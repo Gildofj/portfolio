@@ -25,6 +25,7 @@ interface LinkProps {
 export const Link = styled.a<LinkProps>`
   color: ${({ active, theme }) => active ? theme.colors.purple_300 : "inherit"};
   font-weight: ${({ active }) => active ? 900 : 600};
+  transition: .2s;
 
   &:hover {
     color: ${({ active, theme }) => !active && theme.colors.purple_200}
