@@ -22,6 +22,12 @@ const navbarOptions = (urlPath: string) => [
   },
   {
     id: 4,
+    href: "#qualification",
+    text: "Qualificação",
+    active: urlPath === "#qualification"
+  },
+  {
+    id: 5,
     href: "#contact",
     text: "Contato",
     active: urlPath === "#contact"

@@ -2,6 +2,7 @@ import { Navbar } from "../components/Navbar";
 import { About } from "../components/About";
 import { Container } from "./styles";
 import { Skills } from "../components/Skills";
+import { Qualification } from "../components/Qualification";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Container>
         <About />
         <Skills />
+        <Qualification />
       </Container>
     </>
   )

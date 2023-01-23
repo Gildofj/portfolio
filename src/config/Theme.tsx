@@ -33,9 +33,9 @@ const theme = {
   },
   fonts: ["Inter", "Roboto", "sans-serif"],
   fontSizes: {
-    small: "1em",
-    medium: "2em",
-    large: "3em"
+    small: "0.75em",
+    medium: "1em",
+    large: "2em"
   }
 }
 

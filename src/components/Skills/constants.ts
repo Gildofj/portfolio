@@ -4,12 +4,12 @@ export const BACKEND_SKILLS = [
   { name: "NodeJS", level: "Básico" },
   { name: "ExpressJS", level: "Básico" },
   { name: "Git", level: "Intermediário" },
-  { name: "Entity Framework", level: "Avançado" },
   { name: "ASP.NET", level: "Avançado" },
   { name: "SQL Server", level: "Intermediário" },
   { name: "MongoDB", level: "Básico" },
   { name: "PostgreSQL", level: "Básico" },
   { name: "Docker", level: "Básico" },
+  { name: "Entity Framework", level: "Avançado" },
 ];
 
 export const FRONTEND_SKILLS = [

@@ -6,6 +6,7 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 7rem;
 `;
 
 export const Profile = styled.div`
