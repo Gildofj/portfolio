@@ -4,6 +4,7 @@ import { Container } from "./styles";
 import { Skills } from "../components/Skills";
 import { Qualification } from "../components/Qualification";
 import { Contact } from "../components/Contact";
+import { Footer } from "../components/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Qualification />
         <Contact />
       </Container>
+      <Footer />
     </>
   )
 }

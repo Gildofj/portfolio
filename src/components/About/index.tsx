@@ -26,7 +26,7 @@ export function About() {
         <DescriptionProfile>Desenvolvedor Full-Stack</DescriptionProfile>
         <ButtonsGroup id="about">
           <Button href="/assets/resume-gildo.pdf" download>Download CV</Button>
-          <Button href="mailto:1gildojunior@gmail.com" target="_blank" transparent>Entre em contato</Button>
+          <Button href="#contact" transparent>Entre em contato</Button>
         </ButtonsGroup>
       </Profile>
 

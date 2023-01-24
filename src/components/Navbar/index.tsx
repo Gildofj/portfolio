@@ -1,38 +1,7 @@
 import useReactPath from "../../hooks/useReactPath";
-import { Container, Divider, Link, StyledList, StyledNav } from "./styles";
-
-const navbarOptions = (urlPath: string) => [
-  {
-    id: 1,
-    href: "#",
-    text: "Home",
-    active: ["", "#"].includes(urlPath)
-  },
-  {
-    id: 2,
-    href: "#about",
-    text: "Sobre",
-    active: urlPath === "#about"
-  },
-  {
-    id: 3,
-    href: "#skills",
-    text: "Skills",
-    active: urlPath === "#skills"
-  },
-  {
-    id: 4,
-    href: "#qualification",
-    text: "Qualificação",
-    active: urlPath === "#qualification"
-  },
-  {
-    id: 5,
-    href: "#contact",
-    text: "Contato",
-    active: urlPath === "#contact"
-  },
-]
+import { getNavigation } from "../constants";
+import { Divider } from "../_UI/Divider";
+import { Container, Link, StyledList, StyledNav } from "./styles";
 
 export function Navbar() {
   const urlPath = useReactPath();
@@ -41,7 +10,7 @@ export function Navbar() {
     <Container>
       <StyledNav>
         <StyledList>
-          {navbarOptions(urlPath).map(({ id, href, text, active }) => (
+          {getNavigation(urlPath).map(({ id, href, text, active }) => (
             <li key={id}><Link active={active} href={href}>{text}</Link></li>
           ))}
         </StyledList>
