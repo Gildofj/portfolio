@@ -25,7 +25,7 @@ export function About() {
         <Name>Gildo Junior</Name>
         <DescriptionProfile>Desenvolvedor Full-Stack</DescriptionProfile>
         <ButtonsGroup id="about">
-          <Button href="/assets/files/resume-gildo.pdf" download>Download CV</Button>
+          <Button href="/portfolio/assets/files/resume-gildo.pdf" download>Download CV</Button>
           <Button href="#contact" transparent>Entre em contato</Button>
         </ButtonsGroup>
       </Profile>
