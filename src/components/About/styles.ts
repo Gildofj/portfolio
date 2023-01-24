@@ -120,6 +120,7 @@ export const Button = styled.a<ButtonProps>`
   min-width: 11rem;
   border-radius: 0.625rem;
   border: 1px solid #1d1160;
+  cursor: pointer;
   transition: .2s;
   ${({ transparent, theme: { colors } }) => transparent ?
     `background: ${colors.transparent}` :

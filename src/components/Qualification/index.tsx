@@ -26,7 +26,7 @@ export function Qualification() {
   const itens = useMemo(() => qualifications.map((q, i) => {
     if ((i + 1) % 2 === 0) {
       return (
-        <Data key={q.id}>
+        <Data key={i}>
           <div></div>
 
           <div>
@@ -45,7 +45,7 @@ export function Qualification() {
       );
     } else {
       return (
-        <Data>
+        <Data key={i}>
           <div>
             <DataTitle>{q.title}</DataTitle>
             <DataSubTitle>{q.country} - {q.organization}</DataSubTitle>

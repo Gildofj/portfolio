@@ -1,6 +1,5 @@
 export const EXPERIENCE = [
   {
-    id: 1,
     title: "Desenvolvedor Full Stack Pleno",
     organization: "Omie",
     country: "Brazil",
@@ -8,7 +7,6 @@ export const EXPERIENCE = [
     endDate: "Present"
   },
   {
-    id: 2,
     title: "Desenvolvedor Full Stack Pleno",
     organization: "Exact Sales",
     country: "Brazil",
@@ -16,7 +14,6 @@ export const EXPERIENCE = [
     endDate: "Agosto 2022"
   },
   {
-    id: 3,
     title: "Desenvolvedor Full Stack Junior",
     organization: "Exact Sales",
     country: "Brazil",
@@ -24,7 +21,6 @@ export const EXPERIENCE = [
     endDate: "Janeiro 2021"
   },
   {
-    id: 4,
     title: "Analista de Suporte Técnico",
     organization: "Exact Sales",
     country: "Brazil",
@@ -32,7 +28,6 @@ export const EXPERIENCE = [
     endDate: "Fevereiro 2020"
   },
   {
-    id: 5,
     title: "Assistente de Suporte Técnico",
     organization: "Exact Sales",
     country: "Brazil",
@@ -40,7 +35,6 @@ export const EXPERIENCE = [
     endDate: "Dezembro 2019"
   },
   {
-    id: 6,
     title: "Estágiario de Suporte Técnico",
     organization: "Exact Sales",
     country: "Brazil",
@@ -51,7 +45,6 @@ export const EXPERIENCE = [
 
 export const EDUCATION = [
   {
-    id: 1,
     title: "Análise e Desenvolvimento de Sistemas",
     organization: "Faculdade Cesusc",
     country: "Brazil",

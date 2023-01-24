@@ -50,6 +50,7 @@ const GlobalStyle = createGlobalStyle`
   color: #E6E6FA;
 	vertical-align: baseline;
   scroll-behavior: smooth;
+  font-weight: 400;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
