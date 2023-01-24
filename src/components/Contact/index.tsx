@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { FormEvent, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { Title } from "../_UI/Title";
 import { CONTACT_TYPES } from "./constants";
@@ -22,13 +22,10 @@ import {
 } from "./styles";
 
 export function Contact() {
-  const form = useRef<HTMLFormElement>();
+  const form = useRef<HTMLFormElement | null>(null);
 
-  const sendEmail = (e: SubmitEvent) => {
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(import.meta.env.VITE_EMAILJS_SERVICE_ID);
-    console.log(import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
-    console.log(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
     if (form.current) {
       emailjs.sendForm(
@@ -45,7 +42,7 @@ export function Contact() {
   };
 
   return (
-    <Container>
+    <Container id="contact">
       <Title>Entre em contato</Title>
 
       <ContactContainer>
