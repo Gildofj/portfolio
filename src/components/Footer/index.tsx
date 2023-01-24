@@ -2,7 +2,15 @@ import useReactPath from "../../hooks/useReactPath";
 import { getNavigation } from "../constants";
 import { Divider } from "../_UI/Divider";
 import { SOCIALS } from "./constants";
-import { Container, FooterContainer, FooterNavigation, FooterSocial, FooterTitle, Link, SocialIcon } from "./styles";
+import {
+  Container,
+  FooterContainer,
+  FooterNavigation,
+  FooterSocial,
+  FooterTitle,
+  Link,
+  SocialIcon
+} from "./styles";
 
 export function Footer() {
   const urlPath = useReactPath();
