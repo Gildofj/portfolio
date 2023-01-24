@@ -1,3 +1,3 @@
-# PortifolioGildo
+# Portifolio
 
-https://gildofj.github.io/PortifolioGildo/
+https://gildofj.github.io/portfolio/
