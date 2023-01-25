@@ -24,7 +24,7 @@ export const QualificationIcon = styled.i<QualificationIconProps>`
  transition: .2s;
 
  &:hover {
-    color: ${({ theme: { colors } }) => colors.purple_200};
+    color: ${({ active, theme: { colors } }) => !active && colors.purple_200};
   }
 `;
 
@@ -47,9 +47,9 @@ export const Tab = styled.div<TypeProps>`
   transition: .2s;
 
   &:hover {
-    color: ${({ theme: { colors } }) => colors.purple_200};
+    color: ${({ active, theme: { colors } }) => !active && colors.purple_200};
     ${QualificationIcon} {
-      color: ${({ theme: { colors } }) => colors.purple_200};
+      color: ${({ active, theme: { colors } }) => !active && colors.purple_200};
     }
   }
 `;

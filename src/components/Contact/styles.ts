@@ -44,10 +44,24 @@ export const CardContactIcon = styled.i`
   font-size: 2rem;
 `;
 
+export const WriteMeIcon = styled.i`
+  font-size: 1.25rem;
+  transition: .3s;
+  &:hover {
+    transform: translate(0.25rem);
+  }
+`;
+
 export const WriteMeButton = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1rem;
   margin-top: 1rem;
   &:hover {
-    color: ${({ theme: { colors } }) => colors.purple_400};
+    ${WriteMeIcon} {
+      transform: translate(0.25rem);
+    }
   }
 `;
 
@@ -64,6 +78,17 @@ export const FieldGroup = styled.div`
   margin-top: 2rem;
   margin-bottom: 2rem;
   height: 2rem;
+`;
+
+export const Error = styled.div`
+  width: 100%;
+  text-align: start;
+  margin-top: 1rem;
+`;
+
+
+export const FieldError = styled.span`
+  color: ${({ theme: { colors } }) => colors.alert};
 `;
 
 export const FieldGroupArea = styled.div`
@@ -103,10 +128,10 @@ export const Message = styled.textarea`
   width: 100%;
   min-height: 10rem;
   border-radius: 0.625rem;
-  -webkit-border-radius: 0.625rem; 
-  -moz-border-radius: 0.625rem; 
-  overflow: hidden; 
-  resize: none; 
+  -webkit-border-radius: 0.625rem;
+  -moz-border-radius: 0.625rem;
+  overflow: hidden;
+  resize: none;
   background-color: ${({ theme: { colors } }) => colors.background_800};
   border: 1px solid ${({ theme: { colors } }) => colors.purple_300};
 `;
@@ -127,7 +152,7 @@ export const SendButton = styled.button`
   background: -webkit-linear-gradient(90deg, rgba(29,17,96,1) 0%, rgba(75,0,130,1) 100%);
   background: linear-gradient(90deg, rgba(29,17,96,1) 0%, rgba(75,0,130,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1d1160",endColorstr="#4b0082",GradientType=1);
-    
+
 
   &:hover {
     transform: scale(1.1);
@@ -142,8 +167,8 @@ export const SendButton = styled.button`
   }
 `;
 
-export const ButtonIcon = styled.i`
-  font-size: 1.5rem;
+export const ButtonIcon = styled.img`
+  /* width: 1.5rem; */
 `;
 
 export const Type = styled.span`

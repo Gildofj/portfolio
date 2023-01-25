@@ -59,6 +59,10 @@ export const ExpertiseContainer = styled.div`
   &:not(:last-child) {
     flex: 1;
   }
+
+  @media screen and (max-width: 768px) {
+    flex: 1;
+  }
 `;
 
 export const SkillName = styled.span`
