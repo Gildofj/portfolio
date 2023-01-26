@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledNav = styled.nav`
+  position: relative;
   height: 4rem;
   display: flex;
   align-items: center;
@@ -10,12 +11,35 @@ export const StyledNav = styled.nav`
   color: ${({ theme: { colors } }) => colors.white};
 `;
 
-export const StyledList = styled.ul`
+interface StyledListProps {
+  open: boolean;
+}
+
+export const StyledList = styled.ul<StyledListProps>`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    font-size: 2rem;
+    gap: 5rem;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    height: ${({ open }) => open ? "calc(100vh - 4rem)" : 0};
+    transition: all 0.3s ease-in;
+    overflow-y: ${({ open }) => open ? "auto" : "hidden"};
+    border-radius: 0 0 0.625rem 0.625rem;
+    background: rgb(114,14,158);
+    background: -moz-linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
+    background: -webkit-linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
+    background: linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#720e9e",endColorstr="#800080",GradientType=1);
+  }
 `;
 
 interface LinkProps {
@@ -30,6 +54,11 @@ export const Link = styled.a<LinkProps>`
   &:hover {
     color: ${({ active, theme }) => !active && theme.colors.purple_200}
   }
+
+  @media screen and (max-width: 768px) {
+    display: block;
+    width: 100%;
+  }
 `;
 
 export const Container = styled.div`
@@ -39,4 +68,23 @@ export const Container = styled.div`
   flex-direction: column;
   position: fixed;
   z-index: 999;
+`;
+
+export const NavbarButton = styled.button`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #00000000;
+  }
+`;
+
+export const NavbarIcon = styled.i`
+  @media screen and (max-width: 768px) {
+    font-size: 4rem;
+    color: ${({ theme: { colors } }) => colors.text}
+  }
 `;
