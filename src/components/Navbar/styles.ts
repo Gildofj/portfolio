@@ -44,10 +44,11 @@ export const StyledList = styled.ul<StyledListProps>`
 
 interface LinkProps {
   active: boolean;
+  open: boolean;
 };
 
 export const Link = styled.a<LinkProps>`
-  color: ${({ active, theme }) => active ? theme.colors.purple_300 : "inherit"};
+  color: ${({ active, open, theme }) => active && !open ? theme.colors.purple_300 : "inherit"};
   font-weight: ${({ active }) => active ? 900 : 600};
   transition: .2s;
 
