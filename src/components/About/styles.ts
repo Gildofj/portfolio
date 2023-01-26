@@ -93,6 +93,7 @@ export const WelcomeText = styled.h3`
 `;
 
 export const AboutContainer = styled.div`
+ width: 100%;
  display: flex;
  max-width: 90rem;
  margin: 7rem 5rem;

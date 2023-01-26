@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
+ width: 100%;
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -9,8 +10,14 @@ export const Container = styled.section`
 `;
 
 export const ContactContainer = styled.div`
+ width: 100%;
  display: flex;
- gap: 3rem;
+ justify-content: center;
+ gap: 4em;
+
+ @media screen and (max-width: 768px) {
+    flex-direction: column;
+ }
 `;
 
 export const ContactTypes = styled.div`
@@ -26,7 +33,7 @@ export const Subtitle = styled.h3`
 `;
 
 export const CardContact = styled.div`
-  width: 15rem;
+  width: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,6 +45,10 @@ export const CardContact = styled.div`
   background: -webkit-linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
   background: linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#720e9e",endColorstr="#800080",GradientType=1);
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+ }
 `;
 
 export const CardContactIcon = styled.i`
@@ -70,6 +81,10 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+ }
 `;
 
 export const FieldGroup = styled.div`
@@ -115,7 +130,6 @@ export const Input = styled.input`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
   padding: 1.2rem;
   border-radius: 0.625rem;
   background-color: ${({ theme: { colors } }) => colors.background_800};

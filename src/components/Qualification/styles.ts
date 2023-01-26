@@ -11,6 +11,10 @@ export const Container = styled.section`
 export const Content = styled.div`
   max-width: 48rem;
   min-height: 30rem;
+  @media screen and (max-width: 992px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 interface QualificationIconProps {
@@ -19,7 +23,7 @@ interface QualificationIconProps {
 
 export const QualificationIcon = styled.i<QualificationIconProps>`
  font-size: 1.8rem;
- margin-right: 0.25rem;
+ margin-right: 0.5rem;
  color: ${({ active, theme: { colors } }) => active ? colors.purple : colors.text};
  transition: .2s;
 
@@ -30,7 +34,9 @@ export const QualificationIcon = styled.i<QualificationIconProps>`
 
 export const Tabs = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
+  margin-right: 1.5rem;
   margin-bottom: 3rem;
 `;
 
@@ -39,6 +45,8 @@ interface TypeProps {
 }
 
 export const Tab = styled.div<TypeProps>`
+  display: flex;
+  align-items: center;
   font-size: 1.5rem;
   font-weight: 500;
   margin: 0 0.5rem;
@@ -52,12 +60,20 @@ export const Tab = styled.div<TypeProps>`
       color: ${({ active, theme: { colors } }) => !active && colors.purple_200};
     }
   }
+
+  @media screen and (max-width: 576px){
+    margin: 0 0.75rem;
+  }
 `;
 
 export const Section = styled.div`
   display: grid;
   grid-template-columns: 1.5fr;
   justify-content: center;
+
+  @media screen and (max-width: 576px) {
+    grid-template-columns: initial;
+  }
 `;
 
 export const SectionContent = styled.div`
@@ -68,6 +84,10 @@ export const Data = styled.div`
   display: grid;
   grid-template-columns: 1.5fr max-content 1.5fr;
   column-gap: 1.5rem;
+
+  @media screen and (max-width: 400px){
+    gap: 0.5rem;
+  }
 `;
 
 export const DataTitle = styled.div`

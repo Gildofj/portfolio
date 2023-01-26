@@ -51,6 +51,9 @@ const GlobalStyle = createGlobalStyle`
 	vertical-align: baseline;
   scroll-behavior: smooth;
   font-weight: 400;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -58,8 +61,16 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+  display: flex;
 	line-height: 1;
   background-color: #12131F;
+  min-height: 100vh;
+}
+#root {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 ol, ul {
 	list-style: none;

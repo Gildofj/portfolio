@@ -2,7 +2,7 @@ import { ToastContainer } from "react-toastify";
 
 import { Navbar } from "../components/Navbar";
 import { About } from "../components/About";
-import { Container } from "./styles";
+import { Container, Main } from "./styles";
 import { Skills } from "../components/Skills";
 import { Qualification } from "../components/Qualification";
 import { Contact } from "../components/Contact";
@@ -12,17 +12,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <>
+    <Container>
       <Navbar />
-      <Container>
+      <Main>
         <About />
         <Skills />
         <Qualification />
         <Contact />
-      </Container>
+      </Main>
       <Footer />
       <ToastContainer />
-    </>
+    </Container>
   )
 }
 

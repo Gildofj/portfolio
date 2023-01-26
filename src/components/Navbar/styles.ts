@@ -34,6 +34,7 @@ export const Link = styled.a<LinkProps>`
 
 export const Container = styled.div`
   width: 100%;
+  top: 0;
   display: flex;
   flex-direction: column;
   position: fixed;
