@@ -35,7 +35,7 @@ export const EXPERIENCE = [
     endDate: "Dezembro 2019"
   },
   {
-    title: "Estágiario de Suporte Técnico",
+    title: "Estagiário de Suporte Técnico",
     organization: "Exact Sales",
     country: "Brasil",
     startDate: "Janeiro 2019",
