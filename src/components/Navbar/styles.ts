@@ -97,8 +97,8 @@ interface BackgroundMaskProps {
 
 export const BackgroundMask = styled.div<BackgroundMaskProps>`
   display: ${({ show }) => show ? "flex" : "none"};
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
