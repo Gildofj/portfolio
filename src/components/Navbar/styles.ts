@@ -90,20 +90,3 @@ export const NavbarIcon = styled.i`
     color: ${({ theme: { colors } }) => colors.text}
   }
 `;
-
-interface BackgroundMaskProps {
-  show: boolean;
-}
-
-export const BackgroundMask = styled.div<BackgroundMaskProps>`
-  display: ${({ show }) => show ? "flex" : "none"};
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow-y: hidden;
-  background-color:${({ show }) => show ? "#000000D0" : "#00000000"};
-  z-index: 998;
-  transition: all .2s ease-in-out
-`;

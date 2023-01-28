@@ -27,7 +27,6 @@ export function Navbar() {
         </StyledNav >
         <Divider />
       </Container >
-      <BackgroundMask show={open} onClick={() => setOpen(false)} />
     </>
   );
 }
