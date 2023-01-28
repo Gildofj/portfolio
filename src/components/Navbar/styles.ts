@@ -69,6 +69,7 @@ export const Container = styled.div`
   flex-direction: column;
   position: fixed;
   z-index: 999;
+  transition: .2s;
 `;
 
 export const NavbarButton = styled.button`
@@ -88,4 +89,21 @@ export const NavbarIcon = styled.i`
     font-size: 4rem;
     color: ${({ theme: { colors } }) => colors.text}
   }
+`;
+
+interface BackgroundMaskProps {
+  show: boolean;
+}
+
+export const BackgroundMask = styled.div<BackgroundMaskProps>`
+  display: ${({ show }) => show ? "block" : "none"};
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: hidden;
+  background-color:${({ show }) => show ? "#000000D0" : "#00000000"};
+  z-index: 998;
+  transition: all .2s ease-in-out
 `;
