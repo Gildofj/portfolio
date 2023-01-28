@@ -96,12 +96,12 @@ interface BackgroundMaskProps {
 }
 
 export const BackgroundMask = styled.div<BackgroundMaskProps>`
-  display: ${({ show }) => show ? "block" : "none"};
-  width: 100%;
+  display: ${({ show }) => show ? "flex" : "none"};
+  width: 100vw;
+  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
   overflow-y: hidden;
   background-color:${({ show }) => show ? "#000000D0" : "#00000000"};
   z-index: 998;
