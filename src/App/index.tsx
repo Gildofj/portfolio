@@ -7,6 +7,7 @@ import { Skills } from "../components/Skills";
 import { Qualification } from "../components/Qualification";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
+import { Portfolio } from "../components/Portfolio";
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,6 +19,7 @@ function App() {
         <About />
         <Skills />
         <Qualification />
+        <Portfolio />
         <Contact />
       </Main>
       <Footer />

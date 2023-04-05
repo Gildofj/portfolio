@@ -96,14 +96,14 @@ export const DataTitle = styled.div`
 
 export const DataSubTitle = styled.div`
   display: inline-block;
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.small};;
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
   color: ${({ theme: { colors } }) => colors.caption_300};
   margin-bottom: 1rem;
 `;
 
 export const DataCalendar = styled.div`
   color: ${({ theme: { colors } }) => colors.caption_300};
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.small};;
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
 `;
 
 export const Rounder = styled.div`
