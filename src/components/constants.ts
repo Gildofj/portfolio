@@ -25,6 +25,12 @@ export const getNavigation = (urlPath: string) => [
   },
   {
     id: 5,
+    href: "#portfolio",
+    text: "Portfolio",
+    active: urlPath === "#portfolio"
+  },
+  {
+    id: 6,
     href: "#contact",
     text: "Contato",
     active: urlPath === "#contact"

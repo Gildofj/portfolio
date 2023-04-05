@@ -18,7 +18,7 @@ const portfolios = [
 
 export function Portfolio() {
   return (
-    <Container>
+    <Container id="portfolio">
       <Title>Portfolio</Title>
 
       <ProjectsContainer>
