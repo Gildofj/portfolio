@@ -1,20 +1,16 @@
 import { Title } from "../_UI/Title";
-import { ArrowIcon, CardProject, Container, Image, Link, NameProject, ProjectsContainer } from "./styles";
+import { portfolios } from "./constants";
+import {
+  ArrowIcon,
+  CardProject,
+  Container,
+  Image,
+  Link,
+  NameProject,
+  ProjectsContainer,
+} from "./styles";
 
-const portfolios = [
-  {
-    id: 1,
-    name: "Portfolio",
-    urlRepo: "https://github.com/Gildofj/portfolio",
-    image: "/portfolio/assets/images/portfolio.png"
-  },
-  {
-    id: 2,
-    name: "API PharmaGO",
-    urlRepo: "https://github.com/Gildofj/PharmaGOBackend",
-    image: "/portfolio/assets/images/pharmago.png"
-  }
-]
+
 
 export function Portfolio() {
   return (
