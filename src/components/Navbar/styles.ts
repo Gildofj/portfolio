@@ -35,6 +35,7 @@ export const StyledList = styled.ul<StyledListProps>`
     top: 6rem;
     left: 0;
     z-index: 10;
+    padding: 1rem;
     height: ${({ open }) => open ? "100vh" : 0};
     transition: all 0.3s ease-in;
     overflow-y: ${({ open }) => open ? "auto" : "hidden"};
