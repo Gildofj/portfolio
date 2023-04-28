@@ -14,19 +14,11 @@ export const FooterContainer = styled.div`
   align-items: center;
 `;
 
-export const FooterNavigation = styled.ul`
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- gap: 1rem;
-`;
-
 export const FooterSocial = styled.ul`
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 1rem 0 2rem 0;
 `;
 
 export const Link = styled.a`
@@ -42,7 +34,6 @@ export const Link = styled.a`
 export const FooterTitle = styled.h2`
   font-size: 3.125rem;
   font-weight: bold;
-  margin-bottom: 2rem;
   color: ${({ theme: { colors } }) => colors.purple_600};
 `;
 

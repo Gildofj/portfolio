@@ -19,7 +19,7 @@ export function Portfolio() {
 
       <ProjectsContainer>
         {portfolios.map(p => (
-          <CardProject>
+          <CardProject key={p.id}>
             <Image src={p.image} alt={p.name} />
             <NameProject>{p.name}</NameProject>
             <Link href={p.urlRepo} target="_blank" rel="noopener noreferrer">

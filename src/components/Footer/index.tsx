@@ -1,11 +1,8 @@
-import useReactPath from "../../hooks/useReactPath";
-import { getNavigation } from "../constants";
 import { Divider } from "../_UI/Divider";
 import { SOCIALS } from "./constants";
 import {
   Container,
   FooterContainer,
-  FooterNavigation,
   FooterSocial,
   FooterTitle,
   Link,
@@ -13,18 +10,11 @@ import {
 } from "./styles";
 
 export function Footer() {
-  const urlPath = useReactPath();
-
   return (
     <Container>
       <Divider />
       <FooterContainer>
         <FooterTitle>Gildo Junior</FooterTitle>
-        <FooterNavigation>
-          {getNavigation(urlPath).map(({ id, href, text }) => (
-            <li key={id}><Link href={href}>{text}</Link></li>
-          ))}
-        </FooterNavigation>
         <FooterSocial>
           {SOCIALS.map(({ icon, urlRedirect }, i) => (
             <li key={i}>

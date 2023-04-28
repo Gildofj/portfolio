@@ -6,6 +6,7 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 7rem 2rem;
   gap: 1rem;
 `;
 
@@ -13,6 +14,19 @@ export const ProjectsContainer = styled.div`
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: 1fr 1fr;
+  margin-top: 3rem;
+
+  @media screen and (max-width: 992px) {
+    grid-gap: 1.25rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: max-content;
+  }
+
+  @media screen and (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const CardProject = styled.div`
@@ -33,10 +47,24 @@ export const Image = styled.img`
   border-radius: 0.625rem;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-bottom: 1rem;
+
+  @media screen and (max-width: 992px) {
+    margin-bottom: 0.75rem;
+  }
+
+  @media screen and (max-width: 576px) {
+    width: 100%;
+  }
 `;
 
 export const NameProject = styled.h3`
   font-weight: bold;
+  margin-bottom: 0.5rem;
+
+  @media screen and (max-width: 992px) {
+    margin-bottom: 0.25rem;
+  }
 `;
 
 export const ArrowIcon = styled.i`

@@ -6,7 +6,7 @@ export const Container = styled.section`
  flex-direction: column;
  align-items: center;
  gap: 4rem;
- margin: 7rem 0;
+ margin: 7rem 2rem;
 `;
 
 export const ContactContainer = styled.div`
@@ -98,7 +98,7 @@ export const FieldGroup = styled.div`
 export const Error = styled.div`
   width: 100%;
   text-align: start;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 `;
 
 
@@ -179,10 +179,6 @@ export const SendButton = styled.button`
   &:active {
     transform: scale(.99);
   }
-`;
-
-export const ButtonIcon = styled.img`
-  /* width: 1.5rem; */
 `;
 
 export const Type = styled.span`

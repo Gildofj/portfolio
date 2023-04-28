@@ -15,7 +15,6 @@ import {
   SendButton,
   Subtitle,
   WriteMeButton,
-  ButtonIcon,
   Type,
   FormTag,
   FieldGroup,
@@ -120,7 +119,7 @@ export function Contact() {
             )}
           </FieldGroupArea>
           <SendButton type="submit">
-            Enviar <ButtonIcon src="/portfolio/assets/images/send.svg" ></ButtonIcon>
+            Enviar <img src="/portfolio/assets/images/send.svg" ></img>
           </SendButton>
         </Form>
       </ContactContainer>
