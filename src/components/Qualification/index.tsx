@@ -27,11 +27,11 @@ export function Qualification() {
     if ((i + 1) % 2 === 0) {
       return (
         <Data key={i}>
-          <div></div>
+          <div />
 
           <div>
-            <Rounder></Rounder>
-            <Line></Line>
+            <Rounder />
+            <Line />
           </div>
 
           <div>
@@ -55,8 +55,8 @@ export function Qualification() {
           </div>
 
           <div>
-            <Rounder></Rounder>
-            <Line></Line>
+            <Rounder />
+            <Line />
           </div>
         </Data>
       )

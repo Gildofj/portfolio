@@ -39,6 +39,11 @@ export const CardProject = styled.div`
   background: -webkit-linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
   background: linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#720e9e",endColorstr="#800080",GradientType=1);
+
+  @media screen and (max-width: 768px) {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
 `;
 
 export const Image = styled.img`
@@ -53,6 +58,12 @@ export const Image = styled.img`
     margin-bottom: 0.75rem;
   }
 
+  @media screen and (max-width: 768px) {
+    width: 26rem;
+    height: 16rem;
+    border-radius: 1rem;
+  }
+
   @media screen and (max-width: 576px) {
     width: 100%;
   }
@@ -65,6 +76,10 @@ export const NameProject = styled.h3`
   @media screen and (max-width: 992px) {
     margin-bottom: 0.25rem;
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 export const ArrowIcon = styled.i`
@@ -72,6 +87,10 @@ export const ArrowIcon = styled.i`
   transition: .3s;
   &:hover {
     transform: translate(0.25rem);
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
   }
 `;
 
@@ -85,5 +104,9 @@ export const Link = styled.a`
     ${ArrowIcon} {
       transform: translate(0.25rem);
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem;
   }
 `;

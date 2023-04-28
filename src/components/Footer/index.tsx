@@ -6,7 +6,8 @@ import {
   FooterSocial,
   FooterTitle,
   Link,
-  SocialIcon
+  SocialIcon,
+  Authors
 } from "./styles";
 
 export function Footer() {
@@ -24,7 +25,7 @@ export function Footer() {
             </li>
           ))}
         </FooterSocial>
-        <span>Todos os direitos reservados. © 2023 Gildo Junior</span>
+        <Authors>Todos os direitos reservados. © 2023 Gildo Junior</Authors>
       </FooterContainer>
     </Container>
   )

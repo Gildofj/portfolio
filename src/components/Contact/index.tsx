@@ -8,6 +8,7 @@ import {
   CardContactIcon,
   ContactContainer,
   ContactTypes,
+  ContactInfo,
   Container,
   Form,
   Input,
@@ -21,7 +22,8 @@ import {
   FieldGroupArea,
   FieldError,
   Error,
-  WriteMeIcon
+  WriteMeIcon,
+  SendIcon
 } from "./styles";
 import { doToast } from '../_UI/Toast';
 
@@ -79,7 +81,7 @@ export function Contact() {
               {c.type === "Email" && <CardContactIcon className="bx bx-mail-send"></CardContactIcon>}
               {c.type === "Whatsapp" && <CardContactIcon className="bx bxl-whatsapp"></CardContactIcon>}
               <Type>{c.type}</Type>
-              <span>{c.contactId}</span>
+              <ContactInfo>{c.contactId}</ContactInfo>
               <WriteMeButton href={c.redirectUrl}>
                 Falar
                 <WriteMeIcon className="bx bx-right-arrow-alt"></WriteMeIcon>
@@ -119,7 +121,7 @@ export function Contact() {
             )}
           </FieldGroupArea>
           <SendButton type="submit">
-            Enviar <img src="/portfolio/assets/images/send.svg" ></img>
+            Enviar <SendIcon src="/portfolio/assets/images/send.svg" ></SendIcon>
           </SendButton>
         </Form>
       </ContactContainer>

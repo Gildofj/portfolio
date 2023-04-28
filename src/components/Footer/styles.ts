@@ -29,12 +29,20 @@ export const Link = styled.a`
   &:hover {
     color: ${({ theme }) => theme.colors.purple_200}
   }
+
+  @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+  }
 `;
 
 export const FooterTitle = styled.h2`
   font-size: 3.125rem;
   font-weight: bold;
   color: ${({ theme: { colors } }) => colors.purple_600};
+
+  @media screen and (max-width: 768px) {
+      font-size: 3.5rem;
+  }
 `;
 
 export const SocialIcon = styled.i`
@@ -43,5 +51,15 @@ export const SocialIcon = styled.i`
 
   &:hover {
     color: ${({ theme: { colors } }) => colors.purple_200}
+  }
+
+  @media screen and (max-width: 768px) {
+      font-size: 2.25rem;
+  }
+`;
+
+export const Authors = styled.span`
+  @media screen and (max-width: 768px) {
+      font-size: 1.25rem;
   }
 `;

@@ -50,6 +50,11 @@ export const Image = styled.div`
   &:active {
     transform: scale(.9);
   }
+
+  @media screen and (max-width: 768px) {
+    width: 400px;
+    height: 400px;
+  }
 `;
 
 export const AnchorImage = styled.a`
@@ -62,10 +67,18 @@ export const Name = styled.h2`
   font-size: 3.125rem;
   font-weight: bold;
   color: ${({ theme: { colors } }) => colors.purple_600};
+
+  @media screen and (max-width: 768px) {
+    font-size: 3.5rem;
+  }
 `;
 
 export const DescriptionProfile = styled.p`
   font-size: 1.250rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const WelcomeContainer = styled.div`
@@ -90,6 +103,10 @@ export const Brand = styled.h1`
 export const WelcomeText = styled.h3`
   font-size: 3.125rem;
   font-weight: 600;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3rem;
+  }
 `;
 
 export const AboutContainer = styled.div`
@@ -106,6 +123,10 @@ export const AboutContainer = styled.div`
 export const AboutText = styled.h3`
   color: ${({ theme: { colors } }) => colors.text};
   line-height: 2rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 interface ButtonProps {
@@ -117,7 +138,7 @@ export const Button = styled.a<ButtonProps>`
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  padding: 1rem 1rem;
+  padding: 1rem;
   min-width: 11rem;
   border-radius: 0.625rem;
   border: 1px solid #1d1160;
@@ -143,6 +164,13 @@ export const Button = styled.a<ButtonProps>`
   }
   &:active {
     transform: scale(.99);
+  }
+
+  @media screen and (max-width: 768px) {
+    min-width: 15rem;
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    border-radius: 1rem;
   }
 `;
 

@@ -25,12 +25,20 @@ export const ExpertiseTitleContainer = styled.div`
 export const IconTitle = styled.i`
   font-size: 2rem;
   color: ${({ color }) => color};
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.25rem;
+  }
  `;
 
 export const IconSkill = styled.i`
   font-size: 1.5rem;
   text-align: start;
   color: ${({ color }) => color};
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.75rem;
+  }
  `;
 
 export const ExpertiseTitle = styled.h2`
@@ -38,6 +46,10 @@ export const ExpertiseTitle = styled.h2`
   font-weight: bold;
   margin: 1rem 0;
   color: ${({ color }) => color};
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const ExpertiseContainer = styled.div`
@@ -69,10 +81,17 @@ export const SkillName = styled.span`
   font-size: 1.25rem;
   font-weight: 600;
   color: ${({ color }) => color};
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const SkillLevel = styled.span`
   color: ${({ theme: { colors } }) => colors.caption_300};
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 export const SkillContainer = styled.div`

@@ -30,6 +30,10 @@ export const ContactTypes = styled.div`
 export const Subtitle = styled.h3`
   font-size: 1.5rem;
   font-weight: 500;
+
+   @media screen and (max-width: 768px) {
+    font-size: 1.75rem;
+  }
 `;
 
 export const CardContact = styled.div`
@@ -48,11 +52,18 @@ export const CardContact = styled.div`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
+    width: 30rem;
+    padding: 3rem 6rem;
+    border-radius: 1rem;
  }
 `;
 
 export const CardContactIcon = styled.i`
   font-size: 2rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3rem;
+ }
 `;
 
 export const WriteMeIcon = styled.i`
@@ -61,6 +72,10 @@ export const WriteMeIcon = styled.i`
   &:hover {
     transform: translate(0.25rem);
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 2rem;
+ }
 `;
 
 export const WriteMeButton = styled.a`
@@ -74,6 +89,10 @@ export const WriteMeButton = styled.a`
       transform: translate(0.25rem);
     }
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+ }
 `;
 
 export const Form = styled.form`
@@ -93,6 +112,12 @@ export const FieldGroup = styled.div`
   margin-top: 2rem;
   margin-bottom: 2rem;
   height: 2rem;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    height: 3rem;
+ }
 `;
 
 export const Error = styled.div`
@@ -104,6 +129,10 @@ export const Error = styled.div`
 
 export const FieldError = styled.span`
   color: ${({ theme: { colors } }) => colors.alert};
+
+  @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+  }
 `;
 
 export const FieldGroupArea = styled.div`
@@ -112,6 +141,10 @@ export const FieldGroupArea = styled.div`
   margin-top: 2rem;
   margin-bottom: 2rem;
   min-height: 10rem;
+
+  @media screen and (max-width: 768px) {
+      min-height: 15rem;
+  }
 `;
 
 export const FormTag = styled.label`
@@ -123,6 +156,10 @@ export const FormTag = styled.label`
   background-color: ${({ theme: { colors } }) => colors.background_800};
   color: ${({ theme: { colors } }) => colors.purple_300};
   z-index: 10;
+
+  @media screen and (max-width: 768px) {
+      font-size: 1.3rem;
+  }
 `;
 
 export const Input = styled.input`
@@ -135,10 +172,15 @@ export const Input = styled.input`
   background-color: ${({ theme: { colors } }) => colors.background_800};
   border: 1px solid ${({ theme: { colors } }) => colors.purple_300};
   z-index: 1;
+
+  @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+      padding: 1.75rem;
+  }
 `;
 
 export const Message = styled.textarea`
-  padding: 1.2rem;
+  padding: 1.25rem;
   width: 100%;
   min-height: 10rem;
   border-radius: 0.625rem;
@@ -148,6 +190,12 @@ export const Message = styled.textarea`
   resize: none;
   background-color: ${({ theme: { colors } }) => colors.background_800};
   border: 1px solid ${({ theme: { colors } }) => colors.purple_300};
+
+  @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+      padding: 1.75rem;
+      min-height: 15rem;
+  }
 `;
 
 export const SendButton = styled.button`
@@ -179,8 +227,31 @@ export const SendButton = styled.button`
   &:active {
     transform: scale(.99);
   }
+
+  @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+      border-radius: 1rem;
+      padding: 1.25rem 3rem;
+  }
 `;
 
 export const Type = styled.span`
   font-weight: 600;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+ }
+`;
+
+export const ContactInfo = styled.span`
+  @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+  }
+`;
+
+export const SendIcon = styled.img`
+  @media screen and (max-width: 768px) {
+      width: 2.5rem;
+      height: 2.5rem;
+  }
 `;

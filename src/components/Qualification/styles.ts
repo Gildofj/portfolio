@@ -30,6 +30,10 @@ export const QualificationIcon = styled.i<QualificationIconProps>`
  &:hover {
     color: ${({ active, theme: { colors } }) => !active && colors.purple_200};
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 export const Tabs = styled.div`
@@ -61,6 +65,10 @@ export const Tab = styled.div<TypeProps>`
     }
   }
 
+  @media screen and (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+
   @media screen and (max-width: 576px){
     margin: 0 0.75rem;
   }
@@ -86,12 +94,16 @@ export const Data = styled.div`
   column-gap: 1.5rem;
 
   @media screen and (max-width: 400px){
-    gap: 0.5rem;
+    gap: 1rem;
   }
 `;
 
 export const DataTitle = styled.div`
   font-weight: 600;
+
+  @media screen and (max-width: 768px) {
+   font-size: 1.25rem ;
+  }
 `;
 
 export const DataSubTitle = styled.div`
@@ -99,11 +111,18 @@ export const DataSubTitle = styled.div`
   font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
   color: ${({ theme: { colors } }) => colors.caption_300};
   margin-bottom: 1rem;
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 export const DataCalendar = styled.div`
   color: ${({ theme: { colors } }) => colors.caption_300};
   font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
+
+  @media screen and (max-width: 768px) {
+   font-size: 1rem;
+  }
 `;
 
 export const Rounder = styled.div`
@@ -112,6 +131,11 @@ export const Rounder = styled.div`
   height: 13px;
   background-color: ${({ theme: { colors } }) => colors.purple_300};
   border-radius: 50%;
+
+  @media screen and (max-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 export const Line = styled.div`
@@ -120,4 +144,8 @@ export const Line = styled.div`
   height: 100%;
   transform: translate(6px, -7px);
   background-color: ${({ theme: { colors } }) => colors.purple_300};
+
+  @media screen and (max-width: 768px) {
+    width: 4px;
+  }
 `;
