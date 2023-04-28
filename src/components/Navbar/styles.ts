@@ -35,7 +35,7 @@ export const StyledList = styled.ul<StyledListProps>`
     top: 6rem;
     left: 0;
     z-index: 10;
-    height: ${({ open }) => open ? "calc(100vh - 6rem)" : 0};
+    height: ${({ open }) => open ? "calc(100vh - 3rem)" : 0};
     transition: all 0.3s ease-in;
     overflow-y: ${({ open }) => open ? "auto" : "hidden"};
     border-radius: 0 0 0.625rem 0.625rem;
