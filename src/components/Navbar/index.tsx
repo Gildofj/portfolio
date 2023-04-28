@@ -20,7 +20,11 @@ export function Navbar() {
         </NavbarButton>
         <StyledList open={open}>
           {getNavigation(urlPath).map(({ id, href, text, active }) => (
-            <li key={id}><Link active={active} open={open} href={href}>{text}</Link></li>
+            <li key={id}>
+              <Link active={active} open={open} href={href}>
+                {text}
+              </Link>
+            </li>
           ))}
         </StyledList>
       </StyledNav >
