@@ -9,6 +9,10 @@ export const StyledNav = styled.nav`
   padding: 0.5rem 3rem 0.5rem 1rem;
   background-color: ${({ theme: { colors } }) => colors.background_900};
   color: ${({ theme: { colors } }) => colors.white};
+
+  @media screen and (max-width: 768px) {
+      height: 6rem;
+  }
 `;
 
 interface StyledListProps {
@@ -28,7 +32,7 @@ export const StyledList = styled.ul<StyledListProps>`
     font-size: 2rem;
     gap: 5rem;
     position: absolute;
-    top: 4rem;
+    top: 6rem;
     left: 0;
     height: ${({ open }) => open ? "calc(100vh - 4rem)" : 0};
     transition: all 0.3s ease-in;
@@ -86,7 +90,7 @@ export const NavbarButton = styled.button`
 
 export const NavbarIcon = styled.i`
   @media screen and (max-width: 768px) {
-    font-size: 4rem;
+    font-size: 6rem;
     color: ${({ theme: { colors } }) => colors.text}
   }
 `;
