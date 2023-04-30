@@ -14,9 +14,12 @@ import {
   DataSubTitle,
   DataCalendar,
   Rounder,
-  Line
+  Line,
+  ModalButton
 } from "./styles";
 import { QualificationType } from "./types";
+import { Modal } from "../_UI/Modal";
+import { QualificationInfoModal } from "./QulificationInfoModal";
 
 export function Qualification() {
   const [type, setType] = useState<QualificationType>(QualificationType.Experience);
@@ -40,6 +43,7 @@ export function Qualification() {
             <DataCalendar>
               <i className="bx bx-calendar"></i> {q.startDate} - {q.endDate}
             </DataCalendar>
+            {/* <QualificationInfoModal /> */}
           </div>
         </Data>
       );
@@ -52,6 +56,7 @@ export function Qualification() {
             <DataCalendar>
               <i className="bx bx-calendar"></i> {q.startDate} - {q.endDate}
             </DataCalendar>
+            {/* <QualificationInfoModal /> */}
           </div>
 
           <div>

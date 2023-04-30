@@ -149,3 +149,8 @@ export const Line = styled.div`
     width: 4px;
   }
 `;
+
+export const ModalButton = styled.button`
+  background: none;
+  display: block;
+`;
