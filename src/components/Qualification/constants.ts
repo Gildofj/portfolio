@@ -79,7 +79,7 @@ export const EDUCATION: Qualification[] = [
     startDate: "Maio 2021",
     endDate: "Maio 2021",
     workModel: WorkModel.Remote,
-    description: ""
+    description: "Bootcamp de uma semana focado em Docker e Kubernetes, onde aprendi a subir uma aplicação escalável e de alta performance"
   },
   {
     title: "Bootcamp Alta Disponibilidade em Cloud",
@@ -90,7 +90,7 @@ export const EDUCATION: Qualification[] = [
     startDate: "Outubro 2020",
     endDate: "Outubro 2020",
     workModel: WorkModel.Remote,
-    description: ""
+    description: "Bootcamp de uma semana focado em subir uma aplicação de maneira simples na AWS com alta disponibilidade"
   },
   {
     title: "C# Completo",
@@ -101,7 +101,7 @@ export const EDUCATION: Qualification[] = [
     startDate: "Fevereiro 2020",
     endDate: "Fevereiro 2020",
     workModel: WorkModel.Remote,
-    description: ""
+    description: "Curso onde aprendi conceitos de básicos a avançados com a linguagem C#"
   },
   {
     title: "Node with React: Fullstack Web Development",
@@ -112,7 +112,7 @@ export const EDUCATION: Qualification[] = [
     startDate: "Outubro 2019",
     endDate: "Outubro 2019",
     workModel: WorkModel.Remote,
-    description: ""
+    description: "Curso onde criei uma ferramenta full stack com back e front end em javascript, utilizando especificamente ExpressJS no backend e ReactJS no frontend como frameworks, além de persistir os dados da aplicação em um banco não relacional com MongoDB, o sistema era um software de feedback com possibilidade de resposta com envio de e-mails usando Sendgrid, enquanto eu fazia o curso eu utilizava os conhecimentos adquiridos para criar meu TCC que era um app de delivery de produtos de farmácia chamado PharmaGO"
   },
   {
     title: "Linguagem de Programação Java - Básico",
@@ -123,7 +123,7 @@ export const EDUCATION: Qualification[] = [
     startDate: "Janeiro 2019",
     endDate: "Janeiro 2019",
     workModel: WorkModel.Remote,
-    description: ""
+    description: "Curso onde aprendi conceitos básico de programação com Java"
   },
   {
     title: "Introdução à Programação Orientada a Objetos (POO)",
@@ -134,7 +134,7 @@ export const EDUCATION: Qualification[] = [
     startDate: "Dezembro 2018",
     endDate: "Dezembro 2018",
     workModel: WorkModel.Remote,
-    description: ""
+    description: "Curso onde entendi o conceito de orientação a objeto"
   },
   {
     title: "Análise e Desenvolvimento de Sistemas",
@@ -145,7 +145,7 @@ export const EDUCATION: Qualification[] = [
     startDate: "Fevereiro 2017",
     endDate: "Dezembro 2019",
     workModel: WorkModel.OnSite,
-    description: ""
+    description: "Tecnologo onde me formei e tive o primeiro contato com programação, participei de todas as atividades extra curriculares que podia relacionadas a programação, mexendo bastante com Python nas mesmas, além de fazer meu TCC que foi um delivery de produtos de farmacia chamado PharmaGO, onde utilizei ExpressJS no backend e ReactJS no frontend além de persistir os dados em um banco não relacional utilizando MongoDB"
   },
 ];
 
