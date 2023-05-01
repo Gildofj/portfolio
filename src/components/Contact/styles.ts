@@ -43,7 +43,7 @@ export const CardContact = styled.div`
   align-items: center;
   border-radius: 0.625rem;
   gap: 0.5rem;
-  padding: 1rem 3rem;
+  padding: 1.2rem 3rem;
   background: rgb(114,14,158);
   background: -moz-linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
   background: -webkit-linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
