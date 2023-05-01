@@ -150,6 +150,7 @@ export const Line = styled.div`
   }
 `;
 
+// Modal styles
 export const ModalButton = styled.button`
   display: block;
   margin-top: 0.5rem;
@@ -162,9 +163,12 @@ export const ModalButton = styled.button`
   &:hover {
     color: ${({ theme: { colors } }) => colors.purple_200};
   }
+
+  @media screen and (max-width: 768px) {
+   font-size: 1rem;
+  }
 `;
 
-// Modal styles
 export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
