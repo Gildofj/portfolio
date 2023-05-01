@@ -19,4 +19,6 @@ export interface Qualification {
   endDate: string;
   workModel: WorkModel;
   description: string;
+  certificateId?: string;
+  certificateUrl?: string;
 }

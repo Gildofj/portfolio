@@ -181,6 +181,12 @@ export const ModalTitle = styled.div`
   align-items: center;
 `;
 
+export const DataField = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+`;
+
 export const CloseButton = styled.button`
   background: #00000000;
   cursor: pointer;
@@ -209,5 +215,21 @@ export const BoldText = styled.strong`
 
 export const Description = styled.span`
   line-height: 1.5rem;
-  /* letter-spacing: 1rem; */
+`;
+
+export const CertificateAnchor = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  transition: .2s;
+
+  &:hover {
+    color: ${({ theme: { colors } }) => colors.violet}
+  }
+`;
+
+export const CertificateIcon = styled.img`
+  cursor: pointer;
+  filter: invert(76%) sepia(34%) saturate(2086%) hue-rotate(244deg) brightness(97%) contrast(92%);
 `;

@@ -82,7 +82,7 @@ export function Contact() {
               {c.type === "Whatsapp" && <CardContactIcon className="bx bxl-whatsapp"></CardContactIcon>}
               <Type>{c.type}</Type>
               <ContactInfo>{c.contactId}</ContactInfo>
-              <WriteMeButton href={c.redirectUrl} target="_blank">
+              <WriteMeButton href={c.redirectUrl} target="_blank" rel="noopener noreferrer">
                 Falar
                 <WriteMeIcon className="bx bx-right-arrow-alt"></WriteMeIcon>
               </WriteMeButton>

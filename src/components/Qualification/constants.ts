@@ -79,7 +79,9 @@ export const EDUCATION: Qualification[] = [
     startDate: "Maio 2021",
     endDate: "Maio 2021",
     workModel: WorkModel.Remote,
-    description: "Bootcamp de uma semana focado em Docker e Kubernetes, onde aprendi a subir uma aplicação escalável e de alta performance"
+    description: "Bootcamp de uma semana focado em Docker e Kubernetes, onde aprendi a subir uma aplicação escalável e de alta performance",
+    certificateId: "52e6502148c9d92d3e8c078c8983f1c1",
+    certificateUrl: "https://drive.google.com/file/d/1dLzzhfYmHRdm0uvCY50t-wlm-Zw2fUG6/view"
   },
   {
     title: "Bootcamp Alta Disponibilidade em Cloud",
@@ -90,7 +92,9 @@ export const EDUCATION: Qualification[] = [
     startDate: "Outubro 2020",
     endDate: "Outubro 2020",
     workModel: WorkModel.Remote,
-    description: "Bootcamp de uma semana focado em subir uma aplicação de maneira simples na AWS com alta disponibilidade"
+    description: "Bootcamp de uma semana focado em subir uma aplicação de maneira simples na AWS com alta disponibilidade",
+    certificateId: "203",
+    certificateUrl: "https://drive.google.com/file/d/1grdp_DQ4OEMHePIileG1G53o2SSN7F2n/view?usp=sharing"
   },
   {
     title: "C# Completo",
@@ -101,7 +105,9 @@ export const EDUCATION: Qualification[] = [
     startDate: "Fevereiro 2020",
     endDate: "Fevereiro 2020",
     workModel: WorkModel.Remote,
-    description: "Curso onde aprendi conceitos de básicos a avançados com a linguagem C#"
+    description: "Curso onde aprendi conceitos de básicos a avançados com a linguagem C#",
+    certificateId: "UC-a733211a-550e-4e34-914f-8d0d80fae593",
+    certificateUrl: "https://www.udemy.com/certificate/UC-a733211a-550e-4e34-914f-8d0d80fae593/"
   },
   {
     title: "Node with React: Fullstack Web Development",
@@ -112,7 +118,9 @@ export const EDUCATION: Qualification[] = [
     startDate: "Outubro 2019",
     endDate: "Outubro 2019",
     workModel: WorkModel.Remote,
-    description: "Curso onde criei uma ferramenta full stack com back e front end em javascript, utilizando especificamente ExpressJS no backend e ReactJS no frontend como frameworks, além de persistir os dados da aplicação em um banco não relacional com MongoDB, o sistema era um software de feedback com possibilidade de resposta com envio de e-mails usando Sendgrid, enquanto eu fazia o curso eu utilizava os conhecimentos adquiridos para criar meu TCC que era um app de delivery de produtos de farmácia chamado PharmaGO"
+    description: "Curso onde criei uma ferramenta full stack com back e front end em javascript, utilizando especificamente ExpressJS no backend e ReactJS no frontend como frameworks, além de persistir os dados da aplicação em um banco não relacional com MongoDB, o sistema era um software de feedback com possibilidade de resposta com envio de e-mails usando Sendgrid, enquanto eu fazia o curso eu utilizava os conhecimentos adquiridos para criar meu TCC que era um app de delivery de produtos de farmácia chamado PharmaGO",
+    certificateId: "UC-BRZJT7IZ",
+    certificateUrl: "http://ude.my/UC-BRZJT7IZ"
   },
   {
     title: "Linguagem de Programação Java - Básico",
@@ -123,7 +131,9 @@ export const EDUCATION: Qualification[] = [
     startDate: "Janeiro 2019",
     endDate: "Janeiro 2019",
     workModel: WorkModel.Remote,
-    description: "Curso onde aprendi conceitos básico de programação com Java"
+    description: "Curso onde aprendi conceitos básico de programação com Java",
+    certificateId: "A41B7865-AC08-4AD5-8A2B-ABAA3FA473C5",
+    certificateUrl: "https://lms.ev.org.br/mpls/Web/Lms/Student/PrintCertificateDialog.aspx?BmHuMaO2QHzB7oLQw7z4fNfCX9Cjof8D"
   },
   {
     title: "Introdução à Programação Orientada a Objetos (POO)",
@@ -134,7 +144,9 @@ export const EDUCATION: Qualification[] = [
     startDate: "Dezembro 2018",
     endDate: "Dezembro 2018",
     workModel: WorkModel.Remote,
-    description: "Curso onde entendi o conceito de orientação a objeto"
+    description: "Curso onde entendi o conceito de orientação a objeto",
+    certificateId: "EDF8E9B3-D362-4B5F-8C18-B194E0B20CAB",
+    certificateUrl: "https://lms.ev.org.br/mpls/Web/Lms/Student/PrintCertificateDialog.aspx?BmHuMaO2QHxGBQCNdmtY2qZw3qCqTOIV"
   },
   {
     title: "Análise e Desenvolvimento de Sistemas",
@@ -145,7 +157,9 @@ export const EDUCATION: Qualification[] = [
     startDate: "Fevereiro 2017",
     endDate: "Dezembro 2019",
     workModel: WorkModel.OnSite,
-    description: "Tecnologo onde me formei e tive o primeiro contato com programação, participei de todas as atividades extra curriculares que podia relacionadas a programação, mexendo bastante com Python nas mesmas, além de fazer meu TCC que foi um delivery de produtos de farmacia chamado PharmaGO, onde utilizei ExpressJS no backend e ReactJS no frontend além de persistir os dados em um banco não relacional utilizando MongoDB"
+    description: "Tecnologo onde me formei e tive o primeiro contato com programação, participei de todas as atividades extra curriculares que podia relacionadas a programação, mexendo bastante com Python nas mesmas, além de fazer meu TCC que foi um delivery de produtos de farmacia chamado PharmaGO, onde utilizei ExpressJS no backend e ReactJS no frontend além de persistir os dados em um banco não relacional utilizando MongoDB",
+    certificateId: "Superior Completo",
+    certificateUrl: "https://drive.google.com/file/d/1BkOZE7jd-XmZEezKwA6u8YL1Ov10HuMF/view?usp=sharing"
   },
 ];
 

@@ -19,7 +19,7 @@ export function Footer() {
         <FooterSocial>
           {SOCIALS.map(({ icon, urlRedirect }, i) => (
             <li key={i}>
-              <Link href={urlRedirect} target="_blank">
+              <Link href={urlRedirect} target="_blank" rel="noopener noreferrer">
                 <SocialIcon className={`bx ${icon}`}></SocialIcon>
               </Link>
             </li>

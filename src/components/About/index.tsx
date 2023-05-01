@@ -19,7 +19,7 @@ export function About() {
   return (
     <Container>
       <Profile>
-        <AnchorImage href="https://github.com/Gildofj" target="_blank">
+        <AnchorImage href="https://github.com/Gildofj" target="_blank" rel="noopener noreferrer">
           <Image />
         </AnchorImage>
         <Name>Gildo Junior</Name>

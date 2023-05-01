@@ -1,8 +1,11 @@
 import { useState } from "react";
 import {
   BoldText,
+  CertificateAnchor,
+  CertificateIcon,
   CloseButton,
   CloseIcon,
+  DataField,
   Description,
   ModalButton,
   ModalContainer,
@@ -35,26 +38,35 @@ export function QualificationInfoModal({ qualification }: QualificationInfoModal
             </CloseButton>
           </ModalTitle>
           <ModalContent>
-            <div>
-              <BoldText>Empresa: </BoldText>
+            <DataField>
+              <BoldText>Empresa:</BoldText>
               <span>{qualification.organization}</span>
-            </div>
-            <div>
-              <BoldText>Data inicio: </BoldText>
+            </DataField>
+            <DataField>
+              <BoldText>Data inicio:</BoldText>
               <span>{qualification.startDate}</span>
-            </div>
-            <div>
-              <BoldText>Data fim: </BoldText>
+            </DataField>
+            <DataField>
+              <BoldText>Data fim:</BoldText>
               <span>{qualification.endDate}</span>
-            </div>
-            <div>
-              <BoldText>Localização: </BoldText>
+            </DataField>
+            <DataField>
+              <BoldText>Localização:</BoldText>
               <span>{qualification.country}, {qualification.state}, {qualification.city}</span>
-            </div>
-            <div>
-              <BoldText>Modelo: </BoldText>
+            </DataField>
+            <DataField>
+              <BoldText>Modelo:</BoldText>
               <span>{WORK_MODEL[qualification.workModel]}</span>
-            </div>
+            </DataField>
+            {qualification.certificateUrl && (
+              <DataField>
+                <BoldText>Certificado:</BoldText>
+                <CertificateAnchor href={qualification.certificateUrl} target="_blank" rel="noopener noreferrer">
+                  {qualification.certificateId}
+                  <CertificateIcon src="/portfolio/assets/images/pop-out.svg" width={23} height={23} />
+                </CertificateAnchor>
+              </DataField>
+            )}
             <BoldText>Descrição:</BoldText>
             <Description>
               {qualification.description}
