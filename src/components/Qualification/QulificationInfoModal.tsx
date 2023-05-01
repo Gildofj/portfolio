@@ -25,7 +25,7 @@ export function QualificationInfoModal({ qualification }: QualificationInfoModal
     <>
       <ModalButton onClick={() => setOpen(!open)}>Ver mais</ModalButton>
 
-      <Modal open={open} toggleOpen={() => setOpen(!open)} width={50} height={50}>
+      <Modal open={open} toggleOpen={() => setOpen(!open)} height={50}>
         <ModalContainer>
           <ModalTitle>
             <TextTitle>{qualification.title}</TextTitle>

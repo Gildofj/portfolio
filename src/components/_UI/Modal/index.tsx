@@ -1,13 +1,18 @@
+import { createPortal } from "react-dom";
 import { Overlay } from "../Overlay";
-import { Container } from "./styles";
+import { Content } from "./styles";
 import { ModalProps } from "./types";
 
 export function Modal({ open, toggleOpen, width, height, children }: ModalProps) {
-  return open ? (
-    <Overlay onClick={toggleOpen}>
-      <Container width={width} height={height}>
+  if (!open) return null;
+
+  return createPortal(
+    <>
+      <Overlay onClick={toggleOpen} />
+      <Content width={width} height={height}>
         {children}
-      </Container>
-    </Overlay>
-  ) : null;
+      </Content>
+    </>,
+    document.getElementById("modal-root") as HTMLElement
+  );
 }
