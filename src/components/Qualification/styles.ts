@@ -193,3 +193,8 @@ export const ModalContent = styled.div`
 export const BoldText = styled.strong`
   font-weight: bold;
 `;
+
+export const Description = styled.span`
+  line-height: 1.5rem;
+  /* letter-spacing: 1rem; */
+`;

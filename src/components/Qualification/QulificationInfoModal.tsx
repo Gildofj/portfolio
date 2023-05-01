@@ -3,6 +3,7 @@ import {
   BoldText,
   CloseButton,
   CloseIcon,
+  Description,
   ModalButton,
   ModalContainer,
   ModalContent,
@@ -55,9 +56,9 @@ export function QualificationInfoModal({ qualification }: QualificationInfoModal
               <span>{WORK_MODEL[qualification.workModel]}</span>
             </div>
             <BoldText>Descrição:</BoldText>
-            <span>
+            <Description>
               {qualification.description}
-            </span>
+            </Description>
           </ModalContent>
         </ModalContainer>
       </Modal>
