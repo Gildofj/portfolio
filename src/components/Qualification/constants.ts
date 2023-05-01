@@ -21,7 +21,7 @@ export const EXPERIENCE: Qualification[] = [
     startDate: "Janeiro 2021",
     endDate: "Agosto 2022",
     workModel: WorkModel.Remote,
-    description: ""
+    description: "Nesse ponto além do projeto MVC eu ja havia começado a mexer nos microsserviços da aplicação onde tinham responsabilidades especificas e eram em .NET Core, no caso da minha equipe nossos microsserviços eram focados em integraçõs com ferramentas de terceiros, como CRMs, ferramentas de marketing, além de ferramentas de e- mails como Gmail e Outlook com a Central de E - mails da ferramenta.Com o tempo fiquei como principal responsável e especialista da Central de E - mails e suas integrações, enquanto ainda cuidava das demais funcionalides. Nesse período minha equipe foi responsável por criar e desenvolver uma integração com o WhatsApp Business para que o cliente pudesse prospectar via WhatsApp sem precisar sair da ferramenta, nesse periodos implementamos um novo microsserviço, além de começar a utilizar Redis como chache e SignalR para atualização em tempo real com Websocket."
   },
   {
     title: "Desenvolvedor Full Stack Junior",
@@ -32,7 +32,7 @@ export const EXPERIENCE: Qualification[] = [
     startDate: "Fevereiro 2020",
     endDate: "Janeiro 2021",
     workModel: WorkModel.Hybrid,
-    description: ""
+    description: "Migrei da area de suporte para de desenvolvimento para trabalhar dando manutenção e desenvolvendo novas features do software web da empresa(Spotter), foi meu primeiro contato com um projeto real onde tive uma base  forte graças a meu time que era excelente, tanto tecnicamente quanto no dia a dia.Meu time era responsavel principalmente pela parte de integrações com plataformas de terceiros com o software, mexi principalmente no projeto  que era em MVC diretamente com C# e.NET Framework no backend, criando e manipulando API's e integrações, além de dar manutenção e criar novas telas tanto em Razor quanto em ReactJS que eram os frameworks utilizados no frontend.Também  a persistencia com o banco de dados em SQL Server."
   },
   {
     title: "Analista de Suporte Técnico",
@@ -43,7 +43,7 @@ export const EXPERIENCE: Qualification[] = [
     startDate: "Dezembro 2019",
     endDate: "Fevereiro 2020",
     workModel: WorkModel.OnSite,
-    description: ""
+    description: "Passei a atender chamados mais complexos que envolviam analise mais técnica, após treinar os colaboradores para realizar os apontamentos DNS passei a cuidar de casos mais complexos onde ocorriam problemas ao realizar os apontamentos de DNS."
   },
   {
     title: "Assistente de Suporte Técnico",
@@ -54,7 +54,7 @@ export const EXPERIENCE: Qualification[] = [
     startDate: "Agosto 2019",
     endDate: "Dezembro 2019",
     workModel: WorkModel.OnSite,
-    description: ""
+    description: "Me tornei principal responsável por configurar o DNS dos clientes para disparo de e-mails marketing do software. Com o tempo passei a colaborar com o treinamento de novos colaboradores do suporte, ensinando a realizar operações mais técnicas realizadas pelo suporte, seja com scripts em SQL ou com apontamentos DNS.Fiquei responsável também nesse período por uma aplicação C# de automação de envio de relatórios específicos para clientes."
   },
   {
     title: "Estagiário de Suporte Técnico",
@@ -65,7 +65,7 @@ export const EXPERIENCE: Qualification[] = [
     startDate: "Janeiro 2019",
     endDate: "Agosto 2019",
     workModel: WorkModel.OnSite,
-    description: ""
+    description: "Trabalhei com atendimento ao cliente por chat, telefone e e-mail para dar suporte ao Spotter (App de sales engangement vendido pela empresa), realizava consultas com SQL no banco de dados para analise de chamados e  de relatórios especificos.Também fui responsável por começar a realizar apontamentos de DNS para clientes para utilizar ferramenta de e - mails marketing do software que até então ficava a cargo do cliente."
   },
 ];
 
