@@ -154,3 +154,42 @@ export const ModalButton = styled.button`
   background: none;
   display: block;
 `;
+
+// Modal styles
+export const ModalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
+
+export const ModalTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const CloseButton = styled.button`
+  background: #00000000;
+  cursor: pointer;
+`;
+
+export const CloseIcon = styled.i`
+  font-size: 2rem;
+  color: ${({ theme: { colors } }) => colors.purple_200};
+`;
+
+export const TextTitle = styled.h3`
+  font-size: 1.5rem;
+  color: ${({ theme: { colors } }) => colors.purple_200};
+  font-weight: 600;
+`;
+
+export const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+export const BoldText = styled.strong`
+  font-weight: bold;
+`;

@@ -14,17 +14,15 @@ import {
   DataSubTitle,
   DataCalendar,
   Rounder,
-  Line,
-  ModalButton
+  Line
 } from "./styles";
-import { QualificationType } from "./types";
-import { Modal } from "../_UI/Modal";
+import { Qualification as IQualification, QualificationType } from "./types";
 import { QualificationInfoModal } from "./QulificationInfoModal";
 
 export function Qualification() {
   const [type, setType] = useState<QualificationType>(QualificationType.Experience);
 
-  const qualifications = useMemo(() => type === QualificationType.Education ? EDUCATION : EXPERIENCE, [type]);
+  const qualifications = useMemo<IQualification[]>(() => type === QualificationType.Education ? EDUCATION : EXPERIENCE, [type]);
 
   const itens = useMemo(() => qualifications.map((q, i) => {
     if ((i + 1) % 2 === 0) {
@@ -43,7 +41,7 @@ export function Qualification() {
             <DataCalendar>
               <i className="bx bx-calendar"></i> {q.startDate} - {q.endDate}
             </DataCalendar>
-            {/* <QualificationInfoModal /> */}
+            <QualificationInfoModal qualification={q} />
           </div>
         </Data>
       );
@@ -56,7 +54,7 @@ export function Qualification() {
             <DataCalendar>
               <i className="bx bx-calendar"></i> {q.startDate} - {q.endDate}
             </DataCalendar>
-            {/* <QualificationInfoModal /> */}
+            <QualificationInfoModal qualification={q} />
           </div>
 
           <div>
