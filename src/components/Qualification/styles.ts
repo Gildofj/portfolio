@@ -151,8 +151,17 @@ export const Line = styled.div`
 `;
 
 export const ModalButton = styled.button`
-  background: none;
   display: block;
+  margin-top: 0.5rem;
+  background: none;
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
+  cursor: pointer;
+  color: ${({ theme: { colors } }) => colors.purple_300};
+  transition: .2s;
+
+  &:hover {
+    color: ${({ theme: { colors } }) => colors.purple_200};
+  }
 `;
 
 // Modal styles
