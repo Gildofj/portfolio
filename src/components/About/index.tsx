@@ -1,4 +1,5 @@
 import { Title } from "../_UI/Title";
+import { SOCIALS } from "../constants";
 import {
   AboutContainer,
   AboutText,
@@ -9,8 +10,11 @@ import {
   Container,
   DescriptionProfile,
   Image,
+  Link,
   Name,
   Profile,
+  Social,
+  SocialIcon,
   WelcomeContainer,
   WelcomeText,
 } from "./styles";
@@ -24,6 +28,15 @@ export function About() {
         </AnchorImage>
         <Name>Gildo Junior</Name>
         <DescriptionProfile>Desenvolvedor Full-Stack</DescriptionProfile>
+        <Social>
+          {SOCIALS.map(({ icon, urlRedirect }, i) => (
+            <li key={i}>
+              <Link href={urlRedirect} target="_blank" rel="noopener noreferrer">
+                <SocialIcon className={`bx ${icon}`}></SocialIcon>
+              </Link>
+            </li>
+          ))}
+        </Social>
         <ButtonsGroup id="about">
           <Button href="/portfolio/assets/files/resume-gildo.pdf" download>Download CV</Button>
           <Button href="#contact" transparent>Entre em contato</Button>

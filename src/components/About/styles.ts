@@ -178,3 +178,41 @@ export const ButtonsGroup = styled.div`
   display: flex;
   gap: 2rem;
 `;
+
+export const Social = styled.ul`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const SocialIcon = styled.i`
+  font-size: 3rem;
+  transition: .2s;
+
+  &:hover {
+    transform: scale(1.1);
+    color: ${({ theme: { colors } }) => colors.purple_200}
+  }
+
+  &:active {
+    transform: scale(.99);
+  }
+
+  @media screen and (max-width: 768px) {
+      font-size: 4rem;
+  }
+`;
+
+export const Link = styled.a`
+  color: ${({ theme }) => theme.colors.text};
+  font-weight: 600;
+  transition: .2s;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.purple_200}
+  }
+
+  @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+  }
+`;

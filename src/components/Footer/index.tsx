@@ -1,5 +1,5 @@
 import { Divider } from "../_UI/Divider";
-import { SOCIALS } from "./constants";
+import { SOCIALS } from "../constants";
 import {
   Container,
   FooterContainer,
