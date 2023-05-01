@@ -9,6 +9,7 @@ export const StyledNav = styled.nav`
   padding: 0.5rem 3rem 0.5rem 1rem;
   background-color: ${({ theme: { colors } }) => colors.background_900};
   color: ${({ theme: { colors } }) => colors.white};
+  z-index: 10000;
 
   @media screen and (max-width: 768px) {
       height: 6rem;

@@ -3,6 +3,7 @@ import useReactPath from "../../hooks/useReactPath";
 import { getNavigation } from "../constants";
 import { Divider } from "../_UI/Divider";
 import { Container, Link, NavbarButton, NavbarIcon, StyledList, StyledNav } from "./styles";
+import { Overlay } from "../_UI/Overlay";
 
 export function Navbar() {
   const urlPath = useReactPath();
@@ -12,8 +13,16 @@ export function Navbar() {
     setOpen(false);
   }, [urlPath]);
 
+  useEffect(() => {
+    if (open)
+      document.body.style.overflow = "hidden";
+    else
+      document.body.style.overflow = "unset";
+  }, [open])
+
   return (
     <Container>
+      {open && <Overlay onClick={() => setOpen(!open)} />}
       <StyledNav>
         <NavbarButton onClick={() => setOpen(!open)}>
           <NavbarIcon className='bx bx-menu'></NavbarIcon>
