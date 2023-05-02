@@ -1,16 +1,18 @@
 import { createPortal } from "react-dom";
+import { useEffect } from "react";
 import { Overlay } from "../Overlay";
 import { Content } from "./styles";
 import { ModalProps } from "./types";
-import { useEffect } from "react";
+import { handleScrollWhenModalIsOpen } from "../../../utils/scroll";
 
 export function Modal({ open, toggleOpen, width, height, children }: ModalProps) {
   useEffect(() => {
-    if (open)
-      document.body.style.overflow = "hidden";
-    else
-      document.body.style.overflow = "unset";
-  }, [open])
+    handleScrollWhenModalIsOpen(open);
+  }, [])
+
+  useEffect(() => {
+    handleScrollWhenModalIsOpen(open)
+  }, [open]);
 
   if (!open) return null;
 

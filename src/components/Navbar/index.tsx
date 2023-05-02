@@ -4,6 +4,7 @@ import { getNavigation } from "../constants";
 import { Divider } from "../_UI/Divider";
 import { Container, Link, NavbarButton, NavbarIcon, StyledList, StyledNav } from "./styles";
 import { Overlay } from "../_UI/Overlay";
+import { handleScrollWhenModalIsOpen } from "../../utils/scroll";
 
 export function Navbar() {
   const urlPath = useReactPath();
@@ -14,11 +15,12 @@ export function Navbar() {
   }, [urlPath]);
 
   useEffect(() => {
-    if (open)
-      document.body.style.overflow = "hidden";
-    else
-      document.body.style.overflow = "unset";
-  }, [open])
+    handleScrollWhenModalIsOpen(open);
+  }, [])
+
+  useEffect(() => {
+    handleScrollWhenModalIsOpen(open)
+  }, [open]);
 
   return (
     <Container>
