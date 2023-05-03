@@ -133,7 +133,7 @@ export const EDUCATION: Qualification[] = [
     workModel: WorkModel.Remote,
     description: "Curso onde aprendi conceitos básico de programação com Java",
     certificateId: "A41B7865-AC08-4AD5-8A2B-ABAA3FA473C5",
-    certificateUrl: "https://lms.ev.org.br/mpls/Web/Lms/Student/PrintCertificateDialog.aspx?BmHuMaO2QHzB7oLQw7z4fNfCX9Cjof8D"
+    certificateUrl: "https://drive.google.com/file/d/1wEaPWzN0kL4L8277n59rk7bNhmyF-nac/view?usp=sharing"
   },
   {
     title: "Introdução à Programação Orientada a Objetos (POO)",
@@ -146,7 +146,7 @@ export const EDUCATION: Qualification[] = [
     workModel: WorkModel.Remote,
     description: "Curso onde entendi o conceito de orientação a objeto",
     certificateId: "EDF8E9B3-D362-4B5F-8C18-B194E0B20CAB",
-    certificateUrl: "https://lms.ev.org.br/mpls/Web/Lms/Student/PrintCertificateDialog.aspx?BmHuMaO2QHxGBQCNdmtY2qZw3qCqTOIV"
+    certificateUrl: "https://drive.google.com/file/d/1BIjhvBa_Q8P4cjBWxfjOr_3qJidjRXNK/view?usp=sharing"
   },
   {
     title: "Análise e Desenvolvimento de Sistemas",
