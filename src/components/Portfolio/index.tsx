@@ -15,7 +15,7 @@ import {
 export function Portfolio() {
   return (
     <Container id="portfolio">
-      <Title>Portfolio</Title>
+      <Title>Portfólio</Title>
 
       <ProjectsContainer>
         {portfolios.map(p => (

@@ -1,7 +1,7 @@
 export const portfolios = [
   {
     id: 1,
-    name: "Portfolio",
+    name: "Portfólio",
     urlRepo: "https://github.com/Gildofj/portfolio",
     image: "/portfolio/assets/images/portfolio.png"
   },
