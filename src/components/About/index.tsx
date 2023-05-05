@@ -50,7 +50,8 @@ export function About() {
 
       <AboutContainer>
         <Title>Sobre mim</Title>
-        <AboutText>Sou manezinho da ilha nascido e criado em Florianópolis, Santa Catarina, me formei em Análise e Desenvolvimento de Sistemas e atuo na área de desenvolvimento desde o inicio de 2020 porém estudo programação desde 2017, atualmente trabalho diretamente com C# com .NET Core, Javascript e Typescript como linguagem de programação mais especificamente com frameworks como AngularJS, ReactJS e NextJS além de Kotlin para mobile e SQL Server como banco de dados, porém tenho conhecimento em ExpressJS como backend em node e React Native como mobile. Atualmente estou estudando Docker, além de estudar conceitos de arquitetura de projetos como Clean Architeture e DDD.</AboutText>
+        <AboutText>Eu sou natural de Florianópolis, Santa Catarina, e tenho formação em Análise e Desenvolvimento de Sistemas. Atuo na área de desenvolvimento desde o início de 2020, mas tenho estudado programação desde 2017. Atualmente, meu trabalho envolve principalmente a utilização de C# com .NET Core, além de Javascript e Typescript para o desenvolvimento de aplicações web e móveis. Eu sou experiente em frameworks como AngularJS, ReactJS e NextJS, e também tenho conhecimentos em Kotlin para o desenvolvimento de aplicativos móveis e SQL Server como banco de dados. Além disso, possuo habilidades em ExpressJS como backend em node e React Native como mobile.</AboutText>
+        <AboutText>Durante o processo de estudo, tenho explorado o uso de Docker, bem como conceitos importantes em arquitetura de projetos, como Clean Architecture e Domain-Driven Design (DDD).</AboutText>
       </AboutContainer>
     </Container>
   );

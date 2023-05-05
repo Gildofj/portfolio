@@ -213,8 +213,10 @@ export const BoldText = styled.strong`
   font-weight: bold;
 `;
 
-export const Description = styled.span`
+export const Description = styled.p`
   line-height: 1.5rem;
+  white-space: pre-line;
+  text-align: justify;
 `;
 
 export const CertificateAnchor = styled.a`

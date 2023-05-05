@@ -120,9 +120,10 @@ export const AboutContainer = styled.div`
  gap: 1rem;
 `;
 
-export const AboutText = styled.h3`
+export const AboutText = styled.p`
   color: ${({ theme: { colors } }) => colors.text};
   line-height: 2rem;
+  text-align: justify;
 
   @media screen and (max-width: 768px) {
     font-size: 1.25rem;
