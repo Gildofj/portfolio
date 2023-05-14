@@ -12,7 +12,7 @@ Este é o projeto do meu portfólio que criei com o objetivo de aprimorar minhas
 ### Tópicos
 - [Setup necessário](#setup-necessário-)
 
-- [Ferramentas utilizadas](#ferramentas-utilizadas-)
+- [Ferramentas utilizadas](#ferramentas-utilizadas-%EF%B8%8F)
 
 - [Rodando o app](#rodando-o-app-)
 
