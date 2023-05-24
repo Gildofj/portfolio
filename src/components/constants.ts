@@ -50,4 +50,8 @@ export const SOCIALS = [
     icon: "bxl-instagram-alt",
     urlRedirect: "https://www.instagram.com/tao_gildao/"
   },
+  {
+    icon: "bxl-twitter",
+    urlRedirect: "https://www.twitter.com/tao_gildao/"
+  }
 ]
