@@ -26,6 +26,7 @@ import {
   SendIcon
 } from "./styles";
 import { doToast } from '../_UI/Toast';
+import { TitleContainer } from '../_UI/TitleContainer';
 
 export function Contact() {
   const form = useRef<HTMLFormElement | null>(null);
@@ -71,7 +72,9 @@ export function Contact() {
 
   return (
     <Container id="contact">
-      <Title>Entre em contato</Title>
+      <TitleContainer>
+        <Title>Entre em contato</Title>
+      </TitleContainer>
 
       <ContactContainer>
         <ContactTypes>

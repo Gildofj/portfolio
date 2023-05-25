@@ -113,7 +113,7 @@ export const AboutContainer = styled.div`
  width: 100%;
  display: flex;
  max-width: 90rem;
- margin: 7rem 5rem;
+ margin: 4rem 5rem;
  flex-direction: column;
  align-items: center;
  justify-content: center;

@@ -1,4 +1,5 @@
 import { Title } from "../_UI/Title";
+import { TitleContainer } from "../_UI/TitleContainer";
 import { portfolios } from "./constants";
 import {
   ArrowIcon,
@@ -15,7 +16,9 @@ import {
 export function Portfolio() {
   return (
     <Container id="portfolio">
-      <Title>Portfólio</Title>
+      <TitleContainer>
+        <Title>Portfólio</Title>
+      </TitleContainer>
 
       <ProjectsContainer>
         {portfolios.map(p => (

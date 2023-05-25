@@ -1,4 +1,5 @@
 import { Title } from "../_UI/Title";
+import { TitleContainer } from "../_UI/TitleContainer";
 import { BACKEND_SKILLS, FRONTEND_SKILLS, MOBILE_SKILLS } from "./constants";
 import { Expertise } from "./Expertise";
 import { Container, Grid, IconTitle } from "./styles";
@@ -6,7 +7,9 @@ import { Container, Grid, IconTitle } from "./styles";
 export function Skills() {
   return (
     <Container id="skills">
-      <Title>Skills</Title>
+      <TitleContainer>
+        <Title>Skills</Title>
+      </TitleContainer>
       <Grid>
         <Expertise title="Backend" skills={BACKEND_SKILLS} color="#34D399" icon={<IconTitle color="#34D399" className='bx bx-data'></IconTitle>} />
         <Expertise title="Frontend" skills={FRONTEND_SKILLS} color="#DDA0DD" icon={<IconTitle color="#DDA0DD" className='bx bx-desktop'></IconTitle>} />

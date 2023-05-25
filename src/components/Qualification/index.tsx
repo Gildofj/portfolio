@@ -18,6 +18,7 @@ import {
 } from "./styles";
 import { Qualification as IQualification, QualificationType } from "./types";
 import { QualificationInfoModal } from "./QulificationInfoModal";
+import { TitleContainer } from "../_UI/TitleContainer";
 
 export function Qualification() {
   const [type, setType] = useState<QualificationType>(QualificationType.Experience);
@@ -68,7 +69,9 @@ export function Qualification() {
 
   return (
     <Container id="qualification">
-      <Title>Qualificação</Title>
+      <TitleContainer>
+        <Title>Qualificação</Title>
+      </TitleContainer>
 
       <Content>
         <Tabs>
