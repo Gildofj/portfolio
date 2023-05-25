@@ -119,9 +119,9 @@ export const AboutContainer = styled.div`
  justify-content: center;
  gap: 1rem;
 `;
-
 export const AboutText = styled.p`
   color: ${({ theme: { colors } }) => colors.text};
+  width: 100%;
   line-height: 2rem;
   text-align: justify;
 
