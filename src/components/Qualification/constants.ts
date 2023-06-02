@@ -71,6 +71,19 @@ export const EXPERIENCE: Qualification[] = [
 
 export const EDUCATION: Qualification[] = [
   {
+    title: "The Complete Elixir and Phoenix Bootcamp",
+    organization: "Udemy",
+    country: "Brasil",
+    state: "Santa Catarina",
+    city: "Florianópolis",
+    startDate: "Maio 2023",
+    endDate: "Junho 2023",
+    workModel: WorkModel.Remote,
+    description: "Nesse curso, tive a oportunidade de aprofundar meu conhecimento em Elixir, desde o básico até o desenvolvimento de um aplicativo web utilizando o incrível framework Phoenix. Phoenix, sendo um framework MVC, oferece uma ampla gama de recursos interessantes, tornando o desenvolvimento de aplicativos mais fácil e eficiente. A experiência foi simplesmente incrível e me apaixonei completamente pelo Elixir.",
+    certificateId: "UC-1ed88ff3-cb56-4ad0-8ee6-ad0115fddc00",
+    certificateUrl: "https://www.udemy.com/certificate/UC-1ed88ff3-cb56-4ad0-8ee6-ad0115fddc00/"
+  },
+  {
     title: "Kubernetes Bootcamp",
     organization: "KubDev.io",
     country: "Brasil",
