@@ -71,6 +71,19 @@ export const EXPERIENCE: Qualification[] = [
 
 export const EDUCATION: Qualification[] = [
   {
+    title: "Getting Started .NET Core Microservices RabbitMQ",
+    organization: "Udemy",
+    country: "Brasil",
+    state: "Santa Catarina",
+    city: "Florianópolis",
+    startDate: "Junho 2023",
+    endDate: "Junho 2023",
+    workModel: WorkModel.Remote,
+    description: "Nesse curso pude aprender um pouco mais sobre o uso de mensageria na arquitetura de microsserviços, foi utilizado o RabbitMQ que é um sistema de mensageria de código aberto altamente confiável, escalável e flexível. Ele é projetado para facilitar a comunicação entre aplicativos ou componentes de um sistema distribuído, permitindo o envio e a recepção de mensagens assíncronas, proporcionando escalabilidade, confiabilidade e entrega ordenada de mensagens.",
+    certificateId: "UC-93044172-a3c6-4f9e-b816-f7824ddf3de1",
+    certificateUrl: "https://www.udemy.com/certificate/UC-93044172-a3c6-4f9e-b816-f7824ddf3de1/"
+  },
+  {
     title: "The Complete Elixir and Phoenix Bootcamp",
     organization: "Udemy",
     country: "Brasil",
