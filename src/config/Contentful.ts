@@ -1,6 +1,6 @@
-import contentful from "contentful";
+import { CreateClientParams, createClient } from "contentful";
 
-export const contentfulClient = contentful.createClient({
-  accessToken: "CFPAT-FWtXwyzEjRUQMSRcesH_rAkMig_571SQ2kqI76yCUOo",
+export const contentfulClient = createClient({
+  accessToken: "bfpgVrBnuwn6UBGP9hRAqDwD_nSADKzEulHi1-noTC8",
   space: "meibde0fkp8w"
-});
+} as CreateClientParams);

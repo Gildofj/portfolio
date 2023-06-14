@@ -1,4 +1,4 @@
-import contentful from "contentful";
+import { EntryFieldTypes } from "contentful";
 
 export enum QualificationType {
   Education,
@@ -28,17 +28,17 @@ export interface Qualification {
 export interface QualificationsSkeleton {
   contentTypeId: "qualifications",
   fields: {
-    title: contentful.EntryFieldTypes.Text,
-    organization: contentful.EntryFieldTypes.Text,
-    country: contentful.EntryFieldTypes.Text,
-    state: contentful.EntryFieldTypes.Text,
-    city: contentful.EntryFieldTypes.Text,
-    startDate: contentful.EntryFieldTypes.Date,
-    endDate: contentful.EntryFieldTypes.Date,
-    workModel: contentful.EntryFieldTypes.Number,
-    type: contentful.EntryFieldTypes.Number,
-    description: contentful.EntryFieldTypes.Text,
-    certificateId: contentful.EntryFieldTypes.Text,
-    certificateUrl: contentful.EntryFieldTypes.Text
+    title: EntryFieldTypes.Text,
+    organization: EntryFieldTypes.Text,
+    country: EntryFieldTypes.Text,
+    state: EntryFieldTypes.Text,
+    city: EntryFieldTypes.Text,
+    startDate: EntryFieldTypes.Date,
+    endDate: EntryFieldTypes.Date,
+    workModel: EntryFieldTypes.Number,
+    type: EntryFieldTypes.Number,
+    description: EntryFieldTypes.Text,
+    certificateId: EntryFieldTypes.Text,
+    certificateUrl: EntryFieldTypes.Text
   }
 }

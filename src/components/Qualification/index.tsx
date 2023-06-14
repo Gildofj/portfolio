@@ -16,50 +16,14 @@ import {
   Rounder,
   Line
 } from "./styles";
-import { Qualification as IQualification, QualificationType, QualificationsSkeleton } from "./types";
+import { QualificationType } from "./types";
 import { QualificationInfoModal } from "./QulificationInfoModal";
 import { TitleContainer } from "../_UI/TitleContainer";
-import { contentfulClient } from "../../config/Contentful";
+import { useQualification } from "./useQualification";
 
 export function Qualification() {
-  const [qualifications, setQualifications] = useState<IQualification[]>();
   const [type, setType] = useState<QualificationType>(QualificationType.Experience);
-
-  async function getQualifications(type: QualificationType, active: boolean) {
-    if (!active) return;
-
-    const data = await contentfulClient.getEntries<QualificationsSkeleton>();
-
-    const qualificationData = data.items
-      .filter(item => item.fields.type === type)
-      .flatMap(item => ({
-        title: item.fields.title,
-        organization: item.fields.organization,
-        country: item.fields.country,
-        state: item.fields.state,
-        city: item.fields.city,
-        startDate: item.fields.startDate,
-        endDate: item.fields.endDate,
-        workModel: item.fields.workModel,
-        description: item.fields.description,
-        certificateId: item.fields.certificateId,
-        certificateUrl: item.fields.certificateUrl,
-      }));
-
-    setQualifications(qualificationData as IQualification[]);
-  }
-
-  useEffect(() => {
-    let active = true
-    getQualifications(type, active)
-    return () => { active = false }
-  });
-
-  useEffect(() => {
-    let active = true
-    getQualifications(type, active)
-    return () => { active = false }
-  }, [type]);
+  const { qualifications } = useQualification(type);
 
   const itens = useMemo(() => qualifications?.map((q, i) => {
     if ((i + 1) % 2 === 0) {
