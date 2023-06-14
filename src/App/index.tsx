@@ -10,6 +10,7 @@ import { Footer } from "../components/Footer";
 import { Portfolio } from "../components/Portfolio";
 
 import 'react-toastify/dist/ReactToastify.css';
+import 'moment/locale/pt-br';
 
 function App() {
   return (
