@@ -26,7 +26,7 @@ export const useSkills = () => {
     var active = true;
     getSkills(active, setSkills)
     return () => { active = false };
-  })
+  }, [])
 
   return { skills }
 }

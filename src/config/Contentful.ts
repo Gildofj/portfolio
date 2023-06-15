@@ -1,6 +1,6 @@
 import { CreateClientParams, createClient } from "contentful";
 
 export const contentfulClient = createClient({
-  accessToken: "bfpgVrBnuwn6UBGP9hRAqDwD_nSADKzEulHi1-noTC8",
-  space: "meibde0fkp8w"
+  accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
+  space: import.meta.env.VITE_CONTENTFUL_SPACE
 } as CreateClientParams);

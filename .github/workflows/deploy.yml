@@ -54,6 +54,8 @@ jobs:
           VITE_EMAILJS_SERVICE_ID: ${{secrets.VITE_EMAILJS_SERVICE_ID}}
           VITE_EMAILJS_TEMPLATE_ID: ${{secrets.VITE_EMAILJS_TEMPLATE_ID}}
           VITE_EMAILJS_PUBLIC_KEY: ${{secrets.VITE_EMAILJS_PUBLIC_KEY}}
+          VITE_CONTENTFUL_ACCESS_TOKEN: ${{secrets.VITE_CONTENTFUL_ACCESS_TOKEN}}
+          VITE_CONTENTFUL_SPACE: ${{secrets.VITE_CONTENTFUL_SPACE}}
 
       - name: Run Deploy
         run: |

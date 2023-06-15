@@ -36,7 +36,7 @@ export const useQualification = (type: QualificationType) => {
     let active = true
     getQualifications(type, active, setQualifications)
     return () => { active = false }
-  });
+  }, []);
 
   useEffect(() => {
     let active = true
