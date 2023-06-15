@@ -6,7 +6,7 @@ export interface Portfolio {
   url: string;
 }
 
-export interface PortfolioSkeleton {
+export type PortfolioSkeleton = {
   contentTypeId: "portfolios",
   fields: {
     title: EntryFieldTypes.Text,

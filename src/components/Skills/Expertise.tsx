@@ -11,6 +11,7 @@ import {
   SkillData
 } from "./styles";
 import { Skill } from "./types";
+import { EXPERTISE } from "./constants";
 
 interface ExpertiseProps {
   title: string;
@@ -28,11 +29,11 @@ export function Expertise({ title, skills, color, icon }: ExpertiseProps) {
       </ExpertiseTitleContainer>
       <SkillsContainer>
         {skills.map((sk) => (
-          <SkillContainer key={sk.name}>
+          <SkillContainer key={sk.title}>
             <IconSkill color={color} className='bx bxs-badge-check' ></IconSkill>
             <SkillData>
-              <SkillName color={color}>{sk.name}</SkillName>
-              <SkillLevel>{sk.level}</SkillLevel>
+              <SkillName color={color}>{sk.title}</SkillName>
+              <SkillLevel>{EXPERTISE[sk.expertise]}</SkillLevel>
             </SkillData>
           </SkillContainer>
         ))}

@@ -7,7 +7,7 @@ import { Qualification, QualificationType, QualificationsSkeleton } from "./type
 async function getQualifications(type: QualificationType, active: boolean, setQualifications: (lista: Qualification[]) => void) {
   if (!active) return;
 
-  const data = await contentfulClient.getEntries<QualificationsSkeleton>();
+  const data = await contentfulClient.getEntries<QualificationsSkeleton>({ content_type: "qualifications" });
 
   const qualificationData = data.items
     .filter(item => item.fields.type === type)

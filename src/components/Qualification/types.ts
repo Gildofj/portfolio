@@ -25,7 +25,7 @@ export interface Qualification {
   certificateUrl?: string;
 }
 
-export interface QualificationsSkeleton {
+export type QualificationsSkeleton = {
   contentTypeId: "qualifications",
   fields: {
     title: EntryFieldTypes.Text,

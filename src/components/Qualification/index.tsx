@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Title } from "../_UI/Title";
-import { EDUCATION, EXPERIENCE } from "./constants";
 import {
   Container,
   Content,

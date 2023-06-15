@@ -1,6 +1,5 @@
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
-import { portfolios } from "./constants";
 import {
   ArrowIcon,
   CardProject,
@@ -10,10 +9,13 @@ import {
   NameProject,
   ProjectsContainer,
 } from "./styles";
+import { usePortfolio } from "./usePortfolio";
 
 
 
 export function Portfolio() {
+  const { portfolios } = usePortfolio();
+
   return (
     <Container id="portfolio">
       <TitleContainer>
@@ -21,11 +23,11 @@ export function Portfolio() {
       </TitleContainer>
 
       <ProjectsContainer>
-        {portfolios.map(p => (
-          <CardProject key={p.id}>
-            <Image src={p.image} alt={p.name} />
-            <NameProject>{p.name}</NameProject>
-            <Link href={p.urlRepo} target="_blank" rel="noopener noreferrer">
+        {portfolios?.map(p => (
+          <CardProject key={p.title}>
+            <Image src={p.image} alt={p.title} />
+            <NameProject>{p.title}</NameProject>
+            <Link href={p.url} target="_blank" rel="noopener noreferrer">
               Repository
               <ArrowIcon className="bx bx-right-arrow-alt"></ArrowIcon>
             </Link>
