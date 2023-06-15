@@ -24,6 +24,7 @@ Se você deseja executar o projeto em sua máquina para visualizar o seu funcion
 * [Pnpm](https://pnpm.io/pt/)
 * [Vite](https://vitejs.dev)
 * [ESLINT](https://www.npmjs.com/package/eslint)
+* [Contentful](https://www.contentful.com/)
 
 ### Rodando o app 🧑🏽‍💻
 Para conseguir executar o app em sua maquina é necessário rodar alguns comandos em seu prompt. O primeiro passo é acessar via prompt a pasta onde você clonou o projeto, caso tenha dúvidas em como navegar basta acessar esse [tutorial](https://medium.com/@adsonrocha/como-abrir-e-navegar-entre-pastas-com-o-prompt-de-comandos-do-windows-10-68750eae8f47). Seguindo esses passos o caminho até sua pasta deve ficar algo como:
