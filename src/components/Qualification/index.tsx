@@ -17,7 +17,7 @@ import {
   Line
 } from "./styles";
 import { QualificationType } from "./types";
-import { QualificationInfoModal } from "./QulificationInfoModal";
+import { QualificationInfoModal } from "./QualificationInfoModal";
 import { TitleContainer } from "../_UI/TitleContainer";
 import { useQualification } from "./useQualification";
 

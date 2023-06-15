@@ -11,6 +11,7 @@ async function getQualifications(type: QualificationType, active: boolean, setQu
 
   const qualificationData = data.items
     .filter(item => item.fields.type === type)
+    .sort((a, b) => moment(moment(b.fields.endDate)).diff(moment(a.fields.endDate)))
     .flatMap(({ fields }) => ({
       title: fields.title,
       organization: fields.organization,
@@ -24,7 +25,6 @@ async function getQualifications(type: QualificationType, active: boolean, setQu
       certificateId: fields.certificateId,
       certificateUrl: fields.certificateUrl,
     }))
-    .sort((a, b) => moment(a.endDate).diff(moment(b.endDate)));
 
   setQualifications(qualificationData as Qualification[]);
 }
