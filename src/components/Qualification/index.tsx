@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { Title } from "../_UI/Title";
-import { EDUCATION, EXPERIENCE } from "./constants";
 import {
   Container,
   Content,
@@ -16,16 +15,16 @@ import {
   Rounder,
   Line
 } from "./styles";
-import { Qualification as IQualification, QualificationType } from "./types";
-import { QualificationInfoModal } from "./QulificationInfoModal";
+import { QualificationType } from "./types";
+import { QualificationInfoModal } from "./QualificationInfoModal";
 import { TitleContainer } from "../_UI/TitleContainer";
+import { useQualification } from "./useQualification";
 
 export function Qualification() {
   const [type, setType] = useState<QualificationType>(QualificationType.Experience);
+  const { qualifications } = useQualification(type);
 
-  const qualifications = useMemo<IQualification[]>(() => type === QualificationType.Education ? EDUCATION : EXPERIENCE, [type]);
-
-  const itens = useMemo(() => qualifications.map((q, i) => {
+  const itens = useMemo(() => qualifications?.map((q, i) => {
     if ((i + 1) % 2 === 0) {
       return (
         <Data key={i}>
