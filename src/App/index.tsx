@@ -1,3 +1,4 @@
+import moment from "moment";
 import { ToastContainer } from "react-toastify";
 
 import { Navbar } from "../components/Navbar";
@@ -10,9 +11,11 @@ import { Footer } from "../components/Footer";
 import { Portfolio } from "../components/Portfolio";
 
 import 'react-toastify/dist/ReactToastify.css';
-import 'moment/locale/pt-br';
+import "moment/dist/locale/pt-br";
 
 function App() {
+  moment.locale("pt-br")
+
   return (
     <Container>
       <Navbar />
