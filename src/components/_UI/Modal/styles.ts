@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 interface ContainerProps {
@@ -5,11 +6,13 @@ interface ContainerProps {
   width?: number;
 }
 
-export const Content = styled.div<ContainerProps>`
+export const Content = styled(motion.div) <ContainerProps>`
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
   display: block;
   background: ${({ theme: { colors } }) => colors.purple_400};
   min-width: ${({ width }) => width ?? 70}%;
