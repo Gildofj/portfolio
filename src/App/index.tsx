@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import moment from "moment";
 import { ToastContainer } from "react-toastify";
 
@@ -16,15 +17,17 @@ import "moment/dist/locale/pt-br";
 function App() {
   moment.locale("pt-br")
 
+  const scrollRef = useRef(null);
+
   return (
-    <Container>
+    <Container ref={scrollRef}>
       <Navbar />
       <Main>
         <About />
-        <Skills />
-        <Qualification />
-        <Portfolio />
-        <Contact />
+        <Skills scrollRef={scrollRef} />
+        <Qualification scrollRef={scrollRef} />
+        <Portfolio scrollRef={scrollRef} />
+        <Contact scrollRef={scrollRef} />
       </Main>
       <Footer />
       <ToastContainer />

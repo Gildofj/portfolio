@@ -1,11 +1,14 @@
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
+import { ScrollAnimatedProps } from "../types";
 import { Expertise } from "./Expertise";
 import { Container, Grid, IconTitle } from "./styles";
 import { SkillType } from "./types";
 import { useSkills } from "./useSkills";
 
-export function Skills() {
+interface SkillsProps extends ScrollAnimatedProps { }
+
+export function Skills({ }: SkillsProps) {
   const { skills } = useSkills();
 
   return (

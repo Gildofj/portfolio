@@ -27,8 +27,11 @@ import {
 } from "./styles";
 import { doToast } from '../_UI/Toast';
 import { TitleContainer } from '../_UI/TitleContainer';
+import { ScrollAnimatedProps } from '../types';
 
-export function Contact() {
+interface ContactProps extends ScrollAnimatedProps { }
+
+export function Contact({ }: ContactProps) {
   const form = useRef<HTMLFormElement | null>(null);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);

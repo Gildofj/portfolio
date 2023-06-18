@@ -1,3 +1,4 @@
+import { RefObject } from "react";
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
 import { SOCIALS } from "../constants";
@@ -19,34 +20,78 @@ import {
   WelcomeContainer,
   WelcomeText,
 } from "./styles";
+import { motion } from "framer-motion";
 
 export function About() {
   return (
     <Container>
       <Profile>
-        <AnchorImage href="https://github.com/Gildofj" target="_blank" rel="noopener noreferrer">
+        <AnchorImage
+          href="https://github.com/Gildofj"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
           <Image />
         </AnchorImage>
-        <Name>Gildo Junior</Name>
-        <DescriptionProfile>Desenvolvedor Full-Stack</DescriptionProfile>
+        <Name
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          Gildo Junior
+        </Name>
+        <DescriptionProfile
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >Desenvolvedor Full-Stack</DescriptionProfile>
         <Social>
           {SOCIALS.map(({ icon, urlRedirect }, i) => (
-            <li key={i}>
+            <motion.li
+              key={i}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.3, delay: i / 10 }}
+            >
               <Link href={urlRedirect} target="_blank" rel="noopener noreferrer">
                 <SocialIcon className={`bx ${icon}`}></SocialIcon>
               </Link>
-            </li>
-          ))}
+            </motion.li>
+          )
+          )}
         </Social>
         <ButtonsGroup>
-          <Button href="/portfolio/assets/files/resume-gildo.pdf" download>Download CV</Button>
-          <Button href="#contact" transparent>Entre em contato</Button>
+          <Button
+            href="/portfolio/assets/files/resume-gildo.pdf"
+            download
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >Download CV</Button>
+          <Button
+            href="#contact"
+            transparent
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >Entre em contato</Button>
         </ButtonsGroup>
       </Profile>
 
       <WelcomeContainer>
-        <WelcomeText>Bem-vindo ao meu</WelcomeText>
-        <Brand>Portfólio!</Brand>
+        <WelcomeText
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >Bem-vindo ao meu</WelcomeText>
+        <Brand
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >Portfólio!</Brand>
       </WelcomeContainer>
 
       <AboutContainer id="about">

@@ -1,5 +1,6 @@
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
+import { ScrollAnimatedProps } from "../types";
 import {
   ArrowIcon,
   CardProject,
@@ -11,9 +12,9 @@ import {
 } from "./styles";
 import { usePortfolio } from "./usePortfolio";
 
+interface PortfolioProps extends ScrollAnimatedProps { }
 
-
-export function Portfolio() {
+export function Portfolio({ }: PortfolioProps) {
   const { portfolios } = usePortfolio();
 
   return (

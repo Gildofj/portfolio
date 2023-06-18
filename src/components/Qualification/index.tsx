@@ -19,8 +19,11 @@ import { QualificationType } from "./types";
 import { QualificationInfoModal } from "./QualificationInfoModal";
 import { TitleContainer } from "../_UI/TitleContainer";
 import { useQualification } from "./useQualification";
+import { ScrollAnimatedProps } from "../types";
 
-export function Qualification() {
+interface QualificationProps extends ScrollAnimatedProps { }
+
+export function Qualification({ }: QualificationProps) {
   const [type, setType] = useState<QualificationType>(QualificationType.Experience);
   const { qualifications } = useQualification(type);
 

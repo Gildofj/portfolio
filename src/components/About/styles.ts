@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled, { keyframes } from "styled-components";
 
 export const Container = styled.section`
@@ -57,13 +58,13 @@ export const Image = styled.div`
   }
 `;
 
-export const AnchorImage = styled.a`
+export const AnchorImage = styled(motion.a)`
   height: 320px;
   display: flex;
   align-items: flex-end;
 `;
 
-export const Name = styled.h2`
+export const Name = styled(motion.h2)`
   font-size: 3.125rem;
   font-weight: bold;
   color: ${({ theme: { colors } }) => colors.purple_600};
@@ -73,7 +74,7 @@ export const Name = styled.h2`
   }
 `;
 
-export const DescriptionProfile = styled.p`
+export const DescriptionProfile = styled(motion.p)`
   font-size: 1.250rem;
 
   @media screen and (max-width: 768px) {
@@ -88,7 +89,7 @@ export const WelcomeContainer = styled.div`
   justify-content: center;
 `;
 
-export const Brand = styled.h1`
+export const Brand = styled(motion.h1)`
   font-size: 5em;
   font-weight: 800;
   background: rgb(114,14,158);
@@ -100,7 +101,7 @@ export const Brand = styled.h1`
 	-webkit-text-fill-color: transparent;
 `;
 
-export const WelcomeText = styled.h3`
+export const WelcomeText = styled(motion.h3)`
   font-size: 3.125rem;
   font-weight: 600;
 
@@ -134,7 +135,7 @@ interface ButtonProps {
   transparent?: boolean;
 }
 
-export const Button = styled.a<ButtonProps>`
+export const Button = styled(motion.a) <ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
