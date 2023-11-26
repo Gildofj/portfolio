@@ -1,18 +1,18 @@
-import { useRef } from "react";
 import moment from "moment";
+import { useRef } from "react";
 import { ToastContainer } from "react-toastify";
 
-import { Navbar } from "../components/Navbar";
 import { About } from "../components/About";
-import { Container, Main } from "./styles";
-import { Skills } from "../components/Skills";
-import { Qualification } from "../components/Qualification";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
+import { Navbar } from "../components/Navbar";
 import { Portfolio } from "../components/Portfolio";
+import { Qualification } from "../components/Qualification";
+import { Skills } from "../components/Skills";
+import { Container, Main } from "./styles";
 
-import 'react-toastify/dist/ReactToastify.css';
 import "moment/dist/locale/pt-br";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   moment.locale("pt-br")
