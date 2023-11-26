@@ -1,33 +1,33 @@
-import { FormEvent, SyntheticEvent, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { SyntheticEvent, useRef, useState } from 'react';
 
 import { Title } from "../_UI/Title";
+import { TitleContainer } from '../_UI/TitleContainer';
+import { doToast } from '../_UI/Toast';
+import { ScrollAnimatedProps } from '../types';
 import { CONTACT_TYPES } from "./constants";
 import {
   CardContact,
   CardContactIcon,
   ContactContainer,
-  ContactTypes,
   ContactInfo,
+  ContactTypes,
   Container,
+  Error,
+  FieldError,
+  FieldGroup,
+  FieldGroupArea,
   Form,
+  FormTag,
   Input,
   Message,
   SendButton,
+  SendIcon,
   Subtitle,
-  WriteMeButton,
   Type,
-  FormTag,
-  FieldGroup,
-  FieldGroupArea,
-  FieldError,
-  Error,
-  WriteMeIcon,
-  SendIcon
+  WriteMeButton,
+  WriteMeIcon
 } from "./styles";
-import { doToast } from '../_UI/Toast';
-import { TitleContainer } from '../_UI/TitleContainer';
-import { ScrollAnimatedProps } from '../types';
 
 interface ContactProps extends ScrollAnimatedProps { }
 
@@ -65,10 +65,9 @@ export function Contact({ }: ContactProps) {
         setMessageError(false);
 
         doToast("Email enviado com sucesso!");
+        form.current.reset();
       } catch (err) {
         doToast("Erro ao tentar enviar o e-mail");
-      } finally {
-        form.current.reset();
       }
     }
   };
