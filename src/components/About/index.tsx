@@ -1,4 +1,3 @@
-import { RefObject } from "react";
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
 import { SOCIALS } from "../constants";
