@@ -24,6 +24,8 @@ async function getQualifications(type: QualificationType, active: boolean, setQu
       description: fields.description,
       certificateId: fields.certificateId,
       certificateUrl: fields.certificateUrl,
+      workedAppUrl: fields.workedAppUrl,
+      workedAppName: fields.workedAppName
     }))
 
   setQualifications(qualificationData as Qualification[]);

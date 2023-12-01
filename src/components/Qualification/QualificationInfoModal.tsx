@@ -67,6 +67,15 @@ export function QualificationInfoModal({ qualification }: QualificationInfoModal
                 </CertificateAnchor>
               </DataField>
             )}
+            {qualification.workedAppUrl && (
+              <DataField>
+                <BoldText>Projetos Trabalhados:</BoldText>
+                <CertificateAnchor href={qualification.workedAppUrl} target="_blank" rel="noopener noreferrer">
+                  {qualification.workedAppName}
+                  <CertificateIcon src="/portfolio/assets/images/pop-out.svg" width={23} height={23} />
+                </CertificateAnchor>
+              </DataField>
+            )}
             <BoldText>Descrição:</BoldText>
             <Description>
               {qualification.description}

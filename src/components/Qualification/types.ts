@@ -23,6 +23,8 @@ export interface Qualification {
   description: string;
   certificateId?: string;
   certificateUrl?: string;
+  workedAppName?: string;
+  workedAppUrl?: string;
 }
 
 export type QualificationsSkeleton = {
@@ -39,6 +41,8 @@ export type QualificationsSkeleton = {
     type: EntryFieldTypes.Number,
     description: EntryFieldTypes.Text,
     certificateId: EntryFieldTypes.Text,
-    certificateUrl: EntryFieldTypes.Text
+    certificateUrl: EntryFieldTypes.Text,
+    workedAppName: EntryFieldTypes.Text,
+    workedAppUrl: EntryFieldTypes.Text
   }
 }
