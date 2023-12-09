@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import useReactPath from "../../hooks/useReactPath";
-import { getNavigation } from "../constants";
-import { Divider } from "../_UI/Divider";
-import { Container, Link, NavbarButton, NavbarIcon, StyledList, StyledNav } from "./styles";
-import { Overlay } from "../_UI/Overlay";
 import { handleScrollWhenModalIsOpen } from "../../utils/scroll";
+import { Divider } from "../_UI/Divider";
+import { Overlay } from "../_UI/Overlay";
+import { getNavigation } from "../constants";
+import { Container, Link, NavbarButton, NavbarIcon, StyledList, StyledNav } from "./styles";
 
-export function Navbar() {
+interface NavbarProps {
+  handleNavbarItemClick: () => void;
+}
+
+export function Navbar({ handleNavbarItemClick }: NavbarProps) {
   const urlPath = useReactPath();
   const [open, setOpen] = useState(false);
 
@@ -32,7 +36,13 @@ export function Navbar() {
         <StyledList open={open}>
           {getNavigation(urlPath).map(({ id, href, text, active }) => (
             <li key={id}>
-              <Link active={active} open={open} href={href}>
+              <Link
+                active={active}
+                open={open}
+                onClick={() => handleNavbarItemClick()}
+                href={href}
+                data-to-scrollspy-id={href.replace("#", "")}
+              >
                 {text}
               </Link>
             </li>

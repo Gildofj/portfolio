@@ -13,17 +13,37 @@ import { Container, Main } from "./styles";
 
 import "moment/dist/locale/pt-br";
 import 'react-toastify/dist/ReactToastify.css';
+import { Profile } from "../components/Profile";
 
 function App() {
   moment.locale("pt-br")
 
   const scrollRef = useRef(null);
+  const isNavbarClickRef = useRef(false);
+
+  const handleNavbarItemClick = () => {
+    isNavbarClickRef.current = true;
+
+    setTimeout(() => {
+      isNavbarClickRef.current = false;
+    }, 1000);
+  };
+
+  const onUpdateCallback = (id: String) => {
+    console.log("O que importa", scrollRef)
+    if (isNavbarClickRef.current) {
+      return;
+    }
+
+    window.location.href = `#${id}`
+  };
 
   return (
     <Container ref={scrollRef}>
-      <Navbar />
-      <Main>
-        <About />
+      <Navbar handleNavbarItemClick={handleNavbarItemClick} />
+      <Main onUpdateCallback={onUpdateCallback}>
+        <Profile />
+        <About scrollRef={scrollRef} />
         <Skills scrollRef={scrollRef} />
         <Qualification scrollRef={scrollRef} />
         <Portfolio scrollRef={scrollRef} />
@@ -31,7 +51,7 @@ function App() {
       </Main>
       <Footer />
       <ToastContainer />
-    </Container>
+    </Container >
   )
 }
 
