@@ -30,7 +30,6 @@ function App() {
   };
 
   const onUpdateCallback = (id: String) => {
-    console.log("O que importa", scrollRef)
     if (isNavbarClickRef.current) {
       return;
     }
