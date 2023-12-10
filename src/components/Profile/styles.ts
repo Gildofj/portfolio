@@ -8,6 +8,10 @@ export const Container = styled.section`
   align-items: center;
   justify-content: space-between;
   margin: 7rem 2rem;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 15rem;
+  }
 `;
 
 export const ProfileContainer = styled.div`

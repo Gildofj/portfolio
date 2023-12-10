@@ -10,6 +10,10 @@ export const Container = styled.section`
   justify-content: center;
   gap: 1rem;
   margin: 7rem 2rem;
+
+  @media screen and (max-width: 768px) {
+   margin: 7rem 0rem;
+  }
 `;
 
 export const AboutText = styled.p`

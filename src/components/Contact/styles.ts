@@ -8,6 +8,10 @@ export const Container = styled.section`
   align-items: center;
   gap: 4rem;
   margin: 7rem 2rem;
+
+  @media screen and (max-width: 768px) {
+    margin: 7rem 0rem;
+ }
 `;
 
 export const ContactContainer = styled.div`
