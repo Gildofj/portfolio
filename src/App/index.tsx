@@ -29,7 +29,7 @@ function App() {
     }, 1000);
   };
 
-  const onUpdateCallback = (id: String) => {
+  const onUpdateCallback = (id: string) => {
     if (isNavbarClickRef.current) {
       return;
     }
