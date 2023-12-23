@@ -7,8 +7,12 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 7rem 2rem;
+  padding: 7rem 2rem;
   gap: 1rem;
+
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
 `;
 
 export const ProjectsContainer = styled.div`
@@ -42,8 +46,8 @@ export const CardProject = styled.div`
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#720e9e",endColorstr="#800080",GradientType=1);
 
   @media screen and (max-width: 768px) {
-    padding: 1.5rem;
     border-radius: 1rem;
+    max-width: 30rem;
   }
 `;
 
