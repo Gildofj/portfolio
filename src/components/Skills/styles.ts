@@ -7,7 +7,7 @@ export const Container = styled.section`
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin: 7rem 2rem;
+  padding: 7rem 2rem;
 `;
 
 export const Grid = styled.div`
@@ -23,7 +23,11 @@ export const ExpertiseTitleContainer = styled.div`
   gap: .3rem;
 `;
 
-export const IconTitle = styled.i`
+interface IconTitleProps {
+  color: string;
+}
+
+export const IconTitle = styled.i<IconTitleProps>`
   font-size: 2rem;
   color: ${({ color }) => color};
 

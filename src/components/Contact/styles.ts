@@ -7,11 +7,7 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 4rem;
-  margin: 7rem 2rem;
-
-  @media screen and (max-width: 768px) {
-    margin: 7rem 0rem;
- }
+  padding: 7rem 2rem;
 `;
 
 export const ContactContainer = styled.div`

@@ -6,7 +6,7 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  margin: 7rem 2rem;
+  padding: 7rem 2rem;
 `;
 
 export const Content = styled.div`

@@ -9,10 +9,6 @@ export const Container = styled.section`
   justify-content: center;
   padding: 7rem 2rem;
   gap: 1rem;
-
-  @media screen and (max-width: 768px) {
-    margin: 0;
-  }
 `;
 
 export const ProjectsContainer = styled.div`
