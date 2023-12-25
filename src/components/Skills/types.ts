@@ -3,13 +3,13 @@ import { EntryFieldTypes } from "contentful";
 export enum Expertise {
   BASIC,
   INTERMEDIATE,
-  ADVANCED
+  ADVANCED,
 }
 
 export enum SkillType {
   BACKEND,
   FRONTEND,
-  MOBILE
+  MOBILE,
 }
 
 export interface Skill {
@@ -19,10 +19,10 @@ export interface Skill {
 }
 
 export type SkillSkeleton = {
-  contentTypeId: "skills",
+  contentTypeId: "skills";
   fields: {
-    title: EntryFieldTypes.Text,
-    expertise: EntryFieldTypes.Number,
-    type: EntryFieldTypes.Number
-  }
-}
+    title: EntryFieldTypes.Text;
+    expertise: EntryFieldTypes.Number;
+    type: EntryFieldTypes.Number;
+  };
+};

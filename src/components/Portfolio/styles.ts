@@ -35,10 +35,22 @@ export const CardProject = styled.div`
   padding: 1rem;
   gap: 0.5rem;
   border-radius: 0.625rem;
-  background: rgb(114,14,158);
-  background: -moz-linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
-  background: -webkit-linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
-  background: linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
+  background: rgb(114, 14, 158);
+  background: -moz-linear-gradient(
+    150deg,
+    rgba(114, 14, 158, 1) 0%,
+    rgba(128, 0, 128, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    150deg,
+    rgba(114, 14, 158, 1) 0%,
+    rgba(128, 0, 128, 1) 100%
+  );
+  background: linear-gradient(
+    150deg,
+    rgba(114, 14, 158, 1) 0%,
+    rgba(128, 0, 128, 1) 100%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#720e9e",endColorstr="#800080",GradientType=1);
 
   @media screen and (max-width: 768px) {
@@ -85,7 +97,7 @@ export const NameProject = styled.h3`
 
 export const ArrowIcon = styled.i`
   font-size: 1.25rem;
-  transition: .3s;
+  transition: 0.3s;
   &:hover {
     transform: translate(0.25rem);
   }

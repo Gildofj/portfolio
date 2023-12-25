@@ -47,13 +47,14 @@ export const Image = styled.div`
   width: 300px;
   height: 300px;
   animation: ${imageAnimation} 8s ease-in-out infinite 1s;
-  transition: .2s;
+  transition: 0.2s;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     transform: scale(1.1);
   }
   &:active {
-    transform: scale(.9);
+    transform: scale(0.9);
   }
 
   @media screen and (max-width: 768px) {
@@ -79,7 +80,7 @@ export const Name = styled(motion.h2)`
 `;
 
 export const DescriptionProfile = styled(motion.p)`
-  font-size: 1.250rem;
+  font-size: 1.25rem;
 
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;
@@ -96,13 +97,25 @@ export const WelcomeContainer = styled.div`
 export const Brand = styled(motion.h1)`
   font-size: 5em;
   font-weight: 800;
-  background: rgb(114,14,158);
-  background: -moz-linear-gradient(90deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 80%);
-  background: -webkit-linear-gradient(90deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 80%);
-  background: linear-gradient(90deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 80%);
+  background: rgb(114, 14, 158);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(114, 14, 158, 1) 0%,
+    rgba(128, 0, 128, 1) 80%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(114, 14, 158, 1) 0%,
+    rgba(128, 0, 128, 1) 80%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(114, 14, 158, 1) 0%,
+    rgba(128, 0, 128, 1) 80%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#720e9e",endColorstr="#800080",GradientType=1);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 export const WelcomeText = styled(motion.h3)`
@@ -118,7 +131,7 @@ interface ButtonProps {
   transparent?: boolean;
 }
 
-export const Button = styled(motion.a) <ButtonProps>`
+export const Button = styled(motion.a)<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,27 +141,39 @@ export const Button = styled(motion.a) <ButtonProps>`
   border-radius: 0.625rem;
   border: 1px solid #1d1160;
   cursor: pointer;
-  transition: .2s;
-  ${({ transparent, theme: { colors } }) => transparent ?
-    `background: ${colors.transparent}` :
-    ` background: rgb(29,17,96);
+  transition: 0.2s;
+  ${({ transparent, theme: { colors } }) =>
+    transparent
+      ? `background: ${colors.transparent}`
+      : ` background: rgb(29,17,96);
       background: -moz-linear-gradient(90deg, rgba(29,17,96,1) 0%, rgba(75,0,130,1) 100%);
       background: -webkit-linear-gradient(90deg, rgba(29,17,96,1) 0%, rgba(75,0,130,1) 100%);
       background: linear-gradient(90deg, rgba(29,17,96,1) 0%, rgba(75,0,130,1) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1d1160",endColorstr="#4b0082",GradientType=1);
-    `
-  };
+    `};
 
   &:hover {
     transform: scale(1.1);
-    background: rgb(51,0,111);
-    background: -moz-linear-gradient(90deg, rgba(51,0,111,1) 0%, rgba(114,14,158,1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(51,0,111,1) 0%, rgba(114,14,158,1) 100%);
-    background: linear-gradient(90deg, rgba(51,0,111,1) 0%, rgba(114,14,158,1) 100%);
+    background: rgb(51, 0, 111);
+    background: -moz-linear-gradient(
+      90deg,
+      rgba(51, 0, 111, 1) 0%,
+      rgba(114, 14, 158, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      90deg,
+      rgba(51, 0, 111, 1) 0%,
+      rgba(114, 14, 158, 1) 100%
+    );
+    background: linear-gradient(
+      90deg,
+      rgba(51, 0, 111, 1) 0%,
+      rgba(114, 14, 158, 1) 100%
+    );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#33006f",endColorstr="#720e9e",GradientType=1);
   }
   &:active {
-    transform: scale(.99);
+    transform: scale(0.99);
   }
 
   @media screen and (max-width: 768px) {
@@ -172,33 +197,32 @@ export const Social = styled.ul`
 
 export const SocialIcon = styled.i`
   font-size: 3rem;
-  transition: .2s;
+  transition: 0.2s;
 
   &:hover {
     transform: scale(1.1);
-    color: ${({ theme: { colors } }) => colors.purple_200}
+    color: ${({ theme: { colors } }) => colors.purple_200};
   }
 
   &:active {
-    transform: scale(.99);
+    transform: scale(0.99);
   }
 
   @media screen and (max-width: 768px) {
-      font-size: 4rem;
+    font-size: 4rem;
   }
 `;
 
 export const Link = styled.a`
   color: ${({ theme }) => theme.colors.text};
   font-weight: 600;
-  transition: .2s;
+  transition: 0.2s;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.purple_200}
+    color: ${({ theme }) => theme.colors.purple_200};
   }
 
   @media screen and (max-width: 768px) {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 `;
-

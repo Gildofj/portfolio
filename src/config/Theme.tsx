@@ -2,20 +2,20 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 const theme = {
   colors: {
-    background_900: '#12131F',
-    background_800: '#18181B',
+    background_900: "#12131F",
+    background_800: "#18181B",
 
-    text: '#E6E6FA',
+    text: "#E6E6FA",
 
-    caption_500: '#71717A',
-    caption_400: '#A1A1AA',
-    caption_300: '#D4D4D8',
+    caption_500: "#71717A",
+    caption_400: "#A1A1AA",
+    caption_300: "#D4D4D8",
 
-    shape: '#2A2634',
+    shape: "#2A2634",
 
-    primary: '#800080',
-    success: '#34D399',
-    alert: '#F87171',
+    primary: "#800080",
+    success: "#34D399",
+    alert: "#F87171",
 
     purple: "#800080",
     purple_200: "#D8BFD8",
@@ -29,15 +29,15 @@ const theme = {
 
     violet: "#EE82EE",
     pink: "#DDA0DD",
-    transparent: "#00000000"
+    transparent: "#00000000",
   },
   fonts: ["Inter", "Roboto", "sans-serif"],
   fontSizes: {
     small: "0.75em",
     medium: "1em",
-    large: "2em"
-  }
-}
+    large: "2em",
+  },
+};
 
 const GlobalStyle = createGlobalStyle`
   * {

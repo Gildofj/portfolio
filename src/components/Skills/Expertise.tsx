@@ -1,4 +1,4 @@
-import { Fragment, ReactElement } from "react";
+import { ReactElement } from "react";
 import {
   IconSkill,
   SkillName,
@@ -8,7 +8,7 @@ import {
   ExpertiseTitleContainer,
   ExpertiseTitle,
   SkillsContainer,
-  SkillData
+  SkillData,
 } from "./styles";
 import { Skill } from "./types";
 import { EXPERTISE } from "./constants";
@@ -28,9 +28,9 @@ export function Expertise({ title, skills, color, icon }: ExpertiseProps) {
         {icon}
       </ExpertiseTitleContainer>
       <SkillsContainer>
-        {skills.map((sk) => (
+        {skills.map(sk => (
           <SkillContainer key={sk.title}>
-            <IconSkill color={color} className='bx bxs-badge-check' ></IconSkill>
+            <IconSkill color={color} className="bx bxs-badge-check"></IconSkill>
             <SkillData>
               <SkillName color={color}>{sk.title}</SkillName>
               <SkillLevel>{EXPERTISE[sk.expertise]}</SkillLevel>
@@ -39,5 +39,5 @@ export function Expertise({ title, skills, color, icon }: ExpertiseProps) {
         ))}
       </SkillsContainer>
     </ExpertiseContainer>
-  )
+  );
 }

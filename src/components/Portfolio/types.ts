@@ -1,4 +1,4 @@
-import { EntryFieldTypes } from "contentful"
+import { EntryFieldTypes } from "contentful";
 
 export interface Portfolio {
   title: string;
@@ -7,10 +7,10 @@ export interface Portfolio {
 }
 
 export type PortfolioSkeleton = {
-  contentTypeId: "portfolios",
+  contentTypeId: "portfolios";
   fields: {
-    title: EntryFieldTypes.Text,
-    image: EntryFieldTypes.AssetLink,
-    url: EntryFieldTypes.Text,
-  }
-}
+    title: EntryFieldTypes.Text;
+    image: EntryFieldTypes.AssetLink;
+    url: EntryFieldTypes.Text;
+  };
+};

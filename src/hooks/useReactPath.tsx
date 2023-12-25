@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 
 export default function useReactPath() {
   const [path, setPath] = useState(() => {
-    const href = window.location.href.split('/')
-    return href[href.length - 1]
+    const href = window.location.href.split("/");
+    return href[href.length - 1];
   });
   const listenToPopstate = () => {
-    const winPath = window.location.href.split('/');
+    const winPath = window.location.href.split("/");
     setPath(winPath[winPath.length - 1]);
   };
   useEffect(() => {
@@ -16,4 +16,4 @@ export default function useReactPath() {
     };
   }, []);
   return path;
-};
+}

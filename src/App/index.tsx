@@ -12,11 +12,11 @@ import { Skills } from "../components/Skills";
 import { Container, Main } from "./styles";
 
 import "moment/dist/locale/pt-br";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { Profile } from "../components/Profile";
 
 function App() {
-  moment.locale("pt-br")
+  moment.locale("pt-br");
 
   const scrollRef = useRef(null);
   const isNavbarClickRef = useRef(false);
@@ -34,7 +34,7 @@ function App() {
       return;
     }
 
-    window.location.href = `#${id}`
+    window.location.href = `#${id}`;
   };
 
   return (
@@ -50,8 +50,8 @@ function App() {
       </Main>
       <Footer />
       <ToastContainer />
-    </Container >
-  )
+    </Container>
+  );
 }
 
-export default App
+export default App;

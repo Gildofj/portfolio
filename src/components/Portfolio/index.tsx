@@ -12,9 +12,9 @@ import {
 } from "./styles";
 import { usePortfolio } from "./usePortfolio";
 
-interface PortfolioProps extends ScrollAnimatedProps { }
+interface PortfolioProps extends ScrollAnimatedProps {}
 
-export function Portfolio({ }: PortfolioProps) {
+export function Portfolio({}: PortfolioProps) {
   const { portfolios } = usePortfolio();
 
   return (
@@ -32,9 +32,9 @@ export function Portfolio({ }: PortfolioProps) {
               Repository
               <ArrowIcon className="bx bx-right-arrow-alt"></ArrowIcon>
             </Link>
-          </CardProject>)
-        )}
+          </CardProject>
+        ))}
       </ProjectsContainer>
-    </Container >
+    </Container>
   );
 }

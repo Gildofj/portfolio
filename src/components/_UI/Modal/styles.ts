@@ -6,7 +6,7 @@ interface ContainerProps {
   width?: number;
 }
 
-export const Content = styled(motion.div) <ContainerProps>`
+export const Content = styled(motion.div)<ContainerProps>`
   position: fixed;
   top: 0;
   left: 0;

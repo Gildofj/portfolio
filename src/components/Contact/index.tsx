@@ -1,10 +1,10 @@
-import emailjs from '@emailjs/browser';
-import { SyntheticEvent, useRef, useState } from 'react';
+import emailjs from "@emailjs/browser";
+import { SyntheticEvent, useRef, useState } from "react";
 
 import { Title } from "../_UI/Title";
-import { TitleContainer } from '../_UI/TitleContainer';
-import { doToast } from '../_UI/Toast';
-import { ScrollAnimatedProps } from '../types';
+import { TitleContainer } from "../_UI/TitleContainer";
+import { doToast } from "../_UI/Toast";
+import { ScrollAnimatedProps } from "../types";
 import { CONTACT_TYPES } from "./constants";
 import {
   CardContact,
@@ -26,12 +26,12 @@ import {
   Subtitle,
   Type,
   WriteMeButton,
-  WriteMeIcon
+  WriteMeIcon,
 } from "./styles";
 
-interface ContactProps extends ScrollAnimatedProps { }
+interface ContactProps extends ScrollAnimatedProps {}
 
-export function Contact({ }: ContactProps) {
+export function Contact({}: ContactProps) {
   const form = useRef<HTMLFormElement | null>(null);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
@@ -50,14 +50,15 @@ export function Contact({ }: ContactProps) {
       if (!target.email.value) setEmailError(true);
       if (!target.message.value) setMessageError(true);
 
-      if (!target.name.value || !target.email.value || !target.message.value) return;
+      if (!target.name.value || !target.email.value || !target.message.value)
+        return;
 
       try {
         await emailjs.sendForm(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
           form.current,
-          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
         );
 
         setNameError(false);
@@ -83,11 +84,19 @@ export function Contact({ }: ContactProps) {
           <Subtitle>Fale comigo</Subtitle>
           {CONTACT_TYPES.map((c, i) => (
             <CardContact key={i}>
-              {c.type === "Email" && <CardContactIcon className="bx bx-mail-send"></CardContactIcon>}
-              {c.type === "Whatsapp" && <CardContactIcon className="bx bxl-whatsapp"></CardContactIcon>}
+              {c.type === "Email" && (
+                <CardContactIcon className="bx bx-mail-send"></CardContactIcon>
+              )}
+              {c.type === "Whatsapp" && (
+                <CardContactIcon className="bx bxl-whatsapp"></CardContactIcon>
+              )}
               <Type>{c.type}</Type>
               <ContactInfo>{c.contactId}</ContactInfo>
-              <WriteMeButton href={c.redirectUrl} target="_blank" rel="noopener noreferrer">
+              <WriteMeButton
+                href={c.redirectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Falar
                 <WriteMeIcon className="bx bx-right-arrow-alt"></WriteMeIcon>
               </WriteMeButton>
@@ -102,17 +111,25 @@ export function Contact({ }: ContactProps) {
           </FieldGroup>
           {nameError && (
             <Error>
-              <FieldError>O campo Nome é obrigatório para prosseguir</FieldError>
+              <FieldError>
+                O campo Nome é obrigatório para prosseguir
+              </FieldError>
             </Error>
           )}
 
           <FieldGroup>
             <FormTag>E-mail</FormTag>
-            <Input type="email" name="email" placeholder="Insira seu email"></Input>
+            <Input
+              type="email"
+              name="email"
+              placeholder="Insira seu email"
+            ></Input>
           </FieldGroup>
           {emailError && (
             <Error>
-              <FieldError>O campo E-mail é obrigatório para prosseguir</FieldError>
+              <FieldError>
+                O campo E-mail é obrigatório para prosseguir
+              </FieldError>
             </Error>
           )}
 
@@ -121,12 +138,14 @@ export function Contact({ }: ContactProps) {
             <Message name="message" placeholder="Insira seu projeto"></Message>
             {messageError && (
               <Error>
-                <FieldError>O campo Projeto é obrigatório para prosseguir</FieldError>
+                <FieldError>
+                  O campo Projeto é obrigatório para prosseguir
+                </FieldError>
               </Error>
             )}
           </FieldGroupArea>
           <SendButton type="submit">
-            Enviar <SendIcon src="/portfolio/assets/images/send.svg" ></SendIcon>
+            Enviar <SendIcon src="/portfolio/assets/images/send.svg"></SendIcon>
           </SendButton>
         </Form>
       </ContactContainer>

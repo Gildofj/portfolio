@@ -20,7 +20,7 @@ export const Grid = styled.div`
 export const ExpertiseTitleContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: .3rem;
+  gap: 0.3rem;
 `;
 
 interface IconTitleProps {
@@ -34,7 +34,7 @@ export const IconTitle = styled.i<IconTitleProps>`
   @media screen and (max-width: 768px) {
     font-size: 2.25rem;
   }
- `;
+`;
 
 export const IconSkill = styled.i`
   font-size: 1.5rem;
@@ -44,7 +44,7 @@ export const IconSkill = styled.i`
   @media screen and (max-width: 768px) {
     font-size: 1.75rem;
   }
- `;
+`;
 
 export const ExpertiseTitle = styled.h2`
   font-size: 1.25rem;
@@ -67,10 +67,22 @@ export const ExpertiseContainer = styled.div`
   gap: 3rem;
   padding: 2rem;
   border-radius: 0.625rem;
-  background: rgb(114,14,158);
-  background: -moz-linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
-  background: -webkit-linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
-  background: linear-gradient(150deg, rgba(114,14,158,1) 0%, rgba(128,0,128,1) 100%);
+  background: rgb(114, 14, 158);
+  background: -moz-linear-gradient(
+    150deg,
+    rgba(114, 14, 158, 1) 0%,
+    rgba(128, 0, 128, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    150deg,
+    rgba(114, 14, 158, 1) 0%,
+    rgba(128, 0, 128, 1) 100%
+  );
+  background: linear-gradient(
+    150deg,
+    rgba(114, 14, 158, 1) 0%,
+    rgba(128, 0, 128, 1) 100%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#720e9e",endColorstr="#800080",GradientType=1);
 
   &:not(:last-child) {
@@ -101,7 +113,7 @@ export const SkillLevel = styled.span`
 
 export const SkillContainer = styled.div`
   display: flex;
-  gap: .3rem;
+  gap: 0.3rem;
   line-height: 1.6rem;
 `;
 

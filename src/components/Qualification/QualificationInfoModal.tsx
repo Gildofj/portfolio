@@ -11,7 +11,7 @@ import {
   ModalContainer,
   ModalContent,
   ModalTitle,
-  TextTitle
+  TextTitle,
 } from "./styles";
 import { Modal } from "../_UI/Modal";
 import { Qualification } from "./types";
@@ -21,7 +21,9 @@ interface QualificationInfoModalProps {
   qualification: Qualification;
 }
 
-export function QualificationInfoModal({ qualification }: QualificationInfoModalProps) {
+export function QualificationInfoModal({
+  qualification,
+}: QualificationInfoModalProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -34,7 +36,7 @@ export function QualificationInfoModal({ qualification }: QualificationInfoModal
             <TextTitle>{qualification.title}</TextTitle>
 
             <CloseButton onClick={() => setOpen(!open)}>
-              <CloseIcon className='bx bx-x' />
+              <CloseIcon className="bx bx-x" />
             </CloseButton>
           </ModalTitle>
           <ModalContent>
@@ -52,7 +54,10 @@ export function QualificationInfoModal({ qualification }: QualificationInfoModal
             </DataField>
             <DataField>
               <BoldText>Localização:</BoldText>
-              <span>{qualification.country}, {qualification.state}, {qualification.city}</span>
+              <span>
+                {qualification.country}, {qualification.state},{" "}
+                {qualification.city}
+              </span>
             </DataField>
             <DataField>
               <BoldText>Modelo:</BoldText>
@@ -61,28 +66,42 @@ export function QualificationInfoModal({ qualification }: QualificationInfoModal
             {qualification.certificateUrl && (
               <DataField>
                 <BoldText>Certificado:</BoldText>
-                <CertificateAnchor href={qualification.certificateUrl} target="_blank" rel="noopener noreferrer">
+                <CertificateAnchor
+                  href={qualification.certificateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {qualification.certificateId}
-                  <CertificateIcon src="/portfolio/assets/images/pop-out.svg" width={23} height={23} />
+                  <CertificateIcon
+                    src="/portfolio/assets/images/pop-out.svg"
+                    width={23}
+                    height={23}
+                  />
                 </CertificateAnchor>
               </DataField>
             )}
             {qualification.workedAppUrl && (
               <DataField>
                 <BoldText>Projetos Trabalhados:</BoldText>
-                <CertificateAnchor href={qualification.workedAppUrl} target="_blank" rel="noopener noreferrer">
+                <CertificateAnchor
+                  href={qualification.workedAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {qualification.workedAppName}
-                  <CertificateIcon src="/portfolio/assets/images/pop-out.svg" width={23} height={23} />
+                  <CertificateIcon
+                    src="/portfolio/assets/images/pop-out.svg"
+                    width={23}
+                    height={23}
+                  />
                 </CertificateAnchor>
               </DataField>
             )}
             <BoldText>Descrição:</BoldText>
-            <Description>
-              {qualification.description}
-            </Description>
+            <Description>{qualification.description}</Description>
           </ModalContent>
         </ModalContainer>
       </Modal>
     </>
-  )
+  );
 }

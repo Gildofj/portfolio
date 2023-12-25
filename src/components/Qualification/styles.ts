@@ -23,12 +23,13 @@ interface QualificationIconProps {
 }
 
 export const QualificationIcon = styled.i<QualificationIconProps>`
- font-size: 1.8rem;
- margin-right: 0.5rem;
- color: ${({ active, theme: { colors } }) => active ? colors.purple : colors.text};
- transition: .2s;
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+  color: ${({ active, theme: { colors } }) =>
+    active ? colors.purple : colors.text};
+  transition: 0.2s;
 
- &:hover {
+  &:hover {
     color: ${({ active, theme: { colors } }) => !active && colors.purple_200};
   }
 
@@ -56,8 +57,9 @@ export const Tab = styled.div<TypeProps>`
   font-weight: 500;
   margin: 0 0.5rem;
   cursor: pointer;
-  color: ${({ active, theme: { colors } }) => active ? colors.purple : colors.text};
-  transition: .2s;
+  color: ${({ active, theme: { colors } }) =>
+    active ? colors.purple : colors.text};
+  transition: 0.2s;
 
   &:hover {
     color: ${({ active, theme: { colors } }) => !active && colors.purple_200};
@@ -70,7 +72,7 @@ export const Tab = styled.div<TypeProps>`
     font-size: 1.75rem;
   }
 
-  @media screen and (max-width: 576px){
+  @media screen and (max-width: 576px) {
     margin: 0 0.75rem;
   }
 `;
@@ -94,7 +96,7 @@ export const Data = styled.div`
   grid-template-columns: 1.5fr max-content 1.5fr;
   column-gap: 1.5rem;
 
-  @media screen and (max-width: 400px){
+  @media screen and (max-width: 400px) {
     gap: 1rem;
   }
 `;
@@ -103,7 +105,7 @@ export const DataTitle = styled.div`
   font-weight: 600;
 
   @media screen and (max-width: 768px) {
-   font-size: 1.25rem ;
+    font-size: 1.25rem;
   }
 `;
 
@@ -122,7 +124,7 @@ export const DataCalendar = styled.div`
   font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
 
   @media screen and (max-width: 768px) {
-   font-size: 1rem;
+    font-size: 1rem;
   }
 `;
 
@@ -159,14 +161,14 @@ export const ModalButton = styled.button`
   font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
   cursor: pointer;
   color: ${({ theme: { colors } }) => colors.purple_300};
-  transition: .2s;
+  transition: 0.2s;
 
   &:hover {
     color: ${({ theme: { colors } }) => colors.purple_200};
   }
 
   @media screen and (max-width: 768px) {
-   font-size: 1rem;
+    font-size: 1rem;
   }
 `;
 
@@ -225,14 +227,15 @@ export const CertificateAnchor = styled.a`
   align-items: center;
   gap: 0.3rem;
   cursor: pointer;
-  transition: .2s;
+  transition: 0.2s;
 
   &:hover {
-    color: ${({ theme: { colors } }) => colors.violet}
+    color: ${({ theme: { colors } }) => colors.violet};
   }
 `;
 
 export const CertificateIcon = styled.img`
   cursor: pointer;
-  filter: invert(76%) sepia(34%) saturate(2086%) hue-rotate(244deg) brightness(97%) contrast(92%);
+  filter: invert(76%) sepia(34%) saturate(2086%) hue-rotate(244deg)
+    brightness(97%) contrast(92%);
 `;

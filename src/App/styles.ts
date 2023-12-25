@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
 
   @media screen and (max-width: 768px) {
-   max-width: 30rem;
+    max-width: 30rem;
   }
 
   @media screen and (max-width: 1260px) {
@@ -20,7 +20,6 @@ export const Container = styled.div`
     max-width: 70rem;
   }
 `;
-
 
 export const Main = styled(ScrollSpy)`
   height: 100%;

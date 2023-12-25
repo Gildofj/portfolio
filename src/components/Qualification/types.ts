@@ -2,13 +2,13 @@ import { EntryFieldTypes } from "contentful";
 
 export enum QualificationType {
   Education,
-  Experience
+  Experience,
 }
 
 export enum WorkModel {
   Remote,
   Hybrid,
-  OnSite
+  OnSite,
 }
 
 export interface Qualification {
@@ -28,21 +28,21 @@ export interface Qualification {
 }
 
 export type QualificationsSkeleton = {
-  contentTypeId: "qualifications",
+  contentTypeId: "qualifications";
   fields: {
-    title: EntryFieldTypes.Text,
-    organization: EntryFieldTypes.Text,
-    country: EntryFieldTypes.Text,
-    state: EntryFieldTypes.Text,
-    city: EntryFieldTypes.Text,
-    startDate: EntryFieldTypes.Date,
-    endDate: EntryFieldTypes.Date,
-    workModel: EntryFieldTypes.Number,
-    type: EntryFieldTypes.Number,
-    description: EntryFieldTypes.Text,
-    certificateId: EntryFieldTypes.Text,
-    certificateUrl: EntryFieldTypes.Text,
-    workedAppName: EntryFieldTypes.Text,
-    workedAppUrl: EntryFieldTypes.Text
-  }
-}
+    title: EntryFieldTypes.Text;
+    organization: EntryFieldTypes.Text;
+    country: EntryFieldTypes.Text;
+    state: EntryFieldTypes.Text;
+    city: EntryFieldTypes.Text;
+    startDate: EntryFieldTypes.Date;
+    endDate: EntryFieldTypes.Date;
+    workModel: EntryFieldTypes.Number;
+    type: EntryFieldTypes.Number;
+    description: EntryFieldTypes.Text;
+    certificateId: EntryFieldTypes.Text;
+    certificateUrl: EntryFieldTypes.Text;
+    workedAppName: EntryFieldTypes.Text;
+    workedAppUrl: EntryFieldTypes.Text;
+  };
+};

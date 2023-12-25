@@ -24,14 +24,14 @@ export const FooterSocial = styled.ul`
 export const Link = styled.a`
   color: ${({ theme }) => theme.colors.text};
   font-weight: 600;
-  transition: .2s;
+  transition: 0.2s;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.purple_200}
+    color: ${({ theme }) => theme.colors.purple_200};
   }
 
   @media screen and (max-width: 768px) {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -41,25 +41,25 @@ export const FooterTitle = styled.h2`
   color: ${({ theme: { colors } }) => colors.purple_600};
 
   @media screen and (max-width: 768px) {
-      font-size: 3.5rem;
+    font-size: 3.5rem;
   }
 `;
 
 export const SocialIcon = styled.i`
   font-size: 1.8rem;
-  transition: .2s;
+  transition: 0.2s;
 
   &:hover {
-    color: ${({ theme: { colors } }) => colors.purple_200}
+    color: ${({ theme: { colors } }) => colors.purple_200};
   }
 
   @media screen and (max-width: 768px) {
-      font-size: 2.25rem;
+    font-size: 2.25rem;
   }
 `;
 
 export const Authors = styled.span`
   @media screen and (max-width: 768px) {
-      font-size: 1.25rem;
+    font-size: 1.25rem;
   }
 `;

@@ -4,7 +4,14 @@ import { handleScrollWhenModalIsOpen } from "../../utils/scroll";
 import { Divider } from "../_UI/Divider";
 import { Overlay } from "../_UI/Overlay";
 import { getNavigation } from "../constants";
-import { Container, Link, NavbarButton, NavbarIcon, StyledList, StyledNav } from "./styles";
+import {
+  Container,
+  Link,
+  NavbarButton,
+  NavbarIcon,
+  StyledList,
+  StyledNav,
+} from "./styles";
 
 interface NavbarProps {
   handleNavbarItemClick: () => void;
@@ -20,10 +27,10 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
 
   useEffect(() => {
     handleScrollWhenModalIsOpen(open);
-  }, [])
+  }, []);
 
   useEffect(() => {
-    handleScrollWhenModalIsOpen(open)
+    handleScrollWhenModalIsOpen(open);
   }, [open]);
 
   return (
@@ -31,7 +38,7 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
       {open && <Overlay onClick={() => setOpen(!open)} />}
       <StyledNav>
         <NavbarButton onClick={() => setOpen(!open)}>
-          <NavbarIcon className='bx bx-menu'></NavbarIcon>
+          <NavbarIcon className="bx bx-menu"></NavbarIcon>
         </NavbarButton>
         <StyledList open={open}>
           {getNavigation(urlPath).map(({ id, href, text, active }) => (
@@ -48,8 +55,8 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
             </li>
           ))}
         </StyledList>
-      </StyledNav >
+      </StyledNav>
       <Divider />
-    </Container >
+    </Container>
   );
 }

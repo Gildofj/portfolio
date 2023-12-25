@@ -8,6 +8,7 @@ export const TitleContainer = styled.div`
   padding-top: 5rem;
 
   @media screen and (max-width: 768px) {
-      padding-top: 7rem;
+    padding-top: 7rem;
   }
 `;
+

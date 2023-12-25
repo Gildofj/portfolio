@@ -6,13 +6,19 @@ import { ModalProps } from "./types";
 import { handleScrollWhenModalIsOpen } from "../../../utils/scroll";
 import { AnimatePresence } from "framer-motion";
 
-export function Modal({ open, toggleOpen, width, height, children }: ModalProps) {
+export function Modal({
+  open,
+  toggleOpen,
+  width,
+  height,
+  children,
+}: ModalProps) {
   useEffect(() => {
     handleScrollWhenModalIsOpen(open);
-  }, [])
+  }, []);
 
   useEffect(() => {
-    handleScrollWhenModalIsOpen(open)
+    handleScrollWhenModalIsOpen(open);
   }, [open]);
 
   return createPortal(
@@ -37,6 +43,6 @@ export function Modal({ open, toggleOpen, width, height, children }: ModalProps)
         </>
       )}
     </AnimatePresence>,
-    document.getElementById("modal-root") as HTMLElement
+    document.getElementById("modal-root") as HTMLElement,
   );
 }

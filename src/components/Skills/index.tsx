@@ -6,9 +6,9 @@ import { Container, Grid, IconTitle } from "./styles";
 import { SkillType } from "./types";
 import { useSkills } from "./useSkills";
 
-interface SkillsProps extends ScrollAnimatedProps { }
+interface SkillsProps extends ScrollAnimatedProps {}
 
-export function Skills({ }: SkillsProps) {
+export function Skills({}: SkillsProps) {
   const { skills } = useSkills();
 
   return (
@@ -19,23 +19,31 @@ export function Skills({ }: SkillsProps) {
       <Grid>
         <Expertise
           title="Backend"
-          skills={skills?.filter(skill => skill.type == SkillType.BACKEND) || []}
+          skills={
+            skills?.filter(skill => skill.type == SkillType.BACKEND) || []
+          }
           color="#34D399"
-          icon={<IconTitle color="#34D399" className='bx bx-data'></IconTitle>}
+          icon={<IconTitle color="#34D399" className="bx bx-data"></IconTitle>}
         />
         <Expertise
           title="Frontend"
-          skills={skills?.filter(skill => skill.type == SkillType.FRONTEND) || []}
+          skills={
+            skills?.filter(skill => skill.type == SkillType.FRONTEND) || []
+          }
           color="#DDA0DD"
-          icon={<IconTitle color="#DDA0DD" className='bx bx-desktop'></IconTitle>}
+          icon={
+            <IconTitle color="#DDA0DD" className="bx bx-desktop"></IconTitle>
+          }
         />
         <Expertise
           title="Mobile"
           skills={skills?.filter(skill => skill.type == SkillType.MOBILE) || []}
           color="#1D1160"
-          icon={<IconTitle color="#1D1160" className='bx bx-mobile'></IconTitle>}
+          icon={
+            <IconTitle color="#1D1160" className="bx bx-mobile"></IconTitle>
+          }
         />
       </Grid>
     </Container>
-  )
+  );
 }
