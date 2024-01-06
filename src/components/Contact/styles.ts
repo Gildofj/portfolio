@@ -237,7 +237,7 @@ export const SendButton = styled.button`
     rgba(29, 17, 96, 1) 0%,
     rgba(75, 0, 130, 1) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1d1160",endColorstr="#4b0082",GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2C0080",endColorstr="#4b0082",GradientType=1);
 
   &:hover {
     transform: scale(1.1);

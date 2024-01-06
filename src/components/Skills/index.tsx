@@ -38,9 +38,9 @@ export function Skills({}: SkillsProps) {
         <Expertise
           title="Mobile"
           skills={skills?.filter(skill => skill.type == SkillType.MOBILE) || []}
-          color="#1D1160"
+          color="#2C0080"
           icon={
-            <IconTitle color="#1D1160" className="bx bx-mobile"></IconTitle>
+            <IconTitle color="#2C0080" className="bx bx-mobile"></IconTitle>
           }
         />
       </Grid>

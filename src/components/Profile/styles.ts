@@ -139,7 +139,7 @@ export const Button = styled(motion.a)<ButtonProps>`
   padding: 1rem;
   min-width: 11rem;
   border-radius: 0.625rem;
-  border: 1px solid #1d1160;
+  border: 1px solid #2c0080;
   cursor: pointer;
   transition: 0.2s;
   ${({ transparent, theme: { colors } }) =>
@@ -149,7 +149,7 @@ export const Button = styled(motion.a)<ButtonProps>`
       background: -moz-linear-gradient(90deg, rgba(29,17,96,1) 0%, rgba(75,0,130,1) 100%);
       background: -webkit-linear-gradient(90deg, rgba(29,17,96,1) 0%, rgba(75,0,130,1) 100%);
       background: linear-gradient(90deg, rgba(29,17,96,1) 0%, rgba(75,0,130,1) 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1d1160",endColorstr="#4b0082",GradientType=1);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2C0080",endColorstr="#4b0082",GradientType=1);
     `};
 
   &:hover {

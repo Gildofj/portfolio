@@ -22,10 +22,10 @@ const theme = {
     purple_300: "#800080",
     purple_400: "#662d91",
     purple_500: "#720e9e",
-    purple_600: "#4B0082",
+    purple_600: "#560080",
     purple_700: "#452c63",
     purple_800: "#33006F",
-    purple_900: "#1d1160",
+    purple_900: "#2C0080",
 
     violet: "#EE82EE",
     pink: "#DDA0DD",
