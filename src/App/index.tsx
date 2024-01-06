@@ -1,5 +1,5 @@
 import moment from "moment";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ToastContainer } from "react-toastify";
 
 import { About } from "../components/About";
@@ -9,11 +9,11 @@ import { Navbar } from "../components/Navbar";
 import { Portfolio } from "../components/Portfolio";
 import { Qualification } from "../components/Qualification";
 import { Skills } from "../components/Skills";
+import { Profile } from "../components/Profile";
 import { Container, Main } from "./styles";
 
 import "moment/dist/locale/pt-br";
 import "react-toastify/dist/ReactToastify.css";
-import { Profile } from "../components/Profile";
 
 function App() {
   moment.locale("pt-br");
@@ -36,6 +36,18 @@ function App() {
 
     window.location.href = `#${id}`;
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) window.location.href = "#";
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <Container ref={scrollRef}>
