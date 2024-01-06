@@ -59,12 +59,20 @@ export const CardProject = styled.div`
   }
 `;
 
-export const Image = styled.img`
+export const ImageContainer = styled.div`
   width: 21.5rem;
   height: 11.5rem;
   border-radius: 0.625rem;
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 0.625rem;
+  background: #ffffff;
   background-repeat: no-repeat;
   background-size: cover;
+  object-fit: scale-down;
   margin-bottom: 1rem;
 
   @media screen and (max-width: 992px) {

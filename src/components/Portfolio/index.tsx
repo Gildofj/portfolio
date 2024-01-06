@@ -9,6 +9,7 @@ import {
   Link,
   NameProject,
   ProjectsContainer,
+  ImageContainer,
 } from "./styles";
 import { usePortfolio } from "./usePortfolio";
 
@@ -26,7 +27,9 @@ export function Portfolio({}: PortfolioProps) {
       <ProjectsContainer>
         {portfolios?.map(p => (
           <CardProject key={p.title}>
-            <Image src={p.image} alt={p.title} />
+            <ImageContainer>
+              <Image src={p.image} alt={p.title}></Image>
+            </ImageContainer>
             <NameProject>{p.title}</NameProject>
             <Link href={p.url} target="_blank" rel="noopener noreferrer">
               Repository
