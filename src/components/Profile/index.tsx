@@ -8,7 +8,6 @@ import {
   ButtonsGroup,
   Container,
   DescriptionProfile,
-  Image,
   Link,
   Name,
   ProfileContainer,
