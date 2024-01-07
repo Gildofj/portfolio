@@ -37,7 +37,7 @@ const imageAnimation = keyframes`
   }
 `;
 
-export const Image = styled.div`
+export const ProfileImage = styled.div`
   background: url("/portfolio/assets/images/me.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -225,4 +225,8 @@ export const Link = styled.a`
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;
   }
+`;
+
+export const Image = styled.img`
+  width: 10rem;
 `;

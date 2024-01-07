@@ -23,7 +23,7 @@ const theme = {
     purple_400: "#662d91",
     purple_500: "#720e9e",
     purple_600: "#560080",
-    purple_700: "#452c63",
+    purple_700: "#4A2F7C",
     purple_800: "#33006F",
     purple_900: "#2C0080",
 

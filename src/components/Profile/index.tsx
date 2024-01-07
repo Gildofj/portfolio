@@ -12,6 +12,7 @@ import {
   Link,
   Name,
   ProfileContainer,
+  ProfileImage,
   Social,
   SocialIcon,
   WelcomeContainer,
@@ -30,7 +31,7 @@ export function Profile() {
           animate={{ scale: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <Image />
+          <ProfileImage />
         </AnchorImage>
         <Name
           initial={{ x: 100, opacity: 0 }}
@@ -54,12 +55,15 @@ export function Profile() {
               animate={{ scale: 1 }}
               transition={{ duration: 0.3, delay: i / 10 }}
             >
-              <Link href={urlRedirect} target="_blank" rel="noopener noreferrer">
+              <Link
+                href={urlRedirect}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <SocialIcon className={`bx ${icon}`}></SocialIcon>
               </Link>
             </motion.li>
-          )
-          )}
+          ))}
         </Social>
         <ButtonsGroup>
           <Button
@@ -99,7 +103,6 @@ export function Profile() {
           Portfólio!
         </Brand>
       </WelcomeContainer>
-
     </Container>
-  )
+  );
 }
