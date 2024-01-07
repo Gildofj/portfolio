@@ -6,9 +6,11 @@ import { Overlay } from "../_UI/Overlay";
 import { getNavigation } from "../constants";
 import {
   Container,
+  LeftLogo,
   Link,
   NavbarButton,
   NavbarIcon,
+  RightLogo,
   StyledList,
   StyledNav,
 } from "./styles";
@@ -37,6 +39,7 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
     <Container>
       {open && <Overlay onClick={() => setOpen(!open)} />}
       <StyledNav>
+        <LeftLogo src="http://localhost:5173/portfolio/assets/images/logo.png" />
         <NavbarButton onClick={() => setOpen(!open)}>
           <NavbarIcon className="bx bx-menu"></NavbarIcon>
         </NavbarButton>
@@ -55,6 +58,7 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
             </li>
           ))}
         </StyledList>
+        <RightLogo src="http://localhost:5173/portfolio/assets/images/logo.png" />
       </StyledNav>
       <Divider />
     </Container>

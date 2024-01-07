@@ -13,6 +13,8 @@ export const StyledNav = styled.nav`
 
   @media screen and (max-width: 768px) {
     height: 6rem;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem 0.5rem 1rem;
   }
 `;
 
@@ -108,5 +110,22 @@ export const NavbarIcon = styled.i`
   @media screen and (max-width: 768px) {
     font-size: 6rem;
     color: ${({ theme: { colors } }) => colors.text};
+  }
+`;
+
+export const LeftLogo = styled.img`
+  width: 3rem;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const RightLogo = styled.img`
+  display: none;
+  width: 5rem;
+
+  @media screen and (max-width: 768px) {
+    display: inline-block;
   }
 `;

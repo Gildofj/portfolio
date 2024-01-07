@@ -226,7 +226,3 @@ export const Link = styled.a`
     font-size: 1.5rem;
   }
 `;
-
-export const Image = styled.img`
-  width: 10rem;
-`;
