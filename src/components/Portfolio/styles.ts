@@ -81,7 +81,6 @@ export const Image = styled.img`
 
   @media screen and (max-width: 768px) {
     width: 26rem;
-    height: 16rem;
     border-radius: 1rem;
   }
 
