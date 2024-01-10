@@ -39,7 +39,7 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
     <Container>
       {open && <Overlay onClick={() => setOpen(!open)} />}
       <StyledNav>
-        <LeftLogo src="http://localhost:5173/portfolio/assets/images/logo.png" />
+        <LeftLogo src="https://gildofj.github.io/portfolio/assets/images/logo.png" />
         <NavbarButton onClick={() => setOpen(!open)}>
           <NavbarIcon className="bx bx-menu"></NavbarIcon>
         </NavbarButton>
