@@ -61,9 +61,7 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
             <Link
               active={false}
               open={open}
-              onClick={() => handleNavbarItemClick()}
               href="https://gildofj.github.io/uses"
-              target="_blank"
             >
               Setup
             </Link>
