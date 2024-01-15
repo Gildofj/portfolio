@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #18181b;
-  color: #d4d4d8;
+  background-color: ${({ theme: { colors } }) => colors.background};
+  color: ${({ theme: { colors } }) => colors.text};
 
   transition-property: color, background-color, border-color,
     text-decoration-color, fill, stroke;

@@ -4,7 +4,6 @@ import {
   CertificateAnchor,
   CertificateIcon,
   CloseButton,
-  CloseIcon,
   DataField,
   Description,
   ModalButton,
@@ -16,6 +15,7 @@ import {
 import { Modal } from "../_UI/Modal";
 import { Qualification } from "./types";
 import { WORK_MODEL } from "./constants";
+import { CloseOutline } from "react-ionicons";
 
 interface QualificationInfoModalProps {
   qualification: Qualification;
@@ -36,7 +36,7 @@ export function QualificationInfoModal({
             <TextTitle>{qualification.title}</TextTitle>
 
             <CloseButton onClick={() => setOpen(!open)}>
-              <CloseIcon className="bx bx-x" />
+              <CloseOutline color="#a855f7" height="32px" width="32px" />
             </CloseButton>
           </ModalTitle>
           <ModalContent>

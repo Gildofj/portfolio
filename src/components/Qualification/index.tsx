@@ -1,11 +1,12 @@
 import { useMemo, useState } from "react";
+import { BookOutline, BriefcaseOutline } from "react-ionicons";
+
 import { Title } from "../_UI/Title";
 import {
   Container,
   Content,
   Tabs,
   Tab,
-  QualificationIcon,
   Section,
   SectionContent,
   Data,
@@ -91,10 +92,13 @@ export function Qualification({}: QualificationProps) {
             onClick={() => setType(QualificationType.Experience)}
             active={type === QualificationType.Experience}
           >
-            <QualificationIcon
-              active={type === QualificationType.Experience}
-              className="bx bxs-briefcase-alt"
-            ></QualificationIcon>{" "}
+            <BriefcaseOutline
+              color={
+                type === QualificationType.Experience ? "#a855df7" : "#d4d4d8"
+              }
+              height="32px"
+              width="32px"
+            />
             Experiência
           </Tab>
 
@@ -102,10 +106,13 @@ export function Qualification({}: QualificationProps) {
             onClick={() => setType(QualificationType.Education)}
             active={type === QualificationType.Education}
           >
-            <QualificationIcon
-              active={type === QualificationType.Education}
-              className="bx bxs-graduation"
-            ></QualificationIcon>{" "}
+            <BookOutline
+              color={
+                type === QualificationType.Education ? "#a855df7" : "#d4d4d8"
+              }
+              height="32px"
+              width="32px"
+            />
             Educação
           </Tab>
         </Tabs>

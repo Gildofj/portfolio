@@ -19,9 +19,7 @@ export const StyledNav = styled.nav`
   z-index: 30;
 
   @media screen and (max-width: 768px) {
-    height: 6rem;
     justify-content: flex-end;
-    padding: 0.5rem 1rem 0.5rem 1rem;
   }
 `;
 
@@ -49,17 +47,17 @@ export const StyledList = styled.ul<StyledListProps>`
     transition: all 0.3s ease-in;
     overflow-y: ${({ open }) => (open ? "auto" : "hidden")};
     border-radius: 0 0 0.625rem 0.625rem;
-    background: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme.colors.background};
   }
 `;
 
 export const Logo = styled.h2`
-  font-weight: 600;
+  font-weight: ${({ theme: { fontWeight } }) => fontWeight.semibold};
   letter-spacing: -0.05em;
   padding: 0.5rem;
   font-family: "Fira Code";
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: ${({ theme }) => theme.fontSize.lg};
+  line-height: ${({ theme }) => theme.lineHeight.lg};
 `;
 
 export const LinkLogo = styled.a`
@@ -75,13 +73,14 @@ interface LinkProps {
 export const Link = styled.a<LinkProps>`
   display: inline-block;
   padding: 1rem 0.5rem;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   border-bottom: 4px solid
-    ${({ active, open }) => (active && !open ? "#ffffff" : "#00000000")};
+    ${({ active, open, theme }) =>
+      active && !open ? theme.colors.white : theme.colors.transparent};
   transition: 0.2s;
 
   &:active {
-    font-weight: bold;
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
   }
 
   @media screen and (max-width: 768px) {
@@ -98,14 +97,14 @@ export const NavbarButton = styled.button`
     position: absolute;
     top: 0;
     left: 0;
-    background: #00000000;
+    background: ${({ theme }) => theme.colors.transparent};
   }
 `;
 
 export const NavbarIcon = styled(MenuSharp)`
   @media screen and (max-width: 768px) {
     font-size: 6rem;
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.white};
   }
 `;
 
@@ -118,5 +117,5 @@ export const NavbarSocial = styled.div`
 
 export const SocialLink = styled.a`
   display: inline-block;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 `;

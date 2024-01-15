@@ -14,7 +14,8 @@ export const Content = styled(motion.div)<ContainerProps>`
   right: 0;
   margin: auto;
   display: block;
-  background: ${({ theme: { colors } }) => colors.purple_400};
+  background: ${({ theme: { colors } }) => colors.background};
+  color: ${({ theme }) => theme.colors.text};
   min-width: ${({ width }) => width ?? 70}%;
   min-height: ${({ height }) => height ?? 70}%;
   max-width: 70%;

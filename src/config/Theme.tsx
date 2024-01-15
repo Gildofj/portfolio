@@ -4,45 +4,26 @@ const theme = {
   colors: {
     background: "#18181b",
 
-    text: "#E6E6FA",
+    text: "#d4d4d8",
 
-    caption_500: "#71717A",
-    caption_400: "#A1A1AA",
-    caption_300: "#D4D4D8",
+    black: "#000000",
+    white: "#ffffff",
 
     shape: "#2A2634",
 
-    primary: "#800080",
+    purple_500: "#A855F7",
+    purple_800: "#6B21A8",
+
+    zinc_300: "#d4d4d8",
+    zinc_900: "#18181b",
+
+    primary: "#A855F7",
     success: "#34D399",
     alert: "#F87171",
 
-    purple: "#800080",
-    purple_200: "#D8BFD8",
-    purple_300: "#800080",
-    purple_400: "#662d91",
-    purple_500: "#720e9e",
-    purple_600: "#560080",
-    purple_700: "#4A2F7C",
-    purple_800: "#33006F",
-    purple_900: "#2C0080",
-
-    violet: "#EE82EE",
-    pink: "#DDA0DD",
     transparent: "#00000000",
   },
-  fonts: [
-    "--apple-system",
-    "BlinkMacSystemFont",
-    "Inter",
-    "Segoe UI",
-    "Helvetica",
-    "Arial",
-    "sans-serif",
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-  ],
-  fontSizes: {
+  fontSize: {
     xs: "0.75rem",
     sm: "0.875rem",
     base: "1rem",
@@ -53,7 +34,18 @@ const theme = {
     xxxxl: "2.25rem",
     xxxxxl: "3rem",
   },
-  lineHeights: {
+  fontWeight: {
+    thin: 100,
+    extralight: 200,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    black: 900,
+  },
+  lineHeight: {
     xs: "1rem",
     sm: "1.25rem",
     base: "1.5rem",
@@ -85,12 +77,12 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.base};
+  font-size: ${({ theme: { fontSize } }) => fontSize.base};
   font-family: --apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Helvetiva, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
   --webkit-font-smoothing: antialiased;
   text-rendering: optmizeLegibility;
   overflow-wrap: break-word;
-  line-height: ${({ theme: { lineHeights } }) => lineHeights.base};
+  line-height: ${({ theme: { lineHeight } }) => lineHeight.base};
 }
 
 ol, ul {

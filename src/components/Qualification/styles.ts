@@ -18,26 +18,6 @@ export const Content = styled.div`
   }
 `;
 
-interface QualificationIconProps {
-  active: boolean;
-}
-
-export const QualificationIcon = styled.i<QualificationIconProps>`
-  font-size: 1.8rem;
-  margin-right: 0.5rem;
-  color: ${({ active, theme: { colors } }) =>
-    active ? colors.purple : colors.text};
-  transition: 0.2s;
-
-  &:hover {
-    color: ${({ active, theme: { colors } }) => !active && colors.purple_200};
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 2rem;
-  }
-`;
-
 export const Tabs = styled.div`
   display: flex;
   align-items: center;
@@ -53,19 +33,17 @@ interface TypeProps {
 export const Tab = styled.div<TypeProps>`
   display: flex;
   align-items: center;
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.xxl};
+  font-size: ${({ theme: { fontSize } }) => fontSize.xxl};
   font-weight: semibold;
   margin: 0 0.5rem;
   cursor: pointer;
+  gap: 0.5rem;
   color: ${({ active, theme: { colors } }) =>
-    active ? colors.purple : colors.text};
+    active ? colors.purple_800 : colors.text};
   transition: 0.2s;
 
   &:hover {
-    color: ${({ active, theme: { colors } }) => !active && colors.purple_200};
-    ${QualificationIcon} {
-      color: ${({ active, theme: { colors } }) => !active && colors.purple_200};
-    }
+    color: ${({ active, theme: { colors } }) => !active && colors.primary};
   }
 
   @media screen and (max-width: 768px) {
@@ -111,8 +89,9 @@ export const DataTitle = styled.div`
 
 export const DataSubTitle = styled.div`
   display: inline-block;
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.sm};
-  color: ${({ theme: { colors } }) => colors.caption_300};
+  font-size: ${({ theme: { fontSize } }) => fontSize.sm};
+  line-height: ${({ theme }) => theme.lineHeight.sm};
+  color: ${({ theme: { colors } }) => colors.text};
   margin-bottom: 1rem;
   @media screen and (max-width: 768px) {
     font-size: 1.25rem;
@@ -120,11 +99,13 @@ export const DataSubTitle = styled.div`
 `;
 
 export const DataCalendar = styled.div`
-  color: ${({ theme: { colors } }) => colors.caption_300};
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.sm};
+  color: ${({ theme: { colors } }) => colors.text};
+  font-size: ${({ theme: { fontSize } }) => fontSize.sm};
+  line-height: ${({ theme }) => theme.lineHeight.sm};
 
   @media screen and (max-width: 768px) {
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSize.base};
+    line-height: ${({ theme }) => theme.lineHeight.base};
   }
 `;
 
@@ -132,7 +113,7 @@ export const Rounder = styled.div`
   display: inline-block;
   width: 13px;
   height: 13px;
-  background-color: ${({ theme: { colors } }) => colors.purple_300};
+  background-color: ${({ theme: { colors } }) => colors.purple_800};
   border-radius: 50%;
 
   @media screen and (max-width: 768px) {
@@ -146,7 +127,7 @@ export const Line = styled.div`
   width: 1px;
   height: 100%;
   transform: translate(6px, -7px);
-  background-color: ${({ theme: { colors } }) => colors.purple_300};
+  background-color: ${({ theme: { colors } }) => colors.purple_800};
 
   @media screen and (max-width: 768px) {
     width: 4px;
@@ -158,13 +139,14 @@ export const ModalButton = styled.button`
   display: block;
   margin-top: 0.5rem;
   background: none;
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.sm};
+  font-size: ${({ theme: { fontSize } }) => fontSize.sm};
+  line-height: ${({ theme: { lineHeight } }) => lineHeight.sm};
   cursor: pointer;
-  color: ${({ theme: { colors } }) => colors.purple_300};
+  color: ${({ theme: { colors } }) => colors.purple_800};
   transition: 0.2s;
 
   &:hover {
-    color: ${({ theme: { colors } }) => colors.purple_200};
+    color: ${({ theme: { colors } }) => colors.primary};
   }
 
   @media screen and (max-width: 768px) {
@@ -191,18 +173,13 @@ export const DataField = styled.div`
 `;
 
 export const CloseButton = styled.button`
-  background: #00000000;
+  background: ${({ theme }) => theme.colors.transparent};
   cursor: pointer;
-`;
-
-export const CloseIcon = styled.i`
-  font-size: 2rem;
-  color: ${({ theme: { colors } }) => colors.purple_200};
 `;
 
 export const TextTitle = styled.h3`
   font-size: 1.5rem;
-  color: ${({ theme: { colors } }) => colors.purple_200};
+  color: ${({ theme: { colors } }) => colors.primary};
   font-weight: 600;
 `;
 
@@ -217,7 +194,6 @@ export const BoldText = styled.strong`
 `;
 
 export const Description = styled.p`
-  line-height: 1.5rem;
   white-space: pre-line;
   text-align: justify;
 `;
@@ -230,7 +206,7 @@ export const CertificateAnchor = styled.a`
   transition: 0.2s;
 
   &:hover {
-    color: ${({ theme: { colors } }) => colors.violet};
+    color: ${({ theme: { colors } }) => colors.primary};
   }
 `;
 
