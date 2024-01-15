@@ -1,3 +1,10 @@
+import {
+  LogoGithub,
+  LogoTwitter,
+  LogoInstagram,
+  LogoLinkedin,
+} from "react-ionicons";
+
 export const getNavigation = (urlPath: string) => [
   {
     id: 1,
@@ -39,19 +46,19 @@ export const getNavigation = (urlPath: string) => [
 
 export const SOCIALS = [
   {
-    icon: "bxl-github",
+    id: "github",
     urlRedirect: "https://github.com/gildofj/",
   },
   {
-    icon: "bxl-linkedin-square",
+    id: "linkedin",
     urlRedirect: "https://www.linkedin.com/in/gildofj/",
   },
   {
-    icon: "bxl-instagram-alt",
+    id: "instagram",
     urlRedirect: "https://www.instagram.com/tao_gildao/",
   },
   {
-    icon: "bxl-twitter",
+    id: "twitter",
     urlRedirect: "https://www.twitter.com/tao_gildao/",
   },
 ];

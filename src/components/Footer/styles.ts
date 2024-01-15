@@ -23,25 +23,15 @@ export const FooterSocial = styled.ul`
 
 export const Link = styled.a`
   color: ${({ theme }) => theme.colors.text};
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   transition: 0.2s;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.purple_200};
+    color: ${({ theme: { colors } }) => colors.purple_primary};
   }
 
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;
-  }
-`;
-
-export const FooterTitle = styled.h2`
-  font-size: 3.125rem;
-  font-weight: bold;
-  color: ${({ theme: { colors } }) => colors.purple_600};
-
-  @media screen and (max-width: 768px) {
-    font-size: 3.5rem;
   }
 `;
 
@@ -50,7 +40,7 @@ export const SocialIcon = styled.i`
   transition: 0.2s;
 
   &:hover {
-    color: ${({ theme: { colors } }) => colors.purple_200};
+    color: ${({ theme: { colors } }) => colors.purple_primary};
   }
 
   @media screen and (max-width: 768px) {
@@ -59,7 +49,6 @@ export const SocialIcon = styled.i`
 `;
 
 export const Authors = styled.span`
-  @media screen and (max-width: 768px) {
-    font-size: 1.25rem;
-  }
+  text-align: center;
+  color: ${({ theme }) => theme.colors.zinc_500};
 `;

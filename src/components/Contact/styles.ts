@@ -7,7 +7,6 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 4rem;
-  padding: 7rem 2rem;
 `;
 
 export const ContactContainer = styled.div`
@@ -29,12 +28,9 @@ export const ContactTypes = styled.div`
 `;
 
 export const Subtitle = styled.h3`
-  font-size: 1.5rem;
-  font-weight: 500;
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.75rem;
-  }
+  font-size: ${({ theme }) => theme.fontSize.xxl};
+  line-height: ${({ theme }) => theme.lineHeight.xxl};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
 `;
 
 export const CardContact = styled.div`
@@ -45,62 +41,19 @@ export const CardContact = styled.div`
   border-radius: 0.625rem;
   gap: 0.5rem;
   padding: 1.2rem 3rem;
-  background: rgb(114, 14, 158);
-  background: -moz-linear-gradient(
-    150deg,
-    rgba(114, 14, 158, 1) 0%,
-    rgba(128, 0, 128, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    150deg,
-    rgba(114, 14, 158, 1) 0%,
-    rgba(128, 0, 128, 1) 100%
-  );
-  background: linear-gradient(
-    150deg,
-    rgba(114, 14, 158, 1) 0%,
-    rgba(128, 0, 128, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#720e9e",endColorstr="#800080",GradientType=1);
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    width: 30rem;
-    padding: 3rem 6rem;
-    border-radius: 1rem;
-  }
-`;
-
-export const CardContactIcon = styled.i`
-  font-size: 2rem;
-
-  @media screen and (max-width: 768px) {
-    font-size: 3rem;
-  }
-`;
-
-export const WriteMeIcon = styled.i`
-  font-size: 1.25rem;
-  transition: 0.3s;
-  &:hover {
-    transform: translate(0.25rem);
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 2rem;
-  }
+  background: ${({ theme }) => theme.colors.transparent};
+  border: 1px solid ${({ theme }) => theme.colors.primary};
 `;
 
 export const WriteMeButton = styled.a`
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  font-size: 1rem;
   margin-top: 1rem;
+  line-height: 1;
+
   &:hover {
-    ${WriteMeIcon} {
-      transform: translate(0.25rem);
-    }
+    color: ${({ theme }) => theme.colors.purple_800};
   }
 
   @media screen and (max-width: 768px) {
@@ -109,14 +62,10 @@ export const WriteMeButton = styled.a`
 `;
 
 export const Form = styled.form`
-  width: 25rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
 `;
 
 export const FieldGroup = styled.div`
@@ -165,13 +114,9 @@ export const FormTag = styled.label`
   left: 1.25rem;
   font-size: 0.9rem;
   padding: 0.25rem;
-  background-color: ${({ theme: { colors } }) => colors.background_800};
-  color: ${({ theme: { colors } }) => colors.purple_300};
+  background-color: ${({ theme: { colors } }) => colors.background};
+  color: ${({ theme: { colors } }) => colors.primary};
   z-index: 10;
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.3rem;
-  }
 `;
 
 export const Input = styled.input`
@@ -182,13 +127,8 @@ export const Input = styled.input`
   padding: 1.2rem;
   border-radius: 0.625rem;
   background-color: ${({ theme: { colors } }) => colors.background};
-  border: 1px solid ${({ theme: { colors } }) => colors.purple_300};
+  border: 1px solid ${({ theme: { colors } }) => colors.primary};
   z-index: 1;
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-    padding: 1.75rem;
-  }
 `;
 
 export const Message = styled.textarea`
@@ -201,7 +141,7 @@ export const Message = styled.textarea`
   overflow: hidden;
   resize: none;
   background-color: ${({ theme: { colors } }) => colors.background};
-  border: 1px solid ${({ theme: { colors } }) => colors.purple_300};
+  border: 1px solid ${({ theme: { colors } }) => colors.primary};
 
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;
@@ -214,79 +154,28 @@ export const SendButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   padding: 0.8rem 2rem;
   border-radius: 0.625rem;
-  border: 1px solid #1d1160;
+  border: 1px solid ${({ theme }) => theme.colors.purple_800};
   column-gap: 1rem;
   transition: 0.2s;
   cursor: pointer;
-  background: rgb(29, 17, 96);
-  background: -moz-linear-gradient(
-    90deg,
-    rgba(29, 17, 96, 1) 0%,
-    rgba(75, 0, 130, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    rgba(29, 17, 96, 1) 0%,
-    rgba(75, 0, 130, 1) 100%
-  );
-  background: linear-gradient(
-    90deg,
-    rgba(29, 17, 96, 1) 0%,
-    rgba(75, 0, 130, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2C0080",endColorstr="#4b0082",GradientType=1);
+  background: ${({ theme }) => theme.colors.transparent};
+  color: ${({ theme }) => theme.colors.text};
 
   &:hover {
     transform: scale(1.1);
-    background: rgb(51, 0, 111);
-    background: -moz-linear-gradient(
-      90deg,
-      rgba(51, 0, 111, 1) 0%,
-      rgba(114, 14, 158, 1) 100%
-    );
-    background: -webkit-linear-gradient(
-      90deg,
-      rgba(51, 0, 111, 1) 0%,
-      rgba(114, 14, 158, 1) 100%
-    );
-    background: linear-gradient(
-      90deg,
-      rgba(51, 0, 111, 1) 0%,
-      rgba(114, 14, 158, 1) 100%
-    );
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#33006f",endColorstr="#720e9e",GradientType=1);
-  }
-  &:active {
-    transform: scale(0.99);
+    color: ${({ theme }) => theme.colors.purple_800};
   }
 
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-    border-radius: 1rem;
-    padding: 1.25rem 3rem;
+  &:active {
+    transform: scale(0.99);
   }
 `;
 
 export const Type = styled.span`
-  font-weight: 600;
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-  }
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 
-export const ContactInfo = styled.span`
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-`;
-
-export const SendIcon = styled.img`
-  @media screen and (max-width: 768px) {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-`;
+export const SendIcon = styled.img``;

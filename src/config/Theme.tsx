@@ -15,6 +15,7 @@ const theme = {
     purple_800: "#6B21A8",
 
     zinc_300: "#d4d4d8",
+    zinc_500: "#71717A",
     zinc_900: "#18181b",
 
     primary: "#A855F7",

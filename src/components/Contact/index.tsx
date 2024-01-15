@@ -8,9 +8,7 @@ import { ScrollAnimatedProps } from "../types";
 import { CONTACT_TYPES } from "./constants";
 import {
   CardContact,
-  CardContactIcon,
   ContactContainer,
-  ContactInfo,
   ContactTypes,
   Container,
   Error,
@@ -26,8 +24,8 @@ import {
   Subtitle,
   Type,
   WriteMeButton,
-  WriteMeIcon,
 } from "./styles";
+import { ArrowForwardOutline, MailOutline } from "react-ionicons";
 
 interface ContactProps extends ScrollAnimatedProps {}
 
@@ -85,20 +83,29 @@ export function Contact({}: ContactProps) {
           {CONTACT_TYPES.map((c, i) => (
             <CardContact key={i}>
               {c.type === "Email" && (
-                <CardContactIcon className="bx bx-mail-send"></CardContactIcon>
+                <MailOutline color="#d6d6d8" height="32px" width="32px" />
               )}
               {c.type === "Whatsapp" && (
-                <CardContactIcon className="bx bxl-whatsapp"></CardContactIcon>
+                <img
+                  src="/portfolio/assets/images/whatsapp.svg"
+                  width={32}
+                  height={32}
+                  alt="icone whatsapp"
+                />
               )}
               <Type>{c.type}</Type>
-              <ContactInfo>{c.contactId}</ContactInfo>
+              <span>{c.contactId}</span>
               <WriteMeButton
                 href={c.redirectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Falar
-                <WriteMeIcon className="bx bx-right-arrow-alt"></WriteMeIcon>
+                <ArrowForwardOutline
+                  color="#d6d6d8"
+                  height="23px"
+                  width="23px"
+                />
               </WriteMeButton>
             </CardContact>
           ))}
