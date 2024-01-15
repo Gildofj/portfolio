@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
 import useReactPath from "../../hooks/useReactPath";
 import { handleScrollWhenModalIsOpen } from "../../utils/scroll";
-import { Divider } from "../_UI/Divider";
 import { Overlay } from "../_UI/Overlay";
 import { getNavigation } from "../constants";
 import {
   Container,
-  LeftLogo,
   Link,
+  LinkLogo,
+  Logo,
   NavbarButton,
   NavbarIcon,
-  RightLogo,
+  NavbarSocial,
+  SocialLink,
   StyledList,
   StyledNav,
 } from "./styles";
+import { CodeSlash, LogoGithub, LogoTwitter } from "react-ionicons";
 
 interface NavbarProps {
   handleNavbarItemClick: () => void;
@@ -39,10 +41,15 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
     <Container>
       {open && <Overlay onClick={() => setOpen(!open)} />}
       <StyledNav>
-        <LeftLogo src="https://gildofj.github.io/portfolio/assets/images/logo.png" />
         <NavbarButton onClick={() => setOpen(!open)}>
-          <NavbarIcon className="bx bx-menu"></NavbarIcon>
+          <NavbarIcon />
         </NavbarButton>
+        <Logo>
+          <LinkLogo href="/portfolio/">
+            <CodeSlash color="#ffffff" height="1.7rem" width="1.7rem" />
+            Gildo Junior
+          </LinkLogo>
+        </Logo>
         <StyledList open={open}>
           {getNavigation(urlPath).map(({ id, href, text, active }) => (
             <li key={id}>
@@ -67,9 +74,17 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
             </Link>
           </li>
         </StyledList>
-        <RightLogo src="http://localhost:5173/portfolio/assets/images/logo.png" />
+        <NavbarSocial>
+          <SocialLink href="https://twitter.com/tao_gildao" target="_blank">
+            {/* <span class="sr-only">Follow Me on Twitter</span> */}
+            <LogoTwitter width="32px" height="32px" color="#ffffff" />
+          </SocialLink>
+          <SocialLink href="https://github.com/gildofj" target="_blank">
+            {/* <span class="sr-only">Go to my Github</span> */}
+            <LogoGithub width="32px" height="32px" color="#ffffff" />
+          </SocialLink>
+        </NavbarSocial>
       </StyledNav>
-      <Divider />
     </Container>
   );
 }

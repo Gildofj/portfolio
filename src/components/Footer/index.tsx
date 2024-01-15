@@ -1,4 +1,3 @@
-import { Divider } from "../_UI/Divider";
 import { SOCIALS } from "../constants";
 import {
   Container,
@@ -7,19 +6,22 @@ import {
   FooterTitle,
   Link,
   SocialIcon,
-  Authors
+  Authors,
 } from "./styles";
 
 export function Footer() {
   return (
     <Container>
-      <Divider />
       <FooterContainer>
         <FooterTitle>Gildo Junior</FooterTitle>
         <FooterSocial>
           {SOCIALS.map(({ icon, urlRedirect }, i) => (
             <li key={i}>
-              <Link href={urlRedirect} target="_blank" rel="noopener noreferrer">
+              <Link
+                href={urlRedirect}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <SocialIcon className={`bx ${icon}`}></SocialIcon>
               </Link>
             </li>
@@ -28,5 +30,5 @@ export function Footer() {
         <Authors>Todos os direitos reservados. © 2023 Gildo Junior</Authors>
       </FooterContainer>
     </Container>
-  )
+  );
 }

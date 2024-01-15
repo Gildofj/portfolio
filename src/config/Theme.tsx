@@ -2,8 +2,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 const theme = {
   colors: {
-    background_900: "#12131F",
-    background_800: "#18181B",
+    background: "#18181b",
 
     text: "#E6E6FA",
 
@@ -31,64 +30,90 @@ const theme = {
     pink: "#DDA0DD",
     transparent: "#00000000",
   },
-  fonts: ["Inter", "Roboto", "sans-serif"],
+  fonts: [
+    "--apple-system",
+    "BlinkMacSystemFont",
+    "Inter",
+    "Segoe UI",
+    "Helvetica",
+    "Arial",
+    "sans-serif",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+  ],
   fontSizes: {
-    small: "0.75em",
-    medium: "1em",
-    large: "2em",
+    xs: "0.75rem",
+    sm: "0.875rem",
+    base: "1rem",
+    lg: "1.125rem",
+    xl: "1.875rem",
+    xxl: "1.5rem",
+    xxxl: "1.875",
+    xxxxl: "2.25rem",
+    xxxxxl: "3rem",
+  },
+  lineHeights: {
+    xs: "1rem",
+    sm: "1.25rem",
+    base: "1.5rem",
+    lg: "1.75rem",
+    xl: "1.75rem",
+    xxl: "2rem",
+    xxxl: "2.25rem",
+    xxxxl: "2.5rem",
+    max: "1",
   },
 };
 
 const GlobalStyle = createGlobalStyle`
-  * {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-  font-family: "Inter", "Roboto", sans-serif !important;
-	font: inherit;
-  color: #E6E6FA;
-	vertical-align: baseline;
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
   scroll-behavior: smooth;
-  font-weight: 400;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
+
 body {
-  display: flex;
-	line-height: 1;
-  background-color: #12131F;
-  min-height: 100vh;
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.base};
+  font-family: --apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Helvetiva, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  --webkit-font-smoothing: antialiased;
+  text-rendering: optmizeLegibility;
+  overflow-wrap: break-word;
+  line-height: ${({ theme: { lineHeights } }) => lineHeights.base};
 }
-#root {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
+
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
+
 a {
-  color: #E6E6FA;
+  color: rgb(212, 212, 216);
   text-decoration: none;
 }
 `;

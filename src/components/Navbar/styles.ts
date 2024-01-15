@@ -1,15 +1,22 @@
+import { MenuSharp } from "react-ionicons";
 import styled from "styled-components";
 
+export const Container = styled.header`
+  width: 100%;
+  position: fixed;
+  z-index: 20;
+  backdrop-filter: blur(12px);
+  font-family: "Fira Code";
+  transition: 0.2s;
+`;
+
 export const StyledNav = styled.nav`
-  position: relative;
-  height: 4rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0.5rem 3rem 0.5rem 1rem;
-  background-color: ${({ theme: { colors } }) => colors.background_900};
-  color: ${({ theme: { colors } }) => colors.white};
-  z-index: 10000;
+  justify-content: space-between;
+  position: relative;
+  height: 76px;
+  z-index: 30;
 
   @media screen and (max-width: 768px) {
     height: 6rem;
@@ -23,11 +30,10 @@ interface StyledListProps {
 }
 
 export const StyledList = styled.ul<StyledListProps>`
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -43,24 +49,22 @@ export const StyledList = styled.ul<StyledListProps>`
     transition: all 0.3s ease-in;
     overflow-y: ${({ open }) => (open ? "auto" : "hidden")};
     border-radius: 0 0 0.625rem 0.625rem;
-    background: rgb(114, 14, 158);
-    background: -moz-linear-gradient(
-      150deg,
-      rgba(114, 14, 158, 1) 0%,
-      rgba(128, 0, 128, 1) 100%
-    );
-    background: -webkit-linear-gradient(
-      150deg,
-      rgba(114, 14, 158, 1) 0%,
-      rgba(128, 0, 128, 1) 100%
-    );
-    background: linear-gradient(
-      150deg,
-      rgba(114, 14, 158, 1) 0%,
-      rgba(128, 0, 128, 1) 100%
-    );
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#720e9e",endColorstr="#800080",GradientType=1);
+    background: ${({ theme }) => theme.background};
   }
+`;
+
+export const Logo = styled.h2`
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  padding: 0.5rem;
+  font-family: "Fira Code";
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+`;
+
+export const LinkLogo = styled.a`
+  display: inline-flex;
+  gap: 0.5rem;
 `;
 
 interface LinkProps {
@@ -69,29 +73,21 @@ interface LinkProps {
 }
 
 export const Link = styled.a<LinkProps>`
-  color: ${({ active, open, theme }) =>
-    active && !open ? theme.colors.purple_300 : "inherit"};
-  font-weight: ${({ active }) => (active ? 900 : 600)};
+  display: inline-block;
+  padding: 1rem 0.5rem;
+  color: #ffffff;
+  border-bottom: 4px solid
+    ${({ active, open }) => (active && !open ? "#ffffff" : "#00000000")};
   transition: 0.2s;
 
-  &:hover {
-    color: ${({ active, theme }) => !active && theme.colors.purple_200};
+  &:active {
+    font-weight: bold;
   }
 
   @media screen and (max-width: 768px) {
     display: block;
     width: 100%;
   }
-`;
-
-export const Container = styled.div`
-  width: 100%;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  z-index: 999;
-  transition: 0.2s;
 `;
 
 export const NavbarButton = styled.button`
@@ -106,26 +102,21 @@ export const NavbarButton = styled.button`
   }
 `;
 
-export const NavbarIcon = styled.i`
+export const NavbarIcon = styled(MenuSharp)`
   @media screen and (max-width: 768px) {
     font-size: 6rem;
-    color: ${({ theme: { colors } }) => colors.text};
+    color: #ffffff;
   }
 `;
 
-export const LeftLogo = styled.img`
-  width: 3rem;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
+export const NavbarSocial = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.5rem;
 `;
 
-export const RightLogo = styled.img`
-  display: none;
-  width: 5rem;
-
-  @media screen and (max-width: 768px) {
-    display: inline-block;
-  }
+export const SocialLink = styled.a`
+  display: inline-block;
+  color: #ffffff;
 `;

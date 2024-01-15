@@ -1,6 +1,7 @@
 import moment from "moment";
 import { useEffect, useRef } from "react";
 import { ToastContainer } from "react-toastify";
+import ScrollSpy from "react-ui-scrollspy";
 
 import { About } from "../components/About";
 import { Contact } from "../components/Contact";
@@ -52,13 +53,15 @@ function App() {
   return (
     <Container ref={scrollRef}>
       <Navbar handleNavbarItemClick={handleNavbarItemClick} />
-      <Main onUpdateCallback={onUpdateCallback}>
-        <Profile />
-        <About scrollRef={scrollRef} />
-        <Skills scrollRef={scrollRef} />
-        <Qualification scrollRef={scrollRef} />
-        <Portfolio scrollRef={scrollRef} />
-        <Contact scrollRef={scrollRef} />
+      <Main>
+        <ScrollSpy onUpdateCallback={onUpdateCallback}>
+          <Profile />
+          <About scrollRef={scrollRef} />
+          <Skills scrollRef={scrollRef} />
+          <Qualification scrollRef={scrollRef} />
+          <Portfolio scrollRef={scrollRef} />
+          <Contact scrollRef={scrollRef} />
+        </ScrollSpy>
       </Main>
       <Footer />
       <ToastContainer />

@@ -181,7 +181,7 @@ export const Input = styled.input`
   width: 100%;
   padding: 1.2rem;
   border-radius: 0.625rem;
-  background-color: ${({ theme: { colors } }) => colors.background_800};
+  background-color: ${({ theme: { colors } }) => colors.background};
   border: 1px solid ${({ theme: { colors } }) => colors.purple_300};
   z-index: 1;
 
@@ -200,7 +200,7 @@ export const Message = styled.textarea`
   -moz-border-radius: 0.625rem;
   overflow: hidden;
   resize: none;
-  background-color: ${({ theme: { colors } }) => colors.background_800};
+  background-color: ${({ theme: { colors } }) => colors.background};
   border: 1px solid ${({ theme: { colors } }) => colors.purple_300};
 
   @media screen and (max-width: 768px) {

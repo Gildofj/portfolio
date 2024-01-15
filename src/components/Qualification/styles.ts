@@ -53,8 +53,8 @@ interface TypeProps {
 export const Tab = styled.div<TypeProps>`
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.xxl};
+  font-weight: semibold;
   margin: 0 0.5rem;
   cursor: pointer;
   color: ${({ active, theme: { colors } }) =>
@@ -111,7 +111,7 @@ export const DataTitle = styled.div`
 
 export const DataSubTitle = styled.div`
   display: inline-block;
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.sm};
   color: ${({ theme: { colors } }) => colors.caption_300};
   margin-bottom: 1rem;
   @media screen and (max-width: 768px) {
@@ -121,7 +121,7 @@ export const DataSubTitle = styled.div`
 
 export const DataCalendar = styled.div`
   color: ${({ theme: { colors } }) => colors.caption_300};
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.sm};
 
   @media screen and (max-width: 768px) {
     font-size: 1rem;
@@ -158,7 +158,7 @@ export const ModalButton = styled.button`
   display: block;
   margin-top: 0.5rem;
   background: none;
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.sm};
   cursor: pointer;
   color: ${({ theme: { colors } }) => colors.purple_300};
   transition: 0.2s;
