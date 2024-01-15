@@ -142,12 +142,7 @@ export const Message = styled.textarea`
   resize: none;
   background-color: ${({ theme: { colors } }) => colors.background};
   border: 1px solid ${({ theme: { colors } }) => colors.primary};
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-    padding: 1.75rem;
-    min-height: 15rem;
-  }
+  font-family: "Inter";
 `;
 
 export const SendButton = styled.button`
