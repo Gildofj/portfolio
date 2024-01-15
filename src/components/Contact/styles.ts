@@ -152,7 +152,7 @@ export const SendButton = styled.button`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   padding: 0.8rem 2rem;
   border-radius: 0.625rem;
-  border: 1px solid ${({ theme }) => theme.colors.purple_800};
+  border: 1px solid ${({ theme }) => theme.colors.primary};
   column-gap: 1rem;
   transition: 0.2s;
   cursor: pointer;
@@ -161,7 +161,7 @@ export const SendButton = styled.button`
 
   &:hover {
     transform: scale(1.1);
-    color: ${({ theme }) => theme.colors.purple_800};
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   &:active {
