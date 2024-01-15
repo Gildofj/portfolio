@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { SOCIALS } from "../constants";
 import {
   AnchorImage,
-  Brand,
   Button,
   ButtonsGroup,
   ColorizedText,
