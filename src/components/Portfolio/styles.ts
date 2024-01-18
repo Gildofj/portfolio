@@ -14,6 +14,7 @@ export const ProjectsList = styled.ul`
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  place-items: center;
   margin-top: 3rem;
 
   @media screen and (max-width: 768px) {
