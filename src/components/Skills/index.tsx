@@ -1,9 +1,8 @@
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
 import { ScrollAnimatedProps } from "../types";
-import { Expertise } from "./Expertise";
-import { Container, Grid, IconTitle } from "./styles";
-import { SkillType } from "./types";
+import { Skill } from "./Skill";
+import { Container, Grid } from "./styles";
 import { useSkills } from "./useSkills";
 
 interface SkillsProps extends ScrollAnimatedProps {}
@@ -17,32 +16,12 @@ export function Skills({}: SkillsProps) {
         <Title>Skills</Title>
       </TitleContainer>
       <Grid>
-        <Expertise
-          title="Backend"
-          skills={
-            skills?.filter(skill => skill.type == SkillType.BACKEND) || []
-          }
-          color="#34D399"
-          icon={<IconTitle color="#34D399" className="bx bx-data"></IconTitle>}
-        />
-        <Expertise
-          title="Frontend"
-          skills={
-            skills?.filter(skill => skill.type == SkillType.FRONTEND) || []
-          }
-          color="#DDA0DD"
-          icon={
-            <IconTitle color="#DDA0DD" className="bx bx-desktop"></IconTitle>
-          }
-        />
-        <Expertise
-          title="Mobile"
-          skills={skills?.filter(skill => skill.type == SkillType.MOBILE) || []}
-          color="#2C0080"
-          icon={
-            <IconTitle color="#2C0080" className="bx bx-mobile"></IconTitle>
-          }
-        />
+        {skills?.map(skill => (
+          <Skill
+            urlIcon={`/portfolio/assets/images/${skill.icon}.svg`}
+            title={skill.title}
+          />
+        ))}
       </Grid>
     </Container>
   );

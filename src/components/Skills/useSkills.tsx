@@ -16,7 +16,7 @@ async function getSkills(active: boolean, setSkills: (lista: Skill[]) => void) {
     )
     .flatMap(({ fields }) => ({
       title: fields.title,
-      expertise: fields.expertise,
+      icon: fields.icon,
       type: fields.type,
     }));
 
