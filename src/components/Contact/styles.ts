@@ -62,6 +62,10 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 2rem;
+  }
 `;
 
 export const FieldGroup = styled.div`

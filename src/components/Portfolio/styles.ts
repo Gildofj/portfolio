@@ -26,6 +26,12 @@ export const ProjectsListItem = styled.li`
   margin-bottom: 1rem;
 `;
 
+export const CardProject = styled.a`
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const ImageContainer = styled.div`
   width: 21.5rem;
   height: 11.5rem;

@@ -9,6 +9,7 @@ import {
   ProjectsList,
   ImageContainer,
   ProjectsListItem,
+  CardProject,
 } from "./styles";
 import { usePortfolio } from "./usePortfolio";
 
@@ -26,7 +27,7 @@ export function Portfolio({}: PortfolioProps) {
       <ProjectsList>
         {portfolios?.map((p, i) => (
           <ProjectsListItem key={i}>
-            <a
+            <CardProject
               key={p.title}
               href={p.url}
               target="_blank"
@@ -37,7 +38,7 @@ export function Portfolio({}: PortfolioProps) {
               </ImageContainer>
               <NameProject>{p.title}</NameProject>
               <Description>{p.description}</Description>
-            </a>
+            </CardProject>
           </ProjectsListItem>
         ))}
       </ProjectsList>
