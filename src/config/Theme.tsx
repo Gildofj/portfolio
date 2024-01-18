@@ -16,6 +16,8 @@ const theme = {
 
     zinc_300: "#d4d4d8",
     zinc_500: "#71717A",
+    zinc_700: "#3f3f46",
+    zinc_800: "#27272a",
     zinc_900: "#18181b",
 
     primary: "#A855F7",
@@ -99,6 +101,29 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: ${({ theme }) => theme.fontWeight.normal};
   font-size: ${({ theme }) => theme.fontSize.base};
   line-height: ${({ theme }) => theme.lineHeight.base};
+}
+
+.sr-only {
+	position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }
 `;
 

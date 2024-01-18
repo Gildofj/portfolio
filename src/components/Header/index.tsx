@@ -9,14 +9,13 @@ import {
   LinkLogo,
   Logo,
   HeaderButton,
-  HeaderIcon,
   HeaderSocial,
   SocialLink,
   HeaderList,
   Nav,
   LogoIcon,
 } from "./styles";
-import { LogoGithub, LogoTwitter } from "react-ionicons";
+import { LogoGithub, LogoTwitter, MenuSharp } from "react-ionicons";
 
 interface HeaderProps {
   handleHeaderItemClick: () => void;
@@ -42,9 +41,6 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
     <HeaderContainer>
       {open && <Overlay onClick={() => setOpen(!open)} />}
       <Nav>
-        <HeaderButton onClick={() => setOpen(!open)}>
-          <HeaderIcon />
-        </HeaderButton>
         <Logo>
           <LinkLogo href="/portfolio/">
             <LogoIcon color="#d4d4d8" height="1.8rem" width="1.8rem" />
@@ -77,13 +73,16 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
         </HeaderList>
         <HeaderSocial>
           <SocialLink href="https://twitter.com/tao_gildao" target="_blank">
-            {/* <span class="sr-only">Follow Me on Twitter</span> */}
-            <LogoTwitter width="32px" height="32px" color="#ffffff" />
+            <span className="sr-only">Follow Me on Twitter</span>
+            <LogoTwitter width="32px" height="32px" color="#d4d4d8" />
           </SocialLink>
           <SocialLink href="https://github.com/gildofj" target="_blank">
-            {/* <span class="sr-only">Go to my Github</span> */}
-            <LogoGithub width="32px" height="32px" color="#ffffff" />
+            <span className="sr-only">Go to my Github</span>
+            <LogoGithub width="32px" height="32px" color="#d4d4d8" />
           </SocialLink>
+          <HeaderButton onClick={() => setOpen(!open)}>
+            <MenuSharp width="20px" height="20px" color="#d4d4d8" />
+          </HeaderButton>
         </HeaderSocial>
       </Nav>
     </HeaderContainer>

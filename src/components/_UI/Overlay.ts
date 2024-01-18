@@ -8,5 +8,5 @@ export const Overlay = styled(motion.div)`
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 9999;
+  z-index: 25;
 `;

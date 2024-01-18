@@ -18,10 +18,6 @@ export const Nav = styled.nav`
   justify-content: space-between;
   position: relative;
   z-index: 30;
-
-  @media screen and (max-width: 768px) {
-    justify-content: flex-end;
-  }
 `;
 
 interface StyledListProps {
@@ -34,13 +30,13 @@ export const HeaderList = styled.ul<StyledListProps>`
   justify-content: center;
   gap: 1.5rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     width: 100%;
     flex-direction: column;
     font-size: 2rem;
     gap: 5rem;
     position: absolute;
-    top: 6rem;
+    top: 60px;
     left: 0;
     z-index: 10;
     padding: ${({ open }) => (open ? "5rem" : 0)};
@@ -86,7 +82,7 @@ export const Link = styled.a<LinkProps>`
     font-weight: ${({ theme }) => theme.fontWeight.bold};
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     display: block;
     width: 100%;
   }
@@ -94,20 +90,34 @@ export const Link = styled.a<LinkProps>`
 
 export const HeaderButton = styled.button`
   display: none;
+  max-width: 38px;
+  max-height: 38px;
+  padding: 0.5rem;
+  background: ${({ theme }) => theme.colors.transparent};
+  border: 1px solid ${({ theme }) => theme.colors.zinc_700};
+  border-radius: 0.375rem;
+  cursor: pointer;
+  box-shadow:
+    0 0 #0000,
+    0 0 #0000,
+    0 0 #0000,
+    0 1px 2px 0 rgb(0 0 0 / 0.05);
 
-  @media screen and (max-width: 768px) {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: ${({ theme }) => theme.colors.transparent};
+  &:hover {
+    background: ${({ theme }) => theme.colors.zinc_800};
   }
-`;
 
-export const HeaderIcon = styled(MenuSharp)`
-  @media screen and (max-width: 768px) {
-    font-size: 6rem;
-    color: ${({ theme }) => theme.colors.white};
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow:
+      0 0 0 2px #f3f4f6,
+      0 0 0 calc(2px + 2px) rgb(99 102 241 / 1),
+      0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+
+  @media screen and (max-width: 1000px) {
+    display: inline-block;
   }
 `;
 
