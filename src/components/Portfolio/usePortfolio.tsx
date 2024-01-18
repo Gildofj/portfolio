@@ -26,6 +26,7 @@ async function getPortfolios(
           title: fields.title,
           image: image.fields.file?.url || "",
           url: fields.url,
+          description: fields.description,
         };
       }),
   );

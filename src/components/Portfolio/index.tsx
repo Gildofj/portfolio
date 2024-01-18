@@ -2,14 +2,13 @@ import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
 import { ScrollAnimatedProps } from "../types";
 import {
-  ArrowIcon,
-  CardProject,
   Container,
   Image,
-  Link,
+  Description,
   NameProject,
-  ProjectsContainer,
+  ProjectsList,
   ImageContainer,
+  ProjectsListItem,
 } from "./styles";
 import { usePortfolio } from "./usePortfolio";
 
@@ -24,20 +23,24 @@ export function Portfolio({}: PortfolioProps) {
         <Title>Portfólio</Title>
       </TitleContainer>
 
-      <ProjectsContainer>
+      <ProjectsList>
         {portfolios?.map(p => (
-          <CardProject key={p.title}>
-            <ImageContainer>
-              <Image src={p.image} alt={p.title}></Image>
-            </ImageContainer>
-            <NameProject>{p.title}</NameProject>
-            <Link href={p.url} target="_blank" rel="noopener noreferrer">
-              Repository
-              <ArrowIcon className="bx bx-right-arrow-alt"></ArrowIcon>
-            </Link>
-          </CardProject>
+          <ProjectsListItem>
+            <a
+              key={p.title}
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ImageContainer>
+                <Image src={p.image} alt={p.title}></Image>
+              </ImageContainer>
+              <NameProject>{p.title}</NameProject>
+              <Description>{p.description}</Description>
+            </a>
+          </ProjectsListItem>
         ))}
-      </ProjectsContainer>
+      </ProjectsList>
     </Container>
   );
 }

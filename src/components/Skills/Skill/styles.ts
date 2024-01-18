@@ -9,7 +9,7 @@ export const SkillContainer = styled.div`
   gap: 0.3rem;
   line-height: 1.6rem;
   border: 1px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   transition: 0.2s;
 
   &:hover {

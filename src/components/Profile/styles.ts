@@ -107,7 +107,7 @@ export const Button = styled(motion.a)<ButtonProps>`
   font-weight: 600;
   padding: 1rem;
   min-width: 11rem;
-  border-radius: 0.625rem;
+  border-radius: 0.75rem;
   border: 1px solid rgb(63 63 70);
   cursor: pointer;
   transition: 0.2s;

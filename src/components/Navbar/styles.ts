@@ -46,7 +46,7 @@ export const StyledList = styled.ul<StyledListProps>`
     height: ${({ open }) => (open ? "100vh" : 0)};
     transition: all 0.3s ease-in;
     overflow-y: ${({ open }) => (open ? "auto" : "hidden")};
-    border-radius: 0 0 0.625rem 0.625rem;
+    border-radius: 0 0 0.75em 0.75rem;
     background: ${({ theme }) => theme.colors.background};
   }
 `;

@@ -21,7 +21,7 @@ export const Content = styled(motion.div)<ContainerProps>`
   max-width: 70%;
   max-height: 80%;
   padding: 1rem;
-  border-radius: 0.625rem;
+  border-radius: 0.75rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   z-index: 10000;
 `;

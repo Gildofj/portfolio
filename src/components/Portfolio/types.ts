@@ -4,6 +4,7 @@ export interface Portfolio {
   title: string;
   image: string;
   url: string;
+  description: string;
 }
 
 export type PortfolioSkeleton = {
@@ -12,5 +13,6 @@ export type PortfolioSkeleton = {
     title: EntryFieldTypes.Text;
     image: EntryFieldTypes.AssetLink;
     url: EntryFieldTypes.Text;
+    description: EntryFieldTypes.Text;
   };
 };

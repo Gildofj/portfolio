@@ -38,7 +38,7 @@ export const CardContact = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 0.625rem;
+  border-radius: 0.75rem;
   gap: 0.5rem;
   padding: 1.2rem 3rem;
   background: ${({ theme }) => theme.colors.transparent};
@@ -125,7 +125,7 @@ export const Input = styled.input`
   left: 0;
   width: 100%;
   padding: 1.2rem;
-  border-radius: 0.625rem;
+  border-radius: 0.75rem;
   background-color: ${({ theme: { colors } }) => colors.background};
   border: 1px solid ${({ theme: { colors } }) => colors.primary};
   color: ${({ theme }) => theme.colors.text};
@@ -137,9 +137,9 @@ export const Message = styled.textarea`
   padding: 1.25rem;
   width: 100%;
   min-height: 10rem;
-  border-radius: 0.625rem;
-  -webkit-border-radius: 0.625rem;
-  -moz-border-radius: 0.625rem;
+  border-radius: 0.75rem;
+  -webkit-border-radius: 0.75rem;
+  -moz-border-radius: 0.75rem;
   overflow: hidden;
   resize: none;
   background-color: ${({ theme: { colors } }) => colors.background};
@@ -153,7 +153,7 @@ export const SendButton = styled.button`
   justify-content: center;
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   padding: 0.8rem 2rem;
-  border-radius: 0.625rem;
+  border-radius: 0.75rem;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   column-gap: 1rem;
   transition: 0.2s;
