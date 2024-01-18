@@ -16,8 +16,9 @@ export function Skills({}: SkillsProps) {
         <Title>Skills</Title>
       </TitleContainer>
       <Grid>
-        {skills?.map(skill => (
+        {skills?.map((skill, i) => (
           <Skill
+            key={i}
             urlIcon={`/portfolio/assets/images/${skill.icon}.svg`}
             title={skill.title}
           />

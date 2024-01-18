@@ -24,8 +24,8 @@ export function Portfolio({}: PortfolioProps) {
       </TitleContainer>
 
       <ProjectsList>
-        {portfolios?.map(p => (
-          <ProjectsListItem>
+        {portfolios?.map((p, i) => (
+          <ProjectsListItem key={i}>
             <a
               key={p.title}
               href={p.url}

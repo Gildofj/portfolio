@@ -6,7 +6,7 @@ import ScrollSpy from "react-ui-scrollspy";
 import { About } from "../components/About";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
-import { Navbar } from "../components/Navbar";
+import { Header } from "../components/Header";
 import { Portfolio } from "../components/Portfolio";
 import { Qualification } from "../components/Qualification";
 import { Skills } from "../components/Skills";
@@ -20,18 +20,18 @@ function App() {
   moment.locale("pt-br");
 
   const scrollRef = useRef(null);
-  const isNavbarClickRef = useRef(false);
+  const isHeaderClickRef = useRef(false);
 
-  const handleNavbarItemClick = () => {
-    isNavbarClickRef.current = true;
+  const handleHeaderItemClick = () => {
+    isHeaderClickRef.current = true;
 
     setTimeout(() => {
-      isNavbarClickRef.current = false;
+      isHeaderClickRef.current = false;
     }, 1000);
   };
 
   const onUpdateCallback = (id: string) => {
-    if (isNavbarClickRef.current) {
+    if (isHeaderClickRef.current) {
       return;
     }
 
@@ -52,7 +52,7 @@ function App() {
 
   return (
     <Container ref={scrollRef}>
-      <Navbar handleNavbarItemClick={handleNavbarItemClick} />
+      <Header handleHeaderItemClick={handleHeaderItemClick} />
       <Main>
         <ScrollSpy onUpdateCallback={onUpdateCallback}>
           <Profile />

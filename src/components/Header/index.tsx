@@ -4,24 +4,25 @@ import { handleScrollWhenModalIsOpen } from "../../utils/scroll";
 import { Overlay } from "../_UI/Overlay";
 import { getNavigation } from "../constants";
 import {
-  Container,
+  Header as HeaderContainer,
   Link,
   LinkLogo,
   Logo,
-  NavbarButton,
-  NavbarIcon,
-  NavbarSocial,
+  HeaderButton,
+  HeaderIcon,
+  HeaderSocial,
   SocialLink,
-  StyledList,
-  StyledNav,
+  HeaderList,
+  Nav,
+  LogoIcon,
 } from "./styles";
-import { CodeSlash, LogoGithub, LogoTwitter } from "react-ionicons";
+import { LogoGithub, LogoTwitter } from "react-ionicons";
 
-interface NavbarProps {
-  handleNavbarItemClick: () => void;
+interface HeaderProps {
+  handleHeaderItemClick: () => void;
 }
 
-export function Navbar({ handleNavbarItemClick }: NavbarProps) {
+export function Header({ handleHeaderItemClick }: HeaderProps) {
   const urlPath = useReactPath();
   const [open, setOpen] = useState(false);
 
@@ -38,25 +39,25 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
   }, [open]);
 
   return (
-    <Container>
+    <HeaderContainer>
       {open && <Overlay onClick={() => setOpen(!open)} />}
-      <StyledNav>
-        <NavbarButton onClick={() => setOpen(!open)}>
-          <NavbarIcon />
-        </NavbarButton>
+      <Nav>
+        <HeaderButton onClick={() => setOpen(!open)}>
+          <HeaderIcon />
+        </HeaderButton>
         <Logo>
           <LinkLogo href="/portfolio/">
-            <CodeSlash color="#ffffff" height="1.7rem" width="1.7rem" />
+            <LogoIcon color="#d4d4d8" height="1.8rem" width="1.8rem" />
             Gildo Junior
           </LinkLogo>
         </Logo>
-        <StyledList open={open}>
+        <HeaderList open={open}>
           {getNavigation(urlPath).map(({ id, href, text, active }) => (
             <li key={id}>
               <Link
                 active={active}
                 open={open}
-                onClick={() => handleNavbarItemClick()}
+                onClick={() => handleHeaderItemClick()}
                 href={href}
                 data-to-scrollspy-id={href.replace("#", "")}
               >
@@ -73,8 +74,8 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
               Setup
             </Link>
           </li>
-        </StyledList>
-        <NavbarSocial>
+        </HeaderList>
+        <HeaderSocial>
           <SocialLink href="https://twitter.com/tao_gildao" target="_blank">
             {/* <span class="sr-only">Follow Me on Twitter</span> */}
             <LogoTwitter width="32px" height="32px" color="#ffffff" />
@@ -83,8 +84,8 @@ export function Navbar({ handleNavbarItemClick }: NavbarProps) {
             {/* <span class="sr-only">Go to my Github</span> */}
             <LogoGithub width="32px" height="32px" color="#ffffff" />
           </SocialLink>
-        </NavbarSocial>
-      </StyledNav>
-    </Container>
+        </HeaderSocial>
+      </Nav>
+    </HeaderContainer>
   );
 }

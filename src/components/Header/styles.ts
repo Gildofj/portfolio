@@ -1,21 +1,22 @@
-import { MenuSharp } from "react-ionicons";
+import { CodeSlash, MenuSharp } from "react-ionicons";
 import styled from "styled-components";
 
-export const Container = styled.header`
+export const Header = styled.header`
   width: 100%;
   position: fixed;
   z-index: 20;
   backdrop-filter: blur(12px);
   font-family: "Fira Code";
+  padding: 0.5rem;
   transition: 0.2s;
 `;
 
-export const StyledNav = styled.nav`
+export const Nav = styled.nav`
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  height: 76px;
   z-index: 30;
 
   @media screen and (max-width: 768px) {
@@ -27,7 +28,7 @@ interface StyledListProps {
   open: boolean;
 }
 
-export const StyledList = styled.ul<StyledListProps>`
+export const HeaderList = styled.ul<StyledListProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,12 +58,14 @@ export const Logo = styled.h2`
   padding: 0.5rem;
   font-family: "Fira Code";
   font-size: ${({ theme }) => theme.fontSize.lg};
-  line-height: ${({ theme }) => theme.lineHeight.lg};
+  padding-top: 0.8rem;
 `;
 
 export const LinkLogo = styled.a`
   display: inline-flex;
-  gap: 0.5rem;
+  align-items: center;
+  text-decoration-line: none;
+  gap: 0.4rem;
 `;
 
 interface LinkProps {
@@ -89,7 +92,7 @@ export const Link = styled.a<LinkProps>`
   }
 `;
 
-export const NavbarButton = styled.button`
+export const HeaderButton = styled.button`
   display: none;
 
   @media screen and (max-width: 768px) {
@@ -101,14 +104,14 @@ export const NavbarButton = styled.button`
   }
 `;
 
-export const NavbarIcon = styled(MenuSharp)`
+export const HeaderIcon = styled(MenuSharp)`
   @media screen and (max-width: 768px) {
     font-size: 6rem;
     color: ${({ theme }) => theme.colors.white};
   }
 `;
 
-export const NavbarSocial = styled.div`
+export const HeaderSocial = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -118,4 +121,15 @@ export const NavbarSocial = styled.div`
 export const SocialLink = styled.a`
   display: inline-block;
   color: ${({ theme }) => theme.colors.white};
+`;
+
+export const LogoIcon = styled(CodeSlash)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    padding-bottom: 0.1rem;
+    padding-right: 0.1rem;
+  }
 `;

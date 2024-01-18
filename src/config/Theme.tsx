@@ -78,36 +78,27 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  font-size: ${({ theme: { fontSize } }) => fontSize.base};
   font-family: --apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Helvetiva, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
   --webkit-font-smoothing: antialiased;
+  font-size: ${({ theme: { fontSize } }) => fontSize.base};
+  line-height: ${({ theme: { lineHeight } }) => lineHeight.base};
   text-rendering: optmizeLegibility;
   overflow-wrap: break-word;
-  line-height: ${({ theme: { lineHeight } }) => lineHeight.base};
 }
 
 ol, ul {
   list-style: none;
 }
 
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 a {
   color: rgb(212, 212, 216);
   text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: ${({ theme }) => theme.fontWeight.normal};
+  font-size: ${({ theme }) => theme.fontSize.base};
+  line-height: ${({ theme }) => theme.lineHeight.base};
 }
 `;
 
