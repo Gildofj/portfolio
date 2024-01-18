@@ -128,10 +128,12 @@ export const Input = styled.input`
   border-radius: 0.625rem;
   background-color: ${({ theme: { colors } }) => colors.background};
   border: 1px solid ${({ theme: { colors } }) => colors.primary};
+  color: ${({ theme }) => theme.colors.text};
   z-index: 1;
 `;
 
 export const Message = styled.textarea`
+  font-family: "Inter";
   padding: 1.25rem;
   width: 100%;
   min-height: 10rem;
@@ -142,7 +144,7 @@ export const Message = styled.textarea`
   resize: none;
   background-color: ${({ theme: { colors } }) => colors.background};
   border: 1px solid ${({ theme: { colors } }) => colors.primary};
-  font-family: "Inter";
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const SendButton = styled.button`
