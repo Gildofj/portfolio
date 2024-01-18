@@ -33,7 +33,7 @@ export const HeaderList = styled.ul<StyledListProps>`
   @media screen and (max-width: 1000px) {
     width: 100%;
     flex-direction: column;
-    font-size: 2rem;
+    font-size: ${({ theme }) => theme.fontSize.lg};
     gap: 5rem;
     position: absolute;
     top: 60px;

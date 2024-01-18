@@ -55,10 +55,6 @@ export const WriteMeButton = styled.a`
   &:hover {
     color: ${({ theme }) => theme.colors.purple_800};
   }
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-  }
 `;
 
 export const Form = styled.form`
@@ -74,12 +70,6 @@ export const FieldGroup = styled.div`
   margin-top: 2rem;
   margin-bottom: 2rem;
   height: 2rem;
-
-  @media screen and (max-width: 768px) {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    height: 3rem;
-  }
 `;
 
 export const Error = styled.div`
@@ -90,10 +80,6 @@ export const Error = styled.div`
 
 export const FieldError = styled.span`
   color: ${({ theme: { colors } }) => colors.alert};
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-  }
 `;
 
 export const FieldGroupArea = styled.div`
@@ -102,10 +88,6 @@ export const FieldGroupArea = styled.div`
   margin-top: 2rem;
   margin-bottom: 2rem;
   min-height: 10rem;
-
-  @media screen and (max-width: 768px) {
-    min-height: 15rem;
-  }
 `;
 
 export const FormTag = styled.label`

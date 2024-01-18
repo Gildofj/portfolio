@@ -65,42 +65,94 @@ const GlobalStyle = createGlobalStyle`
 * {
   margin: 0;
   padding: 0;
-  border: 0;
-  vertical-align: baseline;
-  scroll-behavior: smooth;
+  box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  vertical-align: baseline;
+  scroll-behavior: smooth;
 }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
+::before,
+::after {
+  border-width: 0;
+  border-style: solid;
+  border-color: theme('borderColor.DEFAULT', currentColor);
 }
 
 body {
+  width: 100%;
   font-family: --apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Helvetiva, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
   --webkit-font-smoothing: antialiased;
   font-size: ${({ theme: { fontSize } }) => fontSize.base};
   line-height: ${({ theme: { lineHeight } }) => lineHeight.base};
   text-rendering: optmizeLegibility;
   overflow-wrap: break-word;
+  background-color: ${({ theme: { colors } }) => colors.background};
+  color: ${({ theme: { colors } }) => colors.text};
+
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
+#root {
+ width: 100%;
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 ol, ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }
 
 a {
   color: rgb(212, 212, 216);
   text-decoration: none;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: ${({ theme }) => theme.fontWeight.normal};
-  font-size: ${({ theme }) => theme.fontSize.base};
-  line-height: ${({ theme }) => theme.lineHeight.base};
 }
 
 .sr-only {

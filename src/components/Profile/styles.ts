@@ -7,10 +7,6 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
-  @media screen and (max-width: 768px) {
-    margin-top: 8rem;
-  }
 `;
 
 export const ProfileContainer = styled.div`
@@ -72,18 +68,10 @@ export const Name = styled(motion.h2)`
   font-size: 3.125rem;
   font-weight: bold;
   color: #6b21a8;
-
-  @media screen and (max-width: 768px) {
-    font-size: 3.5rem;
-  }
 `;
 
 export const DescriptionProfile = styled(motion.span)`
   font-size: 1.25rem;
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-  }
 `;
 
 export const WelcomeText = styled(motion.h3)`
@@ -115,13 +103,6 @@ export const Button = styled(motion.a)<ButtonProps>`
 
   &:hover {
     color: #a855f7;
-  }
-
-  @media screen and (max-width: 768px) {
-    min-width: 15rem;
-    padding: 1.5rem;
-    font-size: 1.25rem;
-    border-radius: 1rem;
   }
 `;
 

@@ -29,10 +29,6 @@ export const Link = styled.a`
   &:hover {
     color: ${({ theme: { colors } }) => colors.purple_primary};
   }
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-  }
 `;
 
 export const SocialIcon = styled.i`
@@ -41,10 +37,6 @@ export const SocialIcon = styled.i`
 
   &:hover {
     color: ${({ theme: { colors } }) => colors.purple_primary};
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 2.25rem;
   }
 `;
 

@@ -1,6 +1,3 @@
-import { motion } from "framer-motion";
-
-import { SOCIALS } from "../constants";
 import {
   AnchorImage,
   Button,

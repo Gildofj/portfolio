@@ -46,10 +46,6 @@ export const Tab = styled.div<TypeProps>`
     color: ${({ active, theme: { colors } }) => !active && colors.primary};
   }
 
-  @media screen and (max-width: 768px) {
-    font-size: 1.75rem;
-  }
-
   @media screen and (max-width: 576px) {
     margin: 0 0.75rem;
   }
@@ -73,18 +69,10 @@ export const Data = styled.div`
   display: grid;
   grid-template-columns: 1.5fr max-content 1.5fr;
   column-gap: 1.5rem;
-
-  @media screen and (max-width: 400px) {
-    gap: 1rem;
-  }
 `;
 
 export const DataTitle = styled.div`
   font-weight: 600;
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.25rem;
-  }
 `;
 
 export const DataSubTitle = styled.div`
@@ -93,20 +81,12 @@ export const DataSubTitle = styled.div`
   line-height: ${({ theme }) => theme.lineHeight.sm};
   color: ${({ theme: { colors } }) => colors.text};
   margin-bottom: 1rem;
-  @media screen and (max-width: 768px) {
-    font-size: 1.25rem;
-  }
 `;
 
 export const DataCalendar = styled.div`
   color: ${({ theme: { colors } }) => colors.text};
   font-size: ${({ theme: { fontSize } }) => fontSize.sm};
   line-height: ${({ theme }) => theme.lineHeight.sm};
-
-  @media screen and (max-width: 768px) {
-    font-size: ${({ theme }) => theme.fontSize.base};
-    line-height: ${({ theme }) => theme.lineHeight.base};
-  }
 `;
 
 export const Rounder = styled.div`
@@ -115,11 +95,6 @@ export const Rounder = styled.div`
   height: 13px;
   background-color: ${({ theme: { colors } }) => colors.purple_800};
   border-radius: 50%;
-
-  @media screen and (max-width: 768px) {
-    width: 16px;
-    height: 16px;
-  }
 `;
 
 export const Line = styled.div`
@@ -128,10 +103,6 @@ export const Line = styled.div`
   height: 100%;
   transform: translate(6px, -7px);
   background-color: ${({ theme: { colors } }) => colors.purple_800};
-
-  @media screen and (max-width: 768px) {
-    width: 4px;
-  }
 `;
 
 // Modal styles
@@ -147,10 +118,6 @@ export const ModalButton = styled.button`
 
   &:hover {
     color: ${({ theme: { colors } }) => colors.primary};
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 1rem;
   }
 `;
 

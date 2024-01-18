@@ -11,7 +11,7 @@ import { Portfolio } from "../components/Portfolio";
 import { Qualification } from "../components/Qualification";
 import { Skills } from "../components/Skills";
 import { Profile } from "../components/Profile";
-import { Container, Main } from "./styles";
+import { Main, Content } from "./styles";
 
 import "moment/dist/locale/pt-br";
 import "react-toastify/dist/ReactToastify.css";
@@ -51,21 +51,23 @@ function App() {
   }, []);
 
   return (
-    <Container ref={scrollRef}>
+    <>
       <Header handleHeaderItemClick={handleHeaderItemClick} />
       <Main>
-        <ScrollSpy onUpdateCallback={onUpdateCallback}>
-          <Profile />
-          <About scrollRef={scrollRef} />
-          <Skills scrollRef={scrollRef} />
-          <Qualification scrollRef={scrollRef} />
-          <Portfolio scrollRef={scrollRef} />
-          <Contact scrollRef={scrollRef} />
-        </ScrollSpy>
+        <Content ref={scrollRef}>
+          <ScrollSpy onUpdateCallback={onUpdateCallback}>
+            <Profile />
+            <About scrollRef={scrollRef} />
+            <Skills scrollRef={scrollRef} />
+            <Qualification scrollRef={scrollRef} />
+            <Portfolio scrollRef={scrollRef} />
+            <Contact scrollRef={scrollRef} />
+          </ScrollSpy>
+        </Content>
       </Main>
       <Footer />
       <ToastContainer />
-    </Container>
+    </>
   );
 }
 
