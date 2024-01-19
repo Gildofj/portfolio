@@ -51,11 +51,6 @@ export const ProfileImage = styled.div`
   &:active {
     transform: scale(0.9);
   }
-
-  @media screen and (max-width: 768px) {
-    width: 400px;
-    height: 400px;
-  }
 `;
 
 export const AnchorImage = styled(motion.a)`
