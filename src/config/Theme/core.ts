@@ -2,11 +2,16 @@ export const coreColors = {
   black: "#000000",
   white: "#ffffff",
 
+  purple_50: "#faf5ff",
+  purple_100: "#f3e8ff",
+  purple_200: "#e9d5ff",
+  purple_300: "#d8b4fe",
   purple_500: "#A855F7",
   purple_800: "#6B21A8",
 
   zinc_300: "#d4d4d8",
   zinc_500: "#71717A",
+  zinc_600: "#52525b",
   zinc_700: "#3f3f46",
   zinc_800: "#27272a",
   zinc_900: "#18181b",

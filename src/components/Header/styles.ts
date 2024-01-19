@@ -1,4 +1,4 @@
-import { CodeSlash, MenuSharp } from "react-ionicons";
+import { CodeSlash } from "react-ionicons";
 import styled from "styled-components";
 
 export const Header = styled.header`
@@ -18,6 +18,10 @@ export const Nav = styled.nav`
   justify-content: space-between;
   position: relative;
   z-index: 30;
+
+  @media screen and (min-width: 768px) {
+    height: 46.2px;
+  }
 `;
 
 interface StyledListProps {

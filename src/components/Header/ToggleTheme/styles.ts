@@ -9,7 +9,6 @@ export const ThemeButtonContainer = styled.div<ThemeButtonContainerProps>`
   align-items: center;
   padding: 1px;
   border-radius: 1.5rem;
-
   background-color: ${({ currentTheme, theme }) =>
     currentTheme !== "light" ? theme.colors.zinc_600 : theme.colors.purple_200};
 `;
@@ -22,12 +21,6 @@ export const ThemeButton = styled.div<ThemeButtonProps>`
   cursor: pointer;
   border-radius: 1.5rem;
   padding: 0.5rem;
-
-  ${({ checked, theme }) =>
-    checked
-      ? `
-    background-color: ${theme.colors.white}
-    color: ${theme.colors.black}
-`
-      : ""};
+  background-color: ${({ checked, theme }) =>
+    checked ? theme.colors.white : "inherit"};
 `;

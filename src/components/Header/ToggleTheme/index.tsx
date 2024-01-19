@@ -21,9 +21,17 @@ export function ToggleThemeButton() {
         return (
           <ThemeButton key={t} checked={checked} onClick={toggleTheme}>
             {t === "light" ? (
-              <Sunny color={iconColor} />
+              <Sunny
+                color={checked ? "#000000" : iconColor}
+                width="16px"
+                height="16px"
+              />
             ) : (
-              <Moon color={iconColor} />
+              <Moon
+                color={checked ? "#000000" : iconColor}
+                width="16px"
+                height="16px"
+              />
             )}
           </ThemeButton>
         );
