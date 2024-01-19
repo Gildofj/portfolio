@@ -23,20 +23,16 @@ import {
   MenuSharp,
 } from "react-ionicons";
 import { ToggleThemeButton } from "./ToggleTheme";
+import { useTheme } from "../../contexts/ThemeContext";
 
 interface HeaderProps {
-  theme?: string | undefined | null;
   handleHeaderItemClick: () => void;
-  toggleTheme: () => void;
 }
 
-export function Header({
-  theme,
-  handleHeaderItemClick,
-  toggleTheme,
-}: HeaderProps) {
+export function Header({ handleHeaderItemClick }: HeaderProps) {
   const urlPath = useReactPath();
   const [open, setOpen] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     setOpen(false);
@@ -116,7 +112,7 @@ export function Header({
               )}
             </SocialLink>
           ))}
-          <ToggleThemeButton theme={theme} toggleTheme={toggleTheme} />
+          <ToggleThemeButton />
           <HeaderButton onClick={() => setOpen(!open)}>
             <MenuSharp
               width="20px"

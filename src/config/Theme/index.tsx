@@ -1,6 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./global";
 import { coreTheme, coreColors } from "./core";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const lightTheme = {
   colors: {
@@ -24,9 +25,13 @@ const darkTheme = {
   ...coreTheme,
 };
 
-export const Theme = ({ theme, children }: any) => (
-  <ThemeProvider theme={theme !== "light" ? darkTheme : lightTheme}>
-    <GlobalStyle />
-    {children}
-  </ThemeProvider>
-);
+export const Theme = ({ children }: any) => {
+  const { theme } = useTheme();
+
+  return (
+    <ThemeProvider theme={theme !== "light" ? darkTheme : lightTheme}>
+      <GlobalStyle />
+      {children}
+    </ThemeProvider>
+  );
+};

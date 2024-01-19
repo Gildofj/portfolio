@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react";
 import { Moon, Sunny } from "react-ionicons";
 import { ThemeButton, ThemeButtonContainer } from "./styles";
+import { useTheme } from "../../../contexts/ThemeContext";
 
 const themes = ["light", "dark"];
 
-interface ToggleThemeButtonProps {
-  theme?: string | undefined | null;
-  toggleTheme: () => void;
-}
-
-export function ToggleThemeButton({
-  theme,
-  toggleTheme,
-}: ToggleThemeButtonProps) {
+export function ToggleThemeButton() {
   const [isMounted, setIsMounted] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     setIsMounted(true);
