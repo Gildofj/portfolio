@@ -26,11 +26,13 @@ import {
   WriteMeButton,
 } from "./styles";
 import { ArrowForwardOutline, MailOutline } from "react-ionicons";
+import { useTheme } from "styled-components";
 
 interface ContactProps extends ScrollAnimatedProps {}
 
 export function Contact({}: ContactProps) {
   const form = useRef<HTMLFormElement | null>(null);
+  const { theme } = useTheme();
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [messageError, setMessageError] = useState(false);
@@ -87,7 +89,9 @@ export function Contact({}: ContactProps) {
               )}
               {c.type === "Whatsapp" && (
                 <img
-                  src="/portfolio/assets/images/whatsapp.svg"
+                  src={`/portfolio/assets/images/${
+                    theme !== "light" ? "white-whatsapp" : "black-whatsapp"
+                  }.svg`}
                   width={32}
                   height={32}
                   alt="icone whatsapp"
@@ -152,7 +156,12 @@ export function Contact({}: ContactProps) {
             )}
           </FieldGroupArea>
           <SendButton type="submit">
-            Enviar <SendIcon src="/portfolio/assets/images/send.svg"></SendIcon>
+            Enviar{" "}
+            <SendIcon
+              src={`/portfolio/assets/images/${
+                theme !== "light" ? "white-send" : "black-send"
+              }.svg`}
+            ></SendIcon>
           </SendButton>
         </Form>
       </ContactContainer>

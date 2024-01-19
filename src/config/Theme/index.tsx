@@ -5,7 +5,7 @@ import { useTheme } from "../../contexts/ThemeContext";
 
 const lightTheme = {
   colors: {
-    background: "##faf5ff",
+    background: "#faf5ff",
 
     text: "#18181b",
 
