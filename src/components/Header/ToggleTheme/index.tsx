@@ -23,9 +23,14 @@ export function ToggleThemeButton({
     <ThemeButtonContainer currentTheme={theme}>
       {themes.map(t => {
         const checked = t === theme;
+        const iconColor = theme !== "light" ? "#d4d4d8" : "#18181b";
         return (
           <ThemeButton key={t} checked={checked} onClick={toggleTheme}>
-            {t === "light" ? <Sunny /> : <Moon />}
+            {t === "light" ? (
+              <Sunny color={iconColor} />
+            ) : (
+              <Moon color={iconColor} />
+            )}
           </ThemeButton>
         );
       })}
