@@ -1,10 +1,6 @@
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import { Theme } from './config/Theme'
+import ReactDOM from "react-dom/client";
+import App from "./App";
 
-
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <Theme>
-    <App />
-  </Theme>,
-)
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <App />,
+);

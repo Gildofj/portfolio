@@ -1,6 +1,4 @@
 import moment from "moment";
-import { useEffect, useRef } from "react";
-import { ToastContainer } from "react-toastify";
 import ScrollSpy from "react-ui-scrollspy";
 
 import { About } from "../components/About";
@@ -15,44 +13,23 @@ import { Main, Content } from "./styles";
 
 import "moment/dist/locale/pt-br";
 import "react-toastify/dist/ReactToastify.css";
+import { useScrolling } from "../hooks/useScrolling";
+import { useTheme } from "../hooks/useTheme";
+import { ToastContainer } from "react-toastify";
+import { Theme } from "../config/Theme";
 
 function App() {
+  const { scrollRef, handleHeaderItemClick, onUpdateCallback } = useScrolling();
+  const { theme, toggleTheme } = useTheme();
+
   moment.locale("pt-br");
-
-  const scrollRef = useRef(null);
-  const isHeaderClickRef = useRef(false);
-
-  const handleHeaderItemClick = () => {
-    isHeaderClickRef.current = true;
-
-    setTimeout(() => {
-      isHeaderClickRef.current = false;
-    }, 1000);
-  };
-
-  const onUpdateCallback = (id: string) => {
-    if (isHeaderClickRef.current) {
-      return;
-    }
-
-    window.location.href = `#${id}`;
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0) window.location.href = "#";
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <>
-      <Header handleHeaderItemClick={handleHeaderItemClick} />
+    <Theme theme={theme}>
+      <Header
+        theme={theme}
+        handleHeaderItemClick={handleHeaderItemClick}
+        toggleTheme={toggleTheme}
+      />
       <Main>
         <Content ref={scrollRef}>
           <ScrollSpy onUpdateCallback={onUpdateCallback}>
@@ -67,7 +44,7 @@ function App() {
       </Main>
       <Footer />
       <ToastContainer />
-    </>
+    </Theme>
   );
 }
 

@@ -72,10 +72,10 @@ interface LinkProps {
 export const Link = styled.a<LinkProps>`
   display: inline-block;
   padding: 1rem 0.5rem;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.text};
   border-bottom: 4px solid
     ${({ active, open, theme }) =>
-      active && !open ? theme.colors.white : theme.colors.transparent};
+      active && !open ? theme.colors.text : theme.colors.transparent};
   transition: 0.2s;
 
   &:active {
@@ -134,7 +134,7 @@ interface SocialLinkProps {
 
 export const SocialLink = styled.a<SocialLinkProps>`
   display: inline-block;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.text};
 
   @media screen and (max-width: 768px) {
     display: ${({ hideOnSmall }) => (hideOnSmall ? "none" : "inline-block")};

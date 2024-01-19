@@ -22,12 +22,19 @@ import {
   LogoTwitter,
   MenuSharp,
 } from "react-ionicons";
+import { ToggleThemeButton } from "./ToggleTheme";
 
 interface HeaderProps {
+  theme?: string | undefined | null;
   handleHeaderItemClick: () => void;
+  toggleTheme: () => void;
 }
 
-export function Header({ handleHeaderItemClick }: HeaderProps) {
+export function Header({
+  theme,
+  handleHeaderItemClick,
+  toggleTheme,
+}: HeaderProps) {
   const urlPath = useReactPath();
   const [open, setOpen] = useState(false);
 
@@ -43,16 +50,16 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
     handleScrollWhenModalIsOpen(open);
   }, [open]);
 
-  const getIcon = (id: string, size: string) => {
+  const getIcon = (id: string, color: string, size: string) => {
     switch (id) {
       case "github":
-        return <LogoGithub color="#d6d6d8" width={size} height={size} />;
+        return <LogoGithub color={color} width={size} height={size} />;
       case "linkedin":
-        return <LogoLinkedin color="#d6d6d8" width={size} height={size} />;
+        return <LogoLinkedin color={color} width={size} height={size} />;
       case "instagram":
-        return <LogoInstagram color="#d6d6d8" width={size} height={size} />;
+        return <LogoInstagram color={color} width={size} height={size} />;
       case "twitter":
-        return <LogoTwitter color="#d6d6d8" width={size} height={size} />;
+        return <LogoTwitter color={color} width={size} height={size} />;
     }
   };
 
@@ -62,7 +69,11 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
       <Nav>
         <Logo>
           <LinkLogo href="/portfolio/">
-            <LogoIcon color="#d4d4d8" height="1.8rem" width="1.8rem" />
+            <LogoIcon
+              color={theme !== "light" ? "#d4d4d8" : "#18181b"}
+              height="1.8rem"
+              width="1.8rem"
+            />
             Gildo Junior
           </LinkLogo>
         </Logo>
@@ -98,11 +109,20 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               hideOnSmall={social.id === "twitter" || social.id === "instagram"}
             >
               <span className="sr-only">{social.sr}</span>
-              {getIcon(social.id, "32px")}
+              {getIcon(
+                social.id,
+                theme !== "light" ? "#d4d4d8" : "#18181b",
+                "32px",
+              )}
             </SocialLink>
           ))}
+          <ToggleThemeButton theme={theme} toggleTheme={toggleTheme} />
           <HeaderButton onClick={() => setOpen(!open)}>
-            <MenuSharp width="20px" height="20px" color="#d4d4d8" />
+            <MenuSharp
+              width="20px"
+              height="20px"
+              color={theme !== "light" ? "#d4d4d8" : "#18181b"}
+            />
           </HeaderButton>
         </HeaderSocial>
       </Nav>
