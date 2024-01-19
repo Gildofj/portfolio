@@ -128,9 +128,17 @@ export const HeaderSocial = styled.div`
   padding: 0 0.5rem;
 `;
 
-export const SocialLink = styled.a`
+interface SocialLinkProps {
+  hideOnSmall?: boolean;
+}
+
+export const SocialLink = styled.a<SocialLinkProps>`
   display: inline-block;
   color: ${({ theme }) => theme.colors.white};
+
+  @media screen and (max-width: 768px) {
+    display: ${({ hideOnSmall }) => (hideOnSmall ? "none" : "inline-block")};
+  }
 `;
 
 export const LogoIcon = styled(CodeSlash)`

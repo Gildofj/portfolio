@@ -48,17 +48,21 @@ export const SOCIALS = [
   {
     id: "github",
     urlRedirect: "https://github.com/gildofj/",
+    sr: "Go to my Github",
   },
   {
     id: "linkedin",
     urlRedirect: "https://www.linkedin.com/in/gildofj/",
+    sr: "Go to my Linkedin",
   },
   {
     id: "instagram",
     urlRedirect: "https://www.instagram.com/tao_gildao/",
+    sr: "Follow me on Instagram",
   },
   {
     id: "twitter",
     urlRedirect: "https://www.twitter.com/tao_gildao/",
+    sr: "Follow me on Twitter",
   },
 ];

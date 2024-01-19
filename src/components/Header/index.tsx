@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useReactPath from "../../hooks/useReactPath";
 import { handleScrollWhenModalIsOpen } from "../../utils/scroll";
 import { Overlay } from "../_UI/Overlay";
-import { getNavigation } from "../constants";
+import { SOCIALS, getNavigation } from "../constants";
 import {
   Header as HeaderContainer,
   Link,
@@ -15,7 +15,13 @@ import {
   Nav,
   LogoIcon,
 } from "./styles";
-import { LogoGithub, LogoTwitter, MenuSharp } from "react-ionicons";
+import {
+  LogoGithub,
+  LogoInstagram,
+  LogoLinkedin,
+  LogoTwitter,
+  MenuSharp,
+} from "react-ionicons";
 
 interface HeaderProps {
   handleHeaderItemClick: () => void;
@@ -36,6 +42,19 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
   useEffect(() => {
     handleScrollWhenModalIsOpen(open);
   }, [open]);
+
+  const getIcon = (id: string, size: string) => {
+    switch (id) {
+      case "github":
+        return <LogoGithub color="#d6d6d8" width={size} height={size} />;
+      case "linkedin":
+        return <LogoLinkedin color="#d6d6d8" width={size} height={size} />;
+      case "instagram":
+        return <LogoInstagram color="#d6d6d8" width={size} height={size} />;
+      case "twitter":
+        return <LogoTwitter color="#d6d6d8" width={size} height={size} />;
+    }
+  };
 
   return (
     <HeaderContainer>
@@ -72,14 +91,16 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
           </li>
         </HeaderList>
         <HeaderSocial>
-          <SocialLink href="https://twitter.com/tao_gildao" target="_blank">
-            <span className="sr-only">Follow Me on Twitter</span>
-            <LogoTwitter width="32px" height="32px" color="#d4d4d8" />
-          </SocialLink>
-          <SocialLink href="https://github.com/gildofj" target="_blank">
-            <span className="sr-only">Go to my Github</span>
-            <LogoGithub width="32px" height="32px" color="#d4d4d8" />
-          </SocialLink>
+          {SOCIALS.map(social => (
+            <SocialLink
+              href={social.urlRedirect}
+              target="_blank"
+              hideOnSmall={social.id === "twitter" || social.id === "instagram"}
+            >
+              <span className="sr-only">{social.sr}</span>
+              {getIcon(social.id, "32px")}
+            </SocialLink>
+          ))}
           <HeaderButton onClick={() => setOpen(!open)}>
             <MenuSharp width="20px" height="20px" color="#d4d4d8" />
           </HeaderButton>
