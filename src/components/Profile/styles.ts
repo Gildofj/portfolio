@@ -73,6 +73,7 @@ export const WelcomeText = styled(motion.h3)`
   font-size: 2.25rem;
   line-height: 2.5rem;
   font-weight: 500;
+  text-align: center;
 `;
 
 export const ColorizedText = styled.span`

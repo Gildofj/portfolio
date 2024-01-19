@@ -12,9 +12,9 @@ import {
   ModalTitle,
   TextTitle,
 } from "./styles";
-import { Modal } from "../_UI/Modal";
-import { Qualification } from "./types";
-import { WORK_MODEL } from "./constants";
+import { Modal } from "../../_UI/Modal";
+import { Qualification } from "../types";
+import { WORK_MODEL } from "../constants";
 import { CloseOutline } from "react-ionicons";
 
 interface QualificationInfoModalProps {

@@ -32,7 +32,7 @@ export function Footer() {
     <Container>
       <FooterContainer>
         <Authors>
-          Todos os direitos reservados. &copy; 2023 Gildo Junior
+          &copy; 2023 Gildo Junior. Todos os direitos reservados.
         </Authors>
         <FooterSocial>
           {SOCIALS.map(({ id, urlRedirect }, i) => (

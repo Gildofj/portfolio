@@ -17,6 +17,7 @@ export const ContactContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -65,6 +66,11 @@ export const Form = styled.form`
 
   @media screen and (max-width: 768px) {
     padding: 0 2rem;
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 0;
+    max-width: 20rem;
   }
 `;
 

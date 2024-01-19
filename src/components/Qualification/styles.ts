@@ -6,7 +6,6 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  padding: 7rem 2rem;
 `;
 
 export const Content = styled.div`
@@ -24,6 +23,10 @@ export const Tabs = styled.div`
   justify-content: center;
   margin-right: 1.5rem;
   margin-bottom: 3rem;
+
+  @media screen and (max-width: 400px) {
+    margin-right: 0;
+  }
 `;
 
 interface TypeProps {
@@ -69,6 +72,11 @@ export const Data = styled.div`
   display: grid;
   grid-template-columns: 1.5fr max-content 1.5fr;
   column-gap: 1.5rem;
+
+  @media screen and (max-width: 400px) {
+    grid-template-columns: 8rem max-content 8rem;
+    column-gap: 1rem;
+  }
 `;
 
 export const DataTitle = styled.div`
@@ -103,82 +111,4 @@ export const Line = styled.div`
   height: 100%;
   transform: translate(6px, -7px);
   background-color: ${({ theme: { colors } }) => colors.purple_800};
-`;
-
-// Modal styles
-export const ModalButton = styled.button`
-  display: block;
-  margin-top: 0.5rem;
-  background: none;
-  font-size: ${({ theme: { fontSize } }) => fontSize.sm};
-  line-height: ${({ theme: { lineHeight } }) => lineHeight.sm};
-  cursor: pointer;
-  color: ${({ theme: { colors } }) => colors.purple_800};
-  transition: 0.2s;
-
-  &:hover {
-    color: ${({ theme: { colors } }) => colors.primary};
-  }
-`;
-
-export const ModalContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`;
-
-export const ModalTitle = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const DataField = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-`;
-
-export const CloseButton = styled.button`
-  background: ${({ theme }) => theme.colors.transparent};
-  cursor: pointer;
-`;
-
-export const TextTitle = styled.h3`
-  font-size: 1.5rem;
-  color: ${({ theme: { colors } }) => colors.primary};
-  font-weight: 600;
-`;
-
-export const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-export const BoldText = styled.strong`
-  font-weight: bold;
-`;
-
-export const Description = styled.p`
-  white-space: pre-line;
-  text-align: justify;
-`;
-
-export const CertificateAnchor = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  cursor: pointer;
-  transition: 0.2s;
-
-  &:hover {
-    color: ${({ theme: { colors } }) => colors.primary};
-  }
-`;
-
-export const CertificateIcon = styled.img`
-  cursor: pointer;
-  filter: invert(76%) sepia(34%) saturate(2086%) hue-rotate(244deg)
-    brightness(97%) contrast(92%);
 `;

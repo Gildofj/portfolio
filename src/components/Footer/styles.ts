@@ -43,4 +43,5 @@ export const SocialIcon = styled.i`
 export const Authors = styled.span`
   text-align: center;
   color: ${({ theme }) => theme.colors.zinc_500};
+  padding: 0 2rem;
 `;
