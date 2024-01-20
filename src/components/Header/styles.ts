@@ -6,6 +6,8 @@ export const Header = styled.header`
   position: fixed;
   z-index: 20;
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px) !important;
+  -moz-backdrop-filter: blur(12px) !important;
   font-family: "Fira Code";
   padding: 0.5rem;
   transition: 0.2s;
