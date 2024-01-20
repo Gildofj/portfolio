@@ -11,6 +11,7 @@ export const Container = styled.section`
 export const Content = styled.div`
   max-width: 48rem;
   min-height: 30rem;
+
   @media screen and (max-width: 992px) {
     margin-left: auto;
     margin-right: auto;
@@ -45,8 +46,20 @@ export const Tab = styled.div<TypeProps>`
     active ? colors.purple_800 : colors.text};
   transition: 0.2s;
 
+  span > svg {
+    color: ${({ active, theme: { colors } }) =>
+      active ? colors.purple_800 : colors.text};
+    fill: ${({ active, theme: { colors } }) =>
+      active ? colors.purple_800 : colors.text};
+  }
+
   &:hover {
     color: ${({ active, theme: { colors } }) => !active && colors.primary};
+
+    span > svg {
+      color: ${({ active, theme: { colors } }) => !active && colors.primary};
+      fill: ${({ active, theme: { colors } }) => !active && colors.primary};
+    }
   }
 
   @media screen and (max-width: 576px) {
@@ -92,9 +105,16 @@ export const DataSubTitle = styled.div`
 `;
 
 export const DataCalendar = styled.div`
+  display: flex;
+  gap: 0.3rem;
   color: ${({ theme: { colors } }) => colors.text};
   font-size: ${({ theme: { fontSize } }) => fontSize.sm};
   line-height: ${({ theme }) => theme.lineHeight.sm};
+
+  span > svg {
+    color: ${({ theme: { colors } }) => colors.text};
+    fill: ${({ theme: { colors } }) => colors.text};
+  }
 `;
 
 export const Rounder = styled.div`

@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { BookOutline, BriefcaseOutline } from "react-ionicons";
+import { BookOutline, BriefcaseOutline, Calendar } from "react-ionicons";
 
 import { Title } from "../_UI/Title";
 import {
@@ -21,10 +21,12 @@ import { QualificationInfoModal } from "./QualificationInfoModal";
 import { TitleContainer } from "../_UI/TitleContainer";
 import { useQualification } from "./useQualification";
 import { ScrollAnimatedProps } from "../types";
+import { useTheme } from "styled-components";
 
 interface QualificationProps extends ScrollAnimatedProps {}
 
 export function Qualification({}: QualificationProps) {
+  const { theme } = useTheme();
   const [type, setType] = useState<QualificationType>(
     QualificationType.Experience,
   );
@@ -49,7 +51,8 @@ export function Qualification({}: QualificationProps) {
                   {q.country} - {q.organization}
                 </DataSubTitle>
                 <DataCalendar>
-                  <i className="bx bx-calendar"></i> {q.startDate} - {q.endDate}
+                  <Calendar width="20px" height="20px" /> {q.startDate} -{" "}
+                  {q.endDate}
                 </DataCalendar>
                 <QualificationInfoModal qualification={q} />
               </div>
@@ -64,7 +67,8 @@ export function Qualification({}: QualificationProps) {
                   {q.country} - {q.organization}
                 </DataSubTitle>
                 <DataCalendar>
-                  <i className="bx bx-calendar"></i> {q.startDate} - {q.endDate}
+                  <Calendar width="20px" height="20px" /> {q.startDate} -{" "}
+                  {q.endDate}
                 </DataCalendar>
                 <QualificationInfoModal qualification={q} />
               </div>
@@ -77,7 +81,7 @@ export function Qualification({}: QualificationProps) {
           );
         }
       }),
-    [qualifications],
+    [qualifications, theme],
   );
 
   return (
@@ -92,13 +96,7 @@ export function Qualification({}: QualificationProps) {
             onClick={() => setType(QualificationType.Experience)}
             active={type === QualificationType.Experience}
           >
-            <BriefcaseOutline
-              color={
-                type === QualificationType.Experience ? "#a855df7" : "#d4d4d8"
-              }
-              height="32px"
-              width="32px"
-            />
+            <BriefcaseOutline height="32px" width="32px" />
             Experiência
           </Tab>
 
@@ -106,13 +104,7 @@ export function Qualification({}: QualificationProps) {
             onClick={() => setType(QualificationType.Education)}
             active={type === QualificationType.Education}
           >
-            <BookOutline
-              color={
-                type === QualificationType.Education ? "#a855df7" : "#d4d4d8"
-              }
-              height="32px"
-              width="32px"
-            />
+            <BookOutline height="32px" width="32px" />
             Educação
           </Tab>
         </Tabs>

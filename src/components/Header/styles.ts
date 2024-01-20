@@ -19,7 +19,7 @@ export const Nav = styled.nav`
   position: relative;
   z-index: 30;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 768px) {
     height: 46.2px;
   }
 `;
