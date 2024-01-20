@@ -94,7 +94,7 @@ export function Qualification({}: QualificationProps) {
         <Tabs>
           <Tab
             onClick={() => setType(QualificationType.Experience)}
-            active={type === QualificationType.Experience}
+            $active={type === QualificationType.Experience}
           >
             <BriefcaseOutline height="32px" width="32px" />
             Experiência
@@ -102,7 +102,7 @@ export function Qualification({}: QualificationProps) {
 
           <Tab
             onClick={() => setType(QualificationType.Education)}
-            active={type === QualificationType.Education}
+            $active={type === QualificationType.Education}
           >
             <BookOutline height="32px" width="32px" />
             Educação
