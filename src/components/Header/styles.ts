@@ -38,8 +38,8 @@ export const HeaderList = styled.ul<StyledListProps>`
     width: 100%;
     flex-direction: column;
     font-size: ${({ theme }) => theme.fontSize.lg};
-    gap: 5rem;
     position: absolute;
+    gap: 0.5rem;
     top: 60px;
     left: 0;
     z-index: 10;
