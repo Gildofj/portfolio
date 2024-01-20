@@ -73,12 +73,12 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
             Gildo Junior
           </LinkLogo>
         </Logo>
-        <HeaderList open={open}>
+        <HeaderList $open={open}>
           {getNavigation(urlPath).map(({ id, href, text, active }) => (
             <li key={id}>
               <Link
-                active={active}
-                open={open}
+                $active={active}
+                $open={open}
                 onClick={() => handleHeaderItemClick()}
                 href={href}
                 data-to-scrollspy-id={href.replace("#", "")}
@@ -89,8 +89,8 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
           ))}
           <li>
             <Link
-              active={false}
-              open={open}
+              $active={false}
+              $open={open}
               href="https://gildofj.github.io/uses"
             >
               Setup
@@ -98,11 +98,14 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
           </li>
         </HeaderList>
         <HeaderSocial>
-          {SOCIALS.map(social => (
+          {SOCIALS.map((social, i) => (
             <SocialLink
+              key={i}
               href={social.urlRedirect}
               target="_blank"
-              hideOnSmall={social.id === "twitter" || social.id === "instagram"}
+              $hideOnSmall={
+                social.id === "twitter" || social.id === "instagram"
+              }
             >
               <span className="sr-only">{social.sr}</span>
               {getIcon(

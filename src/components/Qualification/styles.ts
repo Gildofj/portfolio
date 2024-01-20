@@ -31,7 +31,7 @@ export const Tabs = styled.div`
 `;
 
 interface TypeProps {
-  active: boolean;
+  $active: boolean;
 }
 
 export const Tab = styled.div<TypeProps>`
@@ -42,23 +42,23 @@ export const Tab = styled.div<TypeProps>`
   margin: 0 0.5rem;
   cursor: pointer;
   gap: 0.5rem;
-  color: ${({ active, theme: { colors } }) =>
-    active ? colors.purple_800 : colors.text};
+  color: ${({ $active, theme: { colors } }) =>
+    $active ? colors.purple_800 : colors.text};
   transition: 0.2s;
 
   span > svg {
-    color: ${({ active, theme: { colors } }) =>
-      active ? colors.purple_800 : colors.text};
-    fill: ${({ active, theme: { colors } }) =>
-      active ? colors.purple_800 : colors.text};
+    color: ${({ $active, theme: { colors } }) =>
+      $active ? colors.purple_800 : colors.text};
+    fill: ${({ $active, theme: { colors } }) =>
+      $active ? colors.purple_800 : colors.text};
   }
 
   &:hover {
-    color: ${({ active, theme: { colors } }) => !active && colors.primary};
+    color: ${({ $active, theme: { colors } }) => !$active && colors.primary};
 
     span > svg {
-      color: ${({ active, theme: { colors } }) => !active && colors.primary};
-      fill: ${({ active, theme: { colors } }) => !active && colors.primary};
+      color: ${({ $active, theme: { colors } }) => !$active && colors.primary};
+      fill: ${({ $active, theme: { colors } }) => !$active && colors.primary};
     }
   }
 

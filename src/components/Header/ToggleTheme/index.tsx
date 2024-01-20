@@ -14,12 +14,12 @@ export function ToggleThemeButton() {
   }, []);
 
   return isMounted ? (
-    <ThemeButtonContainer currentTheme={theme}>
+    <ThemeButtonContainer $currentTheme={theme}>
       {themes.map(t => {
         const checked = t === theme;
         const iconColor = theme !== "light" ? "#d4d4d8" : "#18181b";
         return (
-          <ThemeButton key={t} checked={checked} onClick={toggleTheme}>
+          <ThemeButton key={t} $checked={checked} onClick={toggleTheme}>
             {t === "light" ? (
               <Sunny
                 color={checked ? "#000000" : iconColor}

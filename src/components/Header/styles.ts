@@ -25,7 +25,7 @@ export const Nav = styled.nav`
 `;
 
 interface StyledListProps {
-  open: boolean;
+  $open: boolean;
 }
 
 export const HeaderList = styled.ul<StyledListProps>`
@@ -43,10 +43,10 @@ export const HeaderList = styled.ul<StyledListProps>`
     top: 60px;
     left: 0;
     z-index: 10;
-    padding: ${({ open }) => (open ? "5rem" : 0)};
-    height: ${({ open }) => (open ? "100vh" : 0)};
+    padding: ${({ $open }) => ($open ? "5rem" : 0)};
+    height: ${({ $open }) => ($open ? "100vh" : 0)};
     transition: all 0.3s ease-in;
-    overflow-y: ${({ open }) => (open ? "auto" : "hidden")};
+    overflow-y: ${({ $open }) => ($open ? "auto" : "hidden")};
     border-radius: 0 0 0.75em 0.75rem;
     background: ${({ theme }) => theme.colors.background};
   }
@@ -69,8 +69,8 @@ export const LinkLogo = styled.a`
 `;
 
 interface LinkProps {
-  active: boolean;
-  open: boolean;
+  $active: boolean;
+  $open: boolean;
 }
 
 export const Link = styled.a<LinkProps>`
@@ -78,8 +78,8 @@ export const Link = styled.a<LinkProps>`
   padding: 1rem 0.5rem;
   color: ${({ theme }) => theme.colors.text};
   border-bottom: 4px solid
-    ${({ active, open, theme }) =>
-      active && !open ? theme.colors.text : theme.colors.transparent};
+    ${({ $active, $open, theme }) =>
+      $active && !$open ? theme.colors.text : theme.colors.transparent};
   transition: 0.2s;
 
   &:active {
@@ -133,7 +133,7 @@ export const HeaderSocial = styled.div`
 `;
 
 interface SocialLinkProps {
-  hideOnSmall?: boolean;
+  $hideOnSmall?: boolean;
 }
 
 export const SocialLink = styled.a<SocialLinkProps>`
@@ -141,7 +141,7 @@ export const SocialLink = styled.a<SocialLinkProps>`
   color: ${({ theme }) => theme.colors.text};
 
   @media screen and (max-width: 768px) {
-    display: ${({ hideOnSmall }) => (hideOnSmall ? "none" : "inline-block")};
+    display: ${({ $hideOnSmall }) => ($hideOnSmall ? "none" : "inline-block")};
   }
 `;
 
