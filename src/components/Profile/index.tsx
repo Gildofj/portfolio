@@ -51,7 +51,6 @@ export function Profile() {
           </Button>
           <Button
             href="#contact"
-            transparent
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}

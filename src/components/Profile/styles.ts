@@ -80,11 +80,7 @@ export const ColorizedText = styled.span`
   color: #a855f7;
 `;
 
-interface ButtonProps {
-  transparent?: boolean;
-}
-
-export const Button = styled(motion.a)<ButtonProps>`
+export const Button = styled(motion.a)`
   display: flex;
   align-items: center;
   justify-content: center;
