@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import { SyntheticEvent, useRef, useState } from "react";
+import { SyntheticEvent, useMemo, useRef, useState } from "react";
 
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
@@ -20,12 +20,16 @@ import {
   Input,
   Message,
   SendButton,
-  SendIcon,
   Subtitle,
   Type,
   WriteMeButton,
 } from "./styles";
-import { ArrowForwardOutline, MailOutline } from "react-ionicons";
+import {
+  ArrowForwardOutline,
+  LogoWhatsapp,
+  MailOutline,
+  Send,
+} from "react-ionicons";
 import { useTheme } from "styled-components";
 
 interface ContactProps extends ScrollAnimatedProps {}
@@ -36,6 +40,11 @@ export function Contact({}: ContactProps) {
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [messageError, setMessageError] = useState(false);
+
+  const iconsColor = useMemo(
+    () => (theme !== "light" ? "#d6d6d8" : "#18181d"),
+    [theme],
+  );
 
   const sendEmail = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -84,18 +93,9 @@ export function Contact({}: ContactProps) {
           <Subtitle>Fale comigo</Subtitle>
           {CONTACT_TYPES.map((c, i) => (
             <CardContact key={i}>
-              {c.type === "Email" && (
-                <MailOutline color="#d6d6d8" height="32px" width="32px" />
-              )}
+              {c.type === "Email" && <MailOutline height="32px" width="32px" />}
               {c.type === "Whatsapp" && (
-                <img
-                  src={`/portfolio/assets/images/${
-                    theme !== "light" ? "white-whatsapp" : "black-whatsapp"
-                  }.svg`}
-                  width={32}
-                  height={32}
-                  alt="icone whatsapp"
-                />
+                <LogoWhatsapp height="32px" width="32px" />
               )}
               <Type>{c.type}</Type>
               <span>{c.contactId}</span>
@@ -106,7 +106,7 @@ export function Contact({}: ContactProps) {
               >
                 Falar
                 <ArrowForwardOutline
-                  color="#d6d6d8"
+                  color={iconsColor}
                   height="23px"
                   width="23px"
                 />
@@ -156,12 +156,7 @@ export function Contact({}: ContactProps) {
             )}
           </FieldGroupArea>
           <SendButton type="submit">
-            Enviar{" "}
-            <SendIcon
-              src={`/portfolio/assets/images/${
-                theme !== "light" ? "white-send" : "black-send"
-              }.svg`}
-            ></SendIcon>
+            Enviar <Send width="20px" height="20px" />
           </SendButton>
         </Form>
       </ContactContainer>

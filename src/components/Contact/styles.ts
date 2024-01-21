@@ -44,6 +44,11 @@ export const CardContact = styled.div`
   padding: 1.2rem 3rem;
   background: ${({ theme }) => theme.colors.transparent};
   border: 1px solid ${({ theme }) => theme.colors.primary};
+
+  span > svg {
+    color: ${({ theme }) => theme.colors.text};
+    fill: ${({ theme }) => theme.colors.text};
+  }
 `;
 
 export const WriteMeButton = styled.a`
@@ -52,9 +57,20 @@ export const WriteMeButton = styled.a`
   gap: 0.3rem;
   margin-top: 1rem;
   line-height: 1;
+  transition: 0.2s;
+
+  span > svg {
+    transition: 0.2s;
+  }
 
   &:hover {
-    color: ${({ theme }) => theme.colors.purple_800};
+    color: ${({ theme }) => theme.colors.primary};
+
+    span > svg {
+      transform: translateX(5px);
+      color: ${({ theme }) => theme.colors.primary};
+      fill: ${({ theme }) => theme.colors.primary};
+    }
   }
 `;
 
@@ -153,9 +169,20 @@ export const SendButton = styled.button`
   background: ${({ theme }) => theme.colors.transparent};
   color: ${({ theme }) => theme.colors.text};
 
+  span > svg {
+    transition: 0.2s;
+    color: ${({ theme }) => theme.colors.text};
+    fill: ${({ theme }) => theme.colors.text};
+  }
+
   &:hover {
     transform: scale(1.1);
     color: ${({ theme }) => theme.colors.primary};
+
+    span > svg {
+      color: ${({ theme }) => theme.colors.primary};
+      fill: ${({ theme }) => theme.colors.primary};
+    }
   }
 
   &:active {
@@ -166,5 +193,3 @@ export const SendButton = styled.button`
 export const Type = styled.span`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
-
-export const SendIcon = styled.img``;
