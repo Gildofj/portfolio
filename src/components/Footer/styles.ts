@@ -24,19 +24,11 @@ export const FooterSocial = styled.ul`
 export const Link = styled.a`
   color: ${({ theme }) => theme.colors.text};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  transition: 0.2s;
 
-  &:hover {
-    color: ${({ theme: { colors } }) => colors.purple_primary};
-  }
-`;
-
-export const SocialIcon = styled.i`
-  font-size: 1.8rem;
-  transition: 0.2s;
-
-  &:hover {
-    color: ${({ theme: { colors } }) => colors.purple_primary};
+  span > svg {
+    transition: 0.5s;
+    color: ${({ theme }) => theme.colors.text};
+    fill: ${({ theme }) => theme.colors.text};
   }
 `;
 

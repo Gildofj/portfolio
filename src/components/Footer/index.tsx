@@ -10,7 +10,6 @@ import {
   FooterContainer,
   FooterSocial,
   Link,
-  SocialIcon,
   Authors,
 } from "./styles";
 
@@ -18,13 +17,13 @@ export function Footer() {
   const getIcon = (id: string, size: string) => {
     switch (id) {
       case "github":
-        return <LogoGithub color="#d6d6d8" width={size} height={size} />;
+        return <LogoGithub width={size} height={size} />;
       case "linkedin":
-        return <LogoLinkedin color="#d6d6d8" width={size} height={size} />;
+        return <LogoLinkedin width={size} height={size} />;
       case "instagram":
-        return <LogoInstagram color="#d6d6d8" width={size} height={size} />;
+        return <LogoInstagram width={size} height={size} />;
       case "twitter":
-        return <LogoTwitter color="#d6d6d8" width={size} height={size} />;
+        return <LogoTwitter width={size} height={size} />;
     }
   };
 
