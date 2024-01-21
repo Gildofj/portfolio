@@ -1,9 +1,15 @@
 import emailjs from "@emailjs/browser";
-import { SyntheticEvent, useMemo, useRef, useState } from "react";
+import { SyntheticEvent, useRef, useState } from "react";
+import {
+  ArrowForwardOutline,
+  LogoWhatsapp,
+  MailOutline,
+  Send,
+} from "react-ionicons";
 
+import { useToast } from "../../hooks/useToast";
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
-import { doToast } from "../_UI/Toast";
 import { ScrollAnimatedProps } from "../types";
 import { CONTACT_TYPES } from "./constants";
 import {
@@ -24,27 +30,15 @@ import {
   Type,
   WriteMeButton,
 } from "./styles";
-import {
-  ArrowForwardOutline,
-  LogoWhatsapp,
-  MailOutline,
-  Send,
-} from "react-ionicons";
-import { useTheme } from "styled-components";
 
 interface ContactProps extends ScrollAnimatedProps {}
 
 export function Contact({}: ContactProps) {
   const form = useRef<HTMLFormElement | null>(null);
-  const { theme } = useTheme();
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [messageError, setMessageError] = useState(false);
-
-  const iconsColor = useMemo(
-    () => (theme !== "light" ? "#d6d6d8" : "#18181d"),
-    [theme],
-  );
+  const { showToast } = useToast();
 
   const sendEmail = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -74,10 +68,10 @@ export function Contact({}: ContactProps) {
         setEmailError(false);
         setMessageError(false);
 
-        doToast("Email enviado com sucesso!");
+        showToast("Email enviado com sucesso!");
         form.current.reset();
       } catch (err) {
-        doToast("Erro ao tentar enviar o e-mail");
+        showToast("Erro ao tentar enviar o e-mail");
       }
     }
   };
@@ -105,11 +99,7 @@ export function Contact({}: ContactProps) {
                 rel="noopener noreferrer"
               >
                 Falar
-                <ArrowForwardOutline
-                  color={iconsColor}
-                  height="23px"
-                  width="23px"
-                />
+                <ArrowForwardOutline height="23px" width="23px" />
               </WriteMeButton>
             </CardContact>
           ))}
