@@ -35,6 +35,9 @@ export const HeaderList = styled.ul<StyledListProps>`
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
+  transition:
+    visibility 0s,
+    opacity 0.5s;
 
   @media screen and (max-width: 1200px) {
     gap: 0.5rem;
@@ -42,6 +45,7 @@ export const HeaderList = styled.ul<StyledListProps>`
 
   @media screen and (max-width: 1080px) {
     width: 100%;
+    height: 100vh;
     flex-direction: column;
     font-size: ${({ theme }) => theme.fontSize.lg};
     position: absolute;
@@ -49,12 +53,10 @@ export const HeaderList = styled.ul<StyledListProps>`
     top: 60px;
     left: 0;
     z-index: 10;
-    padding: ${({ $open }) => ($open ? "5rem" : 0)};
-    height: ${({ $open }) => ($open ? "100vh" : 0)};
-    transition: all 0.3s ease-in;
     overflow-y: ${({ $open }) => ($open ? "auto" : "hidden")};
     border-radius: 0 0 0.75em 0.75rem;
-    background: ${({ theme }) => theme.colors.background};
+    visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
+    opacity: ${({ $open }) => ($open ? 1 : 0)};
   }
 `;
 
@@ -96,8 +98,9 @@ export const Link = styled.a<LinkProps>`
   }
 
   @media screen and (max-width: 1080px) {
-    display: block;
+    display: ${({ $withIcon }) => ($withIcon ? "flex" : "block")};
     width: 100%;
+    border: none;
   }
 `;
 
