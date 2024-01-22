@@ -24,4 +24,12 @@ export const Content = styled(motion.div)<ContainerProps>`
   border-radius: 0.75rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   z-index: 10000;
+
+  @media screen and (max-width: 768px) {
+    min-width: 95%;
+    min-height: 95%;
+    max-width: 95%;
+    max-height: 95%;
+    overflow: auto;
+  }
 `;

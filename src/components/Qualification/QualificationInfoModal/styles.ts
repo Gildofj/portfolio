@@ -73,6 +73,6 @@ export const CertificateAnchor = styled.a`
 
 export const CertificateIcon = styled.img`
   cursor: pointer;
-  filter: invert(76%) sepia(34%) saturate(2086%) hue-rotate(244deg)
-    brightness(97%) contrast(92%);
+  filter: invert(40%) sepia(37%) saturate(2135%) hue-rotate(241deg)
+    brightness(97%) contrast(99%);
 `;
