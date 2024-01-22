@@ -100,7 +100,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
                 width="16px"
                 height="16px"
               />
-              Source
+              Código
             </Link>
           </li>
         </HeaderList>
