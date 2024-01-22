@@ -36,7 +36,11 @@ export const HeaderList = styled.ul<StyledListProps>`
   justify-content: center;
   gap: 1.5rem;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1200px) {
+    gap: 0.5rem;
+  }
+
+  @media screen and (max-width: 1080px) {
     width: 100%;
     flex-direction: column;
     font-size: ${({ theme }) => theme.fontSize.lg};
@@ -91,7 +95,7 @@ export const Link = styled.a<LinkProps>`
     font-weight: ${({ theme }) => theme.fontWeight.bold};
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1080px) {
     display: block;
     width: 100%;
   }
@@ -125,7 +129,7 @@ export const HeaderButton = styled.button`
       0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1080px) {
     display: inline-block;
   }
 `;
