@@ -1,10 +1,3 @@
-import {
-  LogoGithub,
-  LogoTwitter,
-  LogoInstagram,
-  LogoLinkedin,
-} from "react-ionicons";
-
 export const getNavigation = (urlPath: string) => [
   {
     id: 1,
@@ -41,6 +34,12 @@ export const getNavigation = (urlPath: string) => [
     href: "#contact",
     text: "Contato",
     active: urlPath === "#contact",
+  },
+  {
+    id: 7,
+    href: "https://gildofj.github.io/uses/",
+    text: "Setup",
+    active: false,
   },
 ];
 

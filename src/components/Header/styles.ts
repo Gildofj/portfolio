@@ -73,10 +73,13 @@ export const LinkLogo = styled.a`
 interface LinkProps {
   $active: boolean;
   $open: boolean;
+  $withIcon?: boolean;
 }
 
 export const Link = styled.a<LinkProps>`
-  display: inline-block;
+  display: ${({ $withIcon }) => ($withIcon ? "inline-flex" : "inline-block")};
+  gap: 0.5rem;
+  align-items: center;
   padding: 1rem 0.5rem;
   color: ${({ theme }) => theme.colors.text};
   border-bottom: 4px solid

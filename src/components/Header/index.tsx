@@ -91,9 +91,16 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
             <Link
               $active={false}
               $open={open}
-              href="https://gildofj.github.io/uses"
+              $withIcon
+              href="https://github.com/Gildofj/portfolio/"
+              target="_blank"
             >
-              Setup
+              <LogoGithub
+                color={theme !== "light" ? "#d4d4d8" : "#18181b"}
+                width="16px"
+                height="16px"
+              />
+              Source
             </Link>
           </li>
         </HeaderList>
