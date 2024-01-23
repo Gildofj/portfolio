@@ -25,12 +25,14 @@ import {
 import { ToggleThemeButton } from "./ToggleTheme";
 import { useTheme } from "../../contexts/ThemeContext";
 import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
+import { useIntl } from "react-intl";
 
 interface HeaderProps {
   handleHeaderItemClick: () => void;
 }
 
 export function Header({ handleHeaderItemClick }: HeaderProps) {
+  const intl = useIntl();
   const urlPath = useReactPath();
   const [open, setOpen] = useState(false);
   const { theme } = useTheme();
@@ -75,7 +77,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
           </LinkLogo>
         </Logo>
         <HeaderList $open={open}>
-          {getNavigation(urlPath).map(({ id, href, text, active }) => (
+          {getNavigation(urlPath).map(({ id, href, textId, active }) => (
             <li key={id}>
               <Link
                 $active={active}
@@ -84,7 +86,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
                 href={href}
                 data-to-scrollspy-id={href.replace("#", "")}
               >
-                {text}
+                {intl.formatMessage({ id: textId })}
               </Link>
             </li>
           ))}
@@ -101,7 +103,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
                 width="16px"
                 height="16px"
               />
-              Código
+              {intl.formatMessage({ id: "header.source" })}
             </Link>
           </li>
         </HeaderList>

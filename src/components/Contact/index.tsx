@@ -30,10 +30,12 @@ import {
   Type,
   WriteMeButton,
 } from "./styles";
+import { useIntl } from "react-intl";
 
 interface ContactProps extends ScrollAnimatedProps {}
 
 export function Contact({}: ContactProps) {
+  const intl = useIntl();
   const form = useRef<HTMLFormElement | null>(null);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
@@ -79,12 +81,14 @@ export function Contact({}: ContactProps) {
   return (
     <Container id="contact">
       <TitleContainer>
-        <Title>Entre em contato</Title>
+        <Title>{intl.formatMessage({ id: "contact.title" })}</Title>
       </TitleContainer>
 
       <ContactContainer>
         <ContactTypes>
-          <Subtitle>Fale comigo</Subtitle>
+          <Subtitle>
+            {intl.formatMessage({ id: "contact.talkMeTitle" })}
+          </Subtitle>
           {CONTACT_TYPES.map((c, i) => (
             <CardContact key={i}>
               {c.type === "Email" && <MailOutline height="32px" width="32px" />}
@@ -105,48 +109,69 @@ export function Contact({}: ContactProps) {
           ))}
         </ContactTypes>
         <Form ref={form} onSubmit={sendEmail}>
-          <Subtitle>Me mande seu projeto</Subtitle>
+          <Subtitle>
+            {intl.formatMessage({ id: "contact.sendProjectTitle" })}
+          </Subtitle>
           <FieldGroup>
-            <FormTag>Nome</FormTag>
-            <Input name="name" placeholder="Insira seu nome"></Input>
+            <FormTag>{intl.formatMessage({ id: "contact.form.name" })}</FormTag>
+            <Input
+              name="name"
+              placeholder={intl.formatMessage({
+                id: "contact.form.name.placeholder",
+              })}
+            ></Input>
           </FieldGroup>
           {nameError && (
             <Error>
               <FieldError>
-                O campo Nome é obrigatório para prosseguir
+                {intl.formatMessage({ id: "contact.form.name.errorMessage" })}
               </FieldError>
             </Error>
           )}
 
           <FieldGroup>
-            <FormTag>E-mail</FormTag>
+            <FormTag>
+              {intl.formatMessage({ id: "contact.form.email" })}
+            </FormTag>
             <Input
               type="email"
               name="email"
-              placeholder="Insira seu email"
+              placeholder={intl.formatMessage({
+                id: "contact.form.email.placeholder",
+              })}
             ></Input>
           </FieldGroup>
           {emailError && (
             <Error>
               <FieldError>
-                O campo E-mail é obrigatório para prosseguir
+                {intl.formatMessage({ id: "contact.form.email.errorMessage" })}
               </FieldError>
             </Error>
           )}
 
           <FieldGroupArea>
-            <FormTag>Projeto</FormTag>
-            <Message name="message" placeholder="Insira seu projeto"></Message>
+            <FormTag>
+              {intl.formatMessage({ id: "contact.form.project" })}
+            </FormTag>
+            <Message
+              name="message"
+              placeholder={intl.formatMessage({
+                id: "contact.form.project.placeholder",
+              })}
+            ></Message>
             {messageError && (
               <Error>
                 <FieldError>
-                  O campo Projeto é obrigatório para prosseguir
+                  {intl.formatMessage({
+                    id: "contact.form.project.errorMessage",
+                  })}
                 </FieldError>
               </Error>
             )}
           </FieldGroupArea>
           <SendButton type="submit">
-            Enviar <Send width="20px" height="20px" />
+            {intl.formatMessage({ id: "contact.form.sendButton" })}{" "}
+            <Send width="20px" height="20px" />
           </SendButton>
         </Form>
       </ContactContainer>

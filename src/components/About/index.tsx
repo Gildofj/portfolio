@@ -12,7 +12,7 @@ export function About({}: AboutProps) {
   return (
     <Container id="about">
       <TitleContainer>
-        <Title>Sobre mim</Title>
+        <Title>{intl.formatMessage({ id: "about.title" })}</Title>
       </TitleContainer>
       <AboutText>
         <p>

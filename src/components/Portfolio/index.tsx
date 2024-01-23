@@ -1,3 +1,4 @@
+import { useIntl } from "react-intl";
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
 import { ScrollAnimatedProps } from "../types";
@@ -17,11 +18,12 @@ interface PortfolioProps extends ScrollAnimatedProps {}
 
 export function Portfolio({}: PortfolioProps) {
   const { portfolios } = usePortfolio();
+  const intl = useIntl();
 
   return (
     <Container id="portfolio">
       <TitleContainer>
-        <Title>Portfólio</Title>
+        <Title>{intl.formatMessage({ id: "portfolio.title" })}</Title>
       </TitleContainer>
 
       <ProjectsList>

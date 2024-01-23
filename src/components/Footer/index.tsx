@@ -12,8 +12,11 @@ import {
   Link,
   Authors,
 } from "./styles";
+import { useIntl } from "react-intl";
 
 export function Footer() {
+  const intl = useIntl();
+
   const getIcon = (id: string, size: string) => {
     switch (id) {
       case "github":
@@ -31,7 +34,8 @@ export function Footer() {
     <Container>
       <FooterContainer>
         <Authors>
-          &copy; 2023 Gildo Junior. Todos os direitos reservados.
+          &copy; 2023 Gildo Junior.{" "}
+          {intl.formatMessage({ id: "footer.copyright" })}
         </Authors>
         <FooterSocial>
           {SOCIALS.map(({ id, urlRedirect }, i) => (

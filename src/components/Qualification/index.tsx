@@ -22,10 +22,12 @@ import { TitleContainer } from "../_UI/TitleContainer";
 import { useQualification } from "./useQualification";
 import { ScrollAnimatedProps } from "../types";
 import { useTheme } from "styled-components";
+import { useIntl } from "react-intl";
 
 interface QualificationProps extends ScrollAnimatedProps {}
 
 export function Qualification({}: QualificationProps) {
+  const intl = useIntl();
   const { theme } = useTheme();
   const [type, setType] = useState<QualificationType>(
     QualificationType.Experience,
@@ -51,8 +53,18 @@ export function Qualification({}: QualificationProps) {
                   {q.country} - {q.organization}
                 </DataSubTitle>
                 <DataCalendar>
-                  <Calendar width="20px" height="20px" /> {q.startDate} -{" "}
-                  {q.endDate}
+                  <Calendar width="20px" height="20px" />
+                  {intl.formatDate(q.startDate, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}{" "}
+                  -{" "}
+                  {intl.formatDate(q.endDate, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
                 </DataCalendar>
                 <QualificationInfoModal qualification={q} />
               </div>
@@ -67,8 +79,18 @@ export function Qualification({}: QualificationProps) {
                   {q.country} - {q.organization}
                 </DataSubTitle>
                 <DataCalendar>
-                  <Calendar width="20px" height="20px" /> {q.startDate} -{" "}
-                  {q.endDate}
+                  <Calendar width="20px" height="20px" />{" "}
+                  {intl.formatDate(q.startDate, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}{" "}
+                  -{" "}
+                  {intl.formatDate(q.endDate, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
                 </DataCalendar>
                 <QualificationInfoModal qualification={q} />
               </div>
@@ -97,7 +119,7 @@ export function Qualification({}: QualificationProps) {
             $active={type === QualificationType.Experience}
           >
             <BriefcaseOutline height="32px" width="32px" />
-            Experiência
+            {intl.formatMessage({ id: "qualification.experienceTabTitle" })}
           </Tab>
 
           <Tab
@@ -105,7 +127,7 @@ export function Qualification({}: QualificationProps) {
             $active={type === QualificationType.Education}
           >
             <BookOutline height="32px" width="32px" />
-            Educação
+            {intl.formatMessage({ id: "qualification.educationTabTitle" })}
           </Tab>
         </Tabs>
 
