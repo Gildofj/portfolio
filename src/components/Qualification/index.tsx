@@ -23,11 +23,13 @@ import { useQualification } from "./useQualification";
 import { ScrollAnimatedProps } from "../types";
 import { useTheme } from "styled-components";
 import { useIntl } from "react-intl";
+import { useLocale } from "../../contexts/LocaleContext";
 
 interface QualificationProps extends ScrollAnimatedProps {}
 
 export function Qualification({}: QualificationProps) {
   const intl = useIntl();
+  const { locale } = useLocale();
   const { theme } = useTheme();
   const [type, setType] = useState<QualificationType>(
     QualificationType.Experience,
@@ -103,7 +105,7 @@ export function Qualification({}: QualificationProps) {
           );
         }
       }),
-    [qualifications, theme],
+    [qualifications, theme, locale],
   );
 
   return (

@@ -36,10 +36,6 @@ const messages = {
 export function LocaleProvider({ children }: LocaleProviderProps) {
   const [locale, setLocale] = useState<LOCALE>(LOCALE.PT_BR);
 
-  useEffect(() => {
-    console.log(locale);
-  }, [locale]);
-
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
       <IntlProvider

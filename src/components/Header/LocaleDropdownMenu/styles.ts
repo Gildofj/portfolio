@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Content, Portal } from "@radix-ui/react-dropdown-menu";
 
 interface DropdownState {
-  $currentTheme: string;
+  $currentTheme?: string | undefined | null;
 }
 
 export const MenuPortal = styled(Portal)`
@@ -17,6 +17,8 @@ export const MenuContent = styled(Content)<DropdownState>`
     $currentTheme !== "light"
       ? theme.colors.zinc_600
       : theme.colors.purple_200};
+
+  transition: all 500ms;
 `;
 
 export const FlagButton = styled.div<DropdownState>`
@@ -28,6 +30,8 @@ export const FlagButton = styled.div<DropdownState>`
     $currentTheme !== "light"
       ? theme.colors.zinc_600
       : theme.colors.purple_200};
+
+  transition: all 500ms;
 `;
 
 export const FlagItem = styled.button<DropdownState>`

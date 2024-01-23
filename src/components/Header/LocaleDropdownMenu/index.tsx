@@ -1,17 +1,22 @@
 import Flag from "react-flagkit";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import * as Menu from "@radix-ui/react-dropdown-menu";
 import { FlagItem, FlagButton, MenuContent, MenuPortal } from "./styles";
 import { useLocale, LOCALE } from "../../../contexts/LocaleContext";
-import { useTheme } from "styled-components";
+import { useTheme } from "../../../contexts/ThemeContext";
 
 export function LocaleDropdownMenu() {
+  const [isMounted, setIsMounted] = useState(false);
   const { locale, setLocale } = useLocale();
   const { theme } = useTheme();
 
   const selectedCountry = useMemo(() => locale.split("-")[1], [locale]);
 
-  return (
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  return isMounted ? (
     <Menu.Root>
       <Menu.Trigger asChild>
         <FlagButton $currentTheme={theme}>
@@ -40,5 +45,7 @@ export function LocaleDropdownMenu() {
         </MenuContent>
       </MenuPortal>
     </Menu.Root>
+  ) : (
+    <div />
   );
 }
