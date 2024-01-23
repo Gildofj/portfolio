@@ -1,4 +1,9 @@
 {
+  "profile.subtitle": "Full Stack Developer",
+  "profile.cvButton": "Download resume",
+  "profile.contactMeButton": "Contact me",
+  "profile.welcome": "Welcome to my",
+  "profile.welcomeHighlight": "Portfolio",
   "about.firstParagraph": "I am originally from Florianópolis, Santa Catarina, and I have a background in Analysis and Systems Development. I have been working in the development field since the beginning of 2020, but I have been studying programming since 2017. Currently, my work mainly involves the use of Kotlin, C# with .NET Core, as well as Javascript and Typescript for the development of web and mobile applications. I have expertise in frameworks such as AngularJS, ReactJS, and NextJS, and I also have knowledge of SQL Server as a database. Additionally, I possess skills in ExpressJS as a backend in node and React Native for mobile development.",
   "about.secondParagraph": "During the study process, I have been exploring the use of Docker, as well as important concepts in project architecture, such as Clean Architecture and Domain-Driven Design (DDD)."
 }

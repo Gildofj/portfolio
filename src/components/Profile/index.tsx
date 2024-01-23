@@ -1,3 +1,4 @@
+import { useIntl } from "react-intl";
 import {
   AnchorImage,
   Button,
@@ -12,6 +13,8 @@ import {
 } from "./styles";
 
 export function Profile() {
+  const intl = useIntl();
+
   return (
     <Container>
       <ProfileContainer>
@@ -37,7 +40,7 @@ export function Profile() {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          Desenvolvedor Full-Stack
+          {intl.formatMessage({ id: "profile.subtitle" })}
         </DescriptionProfile>
         <ButtonsGroup>
           <Button
@@ -47,7 +50,7 @@ export function Profile() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            Download CV
+            {intl.formatMessage({ id: "profile.cvButton" })}
           </Button>
           <Button
             href="#contact"
@@ -55,7 +58,7 @@ export function Profile() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            Entre em contato
+            {intl.formatMessage({ id: "profile.contactMeButton" })}
           </Button>
         </ButtonsGroup>
       </ProfileContainer>
@@ -65,7 +68,10 @@ export function Profile() {
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        Bem-vindo ao meu <ColorizedText>Portfólio!</ColorizedText>
+        {intl.formatMessage({ id: "profile.welcome" })}{" "}
+        <ColorizedText>
+          {intl.formatMessage({ id: "profile.welcomeHighlight" })}
+        </ColorizedText>
       </WelcomeText>
     </Container>
   );
