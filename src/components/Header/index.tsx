@@ -24,6 +24,7 @@ import {
 } from "react-ionicons";
 import { ToggleThemeButton } from "./ToggleTheme";
 import { useTheme } from "../../contexts/ThemeContext";
+import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
 
 interface HeaderProps {
   handleHeaderItemClick: () => void;
@@ -123,6 +124,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
             </SocialLink>
           ))}
           <ToggleThemeButton />
+          <LocaleDropdownMenu />
           <HeaderButton onClick={() => setOpen(!open)}>
             <MenuSharp
               width="20px"

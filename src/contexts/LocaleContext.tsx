@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useContext, useMemo, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { IntlProvider } from "react-intl";
 import ptBrMessages from "../lang/pt-BR.json";
 import enUsMessages from "../lang/en-US.json";
@@ -29,6 +35,10 @@ const messages = {
 
 export function LocaleProvider({ children }: LocaleProviderProps) {
   const [locale, setLocale] = useState<LOCALE>(LOCALE.PT_BR);
+
+  useEffect(() => {
+    console.log(locale);
+  }, [locale]);
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
