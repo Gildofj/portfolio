@@ -109,7 +109,7 @@ export function Qualification({}: QualificationProps) {
   return (
     <Container id="qualification">
       <TitleContainer>
-        <Title>Qualificação</Title>
+        <Title>{intl.formatMessage({ id: "qualification.title" })}</Title>
       </TitleContainer>
 
       <Content>
