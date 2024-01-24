@@ -22,6 +22,7 @@ export function Profile() {
           href="https://github.com/Gildofj"
           target="_blank"
           rel="noopener noreferrer"
+          title="Go to my github"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.3 }}
@@ -45,6 +46,7 @@ export function Profile() {
         <ButtonsGroup>
           <Button
             href="/portfolio/assets/files/resume-gildo.pdf"
+            title="Download my resume"
             download
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}

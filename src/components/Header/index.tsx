@@ -67,7 +67,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
       {open && <Overlay onClick={() => setOpen(!open)} />}
       <Nav>
         <Logo>
-          <LinkLogo href="/portfolio/">
+          <LinkLogo href="/portfolio/" title="Go to top of page">
             <LogoIcon
               color={theme !== "light" ? "#d4d4d8" : "#18181b"}
               height="1.8rem"
@@ -85,6 +85,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
                 onClick={() => handleHeaderItemClick()}
                 href={href}
                 data-to-scrollspy-id={href.replace("#", "")}
+                title={textId}
               >
                 {intl.formatMessage({ id: textId })}
               </Link>
@@ -96,6 +97,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               $open={open}
               $withIcon
               href="https://github.com/Gildofj/portfolio/"
+              title="Website source code"
               target="_blank"
             >
               <LogoGithub
@@ -112,6 +114,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
             <SocialLink
               key={i}
               href={social.urlRedirect}
+              title={`Go to my ${social.id}`}
               target="_blank"
               $hideOnSmall={
                 social.id === "twitter" || social.id === "instagram"

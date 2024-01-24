@@ -42,6 +42,7 @@ export function Footer() {
             <li key={i}>
               <Link
                 href={urlRedirect}
+                title={`Go to my ${id}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -8,7 +8,7 @@ interface SkillProps {
 export function Skill({ title, urlIcon }: SkillProps) {
   return (
     <SkillContainer>
-      <SkillIcon src={urlIcon} />
+      <SkillIcon src={urlIcon} alt={title} title={title} />
       <SkillName>{title}</SkillName>
     </SkillContainer>
   );

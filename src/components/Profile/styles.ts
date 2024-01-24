@@ -59,7 +59,7 @@ export const AnchorImage = styled(motion.a)`
   align-items: flex-end;
 `;
 
-export const Name = styled(motion.h2)`
+export const Name = styled(motion.h1)`
   font-size: 3.125rem;
   font-weight: bold;
   color: #6b21a8;

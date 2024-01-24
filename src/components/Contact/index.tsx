@@ -99,6 +99,7 @@ export function Contact({}: ContactProps) {
               <span>{c.contactId}</span>
               <WriteMeButton
                 href={c.redirectUrl}
+                title={`Send me a ${c.type}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

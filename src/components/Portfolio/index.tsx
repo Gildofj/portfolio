@@ -32,11 +32,12 @@ export function Portfolio({}: PortfolioProps) {
             <CardProject
               key={p.title}
               href={p.url}
+              title={p.title}
               target="_blank"
               rel="noopener noreferrer"
             >
               <ImageContainer>
-                <Image src={p.image} alt={p.title}></Image>
+                <Image src={p.image} alt={p.title} title={p.title} />
               </ImageContainer>
               <NameProject>{p.title}</NameProject>
               <Description>{p.description}</Description>
