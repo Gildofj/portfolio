@@ -3,15 +3,18 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import { contentfulClient } from "../../config/Contentful";
 import { Portfolio, PortfolioSkeleton } from "./types";
+import { useLocale } from "../../contexts/LocaleContext";
 
 async function getPortfolios(
   active: boolean,
+  locale: string,
   setPortfolios: (lista: Portfolio[]) => void,
 ) {
   if (!active) return;
 
   const data = await contentfulClient.getEntries<PortfolioSkeleton>({
     content_type: "portfolios",
+    locale: locale,
   });
 
   const portfolioData = await Promise.all(
@@ -35,11 +38,12 @@ async function getPortfolios(
 }
 
 export const usePortfolio = () => {
+  const { locale } = useLocale();
   const [portfolios, setPortfolios] = useState<Portfolio[]>();
 
   useEffect(() => {
     let active = true;
-    getPortfolios(active, setPortfolios);
+    getPortfolios(active, locale, setPortfolios);
     return () => {
       active = false;
     };

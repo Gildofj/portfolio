@@ -7,16 +7,19 @@ import {
   QualificationType,
   QualificationsSkeleton,
 } from "./types";
+import { useLocale } from "../../contexts/LocaleContext";
 
 async function getQualifications(
   type: QualificationType,
   active: boolean,
+  locale: string,
   setQualifications: (lista: Qualification[]) => void,
 ) {
   if (!active) return;
 
   const data = await contentfulClient.getEntries<QualificationsSkeleton>({
     content_type: "qualifications",
+    locale: locale,
   });
 
   const qualificationData = data.items
@@ -44,11 +47,12 @@ async function getQualifications(
 }
 
 export const useQualification = (type: QualificationType) => {
+  const { locale } = useLocale();
   const [qualifications, setQualifications] = useState<Qualification[]>();
 
   useEffect(() => {
     let active = true;
-    getQualifications(type, active, setQualifications);
+    getQualifications(type, active, locale, setQualifications);
     return () => {
       active = false;
     };
@@ -56,7 +60,7 @@ export const useQualification = (type: QualificationType) => {
 
   useEffect(() => {
     let active = true;
-    getQualifications(type, active, setQualifications);
+    getQualifications(type, active, locale, setQualifications);
     return () => {
       active = false;
     };
