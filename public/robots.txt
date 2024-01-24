@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://gildofj.github.io/portfolio/sitemap.xml
