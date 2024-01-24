@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { IntlProvider } from "react-intl";
 import ptBrMessages from "../lang/pt-BR.json";
 import enUsMessages from "../lang/en-US.json";
@@ -39,6 +45,11 @@ export function LocaleProvider({ children }: LocaleProviderProps) {
     window.localStorage.setItem("locale", value);
     setLocale(value);
   };
+
+  useEffect(() => {
+    const htmlTag = document.documentElement;
+    htmlTag.lang = locale == LOCALE.PT_BR ? "pt-BR" : "en";
+  }, [locale]);
 
   return (
     <LocaleContext.Provider value={{ locale, selectLocale }}>
