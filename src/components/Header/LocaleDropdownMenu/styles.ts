@@ -5,14 +5,10 @@ interface DropdownState {
   $currentTheme?: string | undefined | null;
 }
 
-export const MenuPortal = styled(Portal)`
-  top: 0.5rem;
-  right: 0.5rem;
-`;
-
 export const MenuContent = styled(Content)<DropdownState>`
   z-index: 99999;
-  border-radius: 0.75rem;
+  border-radius: 0.375rem;
+  padding: 0.25rem;
   background-color: ${({ theme, $currentTheme }) =>
     $currentTheme !== "light"
       ? theme.colors.zinc_600

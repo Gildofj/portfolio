@@ -24,7 +24,7 @@ export function LocaleDropdownMenu() {
         </FlagButton>
       </Menu.Trigger>
 
-      <Menu.Portal>
+      <MenuPortal>
         <MenuContent $currentTheme={theme}>
           {Object.keys(LOCALE).map(key => {
             const country = key.split("_")[1];
@@ -43,7 +43,7 @@ export function LocaleDropdownMenu() {
             );
           })}
         </MenuContent>
-      </Menu.Portal>
+      </MenuPortal>
     </Menu.Root>
   ) : (
     <div />
