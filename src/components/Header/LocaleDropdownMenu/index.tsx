@@ -7,7 +7,7 @@ import { useTheme } from "../../../contexts/ThemeContext";
 
 export function LocaleDropdownMenu() {
   const [isMounted, setIsMounted] = useState(false);
-  const { locale, setLocale } = useLocale();
+  const { locale, selectLocale } = useLocale();
   const { theme } = useTheme();
 
   const selectedCountry = useMemo(() => locale.split("-")[1], [locale]);
@@ -35,7 +35,7 @@ export function LocaleDropdownMenu() {
               <Menu.Item asChild key={key}>
                 <FlagItem
                   $currentTheme={theme}
-                  onClick={() => setLocale(localeItem)}
+                  onClick={() => selectLocale(localeItem)}
                 >
                   <Flag country={country} />
                 </FlagItem>

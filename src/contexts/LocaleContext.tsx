@@ -1,10 +1,4 @@
-import {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { ReactNode, createContext, useContext, useState } from "react";
 import { IntlProvider } from "react-intl";
 import ptBrMessages from "../lang/pt-BR.json";
 import enUsMessages from "../lang/en-US.json";
@@ -16,7 +10,7 @@ export enum LOCALE {
 
 interface LocaleContextValue {
   locale: string;
-  setLocale: (value: LOCALE) => void;
+  selectLocale: (value: LOCALE) => void;
 }
 
 interface LocaleProviderProps {
@@ -25,7 +19,7 @@ interface LocaleProviderProps {
 
 const LocaleContext = createContext<LocaleContextValue>({
   locale: "",
-  setLocale: () => {},
+  selectLocale: () => {},
 });
 
 const messages = {
@@ -34,10 +28,20 @@ const messages = {
 };
 
 export function LocaleProvider({ children }: LocaleProviderProps) {
-  const [locale, setLocale] = useState<LOCALE>(LOCALE.PT_BR);
+  const [locale, setLocale] = useState<LOCALE>(() => {
+    if (window.localStorage && window.localStorage.getItem("locale"))
+      return window.localStorage.getItem("locale") as LOCALE;
+
+    return LOCALE.PT_BR;
+  });
+
+  const selectLocale = (value: LOCALE) => {
+    window.localStorage.setItem("locale", value);
+    setLocale(value);
+  };
 
   return (
-    <LocaleContext.Provider value={{ locale, setLocale }}>
+    <LocaleContext.Provider value={{ locale, selectLocale }}>
       <IntlProvider
         locale={locale}
         defaultLocale="pt-BR"
