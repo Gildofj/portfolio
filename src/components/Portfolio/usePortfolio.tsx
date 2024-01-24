@@ -47,7 +47,7 @@ export const usePortfolio = () => {
     return () => {
       active = false;
     };
-  }, []);
+  }, [locale]);
 
   return { portfolios };
 };

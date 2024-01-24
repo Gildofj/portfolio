@@ -39,7 +39,7 @@ export const useSkills = () => {
     return () => {
       active = false;
     };
-  }, []);
+  }, [locale]);
 
   return { skills };
 };
