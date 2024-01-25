@@ -28,6 +28,10 @@ export const FlagButton = styled.div<DropdownState>`
       : theme.colors.purple_200};
 
   transition: all 500ms;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const FlagItem = styled.button<DropdownState>`

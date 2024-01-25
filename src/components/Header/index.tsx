@@ -14,6 +14,7 @@ import {
   HeaderList,
   Nav,
   LogoIcon,
+  LocaleList,
 } from "./styles";
 import {
   LogoGithub,
@@ -26,6 +27,8 @@ import { ToggleThemeButton } from "./ToggleTheme";
 import { useTheme } from "../../contexts/ThemeContext";
 import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
 import { useIntl } from "react-intl";
+import { LOCALE, useLocale } from "../../contexts/LocaleContext";
+import Flag from "react-flagkit";
 
 interface HeaderProps {
   handleHeaderItemClick: () => void;
@@ -36,10 +39,11 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
   const urlPath = useReactPath();
   const [open, setOpen] = useState(false);
   const { theme } = useTheme();
+  const { locale, selectLocale } = useLocale();
 
   useEffect(() => {
     setOpen(false);
-  }, [urlPath]);
+  }, [urlPath, locale]);
 
   useEffect(() => {
     handleScrollWhenModalIsOpen(open);
@@ -77,6 +81,19 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
           </LinkLogo>
         </Logo>
         <HeaderList $open={open}>
+          <LocaleList>
+            {Object.keys(LOCALE).map(key => {
+              const country = key.split("_")[1];
+              let localeItem = LOCALE.PT_BR;
+              if (key === "EN_US") localeItem = LOCALE.EN_US;
+
+              return (
+                <button onClick={() => selectLocale(localeItem)}>
+                  <Flag country={country} />
+                </button>
+              );
+            })}
+          </LocaleList>
           {getNavigation(urlPath).map(({ id, href, textId, active }) => (
             <li key={id}>
               <Link
@@ -100,11 +117,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               title="Website source code"
               target="_blank"
             >
-              <LogoGithub
-                color={theme !== "light" ? "#d4d4d8" : "#18181b"}
-                width="16px"
-                height="16px"
-              />
+              <LogoGithub width="16px" height="16px" />
               {intl.formatMessage({ id: "header.source" })}
             </Link>
           </li>

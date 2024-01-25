@@ -61,12 +61,8 @@ export const HeaderList = styled.ul<StyledListProps>`
 `;
 
 export const LocaleList = styled.div`
-  display: none;
+  display: inline-flex;
   gap: 1rem;
-
-  @media screen and (max-width: 1080px) {
-    display: inline-flex;
-  }
 `;
 
 export const Logo = styled.h2`
@@ -96,16 +92,11 @@ export const Link = styled.a<LinkProps>`
   gap: 0.5rem;
   align-items: center;
   padding: 1rem 0.5rem;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.zinc_300};
   border-bottom: 4px solid
     ${({ $active, $open, theme }) =>
       $active && !$open ? theme.colors.text : theme.colors.transparent};
   transition: 0.2s;
-
-  span > svg {
-    color: ${({ theme }) => theme.colors.text};
-    fill: ${({ theme }) => theme.colors.text};
-  }
 
   &:active {
     font-weight: ${({ theme }) => theme.fontWeight.bold};
@@ -115,12 +106,6 @@ export const Link = styled.a<LinkProps>`
     display: ${({ $withIcon }) => ($withIcon ? "flex" : "block")};
     width: 100%;
     border: none;
-    color: ${({ theme }) => theme.colors.zinc_300};
-
-    span > svg {
-      color: ${({ theme }) => theme.colors.zinc_300};
-      fill: ${({ theme }) => theme.colors.zinc_300};
-    }
   }
 `;
 
@@ -133,6 +118,7 @@ export const HeaderButton = styled.button`
   border: 1px solid ${({ theme }) => theme.colors.zinc_700};
   border-radius: 0.375rem;
   cursor: pointer;
+  z-index: 999999;
   box-shadow:
     0 0 #0000,
     0 0 #0000,
