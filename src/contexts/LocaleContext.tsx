@@ -35,8 +35,15 @@ const messages = {
 
 export function LocaleProvider({ children }: LocaleProviderProps) {
   const [locale, setLocale] = useState<LOCALE>(() => {
-    if (window.localStorage && window.localStorage.getItem("locale"))
-      return window.localStorage.getItem("locale") as LOCALE;
+    if (window.localStorage && window.localStorage.getItem("locale")) {
+      const currentLocale = window.localStorage.getItem("locale");
+
+      if (currentLocale === LOCALE.PT_BR || currentLocale === LOCALE.EN_US)
+        return currentLocale as LOCALE;
+
+      if (currentLocale === "pt") return LOCALE.PT_BR;
+      if (currentLocale === "en") return LOCALE.EN_US;
+    }
 
     return LOCALE.PT_BR;
   });
