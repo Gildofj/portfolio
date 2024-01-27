@@ -35,20 +35,28 @@ export const HeaderList = styled.ul<StyledListProps>`
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   transition:
     visibility 0s,
     opacity 0.5s;
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1536px) {
+    position: static;
+    transform: translateX(0);
+  }
+
+  @media screen and (max-width: 1350px) {
     gap: 0.5rem;
   }
 
-  @media screen and (max-width: 1080px) {
+  @media screen and (max-width: 1200px) {
+    position: absolute;
     width: 100%;
     height: 100vh;
     flex-direction: column;
     font-size: ${({ theme }) => theme.fontSize.lg};
-    position: absolute;
     gap: 0.5rem;
     top: 60px;
     left: 0;
@@ -64,7 +72,7 @@ export const LocaleList = styled.div`
   display: none;
   gap: 1rem;
 
-  @media screen and (max-width: 1080px) {
+  @media screen and (max-width: 1200px) {
     display: inline-flex;
   }
 `;
@@ -111,7 +119,7 @@ export const Link = styled.a<LinkProps>`
     font-weight: ${({ theme }) => theme.fontWeight.bold};
   }
 
-  @media screen and (max-width: 1080px) {
+  @media screen and (max-width: 1200px) {
     display: ${({ $withIcon }) => ($withIcon ? "flex" : "block")};
     width: 100%;
     border: none;
@@ -152,7 +160,7 @@ export const HeaderButton = styled.button`
       0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
 
-  @media screen and (max-width: 1080px) {
+  @media screen and (max-width: 1200px) {
     display: inline-block;
   }
 `;
@@ -162,6 +170,10 @@ export const HeaderSocial = styled.div`
   align-items: center;
   gap: 0.75rem;
   padding: 0 0.5rem;
+
+  @media screen and (max-width: 1240px) {
+    gap: 0.25rem;
+  }
 `;
 
 interface SocialLinkProps {
