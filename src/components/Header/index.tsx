@@ -69,7 +69,13 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
 
   return (
     <HeaderContainer>
-      {open && <Overlay onClick={() => setOpen(!open)} />}
+      {open && (
+        <Overlay
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        />
+      )}
       <Nav>
         <Logo>
           <LinkLogo href="/portfolio/" title="Go to top of page">
@@ -81,7 +87,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
             Gildo Junior
           </LinkLogo>
         </Logo>
-        <HeaderList $open={open}>
+        <HeaderList $open={open} onClick={() => setOpen(!open)}>
           <LocaleList>
             {Object.keys(LOCALE).map(key => {
               const country = key.split("_")[1];

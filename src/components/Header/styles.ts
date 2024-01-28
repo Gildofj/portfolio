@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { CodeSlash } from "react-ionicons";
 import styled from "styled-components";
 
@@ -30,7 +31,7 @@ interface StyledListProps {
   $open: boolean;
 }
 
-export const HeaderList = styled.ul<StyledListProps>`
+export const HeaderList = styled(motion.ul)<StyledListProps>`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Overlay = styled(motion.div)`
+export const Overlay = styled(motion.button)`
   position: fixed;
   width: 100vw;
   height: 100vh;
