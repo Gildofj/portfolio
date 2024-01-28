@@ -8,12 +8,14 @@ import {
   QualificationsSkeleton,
 } from "./types";
 import { useLocale } from "../../contexts/LocaleContext";
+import { IntlShape, useIntl } from "react-intl";
 
 async function getQualifications(
   type: QualificationType,
   active: boolean,
   locale: string,
   setQualifications: (lista: Qualification[]) => void,
+  intl: IntlShape
 ) {
   if (!active) return;
 
@@ -33,8 +35,8 @@ async function getQualifications(
       country: fields.country,
       state: fields.state,
       city: fields.city,
-      startDate: moment(fields.startDate).format("MMMM YYYY"),
-      endDate: moment(fields.endDate).format("MMMM YYYY"),
+      startDate: moment(fields.startDate).format("MMM YYYY"),
+      endDate: moment(fields.endDate).format("MMM YYYY"),
       workModel: fields.workModel,
       description: fields.description,
       certificateId: fields.certificateId,
@@ -47,12 +49,13 @@ async function getQualifications(
 }
 
 export const useQualification = (type: QualificationType) => {
+  const intl = useIntl();
   const { locale } = useLocale();
   const [qualifications, setQualifications] = useState<Qualification[]>();
 
   useEffect(() => {
     let active = true;
-    getQualifications(type, active, locale, setQualifications);
+    getQualifications(type, active, locale, setQualifications, intl);
     return () => {
       active = false;
     };
