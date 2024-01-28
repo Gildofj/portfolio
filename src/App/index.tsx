@@ -15,7 +15,6 @@ import { ToastContainer } from "react-toastify";
 import { Theme } from "../config/Theme";
 
 import "moment/dist/locale/pt-br";
-//import "moment/dist/locale/en-us";
 import "react-toastify/dist/ReactToastify.css";
 import { LOCALE, useLocale } from "../contexts/LocaleContext";
 
@@ -23,7 +22,7 @@ function App() {
   const { locale } = useLocale();
   const { scrollRef, handleHeaderItemClick, onUpdateCallback } = useScrolling();
 
-  moment.locale(locale !== LOCALE.EN_US ? "pt-br" : undefined);
+  moment.locale(locale === LOCALE.EN_US ? "en-us" : "pt-br");
   return (
     <Theme>
       <Header handleHeaderItemClick={handleHeaderItemClick} />
