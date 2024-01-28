@@ -15,6 +15,7 @@ import {
   Nav,
   LogoIcon,
   LocaleList,
+  FlagButtonNav,
 } from "./styles";
 import {
   LogoGithub,
@@ -88,9 +89,9 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               if (key === "EN_US") localeItem = LOCALE.EN_US;
 
               return (
-                <button onClick={() => selectLocale(localeItem)}>
+                <FlagButtonNav onClick={() => selectLocale(localeItem)}>
                   <Flag country={country} />
-                </button>
+                </FlagButtonNav>
               );
             })}
           </LocaleList>

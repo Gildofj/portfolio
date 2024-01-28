@@ -55,12 +55,12 @@ export const HeaderList = styled.ul<StyledListProps>`
     position: absolute;
     width: 100%;
     height: 100vh;
+    padding-bottom: 10%;
     flex-direction: column;
     font-size: ${({ theme }) => theme.fontSize.lg};
     gap: 0.5rem;
     top: 60px;
     left: 0;
-    top: 20%;
     z-index: 10;
     overflow-y: ${({ $open }) => ($open ? "auto" : "hidden")};
     border-radius: 0 0 0.75em 0.75rem;
@@ -199,4 +199,8 @@ export const LogoIcon = styled(CodeSlash)`
     padding-bottom: 0.1rem;
     padding-right: 0.1rem;
   }
+`;
+
+export const FlagButtonNav = styled.button`
+  cursor: pointer;
 `;
