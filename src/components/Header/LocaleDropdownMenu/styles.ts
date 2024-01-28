@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Content, Portal } from "@radix-ui/react-dropdown-menu";
+import { Content } from "@radix-ui/react-dropdown-menu";
 
 interface DropdownState {
   $currentTheme?: string | undefined | null;
@@ -29,7 +29,7 @@ export const FlagButton = styled.div<DropdownState>`
 
   transition: all 500ms;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     display: none;
   }
 `;
