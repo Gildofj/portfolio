@@ -60,6 +60,7 @@ export const HeaderList = styled.ul<StyledListProps>`
     gap: 0.5rem;
     top: 60px;
     left: 0;
+    top: 20%;
     z-index: 10;
     overflow-y: ${({ $open }) => ($open ? "auto" : "hidden")};
     border-radius: 0 0 0.75em 0.75rem;
