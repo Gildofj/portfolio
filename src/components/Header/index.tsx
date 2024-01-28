@@ -95,7 +95,10 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               if (key === "EN_US") localeItem = LOCALE.EN_US;
 
               return (
-                <FlagButtonNav onClick={() => selectLocale(localeItem)}>
+                <FlagButtonNav
+                  key={key}
+                  onClick={() => selectLocale(localeItem)}
+                >
                   <Flag country={country} />
                 </FlagButtonNav>
               );
