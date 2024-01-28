@@ -25,9 +25,9 @@ import { useTheme } from "styled-components";
 import { useIntl } from "react-intl";
 import { useLocale } from "../../contexts/LocaleContext";
 
-interface QualificationProps extends ScrollAnimatedProps { }
+interface QualificationProps extends ScrollAnimatedProps {}
 
-export function Qualification({ }: QualificationProps) {
+export function Qualification({}: QualificationProps) {
   const intl = useIntl();
   const { locale } = useLocale();
   const { theme } = useTheme();
@@ -71,7 +71,7 @@ export function Qualification({ }: QualificationProps) {
                   {q.country} - {q.organization}
                 </DataSubTitle>
                 <DataCalendar>
-                  <Calendar width="20px" height="20px" />{" "}
+                  <Calendar width="20px" height="20px" />
                   {q.startDate} - {q.endDate}
                 </DataCalendar>
                 <QualificationInfoModal qualification={q} />
