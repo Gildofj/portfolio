@@ -8,14 +8,12 @@ import {
   QualificationsSkeleton,
 } from "./types";
 import { useLocale } from "../../contexts/LocaleContext";
-import { IntlShape, useIntl } from "react-intl";
 
 async function getQualifications(
   type: QualificationType,
   active: boolean,
   locale: string,
   setQualifications: (lista: Qualification[]) => void,
-  intl: IntlShape
 ) {
   if (!active) return;
 
@@ -49,13 +47,12 @@ async function getQualifications(
 }
 
 export const useQualification = (type: QualificationType) => {
-  const intl = useIntl();
   const { locale } = useLocale();
   const [qualifications, setQualifications] = useState<Qualification[]>();
 
   useEffect(() => {
     let active = true;
-    getQualifications(type, active, locale, setQualifications, intl);
+    getQualifications(type, active, locale, setQualifications);
     return () => {
       active = false;
     };
