@@ -21,6 +21,7 @@ export const SkillName = styled.span`
   font-size: ${({ theme }) => theme.fontSize.xs};
   color: ${({ theme }) => theme.colors.text};
   text-wrap: nowrap;
+  white-space: nowrap;
 `;
 
 export const SkillIcon = styled.img`
