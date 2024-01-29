@@ -12,6 +12,7 @@ export const Header = styled.header`
   font-family: "Fira Code";
   padding: 0.5rem;
   transition: 0.2s;
+  top: 0;
 `;
 
 export const Nav = styled.nav`
