@@ -1,12 +1,11 @@
 import { useMemo, useState } from "react";
 import { BookOutline, BriefcaseOutline, Calendar } from "react-ionicons";
+import { useIntl } from "react-intl";
 
 import { Title } from "../_UI/Title";
 import {
   Container,
   Content,
-  Tabs,
-  Tab,
   Section,
   SectionContent,
   Data,
@@ -19,11 +18,11 @@ import {
 import { QualificationType } from "./types";
 import { QualificationInfoModal } from "./QualificationInfoModal";
 import { TitleContainer } from "../_UI/TitleContainer";
+import { Tabs, Tab } from "../_UI/Tabs";
 import { useQualification } from "./useQualification";
 import { ScrollAnimatedProps } from "../types";
-import { useTheme } from "styled-components";
-import { useIntl } from "react-intl";
 import { useLocale } from "../../contexts/LocaleContext";
+import { useTheme } from "../../contexts/ThemeContext";
 
 interface QualificationProps extends ScrollAnimatedProps {}
 
