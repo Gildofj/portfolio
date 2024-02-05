@@ -30,6 +30,7 @@ async function getPortfolios(
           image: image.fields.file?.url || "",
           url: fields.url,
           description: fields.description,
+          type: fields.type,
         };
       }),
   );

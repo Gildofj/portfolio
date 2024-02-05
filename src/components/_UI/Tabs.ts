@@ -4,8 +4,7 @@ export const Tabs = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 1.5rem;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem auto;
 
   @media screen and (max-width: 400px) {
     margin-right: 0;
