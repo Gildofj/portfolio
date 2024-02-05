@@ -1,4 +1,14 @@
 import { useEffect, useState } from "react";
+import {
+  LogoGithub,
+  LogoInstagram,
+  LogoLinkedin,
+  LogoTwitter,
+  MenuSharp,
+} from "react-ionicons";
+import Flag from "react-flagkit";
+import { useIntl } from "react-intl";
+
 import useReactPath from "../../hooks/useReactPath";
 import { handleScrollWhenModalIsOpen } from "../../utils/scroll";
 import { Overlay } from "../_UI/Overlay";
@@ -17,19 +27,10 @@ import {
   LocaleList,
   FlagButtonNav,
 } from "./styles";
-import {
-  LogoGithub,
-  LogoInstagram,
-  LogoLinkedin,
-  LogoTwitter,
-  MenuSharp,
-} from "react-ionicons";
 import { ToggleThemeButton } from "./ToggleTheme";
 import { useTheme } from "../../contexts/ThemeContext";
 import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
-import { useIntl } from "react-intl";
 import { LOCALE, useLocale } from "../../contexts/LocaleContext";
-import Flag from "react-flagkit";
 
 interface HeaderProps {
   handleHeaderItemClick: () => void;
@@ -87,7 +88,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
             Gildo Junior
           </LinkLogo>
         </Logo>
-        <HeaderList $open={open} onClick={() => setOpen(!open)}>
+        <HeaderList $open={open} onClick={() => setOpen(false)}>
           <LocaleList>
             {Object.keys(LOCALE).map(key => {
               const country = key.split("_")[1];
