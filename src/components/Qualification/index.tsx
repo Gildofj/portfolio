@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { BookOutline, BriefcaseOutline, Calendar } from "react-ionicons";
+import { BookOpenText, Suitcase, Calendar } from "@phosphor-icons/react";
 import { useIntl } from "react-intl";
 
 import { Title } from "../_UI/Title";
@@ -54,7 +54,7 @@ export function Qualification({}: QualificationProps) {
                   {q.country} - {q.organization}
                 </DataSubTitle>
                 <DataCalendar>
-                  <Calendar width="20px" height="20px" />
+                  <Calendar size={20} />
                   {q.startDate} - {q.endDate}
                 </DataCalendar>
                 <QualificationInfoModal qualification={q} />
@@ -70,7 +70,7 @@ export function Qualification({}: QualificationProps) {
                   {q.country} - {q.organization}
                 </DataSubTitle>
                 <DataCalendar>
-                  <Calendar width="20px" height="20px" />
+                  <Calendar size={20} />
                   {q.startDate} - {q.endDate}
                 </DataCalendar>
                 <QualificationInfoModal qualification={q} />
@@ -99,7 +99,7 @@ export function Qualification({}: QualificationProps) {
             onClick={() => setType(QualificationType.Experience)}
             $active={type === QualificationType.Experience}
           >
-            <BriefcaseOutline height="32px" width="32px" />
+            <Suitcase size={32} />
             {intl.formatMessage({ id: "qualification.experienceTabTitle" })}
           </Tab>
 
@@ -107,7 +107,7 @@ export function Qualification({}: QualificationProps) {
             onClick={() => setType(QualificationType.Education)}
             $active={type === QualificationType.Education}
           >
-            <BookOutline height="32px" width="32px" />
+            <BookOpenText size={32} />
             {intl.formatMessage({ id: "qualification.educationTabTitle" })}
           </Tab>
         </Tabs>

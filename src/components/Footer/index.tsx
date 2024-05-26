@@ -1,9 +1,9 @@
 import {
-  LogoGithub,
-  LogoInstagram,
-  LogoLinkedin,
-  LogoTwitter,
-} from "react-ionicons";
+  GithubLogo,
+  InstagramLogo,
+  LinkedinLogo,
+  XLogo,
+} from "@phosphor-icons/react";
 import { SOCIALS } from "../constants";
 import {
   Container,
@@ -17,16 +17,16 @@ import { useIntl } from "react-intl";
 export function Footer() {
   const intl = useIntl();
 
-  const getIcon = (id: string, size: string) => {
+  const getIcon = (id: string, size: number) => {
     switch (id) {
       case "github":
-        return <LogoGithub width={size} height={size} />;
+        return <GithubLogo size={size} />;
       case "linkedin":
-        return <LogoLinkedin width={size} height={size} />;
+        return <LinkedinLogo size={size} />;
       case "instagram":
-        return <LogoInstagram width={size} height={size} />;
+        return <InstagramLogo size={size} />;
       case "twitter":
-        return <LogoTwitter width={size} height={size} />;
+        return <XLogo size={size} />;
     }
   };
 
@@ -46,7 +46,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {getIcon(id, "32px")}
+                {getIcon(id, 32)}
               </Link>
             </li>
           ))}

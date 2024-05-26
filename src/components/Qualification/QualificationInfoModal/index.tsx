@@ -15,7 +15,7 @@ import {
 import { Modal } from "../../_UI/Modal";
 import { Qualification } from "../types";
 import { WORK_MODEL } from "../constants";
-import { CloseOutline } from "react-ionicons";
+import { X } from "@phosphor-icons/react";
 
 interface QualificationInfoModalProps {
   qualification: Qualification;
@@ -36,7 +36,7 @@ export function QualificationInfoModal({
             <TextTitle>{qualification.title}</TextTitle>
 
             <CloseButton onClick={() => setOpen(!open)}>
-              <CloseOutline color="#a855f7" height="32px" width="32px" />
+              <X color="#a855f7" size={32} />
             </CloseButton>
           </ModalTitle>
           <ModalContent>

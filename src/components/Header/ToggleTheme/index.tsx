@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Moon, Sunny } from "react-ionicons";
+import { Moon, Sun } from "@phosphor-icons/react";
 import { ThemeButton, ThemeButtonContainer } from "./styles";
 import { useTheme } from "../../../contexts/ThemeContext";
 
@@ -21,17 +21,9 @@ export function ToggleThemeButton() {
         return (
           <ThemeButton key={t} $checked={checked} onClick={toggleTheme}>
             {t === "light" ? (
-              <Sunny
-                color={checked ? "#000000" : iconColor}
-                width="16px"
-                height="16px"
-              />
+              <Sun color={checked ? "#000000" : iconColor} size={16} />
             ) : (
-              <Moon
-                color={checked ? "#000000" : iconColor}
-                width="16px"
-                height="16px"
-              />
+              <Moon color={checked ? "#000000" : iconColor} size={16} />
             )}
           </ThemeButton>
         );

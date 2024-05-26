@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CodeSlash } from "react-ionicons";
+import { Code } from "@phosphor-icons/react";
 import styled from "styled-components";
 
 export const Header = styled.header`
@@ -192,7 +192,7 @@ export const SocialLink = styled.a<SocialLinkProps>`
   }
 `;
 
-export const LogoIcon = styled(CodeSlash)`
+export const LogoIcon = styled(Code)`
   display: inline-flex;
   align-items: center;
   justify-content: center;

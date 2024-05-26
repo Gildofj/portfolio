@@ -17,8 +17,7 @@ import { usePortfolio } from "./usePortfolio";
 import { Tab, Tabs } from "../_UI/Tabs";
 import { useState } from "react";
 import { ProjectType } from "./types";
-import { CodeWorking, ConstructOutline } from "react-ionicons";
-import HoldHandsIcon from "../_UI/Icons/HoldHandsIcon";
+import { Handshake, Wrench } from "@phosphor-icons/react";
 
 interface PortfolioProps extends ScrollAnimatedProps {}
 
@@ -38,7 +37,7 @@ export function Portfolio({}: PortfolioProps) {
           onClick={() => setType(ProjectType.Personal)}
           $active={type === ProjectType.Personal}
         >
-          <ConstructOutline height="32px" width="32px" />
+          <Wrench size={32} />
           {intl.formatMessage({ id: "portfolio.personalTabTitle" })}
         </Tab>
 
@@ -46,7 +45,7 @@ export function Portfolio({}: PortfolioProps) {
           onClick={() => setType(ProjectType.Colaborations)}
           $active={type === ProjectType.Colaborations}
         >
-          <HoldHandsIcon />
+          <Handshake size={32} />
           {intl.formatMessage({ id: "portfolio.colaborationsTabTitle" })}
         </Tab>
       </Tabs>

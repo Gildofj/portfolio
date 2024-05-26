@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import {
-  LogoGithub,
-  LogoInstagram,
-  LogoLinkedin,
-  LogoTwitter,
-  MenuSharp,
-} from "react-ionicons";
+  GithubLogo,
+  InstagramLogo,
+  LinkedinLogo,
+  XLogo,
+  List,
+} from "@phosphor-icons/react";
 import Flag from "react-flagkit";
 import { useIntl } from "react-intl";
 
@@ -55,16 +55,16 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
     handleScrollWhenModalIsOpen(open);
   }, [open]);
 
-  const getIcon = (id: string, color: string, size: string) => {
+  const getIcon = (id: string, color: string, size: number) => {
     switch (id) {
       case "github":
-        return <LogoGithub color={color} width={size} height={size} />;
+        return <GithubLogo color={color} size={size} />;
       case "linkedin":
-        return <LogoLinkedin color={color} width={size} height={size} />;
+        return <LinkedinLogo color={color} size={size} />;
       case "instagram":
-        return <LogoInstagram color={color} width={size} height={size} />;
+        return <InstagramLogo color={color} size={size} />;
       case "twitter":
-        return <LogoTwitter color={color} width={size} height={size} />;
+        return <XLogo color={color} size={size} />;
     }
   };
 
@@ -128,7 +128,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               title="Website source code"
               target="_blank"
             >
-              <LogoGithub width="16px" height="16px" />
+              <GithubLogo size={16} />
               {intl.formatMessage({ id: "header.source" })}
             </Link>
           </li>
@@ -148,18 +148,14 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               {getIcon(
                 social.id,
                 theme !== "light" ? "#d4d4d8" : "#18181b",
-                "32px",
+                32,
               )}
             </SocialLink>
           ))}
           <ToggleThemeButton />
           <LocaleDropdownMenu />
           <HeaderButton onClick={() => setOpen(!open)}>
-            <MenuSharp
-              width="20px"
-              height="20px"
-              color={theme !== "light" ? "#d4d4d8" : "#18181b"}
-            />
+            <List size={20} color={theme !== "light" ? "#d4d4d8" : "#18181b"} />
           </HeaderButton>
         </HeaderSocial>
       </Nav>

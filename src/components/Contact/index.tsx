@@ -1,11 +1,11 @@
 import emailjs from "@emailjs/browser";
 import { SyntheticEvent, useRef, useState } from "react";
 import {
-  ArrowForwardOutline,
-  LogoWhatsapp,
-  MailOutline,
-  Send,
-} from "react-ionicons";
+  ArrowRight,
+  WhatsappLogo,
+  Envelope,
+  PaperPlaneTilt,
+} from "@phosphor-icons/react";
 
 import { useToast } from "../../hooks/useToast";
 import { Title } from "../_UI/Title";
@@ -91,10 +91,8 @@ export function Contact({}: ContactProps) {
           </Subtitle>
           {CONTACT_TYPES.map((c, i) => (
             <CardContact key={i}>
-              {c.type === "Email" && <MailOutline height="32px" width="32px" />}
-              {c.type === "Whatsapp" && (
-                <LogoWhatsapp height="32px" width="32px" />
-              )}
+              {c.type === "Email" && <Envelope size={32} />}
+              {c.type === "Whatsapp" && <WhatsappLogo size={32} />}
               <Type>{c.type}</Type>
               <span>{c.contactId}</span>
               <WriteMeButton
@@ -104,7 +102,7 @@ export function Contact({}: ContactProps) {
                 rel="noopener noreferrer"
               >
                 Falar
-                <ArrowForwardOutline height="23px" width="23px" />
+                <ArrowRight size={23} />
               </WriteMeButton>
             </CardContact>
           ))}
@@ -172,7 +170,7 @@ export function Contact({}: ContactProps) {
           </FieldGroupArea>
           <SendButton type="submit">
             {intl.formatMessage({ id: "contact.form.sendButton" })}{" "}
-            <Send width="20px" height="20px" />
+            <PaperPlaneTilt size={20} />
           </SendButton>
         </Form>
       </ContactContainer>
