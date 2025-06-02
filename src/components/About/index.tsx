@@ -1,12 +1,9 @@
 import { useIntl } from "react-intl";
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
-import { ScrollAnimatedProps } from "../types";
 import { AboutText, Container } from "./styles";
 
-interface AboutProps extends ScrollAnimatedProps {}
-
-export function About({}: AboutProps) {
+export function About() {
   const intl = useIntl();
 
   return (

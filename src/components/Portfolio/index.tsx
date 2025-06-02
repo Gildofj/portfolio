@@ -2,7 +2,6 @@ import { useIntl } from "react-intl";
 
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
-import { ScrollAnimatedProps } from "../types";
 import {
   Container,
   Image,
@@ -19,9 +18,7 @@ import { useState } from "react";
 import { ProjectType } from "./types";
 import { Handshake, Wrench } from "@phosphor-icons/react";
 
-interface PortfolioProps extends ScrollAnimatedProps {}
-
-export function Portfolio({}: PortfolioProps) {
+export function Portfolio() {
   const { portfolios } = usePortfolio();
   const intl = useIntl();
   const [type, setType] = useState<ProjectType>(ProjectType.Personal);

@@ -1,11 +1,7 @@
 import styled from "styled-components";
+import { Section } from "../_UI/Section";
 
-export const Container = styled.section`
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+export const Container = styled(Section)`
   gap: 2rem;
 `;
 

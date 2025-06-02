@@ -1,10 +1,8 @@
 import styled from "styled-components";
+import { Section } from "../_UI/Section";
 
-export const Container = styled.section`
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: center;
+export const Container = styled(Section)`
+  width: auto;
   gap: 3rem;
 `;
 
@@ -18,7 +16,7 @@ export const Content = styled.div`
   }
 `;
 
-export const Section = styled.div`
+export const TabContent = styled.div`
   display: grid;
   grid-template-columns: 1.5fr;
   justify-content: center;
@@ -28,7 +26,7 @@ export const Section = styled.div`
   }
 `;
 
-export const SectionContent = styled.div`
+export const TabItem = styled.div`
   display: block;
 `;
 

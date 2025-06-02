@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     --webkit-font-smoothing: antialiased;
     font-size: ${({ theme: { fontSize } }) => fontSize.base};
     line-height: ${({ theme: { lineHeight } }) => lineHeight.base};
-    text-rendering: optmizeLegibility;
+    text-rendering: optimizeLegibility;
     overflow-wrap: break-word;
     background-color: ${({ theme: { colors } }) => colors.background};
     color: ${({ theme: { colors } }) => colors.text};

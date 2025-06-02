@@ -33,7 +33,7 @@ import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
 import { LOCALE, useLocale } from "../../contexts/LocaleContext";
 
 interface HeaderProps {
-  handleHeaderItemClick: () => void;
+  handleHeaderItemClick: (id: string) => void;
 }
 
 export function Header({ handleHeaderItemClick }: HeaderProps) {
@@ -110,7 +110,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               <Link
                 $active={active}
                 $open={open}
-                onClick={() => handleHeaderItemClick()}
+                onClick={() => handleHeaderItemClick(href)}
                 href={href}
                 data-to-scrollspy-id={href.replace("#", "")}
                 title={textId}

@@ -4,19 +4,19 @@ import {
   Button,
   ButtonsGroup,
   ColorizedText,
-  Container,
   DescriptionProfile,
   Name,
   ProfileContainer,
   ProfileImage,
   WelcomeText,
 } from "./styles";
+import { Section } from "../_UI/Section";
 
 export function Profile() {
   const intl = useIntl();
 
   return (
-    <Container>
+    <Section>
       <ProfileContainer>
         <AnchorImage
           href="https://github.com/Gildofj"
@@ -75,6 +75,6 @@ export function Profile() {
           {intl.formatMessage({ id: "profile.welcomeHighlight" })}
         </ColorizedText>
       </WelcomeText>
-    </Container>
+    </Section>
   );
 }

@@ -10,7 +10,6 @@ import {
 import { useToast } from "../../hooks/useToast";
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
-import { ScrollAnimatedProps } from "../types";
 import { CONTACT_TYPES } from "./constants";
 import {
   CardContact,
@@ -32,9 +31,7 @@ import {
 } from "./styles";
 import { useIntl } from "react-intl";
 
-interface ContactProps extends ScrollAnimatedProps {}
-
-export function Contact({}: ContactProps) {
+export function Contact() {
   const intl = useIntl();
   const form = useRef<HTMLFormElement | null>(null);
   const [nameError, setNameError] = useState(false);

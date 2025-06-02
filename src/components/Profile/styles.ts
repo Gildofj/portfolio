@@ -1,14 +1,6 @@
 import { motion } from "framer-motion";
 import styled, { keyframes } from "styled-components";
 
-export const Container = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -101,4 +93,12 @@ export const Button = styled(motion.a)`
 export const ButtonsGroup = styled.div`
   display: flex;
   gap: 2rem;
+
+  @media screen and (max-width: 576px) {
+    gap: 1.5rem;
+  }
+
+  @media screen and (max-width: 400px) {
+    gap: 0.5rem;
+  }
 `;

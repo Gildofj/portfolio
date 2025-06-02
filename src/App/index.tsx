@@ -1,5 +1,4 @@
 import moment from "moment";
-import ScrollSpy from "react-ui-scrollspy";
 
 import { About } from "../components/About";
 import { Contact } from "../components/Contact";
@@ -10,32 +9,35 @@ import { Qualification } from "../components/Qualification";
 import { Skills } from "../components/Skills";
 import { Profile } from "../components/Profile";
 import { Main, Content } from "./styles";
-import { useScrolling } from "../hooks/useScrolling";
+import { useScrollSnapSpy } from "../hooks/useScrollSnapSpy";
 import { ToastContainer } from "react-toastify";
 import { Theme } from "../config/Theme";
 
 import "moment/dist/locale/pt-br";
 import "react-toastify/dist/ReactToastify.css";
 import { LOCALE, useLocale } from "../contexts/LocaleContext";
+import useReactPath from "../hooks/useReactPath";
+import { getNavigation } from "../components/constants";
 
 function App() {
   const { locale } = useLocale();
-  const { scrollRef, handleHeaderItemClick, onUpdateCallback } = useScrolling();
+  const urlPath = useReactPath();
+  const { handleHeaderItemClick } = useScrollSnapSpy(
+    getNavigation(urlPath).map(item => item.href),
+  );
 
   moment.locale(locale === LOCALE.EN_US ? "en-us" : "pt-br");
   return (
     <Theme>
       <Header handleHeaderItemClick={handleHeaderItemClick} />
       <Main>
-        <Content ref={scrollRef}>
-          <ScrollSpy onUpdateCallback={onUpdateCallback}>
-            <Profile />
-            <About scrollRef={scrollRef} />
-            <Skills scrollRef={scrollRef} />
-            <Qualification scrollRef={scrollRef} />
-            <Portfolio scrollRef={scrollRef} />
-            <Contact scrollRef={scrollRef} />
-          </ScrollSpy>
+        <Content>
+          <Profile />
+          <About />
+          <Skills />
+          <Qualification />
+          <Portfolio />
+          <Contact />
         </Content>
       </Main>
       <Footer />

@@ -6,8 +6,8 @@ import { Title } from "../_UI/Title";
 import {
   Container,
   Content,
-  Section,
-  SectionContent,
+  TabContent,
+  TabItem,
   Data,
   DataTitle,
   DataSubTitle,
@@ -20,13 +20,10 @@ import { QualificationInfoModal } from "./QualificationInfoModal";
 import { TitleContainer } from "../_UI/TitleContainer";
 import { Tabs, Tab } from "../_UI/Tabs";
 import { useQualification } from "./useQualification";
-import { ScrollAnimatedProps } from "../types";
 import { useLocale } from "../../contexts/LocaleContext";
 import { useTheme } from "../../contexts/ThemeContext";
 
-interface QualificationProps extends ScrollAnimatedProps {}
-
-export function Qualification({}: QualificationProps) {
+export function Qualification() {
   const intl = useIntl();
   const { locale } = useLocale();
   const { theme } = useTheme();
@@ -112,9 +109,9 @@ export function Qualification({}: QualificationProps) {
           </Tab>
         </Tabs>
 
-        <Section>
-          <SectionContent>{itens}</SectionContent>
-        </Section>
+        <TabContent>
+          <TabItem>{itens}</TabItem>
+        </TabContent>
       </Content>
     </Container>
   );
