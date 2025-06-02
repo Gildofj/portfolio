@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { toast, Theme } from "react-toastify";
+import { toast, Theme, ToastPosition } from "react-toastify";
 
 import { useTheme } from "../contexts/ThemeContext";
 
@@ -8,7 +8,7 @@ export function useToast() {
 
   const toastConfig = useMemo(
     () => ({
-      position: toast.POSITION.TOP_RIGHT,
+      position: "top-right" as ToastPosition,
       style: {
         backgroundColor:
           theme !== "light" ? "#18181b !important" : "#faf5ff !important",
@@ -18,12 +18,15 @@ export function useToast() {
         color: theme !== "light" ? "#d6d6d8 !important" : "#18181b !important",
         padding: "1rem",
       },
+      ideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
       progress: undefined,
-      hideProgressBar: true,
       autoClose: 3000,
       theme: theme as Theme,
     }),
-    [theme],
+    [theme]
   );
 
   const showToast = (text: string) => {

@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
 import moment from "moment";
+import { useEffect, useState } from "react";
 
 import { contentfulClient } from "../../config/Contentful";
+import { useLocale } from "../../contexts/LocaleContext";
+
 import {
   Qualification,
   QualificationType,
   QualificationsSkeleton,
 } from "./types";
-import { useLocale } from "../../contexts/LocaleContext";
 
 async function getQualifications(
   type: QualificationType,
   active: boolean,
   locale: string,
-  setQualifications: (lista: Qualification[]) => void,
+  setQualifications: (lista: Qualification[]) => void
 ) {
   if (!active) return;
 
@@ -25,7 +26,7 @@ async function getQualifications(
   const qualificationData = data.items
     .filter(item => item.fields.type === type)
     .sort((a, b) =>
-      moment(moment(b.fields.endDate)).diff(moment(a.fields.endDate)),
+      moment(moment(b.fields.endDate)).diff(moment(a.fields.endDate))
     )
     .flatMap(({ fields }) => ({
       title: fields.title,

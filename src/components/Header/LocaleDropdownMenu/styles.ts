@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { Content } from "@radix-ui/react-dropdown-menu";
+import styled from "styled-components";
 
 interface DropdownState {
   $currentTheme?: string | undefined | null;

@@ -11,4 +11,3 @@ export const CONTACT_TYPES = [
       "https://api.whatsapp.com/send?phone=48991333748&text=Olá! Tudo certo? Entrei em contato pelo portfólio",
   },
 ];
-

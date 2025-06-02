@@ -1,6 +1,8 @@
 import { useIntl } from "react-intl";
+
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
+
 import { Skill } from "./Skill";
 import { Container, Grid } from "./styles";
 import { useSkills } from "./useSkills";

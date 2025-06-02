@@ -1,7 +1,9 @@
 import styled from "styled-components";
+
 import { Section } from "../_UI/Section";
 
 export const Container = styled(Section)`
+  width: 100%;
   gap: 4rem;
 `;
 
@@ -121,8 +123,8 @@ export const FormTag = styled.label`
   background-color: ${({ theme: { colors } }) => colors.background};
   color: ${({ theme: { colors } }) => colors.primary};
   z-index: 10;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke;
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
 `;
@@ -138,8 +140,8 @@ export const Input = styled.input`
   border: 1px solid ${({ theme: { colors } }) => colors.primary};
   color: ${({ theme }) => theme.colors.text};
   z-index: 1;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke;
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
 `;
@@ -157,8 +159,8 @@ export const Message = styled.textarea`
   background-color: ${({ theme: { colors } }) => colors.background};
   border: 1px solid ${({ theme: { colors } }) => colors.primary};
   color: ${({ theme }) => theme.colors.text};
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke;
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
 `;

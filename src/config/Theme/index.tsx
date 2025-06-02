@@ -1,7 +1,10 @@
+import { ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyle } from "./global";
-import { coreTheme, coreColors } from "./core";
+
 import { useTheme } from "../../contexts/ThemeContext";
+
+import { coreTheme, coreColors } from "./core";
+import { GlobalStyle } from "./global";
 
 const lightTheme = {
   colors: {
@@ -25,7 +28,11 @@ const darkTheme = {
   ...coreTheme,
 };
 
-export const Theme = ({ children }: any) => {
+type ThemeProps = {
+  children: ReactNode;
+};
+
+export const Theme = ({ children }: ThemeProps) => {
   const { theme } = useTheme();
 
   return (

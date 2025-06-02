@@ -1,4 +1,10 @@
+import { X } from "@phosphor-icons/react";
 import { useState } from "react";
+
+import { Modal } from "../../_UI/Modal";
+import { WORK_MODEL } from "../constants";
+import { Qualification } from "../types";
+
 import {
   BoldText,
   CertificateAnchor,
@@ -12,10 +18,6 @@ import {
   ModalTitle,
   TextTitle,
 } from "./styles";
-import { Modal } from "../../_UI/Modal";
-import { Qualification } from "../types";
-import { WORK_MODEL } from "../constants";
-import { X } from "@phosphor-icons/react";
 
 interface QualificationInfoModalProps {
   qualification: Qualification;

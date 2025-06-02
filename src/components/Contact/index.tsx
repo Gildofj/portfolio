@@ -1,15 +1,17 @@
 import emailjs from "@emailjs/browser";
-import { SyntheticEvent, useRef, useState } from "react";
 import {
   ArrowRight,
   WhatsappLogo,
   Envelope,
   PaperPlaneTilt,
 } from "@phosphor-icons/react";
+import { SyntheticEvent, useRef, useState } from "react";
+import { useIntl } from "react-intl";
 
 import { useToast } from "../../hooks/useToast";
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
+
 import { CONTACT_TYPES } from "./constants";
 import {
   CardContact,
@@ -29,7 +31,6 @@ import {
   Type,
   WriteMeButton,
 } from "./styles";
-import { useIntl } from "react-intl";
 
 export function Contact() {
   const intl = useIntl();
@@ -60,7 +61,7 @@ export function Contact() {
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
           form.current,
-          import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         );
 
         setNameError(false);
@@ -69,7 +70,7 @@ export function Contact() {
 
         showToast("Email enviado com sucesso!");
         form.current.reset();
-      } catch (err) {
+      } catch {
         showToast("Erro ao tentar enviar o e-mail");
       }
     }

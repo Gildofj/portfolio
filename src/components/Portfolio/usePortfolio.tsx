@@ -1,14 +1,15 @@
+import moment from "moment";
 import { useEffect, useState } from "react";
 
-import moment from "moment";
 import { contentfulClient } from "../../config/Contentful";
-import { Portfolio, PortfolioSkeleton } from "./types";
 import { useLocale } from "../../contexts/LocaleContext";
+
+import { Portfolio, PortfolioSkeleton } from "./types";
 
 async function getPortfolios(
   active: boolean,
   locale: string,
-  setPortfolios: (lista: Portfolio[]) => void,
+  setPortfolios: (lista: Portfolio[]) => void
 ) {
   if (!active) return;
 
@@ -20,7 +21,7 @@ async function getPortfolios(
   const portfolioData = await Promise.all(
     data.items
       .sort((a, b) =>
-        moment(moment(a.sys.createdAt)).diff(moment(b.sys.createdAt)),
+        moment(moment(a.sys.createdAt)).diff(moment(b.sys.createdAt))
       )
       .flatMap(async ({ fields }) => {
         const image = await contentfulClient.getAsset(fields.image.sys.id);
@@ -32,7 +33,7 @@ async function getPortfolios(
           description: fields.description,
           type: fields.type,
         };
-      }),
+      })
   );
 
   setPortfolios(portfolioData as Portfolio[]);

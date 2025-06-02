@@ -1,6 +1,8 @@
 import { useIntl } from "react-intl";
+
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
+
 import { AboutText, Container } from "./styles";
 
 export function About() {

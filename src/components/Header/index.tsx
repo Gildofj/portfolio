@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   GithubLogo,
   InstagramLogo,
@@ -6,13 +5,18 @@ import {
   XLogo,
   List,
 } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
 import Flag from "react-flagkit";
 import { useIntl } from "react-intl";
 
+import { LOCALE, useLocale } from "../../contexts/LocaleContext";
+import { useTheme } from "../../contexts/ThemeContext";
 import useReactPath from "../../hooks/useReactPath";
 import { handleScrollWhenModalIsOpen } from "../../utils/scroll";
 import { Overlay } from "../_UI/Overlay";
 import { SOCIALS, getNavigation } from "../constants";
+
+import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
 import {
   Header as HeaderContainer,
   Link,
@@ -28,9 +32,6 @@ import {
   FlagButtonNav,
 } from "./styles";
 import { ToggleThemeButton } from "./ToggleTheme";
-import { useTheme } from "../../contexts/ThemeContext";
-import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
-import { LOCALE, useLocale } from "../../contexts/LocaleContext";
 
 interface HeaderProps {
   handleHeaderItemClick: (id: string) => void;
@@ -148,7 +149,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               {getIcon(
                 social.id,
                 theme !== "light" ? "#d4d4d8" : "#18181b",
-                32,
+                32
               )}
             </SocialLink>
           ))}

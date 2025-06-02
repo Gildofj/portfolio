@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
 import moment from "moment";
-import { Skill, SkillSkeleton } from "./types";
+import { useEffect, useState } from "react";
+
 import { contentfulClient } from "../../config/Contentful";
 import { useLocale } from "../../contexts/LocaleContext";
+
+import { Skill, SkillSkeleton } from "./types";
 
 async function getSkills(
   active: boolean,
   locale: string,
-  setSkills: (lista: Skill[]) => void,
+  setSkills: (lista: Skill[]) => void
 ) {
   if (!active) return;
 
@@ -18,7 +20,7 @@ async function getSkills(
 
   const qualificationData = data.items
     .sort((a, b) =>
-      moment(moment(a.sys.createdAt)).diff(moment(b.sys.createdAt)),
+      moment(moment(a.sys.createdAt)).diff(moment(b.sys.createdAt))
     )
     .flatMap(({ fields }) => ({
       title: fields.title,

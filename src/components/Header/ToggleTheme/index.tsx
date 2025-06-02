@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
 import { Moon, Sun } from "@phosphor-icons/react";
-import { ThemeButton, ThemeButtonContainer } from "./styles";
+import { useEffect, useState } from "react";
+
 import { useTheme } from "../../../contexts/ThemeContext";
+
+import { ThemeButton, ThemeButtonContainer } from "./styles";
 
 const themes = ["light", "dark"];
 

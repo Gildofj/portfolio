@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
-import ThemeProvider from "./ThemeContext";
+
 import LocaleProvider from "./LocaleContext";
+import ThemeProvider from "./ThemeContext";
 
 interface AppProviderProps {
   children: ReactNode;

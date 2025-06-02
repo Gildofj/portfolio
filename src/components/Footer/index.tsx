@@ -4,7 +4,10 @@ import {
   LinkedinLogo,
   XLogo,
 } from "@phosphor-icons/react";
+import { useIntl } from "react-intl";
+
 import { SOCIALS } from "../constants";
+
 import {
   Container,
   FooterContainer,
@@ -12,7 +15,6 @@ import {
   Link,
   Authors,
 } from "./styles";
-import { useIntl } from "react-intl";
 
 export function Footer() {
   const intl = useIntl();

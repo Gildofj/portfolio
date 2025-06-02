@@ -1,8 +1,14 @@
-import { useMemo, useState } from "react";
 import { BookOpenText, Suitcase, Calendar } from "@phosphor-icons/react";
+import { useMemo, useState } from "react";
 import { useIntl } from "react-intl";
 
+import { useLocale } from "../../contexts/LocaleContext";
+import { useTheme } from "../../contexts/ThemeContext";
+import { Tabs, Tab } from "../_UI/Tabs";
 import { Title } from "../_UI/Title";
+import { TitleContainer } from "../_UI/TitleContainer";
+
+import { QualificationInfoModal } from "./QualificationInfoModal";
 import {
   Container,
   Content,
@@ -16,19 +22,14 @@ import {
   Line,
 } from "./styles";
 import { QualificationType } from "./types";
-import { QualificationInfoModal } from "./QualificationInfoModal";
-import { TitleContainer } from "../_UI/TitleContainer";
-import { Tabs, Tab } from "../_UI/Tabs";
 import { useQualification } from "./useQualification";
-import { useLocale } from "../../contexts/LocaleContext";
-import { useTheme } from "../../contexts/ThemeContext";
 
 export function Qualification() {
   const intl = useIntl();
   const { locale } = useLocale();
   const { theme } = useTheme();
   const [type, setType] = useState<QualificationType>(
-    QualificationType.Experience,
+    QualificationType.Experience
   );
   const { qualifications } = useQualification(type);
 
@@ -81,7 +82,7 @@ export function Qualification() {
           );
         }
       }),
-    [qualifications, theme, locale],
+    [qualifications, theme, locale]
   );
 
   return (

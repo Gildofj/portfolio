@@ -1,4 +1,7 @@
 import { useIntl } from "react-intl";
+
+import { Section } from "../_UI/Section";
+
 import {
   AnchorImage,
   Button,
@@ -10,7 +13,6 @@ import {
   ProfileImage,
   WelcomeText,
 } from "./styles";
-import { Section } from "../_UI/Section";
 
 export function Profile() {
   const intl = useIntl();

@@ -6,8 +6,9 @@ import {
   useState,
 } from "react";
 import { IntlProvider } from "react-intl";
-import ptBrMessages from "../lang/pt-BR.json";
+
 import enUsMessages from "../lang/en-US.json";
+import ptBrMessages from "../lang/pt-BR.json";
 
 export enum LOCALE {
   PT_BR = "pt-BR",

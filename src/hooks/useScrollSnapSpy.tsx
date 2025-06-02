@@ -13,7 +13,7 @@ export function useScrollSnapSpy(sectionIds: string[]) {
     const observer = new IntersectionObserver(
       entries => {
         const visible = entries.find(
-          entry => entry.isIntersecting && entry.intersectionRatio >= 0.7,
+          entry => entry.isIntersecting && entry.intersectionRatio >= 0.7
         );
 
         if (visible) {
@@ -23,7 +23,7 @@ export function useScrollSnapSpy(sectionIds: string[]) {
       },
       {
         threshold: [0.7],
-      },
+      }
     );
 
     sectionIds.forEach(id => {

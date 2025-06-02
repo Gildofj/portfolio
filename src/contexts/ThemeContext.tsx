@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import {
+  type ReactNode,
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 
 interface ThemeContextValue {
   theme?: string;
@@ -9,38 +15,43 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
+// Criação do contexto com valor inicial parcial (placeholder)
 const ThemeContext = createContext<ThemeContextValue>({
   theme: undefined,
   toggleTheme: () => {},
 });
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<string | undefined>(() => {
-    if (import.meta.env.SSR) return undefined;
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme"))
-      return localStorage.getItem("theme") || undefined;
-    if (window.matchMedia("(prefer-color-scheme: dark)").matches) return "dark";
-    return "light";
-  });
+  const [theme, setTheme] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const saved = localStorage.getItem("theme");
+    if (saved) {
+      setTheme(saved);
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  }, []);
 
   const toggleTheme = () => {
-    const t = theme === "light" ? "dark" : "light";
-    localStorage.setItem("theme", t);
-    setTheme(t);
+    const next = theme === "light" ? "dark" : "light";
+    localStorage.setItem("theme", next);
+    setTheme(next);
   };
 
   return (
-    <ThemeContext.Provider
-      value={{
-        theme,
-        toggleTheme,
-      }}
-    >
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
 }
 
+// Hook customizado
 export const useTheme = () => useContext(ThemeContext);
 
+// Export padrão opcional
 export default ThemeProvider;

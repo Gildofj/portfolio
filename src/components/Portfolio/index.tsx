@@ -1,7 +1,11 @@
+import { Handshake, Wrench } from "@phosphor-icons/react";
+import { useState } from "react";
 import { useIntl } from "react-intl";
 
+import { Tab, Tabs } from "../_UI/Tabs";
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
+
 import {
   Container,
   Image,
@@ -12,11 +16,8 @@ import {
   ProjectsListItem,
   CardProject,
 } from "./styles";
-import { usePortfolio } from "./usePortfolio";
-import { Tab, Tabs } from "../_UI/Tabs";
-import { useState } from "react";
 import { ProjectType } from "./types";
-import { Handshake, Wrench } from "@phosphor-icons/react";
+import { usePortfolio } from "./usePortfolio";
 
 export function Portfolio() {
   const { portfolios } = usePortfolio();

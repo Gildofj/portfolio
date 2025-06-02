@@ -1,10 +1,12 @@
-import { createPortal } from "react-dom";
+import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
+
+import { handleScrollWhenModalIsOpen } from "../../../utils/scroll";
 import { Overlay } from "../Overlay";
+
 import { Content } from "./styles";
 import { ModalProps } from "./types";
-import { handleScrollWhenModalIsOpen } from "../../../utils/scroll";
-import { AnimatePresence } from "framer-motion";
 
 export function Modal({
   open,
@@ -43,6 +45,6 @@ export function Modal({
         </>
       )}
     </AnimatePresence>,
-    document.getElementById("modal-root") as HTMLElement,
+    document.getElementById("modal-root") as HTMLElement
   );
 }
