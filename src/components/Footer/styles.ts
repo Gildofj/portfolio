@@ -5,6 +5,7 @@ export const Container = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-snap-align: end;
 `;
 
 export const FooterContainer = styled.div`

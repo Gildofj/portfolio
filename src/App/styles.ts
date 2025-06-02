@@ -17,5 +17,4 @@ export const Content = styled.article`
   padding: 0 2rem;
   margin: 0 auto;
   max-width: 48rem;
-  scroll-snap-type: y mandatory;
 `;
