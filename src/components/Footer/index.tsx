@@ -1,8 +1,8 @@
 import {
-  GithubLogo,
-  InstagramLogo,
-  LinkedinLogo,
-  XLogo,
+  GithubLogoIcon,
+  InstagramLogoIcon,
+  LinkedinLogoIcon,
+  XLogoIcon,
 } from "@phosphor-icons/react";
 import { useIntl } from "react-intl";
 
@@ -15,20 +15,22 @@ import {
   Link,
   Authors,
 } from "./styles";
+import { useCopyright } from "./useCopyright";
 
 export function Footer() {
   const intl = useIntl();
+  const { startYear, currentYear } = useCopyright();
 
   const getIcon = (id: string, size: number) => {
     switch (id) {
       case "github":
-        return <GithubLogo size={size} />;
+        return <GithubLogoIcon size={size} />;
       case "linkedin":
-        return <LinkedinLogo size={size} />;
+        return <LinkedinLogoIcon size={size} />;
       case "instagram":
-        return <InstagramLogo size={size} />;
+        return <InstagramLogoIcon size={size} />;
       case "twitter":
-        return <XLogo size={size} />;
+        return <XLogoIcon size={size} />;
     }
   };
 
@@ -36,7 +38,7 @@ export function Footer() {
     <Container>
       <FooterContainer>
         <Authors>
-          &copy; 2023 Gildo Junior.{" "}
+          &copy; {startYear}-{currentYear} Gildo Junior.{" "}
           {intl.formatMessage({ id: "footer.copyright" })}
         </Authors>
         <FooterSocial>
