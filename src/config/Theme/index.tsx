@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
-import { ThemeProvider } from "styled-components";
+import { DefaultTheme, ThemeProvider } from "styled-components";
 
 import { useTheme } from "../../contexts/ThemeContext";
 
 import { coreTheme, coreColors } from "./core";
 import { GlobalStyle } from "./global";
 
-const lightTheme = {
+const lightTheme: DefaultTheme = {
   colors: {
     background: "#faf5ff",
 
@@ -17,7 +17,7 @@ const lightTheme = {
   ...coreTheme,
 };
 
-const darkTheme = {
+const darkTheme: DefaultTheme = {
   colors: {
     background: "#18181b",
 
