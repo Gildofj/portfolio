@@ -20,8 +20,9 @@ export function Skills() {
         {skills?.map((skill, i) => (
           <Skill
             key={i}
-            urlIcon={`/portfolio/assets/images/${skill.icon}.svg`}
+            icon={skill.icon}
             title={skill.title}
+            categories={skill.categories}
           />
         ))}
       </Grid>

@@ -28,6 +28,18 @@ declare module "styled-components" {
 
       text: string;
       background: string;
+
+      skills: {
+        language: string;
+        framework: string;
+        tools: string;
+        database: string;
+        concept: string;
+        mobile: string;
+        design: string;
+        devops: string;
+        library: string;
+      };
     };
     fontSize: {
       xs: string;

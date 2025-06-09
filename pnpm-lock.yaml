@@ -46,6 +46,9 @@ importers:
       react-toastify:
         specifier: ^11.0.5
         version: 11.0.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      simple-icons:
+        specifier: ^15.1.0
+        version: 15.1.0
       styled-components:
         specifier: ^6.1.18
         version: 6.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -3667,6 +3670,13 @@ packages:
       }
     engines: { node: ">= 0.4" }
 
+  simple-icons@15.1.0:
+    resolution:
+      {
+        integrity: sha512-7wj0OeOJvGSgNEIrMm1MGhoX7CEV5R+T0Q5HmXzfakrue84qCZNV9l9eG092c14BbiuGgljdwFkLy3rQQaDJyg==,
+      }
+    engines: { node: ">=0.12.18" }
+
   slash@3.0.0:
     resolution:
       {
@@ -6338,6 +6348,8 @@ snapshots:
       side-channel-list: 1.0.0
       side-channel-map: 1.0.1
       side-channel-weakmap: 1.0.2
+
+  simple-icons@15.1.0: {}
 
   slash@3.0.0: {}
 

@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { useIntl } from "react-intl";
 
 import { useLocale } from "../../contexts/LocaleContext";
-import { useTheme } from "../../contexts/ThemeContext";
+import { usePortfolioTheme } from "../../contexts/ThemeContext";
 import { Tabs, Tab } from "../_UI/Tabs";
 import { Title } from "../_UI/Title";
 import { TitleContainer } from "../_UI/TitleContainer";
@@ -27,7 +27,7 @@ import { useQualification } from "./useQualification";
 export function Qualification() {
   const intl = useIntl();
   const { locale } = useLocale();
-  const { theme } = useTheme();
+  const { theme } = usePortfolioTheme();
   const [type, setType] = useState<QualificationType>(
     QualificationType.Experience
   );

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 
-import { useTheme } from "../../contexts/ThemeContext";
+import { usePortfolioTheme } from "../../contexts/ThemeContext";
 
 import { coreTheme, coreColors } from "./core";
 import { GlobalStyle } from "./global";
@@ -9,7 +9,6 @@ import { GlobalStyle } from "./global";
 const lightTheme: DefaultTheme = {
   colors: {
     background: "#faf5ff",
-
     text: "#18181b",
 
     ...coreColors,
@@ -20,7 +19,6 @@ const lightTheme: DefaultTheme = {
 const darkTheme: DefaultTheme = {
   colors: {
     background: "#18181b",
-
     text: "#d4d4d8",
 
     ...coreColors,
@@ -33,7 +31,7 @@ type ThemeProps = {
 };
 
 export const Theme = ({ children }: ThemeProps) => {
-  const { theme } = useTheme();
+  const { theme } = usePortfolioTheme();
 
   return (
     <ThemeProvider theme={theme !== "light" ? darkTheme : lightTheme}>

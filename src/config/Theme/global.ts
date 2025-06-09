@@ -61,7 +61,6 @@ export const GlobalStyle = createGlobalStyle`
 
   img, svg, video, canvas, audio, iframe, embed, object {
     display: block;
-    vertical-align: middle;
   }
 
   img, video {
