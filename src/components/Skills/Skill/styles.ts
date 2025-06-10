@@ -17,18 +17,14 @@ export const SkillContainer = styled.div`
   }
 `;
 
-interface SkillProps {
-  color: string;
-}
-
-export const SkillName = styled.span<SkillProps>`
+export const SkillName = styled.span`
   font-size: ${({ theme }) => theme.fontSize.xs};
   color: ${({ color }) => color};
   text-wrap: nowrap;
   white-space: nowrap;
 `;
 
-export const SkillIcon = styled.img<SkillProps>`
+export const SkillIcon = styled.img`
   width: 3rem;
   height: 3rem;
   color: ${({ color }) => color};

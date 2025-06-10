@@ -25,7 +25,7 @@ const imageAnimation = keyframes`
 `;
 
 export const ProfileImage = styled.div`
-  background: url("/portfolio/assets/images/me.jpg");
+  background: url("/portfolio/me.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

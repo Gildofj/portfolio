@@ -1,9 +1,9 @@
 import { useMemo } from "react";
-import * as simpleIcons from "simple-icons";
-import type { SimpleIcon } from "simple-icons";
 import { useTheme } from "styled-components";
 
+import { SvgIcon } from "../../_UI/SvgIcon";
 import { SkillCategory } from "../types";
+
 import { SkillName, SkillContainer } from "./styles";
 
 interface SkillProps {
@@ -13,10 +13,17 @@ interface SkillProps {
 }
 
 export function Skill({ title, categories, icon }: SkillProps) {
+  const theme = useTheme();
+
+  const color = useMemo(() => {
+    const category = categories[0];
+    return theme.colors.skills[category];
+  }, [categories, theme]);
+
   return (
     <SkillContainer>
-      {/* <SkillIcon src={iconGenerated?.svg} alt={title} title={title} color={color} /> */}
-      <SkillName color={color}>{title}</SkillName>
+      <SvgIcon icon={icon} color={color} width={48} height={48} />
+      <SkillName>{title}</SkillName>
     </SkillContainer>
   );
 }
