@@ -19,10 +19,6 @@ export const GlobalStyle = createGlobalStyle`
     border-color: theme('borderColor.DEFAULT', currentColor);
   }
 
-  html {
-    scroll-snap-type: y mandatory;
-  }
-
   body {
     width: 100%;
     font-family: --apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Helvetiva, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
@@ -61,7 +57,6 @@ export const GlobalStyle = createGlobalStyle`
 
   img, svg, video, canvas, audio, iframe, embed, object {
     display: block;
-    vertical-align: middle;
   }
 
   img, video {

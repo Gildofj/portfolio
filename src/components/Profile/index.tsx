@@ -47,7 +47,7 @@ export function Profile() {
         </DescriptionProfile>
         <ButtonsGroup>
           <Button
-            href="/portfolio/assets/files/resume-gildo.pdf"
+            href="/portfolio/resume-gildo.pdf"
             title="Download my resume"
             download
             initial={{ x: -100, opacity: 0 }}

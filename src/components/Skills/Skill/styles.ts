@@ -19,7 +19,7 @@ export const SkillContainer = styled.div`
 
 export const SkillName = styled.span`
   font-size: ${({ theme }) => theme.fontSize.xs};
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ color }) => color};
   text-wrap: nowrap;
   white-space: nowrap;
 `;
@@ -27,4 +27,5 @@ export const SkillName = styled.span`
 export const SkillIcon = styled.img`
   width: 3rem;
   height: 3rem;
+  color: ${({ color }) => color};
 `;

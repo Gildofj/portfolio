@@ -3,14 +3,14 @@ import { useEffect, useMemo, useState } from "react";
 import Flag from "react-flagkit";
 
 import { useLocale, LOCALE } from "../../../contexts/LocaleContext";
-import { useTheme } from "../../../contexts/ThemeContext";
+import { usePortfolioTheme } from "../../../contexts/ThemeContext";
 
 import { FlagItem, FlagButton, MenuContent } from "./styles";
 
 export function LocaleDropdownMenu() {
   const [isMounted, setIsMounted] = useState(false);
   const { locale, selectLocale } = useLocale();
-  const { theme } = useTheme();
+  const { theme } = usePortfolioTheme();
 
   const selectedCountry = useMemo(() => locale.split("-")[1], [locale]);
 

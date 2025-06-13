@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 import LocaleProvider from "./LocaleContext";
-import ThemeProvider from "./ThemeContext";
+import PortfolioThemeProvider from "./ThemeContext";
 
 interface AppProviderProps {
   children: ReactNode;
@@ -10,7 +10,7 @@ interface AppProviderProps {
 export default function AppProvider({ children }: AppProviderProps) {
   return (
     <LocaleProvider>
-      <ThemeProvider>{children}</ThemeProvider>
+      <PortfolioThemeProvider>{children}</PortfolioThemeProvider>
     </LocaleProvider>
   );
 }

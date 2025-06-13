@@ -10,7 +10,7 @@ import Flag from "react-flagkit";
 import { useIntl } from "react-intl";
 
 import { LOCALE, useLocale } from "../../contexts/LocaleContext";
-import { useTheme } from "../../contexts/ThemeContext";
+import { usePortfolioTheme } from "../../contexts/ThemeContext";
 import useReactPath from "../../hooks/useReactPath";
 import { handleScrollWhenModalIsOpen } from "../../utils/scroll";
 import { Overlay } from "../_UI/Overlay";
@@ -41,7 +41,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
   const intl = useIntl();
   const urlPath = useReactPath();
   const [open, setOpen] = useState(false);
-  const { theme } = useTheme();
+  const { theme } = usePortfolioTheme();
   const { locale, selectLocale } = useLocale();
 
   useEffect(() => {

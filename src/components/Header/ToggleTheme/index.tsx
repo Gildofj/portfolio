@@ -1,7 +1,7 @@
 import { Moon, Sun } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 
-import { useTheme } from "../../../contexts/ThemeContext";
+import { usePortfolioTheme } from "../../../contexts/ThemeContext";
 
 import { ThemeButton, ThemeButtonContainer } from "./styles";
 
@@ -9,7 +9,7 @@ const themes = ["light", "dark"];
 
 export function ToggleThemeButton() {
   const [isMounted, setIsMounted] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = usePortfolioTheme();
 
   useEffect(() => {
     setIsMounted(true);

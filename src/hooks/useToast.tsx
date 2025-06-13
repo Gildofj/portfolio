@@ -1,10 +1,10 @@
 import { useMemo } from "react";
 import { toast, Theme, ToastPosition } from "react-toastify";
 
-import { useTheme } from "../contexts/ThemeContext";
+import { usePortfolioTheme } from "../contexts/ThemeContext";
 
 export function useToast() {
-  const { theme } = useTheme();
+  const { theme } = usePortfolioTheme();
 
   const toastConfig = useMemo(
     () => ({

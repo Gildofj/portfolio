@@ -6,11 +6,19 @@ export const Container = styled(Section)`
   gap: 2rem;
 `;
 
+export const Header = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const Grid = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 8rem);
   grid-gap: 1rem;
+  align-items: start;
   justify-content: center;
 
   @media screen and (max-width: 768px) {

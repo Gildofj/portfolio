@@ -15,13 +15,12 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-// Criação do contexto com valor inicial parcial (placeholder)
-const ThemeContext = createContext<ThemeContextValue>({
+const PortfolioThemeContext = createContext<ThemeContextValue>({
   theme: undefined,
   toggleTheme: () => {},
 });
 
-export function ThemeProvider({ children }: ThemeProviderProps) {
+export function PortfolioThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState<string | undefined>(undefined);
 
   useEffect(() => {
@@ -44,14 +43,12 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <PortfolioThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
-    </ThemeContext.Provider>
+    </PortfolioThemeContext.Provider>
   );
 }
 
-// Hook customizado
-export const useTheme = () => useContext(ThemeContext);
+export const usePortfolioTheme = () => useContext(PortfolioThemeContext);
 
-// Export padrão opcional
-export default ThemeProvider;
+export default PortfolioThemeProvider;

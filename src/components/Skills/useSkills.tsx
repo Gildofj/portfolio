@@ -4,7 +4,12 @@ import { useEffect, useState } from "react";
 import { contentfulClient } from "../../config/Contentful";
 import { useLocale } from "../../contexts/LocaleContext";
 
-import { Skill, SkillSkeleton } from "./types";
+import {
+  isValidSkillCategory,
+  isValidSkillType,
+  Skill,
+  SkillSkeleton,
+} from "./types";
 
 async function getSkills(
   active: boolean,
@@ -25,7 +30,8 @@ async function getSkills(
     .flatMap(({ fields }) => ({
       title: fields.title,
       icon: fields.icon,
-      type: fields.type,
+      types: (fields.types as string[]).filter(isValidSkillType),
+      categories: (fields.categories as string[]).filter(isValidSkillCategory),
     }));
 
   setSkills(qualificationData as Skill[]);

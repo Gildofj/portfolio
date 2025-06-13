@@ -1,15 +1,29 @@
 import { EntryFieldTypes } from "contentful";
 
 export enum SkillType {
-  BACKEND,
-  FRONTEND,
-  MOBILE,
+  MAIN = "main",
+  BACKEND = "backend",
+  FRONTEND = "frontend",
+  MOBILE = "mobile",
+  OTHER = "other",
+}
+
+export enum SkillCategory {
+  LANGUAGE = "language",
+  FRAMEWORK = "framework",
+  TOOLS = "tools",
+  DATABASE = "database",
+  CONCEPT = "concept",
+  DESIGN = "design",
+  DEVOPS = "devops",
+  LIBRARY = "library",
 }
 
 export interface Skill {
   title: string;
   icon: string;
-  type: SkillType;
+  types: SkillType[];
+  categories: SkillCategory[];
 }
 
 export type SkillSkeleton = {
@@ -17,6 +31,15 @@ export type SkillSkeleton = {
   fields: {
     title: EntryFieldTypes.Text;
     icon: EntryFieldTypes.Text;
-    type: EntryFieldTypes.Number;
+    types: EntryFieldTypes.Text[];
+    categories: EntryFieldTypes.Text[];
   };
 };
+
+export function isValidSkillType(value: string): value is SkillType {
+  return Object.values(SkillType).includes(value as SkillType);
+}
+
+export function isValidSkillCategory(value: string): value is SkillCategory {
+  return Object.values(SkillCategory).includes(value as SkillCategory);
+}
