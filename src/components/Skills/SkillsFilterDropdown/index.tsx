@@ -1,7 +1,7 @@
-import { FunnelSimpleIcon } from "@phosphor-icons/react";
+import { DivideIcon, FunnelSimpleIcon } from "@phosphor-icons/react";
 import { CheckIcon } from "@phosphor-icons/react/dist/ssr";
 import * as Menu from "@radix-ui/react-dropdown-menu";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useIntl } from "react-intl";
 import { useTheme } from "styled-components";
 
@@ -10,7 +10,7 @@ import { SkillCategory, SkillType } from "../types";
 
 import {
   MenuContent,
-  MenuCheckboxItem,
+  MenuCheckboxItem as StyledMenuCheckboxItem,
   MenuLabel,
   MenuSeparator,
   MenuButton,
@@ -32,6 +32,33 @@ interface SkillFilterDropdownProps {
   toggleSelectAllTypes: () => void;
   toggleSelectAllCategories: () => void;
 }
+
+type MenuCheckboxItemProps = Menu.DropdownMenuCheckboxItemProps & {
+  children: React.ReactNode;
+  $currentTheme?: string;
+  checkedColor?: string;
+};
+
+export const MenuCheckboxItem = React.forwardRef<
+  HTMLDivElement,
+  MenuCheckboxItemProps
+>(({ children, ...props }, forwardedRef) => {
+  return (
+    <StyledMenuCheckboxItem
+      {...props}
+      ref={forwardedRef}
+      onSelect={event => event.preventDefault()}
+    >
+      <MenuItemIndicator forceMount selectedBackground={props.checkedColor}>
+        {props.checked === "indeterminate" && <DivideIcon />}
+        {props.checked === true && <CheckIcon />}
+      </MenuItemIndicator>
+      {children}
+    </StyledMenuCheckboxItem>
+  );
+});
+
+MenuCheckboxItem.displayName = "DropdownMenuCheckboxItem";
 
 export function SkillFilterDropdown({
   selectedTypes,
@@ -60,15 +87,15 @@ export function SkillFilterDropdown({
 
       <Menu.Portal>
         <MenuContent $currentTheme={theme}>
-          <MenuLabel>Types</MenuLabel>
+          <MenuLabel $currentTheme={theme}>
+            {intl.formatMessage({ id: "skills.types" })}
+          </MenuLabel>
           <MenuCheckboxItem
             key={"ALL_TYPES"}
+            $currentTheme={theme}
             checked={allTypesSelected}
             onCheckedChange={() => toggleSelectAllTypes()}
           >
-            <MenuItemIndicator forceMount>
-              <CheckIcon />
-            </MenuItemIndicator>
             All
           </MenuCheckboxItem>
           {skillTypeKeys.map(key => {
@@ -76,12 +103,10 @@ export function SkillFilterDropdown({
             return (
               <MenuCheckboxItem
                 key={key}
+                $currentTheme={theme}
                 checked={selectedTypes.includes(value)}
                 onCheckedChange={() => toggleType(value)}
               >
-                <MenuItemIndicator forceMount>
-                  <CheckIcon />
-                </MenuItemIndicator>
                 {intl.formatMessage({ id: `skills.type.${value}` })}
               </MenuCheckboxItem>
             );
@@ -89,15 +114,15 @@ export function SkillFilterDropdown({
 
           <MenuSeparator />
 
-          <MenuLabel>Categories</MenuLabel>
+          <MenuLabel $currentTheme={theme}>
+            {intl.formatMessage({ id: "skills.categories" })}
+          </MenuLabel>
           <MenuCheckboxItem
             key={"ALL_CATEGORIES"}
+            $currentTheme={theme}
             checked={allCategoriesSelected}
             onCheckedChange={() => toggleSelectAllCategories()}
           >
-            <MenuItemIndicator forceMount>
-              <CheckIcon />
-            </MenuItemIndicator>
             All
           </MenuCheckboxItem>
           {skillCategoryKeys.map(key => {
@@ -105,14 +130,12 @@ export function SkillFilterDropdown({
             const color = styledTheme.colors.skills[value];
             return (
               <MenuCheckboxItem
-                color={color}
+                checkedColor={color}
                 key={key}
+                $currentTheme={theme}
                 checked={selectedCategories.includes(value)}
                 onCheckedChange={() => toggleCategory(value)}
               >
-                <MenuItemIndicator forceMount>
-                  <CheckIcon />
-                </MenuItemIndicator>
                 {intl.formatMessage({ id: `skills.category.${value}` })}
               </MenuCheckboxItem>
             );

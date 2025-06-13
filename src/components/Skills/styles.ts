@@ -18,6 +18,7 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 8rem);
   grid-gap: 1rem;
+  align-items: start;
   justify-content: center;
 
   @media screen and (max-width: 768px) {
