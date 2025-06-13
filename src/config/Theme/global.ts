@@ -20,7 +20,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    scroll-snap-type: y mandatory;
+    @media screen and (max-width: 500px) {
+      scroll-snap-type: y mandatory;
+    }
   }
 
   body {

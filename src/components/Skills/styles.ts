@@ -6,6 +6,13 @@ export const Container = styled(Section)`
   gap: 2rem;
 `;
 
+export const Header = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const Grid = styled.div`
   width: 100%;
   display: grid;
