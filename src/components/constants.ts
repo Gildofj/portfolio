@@ -56,12 +56,12 @@ export const SOCIALS = [
   },
   {
     id: "instagram",
-    urlRedirect: "https://www.instagram.com/tao_gildao/",
+    urlRedirect: "https://www.instagram.com/gildo.fj/",
     sr: "Follow me on Instagram",
   },
   {
     id: "twitter",
-    urlRedirect: "https://www.twitter.com/tao_gildao/",
-    sr: "Follow me on Twitter",
+    urlRedirect: "https://www.x.com/gildofj/",
+    sr: "Follow me on X",
   },
 ];
