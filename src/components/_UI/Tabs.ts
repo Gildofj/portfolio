@@ -24,22 +24,22 @@ export const Tab = styled.div<TypeProps>`
   cursor: pointer;
   gap: 0.5rem;
   color: ${({ $active, theme: { colors } }) =>
-    $active ? colors.purple_800 : colors.text};
+    $active ? colors.primary : colors.text};
   transition: 0.2s;
 
   span > svg {
     color: ${({ $active, theme: { colors } }) =>
-      $active ? colors.purple_800 : colors.text};
+      $active ? colors.primary : colors.text};
     fill: ${({ $active, theme: { colors } }) =>
-      $active ? colors.purple_800 : colors.text};
+      $active ? colors.primary : colors.text};
   }
 
   &:hover {
-    color: ${({ $active, theme: { colors } }) => !$active && colors.primary};
+    color: ${({ theme: { colors } }) => colors.purple_800};
 
     span > svg {
-      color: ${({ $active, theme: { colors } }) => !$active && colors.primary};
-      fill: ${({ $active, theme: { colors } }) => !$active && colors.primary};
+      color: ${({ theme: { colors } }) => colors.purple_800};
+      fill: ${({ theme: { colors } }) => colors.purple_800};
     }
   }
 

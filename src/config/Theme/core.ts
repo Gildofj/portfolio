@@ -35,14 +35,14 @@ export const coreColors = {
   alert: "#F87171",
 
   skills: {
-    language: "#C084FC",
-    framework: "#A855F7",
+    language: "#A855F7",
+    framework: "#059669",
     tools: "#ff6467",
-    database: "#9333EA",
+    database: "#16a34a",
     concept: "#71717A",
     mobile: "#10B981",
     design: "#FBBF24",
-    devops: "#60A5FA",
+    devops: "#d97706",
     library: "#2D9CDB",
   },
 };

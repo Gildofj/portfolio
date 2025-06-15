@@ -7,11 +7,11 @@ export const ModalButton = styled.button`
   font-size: ${({ theme: { fontSize } }) => fontSize.sm};
   line-height: ${({ theme: { lineHeight } }) => lineHeight.sm};
   cursor: pointer;
-  color: ${({ theme: { colors } }) => colors.purple_800};
+  color: ${({ theme: { colors } }) => colors.primary};
   transition: 0.2s;
 
   &:hover {
-    color: ${({ theme: { colors } }) => colors.primary};
+    color: ${({ theme: { colors } }) => colors.purple_800};
   }
 `;
 
@@ -66,13 +66,17 @@ export const CertificateAnchor = styled.a`
   cursor: pointer;
   transition: 0.2s;
 
-  &:hover {
+  svg {
     color: ${({ theme: { colors } }) => colors.primary};
+    fill: ${({ theme: { colors } }) => colors.primary};
   }
-`;
 
-export const CertificateIcon = styled.img`
-  cursor: pointer;
-  filter: invert(40%) sepia(37%) saturate(2135%) hue-rotate(241deg)
-    brightness(97%) contrast(99%);
+  &:hover {
+    color: ${({ theme: { colors } }) => colors.purple_800};
+
+    svg {
+      color: ${({ theme: { colors } }) => colors.purple_800};
+      fill: ${({ theme: { colors } }) => colors.purple_800};
+    }
+  }
 `;

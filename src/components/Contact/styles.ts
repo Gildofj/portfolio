@@ -57,15 +57,15 @@ export const WriteMeButton = styled.a`
   line-height: 1;
   transition: 0.2s;
 
-  span > svg {
+  svg {
     transition: 0.2s;
   }
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
 
-    span > svg {
-      transform: translateX(5px);
+    svg {
+      transform: translateX(2px);
       color: ${({ theme }) => theme.colors.primary};
       fill: ${({ theme }) => theme.colors.primary};
     }
@@ -147,7 +147,6 @@ export const Input = styled.input`
 `;
 
 export const Message = styled.textarea`
-  font-family: "Inter";
   padding: 1.25rem;
   width: 100%;
   min-height: 10rem;

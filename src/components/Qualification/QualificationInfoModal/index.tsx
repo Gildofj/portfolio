@@ -1,5 +1,6 @@
-import { X } from "@phosphor-icons/react";
+import { ArrowSquareOutIcon, X } from "@phosphor-icons/react";
 import { useState } from "react";
+import { useTheme } from "styled-components";
 
 import { Modal } from "../../_UI/Modal";
 import { WORK_MODEL } from "../constants";
@@ -8,7 +9,6 @@ import { Qualification } from "../types";
 import {
   BoldText,
   CertificateAnchor,
-  CertificateIcon,
   CloseButton,
   DataField,
   Description,
@@ -27,6 +27,7 @@ export function QualificationInfoModal({
   qualification,
 }: QualificationInfoModalProps) {
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
 
   return (
     <>
@@ -38,7 +39,7 @@ export function QualificationInfoModal({
             <TextTitle>{qualification.title}</TextTitle>
 
             <CloseButton onClick={() => setOpen(!open)}>
-              <X color="#a855f7" size={32} />
+              <X color={theme.colors.primary} size={32} />
             </CloseButton>
           </ModalTitle>
           <ModalContent>
@@ -74,11 +75,7 @@ export function QualificationInfoModal({
                   rel="noopener noreferrer"
                 >
                   {qualification.certificateId}
-                  <CertificateIcon
-                    src="/portfolio/assets/images/pop-out.svg"
-                    width={23}
-                    height={23}
-                  />
+                  <ArrowSquareOutIcon width={20} height={20} />
                 </CertificateAnchor>
               </DataField>
             )}
@@ -91,11 +88,7 @@ export function QualificationInfoModal({
                   rel="noopener noreferrer"
                 >
                   {qualification.workedAppName}
-                  <CertificateIcon
-                    src="/portfolio/assets/images/pop-out.svg"
-                    width={23}
-                    height={23}
-                  />
+                  <ArrowSquareOutIcon width={20} height={20} />
                 </CertificateAnchor>
               </DataField>
             )}

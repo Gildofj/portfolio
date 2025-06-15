@@ -36,9 +36,16 @@ export const GlobalStyle = createGlobalStyle`
     transition-duration: 500ms;
   }
 
+  input, textarea, button, select {
+      font-family: --apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Helvetiva, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+      font-size: inherit;
+      line-height: inherit;
+  }
+
   #root {
    width: 100%;
   }
+
 
   blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
     margin: 0;

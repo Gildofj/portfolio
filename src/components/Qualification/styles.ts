@@ -71,7 +71,7 @@ export const Rounder = styled.div`
   display: inline-block;
   width: 13px;
   height: 13px;
-  background-color: ${({ theme: { colors } }) => colors.purple_800};
+  background-color: ${({ theme: { colors } }) => colors.primary};
   border-radius: 50%;
 `;
 
@@ -80,5 +80,5 @@ export const Line = styled.div`
   width: 1px;
   height: 100%;
   transform: translate(6px, -7px);
-  background-color: ${({ theme: { colors } }) => colors.purple_800};
+  background-color: ${({ theme: { colors } }) => colors.primary};
 `;
