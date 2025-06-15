@@ -1,3 +1,4 @@
+import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import { useMemo } from "react";
 import { useIntl } from "react-intl";
 
@@ -47,29 +48,52 @@ export function Skills() {
     <Container id="skills">
       <TitleContainer>
         <Header>
-          <div />
-          <Title>{intl.formatMessage({ id: "skills.title" })}</Title>
-          <SkillFilterDropdown
-            selectedTypes={selectedTypes}
-            allTypesSelected={allTypesSelected}
-            toggleType={toggleType}
-            toggleSelectAllTypes={toggleSelectAllTypes}
-            selectedCategories={selectedCategories}
-            allCategoriesSelected={allCategoriesSelected}
-            toggleCategory={toggleCategory}
-            toggleSelectAllCategories={toggleSelectAllCategories}
-          />
+          <MotionConfig transition={{ duration: 0.3 }}>
+            <div />
+            <Title
+              initial={{ opacity: 0, transform: "translateX(-200px)" }}
+              whileInView={{ opacity: 1, transform: "translateX(0px)" }}
+              viewport={{ once: true }}
+            >
+              {intl.formatMessage({ id: "skills.title" })}
+            </Title>
+            <motion.div
+              initial={{ opacity: 0, transform: "translateX(200px)" }}
+              whileInView={{ opacity: 1, transform: "translateX(0px)" }}
+              viewport={{ once: true }}
+            >
+              <SkillFilterDropdown
+                selectedTypes={selectedTypes}
+                allTypesSelected={allTypesSelected}
+                toggleType={toggleType}
+                toggleSelectAllTypes={toggleSelectAllTypes}
+                selectedCategories={selectedCategories}
+                allCategoriesSelected={allCategoriesSelected}
+                toggleCategory={toggleCategory}
+                toggleSelectAllCategories={toggleSelectAllCategories}
+              />
+            </motion.div>
+          </MotionConfig>
         </Header>
       </TitleContainer>
       <Grid>
-        {filteredSkills?.map((skill, i) => (
-          <Skill
-            key={i}
-            icon={skill.icon}
-            title={skill.title}
-            categories={skill.categories}
-          />
-        ))}
+        <AnimatePresence>
+          {filteredSkills?.map((skill, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.06 }}
+              viewport={{ once: true }}
+            >
+              <Skill
+                icon={skill.icon}
+                title={skill.title}
+                categories={skill.categories}
+              />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </Grid>
     </Container>
   );
