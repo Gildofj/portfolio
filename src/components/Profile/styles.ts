@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import styled, { keyframes } from "styled-components";
 
 export const ProfileContainer = styled.div`
@@ -54,7 +54,7 @@ export const AnchorImage = styled(motion.a)`
 export const Name = styled(motion.h1)`
   font-size: 3.125rem;
   font-weight: bold;
-  color: #6b21a8;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const DescriptionProfile = styled(motion.span)`
@@ -69,7 +69,7 @@ export const WelcomeText = styled(motion.h3)`
 `;
 
 export const ColorizedText = styled.span`
-  color: #a855f7;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const Button = styled(motion.a)`
@@ -86,7 +86,7 @@ export const Button = styled(motion.a)`
   background: transparent;
 
   &:hover {
-    color: #a855f7;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

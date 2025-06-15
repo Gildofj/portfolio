@@ -1,6 +1,7 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
-export const TitleContainer = styled.div`
+export const TitleContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;

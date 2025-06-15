@@ -1,6 +1,7 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
-export const Title = styled.h3`
+export const Title = styled(motion.h3)`
   font-size: 2rem;
   font-weight: bold;
   color: #a855f7;
