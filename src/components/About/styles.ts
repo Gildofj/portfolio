@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
 import { Section } from "../_UI/Section";
@@ -6,7 +7,7 @@ export const Container = styled(Section)`
   gap: 2rem;
 `;
 
-export const AboutText = styled.div`
+export const AboutText = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
