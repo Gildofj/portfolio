@@ -1,4 +1,5 @@
 import { BookOpenText, Suitcase, Calendar } from "@phosphor-icons/react";
+import { MotionConfig } from "motion/react";
 import { useMemo, useState } from "react";
 import { useIntl } from "react-intl";
 
@@ -38,7 +39,14 @@ export function Qualification() {
       qualifications?.map((q, i) => {
         if ((i + 1) % 2 === 0) {
           return (
-            <Data key={i}>
+            <Data
+              key={i}
+              initial={{ x: 200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ delay: i * 0.06 }}
+              exit={{ x: 200, opacity: 0 }}
+              viewport={{ once: true }}
+            >
               <div />
 
               <div>
@@ -61,7 +69,14 @@ export function Qualification() {
           );
         } else {
           return (
-            <Data key={i}>
+            <Data
+              key={i}
+              initial={{ x: -200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ delay: i * 0.06 }}
+              exit={{ x: -200, opacity: 0 }}
+              viewport={{ once: true }}
+            >
               <div>
                 <DataTitle>{q.title}</DataTitle>
                 <DataSubTitle>
@@ -87,33 +102,47 @@ export function Qualification() {
 
   return (
     <Container id="qualification">
-      <TitleContainer>
-        <Title>{intl.formatMessage({ id: "qualification.title" })}</Title>
-      </TitleContainer>
+      <MotionConfig transition={{ duration: 0.3 }}>
+        <TitleContainer
+          initial={{ x: -300, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <Title>{intl.formatMessage({ id: "qualification.title" })}</Title>
+        </TitleContainer>
 
-      <Content>
-        <Tabs>
-          <Tab
-            onClick={() => setType(QualificationType.Experience)}
-            $active={type === QualificationType.Experience}
-          >
-            <Suitcase size={32} />
-            {intl.formatMessage({ id: "qualification.experienceTabTitle" })}
-          </Tab>
+        <Content>
+          <Tabs>
+            <Tab
+              onClick={() => setType(QualificationType.Experience)}
+              $active={type === QualificationType.Experience}
+              initial={{ x: -200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Suitcase size={32} />
+              {intl.formatMessage({ id: "qualification.experienceTabTitle" })}
+            </Tab>
 
-          <Tab
-            onClick={() => setType(QualificationType.Education)}
-            $active={type === QualificationType.Education}
-          >
-            <BookOpenText size={32} />
-            {intl.formatMessage({ id: "qualification.educationTabTitle" })}
-          </Tab>
-        </Tabs>
+            <Tab
+              onClick={() => setType(QualificationType.Education)}
+              $active={type === QualificationType.Education}
+              initial={{ x: 200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <BookOpenText size={32} />
+              {intl.formatMessage({ id: "qualification.educationTabTitle" })}
+            </Tab>
+          </Tabs>
 
-        <TabContent>
-          <TabItem>{itens}</TabItem>
-        </TabContent>
-      </Content>
+          <TabContent>
+            <TabItem>{itens}</TabItem>
+          </TabContent>
+        </Content>
+      </MotionConfig>
     </Container>
   );
 }

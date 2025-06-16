@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
 import { Section } from "../_UI/Section";
@@ -31,7 +32,7 @@ export const TabItem = styled.div`
   display: block;
 `;
 
-export const Data = styled.div`
+export const Data = styled(motion.div)`
   display: grid;
   grid-template-columns: 1.5fr max-content 1.5fr;
   column-gap: 1.5rem;

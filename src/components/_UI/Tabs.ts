@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
 export const Tabs = styled.div`
@@ -15,7 +16,7 @@ interface TypeProps {
   $active: boolean;
 }
 
-export const Tab = styled.div<TypeProps>`
+export const Tab = styled(motion.div)<TypeProps>`
   display: flex;
   align-items: center;
   font-size: ${({ theme: { fontSize } }) => fontSize.xxl};
