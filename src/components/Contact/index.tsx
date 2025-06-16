@@ -1,9 +1,9 @@
 import emailjs from "@emailjs/browser";
 import {
-  ArrowRight,
-  WhatsappLogo,
-  Envelope,
-  PaperPlaneTilt,
+  ArrowRightIcon,
+  WhatsappLogoIcon,
+  EnvelopeIcon,
+  PaperPlaneTiltIcon,
 } from "@phosphor-icons/react";
 import { SyntheticEvent, useRef, useState } from "react";
 import { useIntl } from "react-intl";
@@ -60,8 +60,7 @@ export function Contact() {
         await emailjs.sendForm(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          form.current,
-          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+          form.current
         );
 
         setNameError(false);
@@ -89,8 +88,8 @@ export function Contact() {
           </Subtitle>
           {CONTACT_TYPES.map((c, i) => (
             <CardContact key={i}>
-              {c.type === "Email" && <Envelope size={32} />}
-              {c.type === "Whatsapp" && <WhatsappLogo size={32} />}
+              {c.type === "Email" && <EnvelopeIcon size={32} />}
+              {c.type === "Whatsapp" && <WhatsappLogoIcon size={32} />}
               <Type>{c.type}</Type>
               <span>{c.contactId}</span>
               <WriteMeButton
@@ -100,7 +99,7 @@ export function Contact() {
                 rel="noopener noreferrer"
               >
                 Falar
-                <ArrowRight size={23} />
+                <ArrowRightIcon size={23} />
               </WriteMeButton>
             </CardContact>
           ))}
@@ -168,7 +167,7 @@ export function Contact() {
           </FieldGroupArea>
           <SendButton type="submit">
             {intl.formatMessage({ id: "contact.form.sendButton" })}{" "}
-            <PaperPlaneTilt size={20} />
+            <PaperPlaneTiltIcon size={20} />
           </SendButton>
         </Form>
       </ContactContainer>

@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import moment from "moment";
 import { ToastContainer } from "react-toastify";
 
@@ -28,6 +29,11 @@ function App() {
   );
 
   moment.locale(locale === LOCALE.EN_US ? "en-us" : "pt-br");
+
+  emailjs.init({
+    publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+  });
+
   return (
     <Theme>
       <Header handleHeaderItemClick={handleHeaderItemClick} />
