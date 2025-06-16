@@ -148,13 +148,11 @@ export const Input = styled.input`
 
 export const Message = styled.textarea`
   padding: 1.25rem;
-  width: 100%;
-  min-height: 10rem;
+  width: 31.25rem;
+  min-height: 13rem;
   border-radius: 0.75rem;
   -webkit-border-radius: 0.75rem;
   -moz-border-radius: 0.75rem;
-  overflow: hidden;
-  resize: none;
   background-color: ${({ theme: { colors } }) => colors.background};
   border: 1px solid ${({ theme: { colors } }) => colors.primary};
   color: ${({ theme }) => theme.colors.text};
@@ -162,6 +160,10 @@ export const Message = styled.textarea`
     color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 export const SendButton = styled.button`
