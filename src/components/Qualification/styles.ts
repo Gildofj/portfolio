@@ -11,6 +11,9 @@ export const Container = styled(Section)`
 export const Content = styled.div`
   max-width: 48rem;
   min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 
   @media screen and (max-width: 992px) {
     margin-left: auto;

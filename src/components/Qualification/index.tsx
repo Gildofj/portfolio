@@ -1,5 +1,5 @@
 import { BookOpenText, Suitcase, Calendar } from "@phosphor-icons/react";
-import { MotionConfig } from "motion/react";
+import { AnimatePresence, MotionConfig } from "motion/react";
 import { useMemo, useState } from "react";
 import { useIntl } from "react-intl";
 
@@ -40,11 +40,11 @@ export function Qualification() {
         if ((i + 1) % 2 === 0) {
           return (
             <Data
-              key={i}
+              key={`${i}_${q.title}`}
               initial={{ x: 200, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: i * 0.06 }}
-              exit={{ x: 200, opacity: 0 }}
+              exit={{ opacity: 0 }}
               viewport={{ once: true }}
             >
               <div />
@@ -70,11 +70,11 @@ export function Qualification() {
         } else {
           return (
             <Data
-              key={i}
+              key={`${i}_${q.title}`}
               initial={{ x: -200, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: i * 0.06 }}
-              exit={{ x: -200, opacity: 0 }}
+              exit={{ opacity: 0 }}
               viewport={{ once: true }}
             >
               <div>
@@ -139,7 +139,9 @@ export function Qualification() {
           </Tabs>
 
           <TabContent>
-            <TabItem>{itens}</TabItem>
+            <TabItem>
+              <AnimatePresence mode="wait">{itens}</AnimatePresence>
+            </TabItem>
           </TabContent>
         </Content>
       </MotionConfig>
