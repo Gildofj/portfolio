@@ -2,7 +2,7 @@ import moment from "moment";
 import { ToastContainer } from "react-toastify";
 
 import { About } from "../components/About";
-import { getNavigation } from "../components/constants";
+import { NAVIGATIONS } from "../components/constants";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
@@ -12,8 +12,7 @@ import { Qualification } from "../components/Qualification";
 import { Skills } from "../components/Skills";
 import { Theme } from "../config/Theme";
 import { LOCALE, useLocale } from "../contexts/LocaleContext";
-import useReactPath from "../hooks/useReactPath";
-import { useScrollSnapSpy } from "../hooks/useScrollSnapSpy";
+import { useScrollHandler } from "../hooks/useScrollHandler";
 
 import { Main, Content } from "./styles";
 
@@ -22,9 +21,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const { locale } = useLocale();
-  const urlPath = useReactPath();
-  const { handleHeaderItemClick } = useScrollSnapSpy(
-    getNavigation(urlPath).map(item => item.href)
+  const { handleHeaderItemClick } = useScrollHandler(
+    NAVIGATIONS.map(item => item.href)
   );
 
   moment.locale(locale === LOCALE.EN_US ? "en-us" : "pt-br");

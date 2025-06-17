@@ -1,11 +1,16 @@
 import { useEffect } from "react";
 
-export function useScrollSnapSpy(sectionIds: string[]) {
+export function useScrollHandler(sectionIds: string[]) {
   const handleHeaderItemClick = (id: string) => {
     if (sectionIds.includes(id)) {
-      document
-        .getElementById(id.replace("#", ""))
-        ?.scrollIntoView({ behavior: "smooth" });
+      const normalizedId = id.replace("#", "");
+      if (normalizedId) {
+        document
+          .getElementById(normalizedId)
+          ?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
   };
 
@@ -27,7 +32,12 @@ export function useScrollSnapSpy(sectionIds: string[]) {
     );
 
     sectionIds.forEach(id => {
-      const el = document.getElementById(id.replace("#", ""));
+      const normalizedId = id.replace("#", "");
+      const el =
+        normalizedId !== ""
+          ? document.getElementById(normalizedId)
+          : document.querySelector("article")?.firstElementChild;
+
       if (el) observer.observe(el);
     });
 

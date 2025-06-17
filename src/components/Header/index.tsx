@@ -1,9 +1,9 @@
 import {
-  GithubLogo,
-  InstagramLogo,
-  LinkedinLogo,
-  XLogo,
-  List,
+  GithubLogoIcon,
+  InstagramLogoIcon,
+  LinkedinLogoIcon,
+  XLogoIcon,
+  ListIcon,
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import Flag from "react-flagkit";
@@ -11,10 +11,10 @@ import { useIntl } from "react-intl";
 
 import { LOCALE, useLocale } from "../../contexts/LocaleContext";
 import { usePortfolioTheme } from "../../contexts/ThemeContext";
-import useReactPath from "../../hooks/useReactPath";
+import useUrlHash from "../../hooks/useUrlHash";
 import { handleScrollWhenModalIsOpen } from "../../utils/scroll";
 import { Overlay } from "../_UI/Overlay";
-import { SOCIALS, getNavigation } from "../constants";
+import { NAVIGATIONS, SOCIALS } from "../constants";
 
 import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
 import {
@@ -30,6 +30,8 @@ import {
   LogoIcon,
   LocaleList,
   FlagButtonNav,
+  LinkUnderline,
+  NavigationItem,
 } from "./styles";
 import { ToggleThemeButton } from "./ToggleTheme";
 
@@ -39,14 +41,14 @@ interface HeaderProps {
 
 export function Header({ handleHeaderItemClick }: HeaderProps) {
   const intl = useIntl();
-  const urlPath = useReactPath();
+  const urlHash = useUrlHash();
   const [open, setOpen] = useState(false);
   const { theme } = usePortfolioTheme();
   const { locale, selectLocale } = useLocale();
 
   useEffect(() => {
     setOpen(false);
-  }, [urlPath, locale]);
+  }, [urlHash, locale]);
 
   useEffect(() => {
     handleScrollWhenModalIsOpen(open);
@@ -59,13 +61,13 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
   const getIcon = (id: string, color: string, size: number) => {
     switch (id) {
       case "github":
-        return <GithubLogo color={color} size={size} />;
+        return <GithubLogoIcon color={color} size={size} />;
       case "linkedin":
-        return <LinkedinLogo color={color} size={size} />;
+        return <LinkedinLogoIcon color={color} size={size} />;
       case "instagram":
-        return <InstagramLogo color={color} size={size} />;
+        return <InstagramLogoIcon color={color} size={size} />;
       case "twitter":
-        return <XLogo color={color} size={size} />;
+        return <XLogoIcon color={color} size={size} />;
     }
   };
 
@@ -106,30 +108,30 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               );
             })}
           </LocaleList>
-          {getNavigation(urlPath).map(({ id, href, textId, active }) => (
-            <li key={id}>
+          {NAVIGATIONS.map(({ id, href, textId }) => (
+            <NavigationItem key={id}>
               <Link
-                $active={active}
+                key={id}
                 $open={open}
                 onClick={() => handleHeaderItemClick(href)}
-                href={href}
-                data-to-scrollspy-id={href.replace("#", "")}
                 title={textId}
               >
                 {intl.formatMessage({ id: textId })}
               </Link>
-            </li>
+              {(!urlHash && href === "#") || urlHash === href ? (
+                <LinkUnderline id="underline" layoutId="underline" />
+              ) : null}
+            </NavigationItem>
           ))}
           <li>
             <Link
-              $active={false}
               $open={open}
               $withIcon
               href="https://github.com/Gildofj/portfolio/"
               title="Website source code"
               target="_blank"
             >
-              <GithubLogo size={16} />
+              <GithubLogoIcon size={16} />
               {intl.formatMessage({ id: "header.source" })}
             </Link>
           </li>
@@ -156,7 +158,10 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
           <ToggleThemeButton />
           <LocaleDropdownMenu />
           <HeaderButton onClick={() => setOpen(!open)}>
-            <List size={20} color={theme !== "light" ? "#d4d4d8" : "#18181b"} />
+            <ListIcon
+              size={20}
+              color={theme !== "light" ? "#d4d4d8" : "#18181b"}
+            />
           </HeaderButton>
         </HeaderSocial>
       </Nav>

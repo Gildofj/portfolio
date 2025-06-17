@@ -1,4 +1,4 @@
-import { Code } from "@phosphor-icons/react";
+import { CodeIcon } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import styled from "styled-components";
 
@@ -96,8 +96,13 @@ export const LinkLogo = styled.a`
   gap: 0.4rem;
 `;
 
+export const NavigationItem = styled(motion.li)`
+  position: relative;
+  user-select: false;
+  cursor: pointer;
+`;
+
 interface LinkProps {
-  $active: boolean;
   $open: boolean;
   $withIcon?: boolean;
 }
@@ -108,9 +113,6 @@ export const Link = styled.a<LinkProps>`
   align-items: center;
   padding: 1rem 0.5rem;
   color: ${({ theme }) => theme.colors.text};
-  border-bottom: 4px solid
-    ${({ $active, $open, theme }) =>
-      $active && !$open ? theme.colors.text : theme.colors.transparent};
   transition: 0.2s;
 
   span > svg {
@@ -125,7 +127,6 @@ export const Link = styled.a<LinkProps>`
   @media screen and (max-width: 1200px) {
     display: ${({ $withIcon }) => ($withIcon ? "flex" : "block")};
     width: 100%;
-    border: none;
     color: ${({ theme }) => theme.colors.zinc_300};
 
     span > svg {
@@ -133,6 +134,15 @@ export const Link = styled.a<LinkProps>`
       fill: ${({ theme }) => theme.colors.zinc_300};
     }
   }
+`;
+
+export const LinkUnderline = styled(motion.div)`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: ${({ theme }) => theme.colors.text};
 `;
 
 export const HeaderButton = styled.button`
@@ -192,7 +202,7 @@ export const SocialLink = styled.a<SocialLinkProps>`
   }
 `;
 
-export const LogoIcon = styled(Code)`
+export const LogoIcon = styled(CodeIcon)`
   display: inline-flex;
   align-items: center;
   justify-content: center;

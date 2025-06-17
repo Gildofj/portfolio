@@ -1,39 +1,33 @@
-export const getNavigation = (urlPath: string) => [
+export const NAVIGATIONS = [
   {
     id: 1,
     href: "#",
     textId: "header.home",
-    active: ["", "#"].includes(urlPath),
   },
   {
     id: 2,
     href: "#about",
     textId: "header.about",
-    active: urlPath === "#about",
   },
   {
     id: 3,
     href: "#skills",
     textId: "header.skills",
-    active: urlPath === "#skills",
   },
   {
     id: 4,
     href: "#qualification",
     textId: "header.qualification",
-    active: urlPath === "#qualification",
   },
   {
     id: 5,
     href: "#portfolio",
     textId: "header.portfolio",
-    active: urlPath === "#portfolio",
   },
   {
     id: 6,
     href: "#contact",
     textId: "header.contact",
-    active: urlPath === "#contact",
   },
   {
     id: 7,
