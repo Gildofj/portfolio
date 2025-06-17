@@ -77,12 +77,13 @@ export function Skills() {
         </Header>
       </TitleContainer>
       <Grid>
-        <AnimatePresence>
+        <AnimatePresence mode="popLayout">
           {filteredSkills?.map((skill, i) => (
             <motion.div
-              key={i}
+              key={`${i}_${skill.title}`}
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
               transition={{ delay: i * 0.06 }}
               viewport={{ once: true }}
             >

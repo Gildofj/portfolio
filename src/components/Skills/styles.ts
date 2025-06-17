@@ -15,6 +15,7 @@ export const Header = styled.div`
 
 export const Grid = styled.div`
   width: 100%;
+  min-height: 32rem;
   display: grid;
   grid-template-columns: repeat(5, 8rem);
   grid-gap: 1rem;
