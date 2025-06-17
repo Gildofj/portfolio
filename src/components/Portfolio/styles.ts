@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
 import { Section } from "../_UI/Section";
@@ -17,7 +18,7 @@ export const ProjectsList = styled.ul`
   }
 `;
 
-export const ProjectsListItem = styled.li`
+export const ProjectsListItem = styled(motion.li)`
   text-align: center;
   margin-bottom: 1rem;
 `;
@@ -28,7 +29,7 @@ export const CardProject = styled.a`
   align-items: center;
 `;
 
-export const ImageContainer = styled.div`
+export const ImageContainer = styled(motion.div)`
   width: 21.5rem;
   height: 11.5rem;
   border: 1px solid ${({ theme }) => theme.colors.zinc_700};
