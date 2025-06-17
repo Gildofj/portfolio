@@ -104,7 +104,7 @@ export function Qualification() {
     <Container id="qualification">
       <MotionConfig transition={{ duration: 0.3 }}>
         <TitleContainer
-          initial={{ x: -300, opacity: 0 }}
+          initial={{ x: -200, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
         >
@@ -116,9 +116,9 @@ export function Qualification() {
             <Tab
               onClick={() => setType(QualificationType.Experience)}
               $active={type === QualificationType.Experience}
-              initial={{ x: -200, opacity: 0 }}
+              initial={{ x: -10, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.1, duration: 0.1 }}
               viewport={{ once: true }}
             >
               <Suitcase size={32} />
@@ -128,9 +128,9 @@ export function Qualification() {
             <Tab
               onClick={() => setType(QualificationType.Education)}
               $active={type === QualificationType.Education}
-              initial={{ x: 200, opacity: 0 }}
+              initial={{ x: 10, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.1, duration: 0.1 }}
               viewport={{ once: true }}
             >
               <BookOpenText size={32} />
@@ -140,7 +140,7 @@ export function Qualification() {
 
           <TabContent>
             <TabItem>
-              <AnimatePresence mode="wait">{itens}</AnimatePresence>
+              <AnimatePresence mode="popLayout">{itens}</AnimatePresence>
             </TabItem>
           </TabContent>
         </Content>

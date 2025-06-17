@@ -42,8 +42,8 @@ export function Portfolio() {
             $active={type === ProjectType.Personal}
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -200 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.2 }}
           >
             <WrenchIcon size={32} />
             {intl.formatMessage({ id: "portfolio.personalTabTitle" })}
@@ -54,8 +54,8 @@ export function Portfolio() {
             $active={type === ProjectType.Colaborations}
             initial={{ opacity: 0, x: 10 }}
             whileInView={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 200 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.2 }}
           >
             <HandshakeIcon size={32} />
             {intl.formatMessage({ id: "portfolio.colaborationsTabTitle" })}
