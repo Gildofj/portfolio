@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
 import { Section } from "../_UI/Section";
@@ -26,13 +27,13 @@ export const ContactTypes = styled.div`
   gap: 2rem;
 `;
 
-export const Subtitle = styled.h3`
+export const Subtitle = styled(motion.h3)`
   font-size: ${({ theme }) => theme.fontSize.xxl};
   line-height: ${({ theme }) => theme.lineHeight.xxl};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
 `;
 
-export const CardContact = styled.div`
+export const CardContact = styled(motion.div)`
   width: 20rem;
   display: flex;
   flex-direction: column;
@@ -88,7 +89,7 @@ export const Form = styled.form`
   }
 `;
 
-export const FieldGroup = styled.div`
+export const FieldGroup = styled(motion.div)`
   position: relative;
   width: 100%;
   margin-top: 2rem;
@@ -106,7 +107,7 @@ export const FieldError = styled.span`
   color: ${({ theme: { colors } }) => colors.alert};
 `;
 
-export const FieldGroupArea = styled.div`
+export const FieldGroupArea = styled(motion.div)`
   position: relative;
   width: 100%;
   margin-top: 2rem;
@@ -146,7 +147,7 @@ export const Input = styled.input`
   transition-duration: 500ms;
 `;
 
-export const Message = styled.textarea`
+export const Message = styled(motion.textarea)`
   padding: 1.25rem;
   width: 31.25rem;
   min-height: 13rem;
@@ -166,7 +167,7 @@ export const Message = styled.textarea`
   }
 `;
 
-export const SendButton = styled.button`
+export const SendButton = styled(motion.button)`
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -5,6 +5,7 @@ import {
   EnvelopeIcon,
   PaperPlaneTiltIcon,
 } from "@phosphor-icons/react";
+import { MotionConfig } from "motion/react";
 import { SyntheticEvent, useRef, useState } from "react";
 import { useIntl } from "react-intl";
 
@@ -77,100 +78,147 @@ export function Contact() {
 
   return (
     <Container id="contact">
-      <TitleContainer>
-        <Title>{intl.formatMessage({ id: "contact.title" })}</Title>
-      </TitleContainer>
+      <MotionConfig transition={{ duration: 0.3 }}>
+        <TitleContainer
+          initial={{ x: -200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <Title>{intl.formatMessage({ id: "contact.title" })}</Title>
+        </TitleContainer>
 
-      <ContactContainer>
-        <ContactTypes>
-          <Subtitle>
-            {intl.formatMessage({ id: "contact.talkMeTitle" })}
-          </Subtitle>
-          {CONTACT_TYPES.map((c, i) => (
-            <CardContact key={i}>
-              {c.type === "Email" && <EnvelopeIcon size={32} />}
-              {c.type === "Whatsapp" && <WhatsappLogoIcon size={32} />}
-              <Type>{c.type}</Type>
-              <span>{c.contactId}</span>
-              <WriteMeButton
-                href={c.redirectUrl}
-                title={`Send me a ${c.type}`}
-                target="_blank"
-                rel="noopener noreferrer"
+        <ContactContainer>
+          <ContactTypes>
+            <Subtitle
+              initial={{ x: -200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.06 }}
+            >
+              {intl.formatMessage({ id: "contact.talkMeTitle" })}
+            </Subtitle>
+            {CONTACT_TYPES.map((c, i) => (
+              <CardContact
+                key={i}
+                initial={{ x: -200, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: (i + 2) * 0.06 }}
               >
-                Falar
-                <ArrowRightIcon size={23} />
-              </WriteMeButton>
-            </CardContact>
-          ))}
-        </ContactTypes>
-        <Form ref={form} onSubmit={sendEmail}>
-          <Subtitle>
-            {intl.formatMessage({ id: "contact.sendProjectTitle" })}
-          </Subtitle>
-          <FieldGroup>
-            <FormTag>{intl.formatMessage({ id: "contact.form.name" })}</FormTag>
-            <Input
-              name="name"
-              placeholder={intl.formatMessage({
-                id: "contact.form.name.placeholder",
-              })}
-            ></Input>
-          </FieldGroup>
-          {nameError && (
-            <Error>
-              <FieldError>
-                {intl.formatMessage({ id: "contact.form.name.errorMessage" })}
-              </FieldError>
-            </Error>
-          )}
+                {c.type === "Email" && <EnvelopeIcon size={32} />}
+                {c.type === "Whatsapp" && <WhatsappLogoIcon size={32} />}
+                <Type>{c.type}</Type>
+                <span>{c.contactId}</span>
+                <WriteMeButton
+                  href={c.redirectUrl}
+                  title={`Send me a ${c.type}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Falar
+                  <ArrowRightIcon size={23} />
+                </WriteMeButton>
+              </CardContact>
+            ))}
+          </ContactTypes>
+          <Form ref={form} onSubmit={sendEmail}>
+            <Subtitle
+              initial={{ x: 200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.06 }}
+            >
+              {intl.formatMessage({ id: "contact.sendProjectTitle" })}
+            </Subtitle>
+            <FieldGroup
+              initial={{ x: 200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 2 * 0.06 }}
+            >
+              <FormTag>
+                {intl.formatMessage({ id: "contact.form.name" })}
+              </FormTag>
+              <Input
+                name="name"
+                placeholder={intl.formatMessage({
+                  id: "contact.form.name.placeholder",
+                })}
+              ></Input>
+            </FieldGroup>
+            {nameError && (
+              <Error>
+                <FieldError>
+                  {intl.formatMessage({ id: "contact.form.name.errorMessage" })}
+                </FieldError>
+              </Error>
+            )}
 
-          <FieldGroup>
-            <FormTag>
-              {intl.formatMessage({ id: "contact.form.email" })}
-            </FormTag>
-            <Input
-              type="email"
-              name="email"
-              placeholder={intl.formatMessage({
-                id: "contact.form.email.placeholder",
-              })}
-            ></Input>
-          </FieldGroup>
-          {emailError && (
-            <Error>
-              <FieldError>
-                {intl.formatMessage({ id: "contact.form.email.errorMessage" })}
-              </FieldError>
-            </Error>
-          )}
-
-          <FieldGroupArea>
-            <FormTag>
-              {intl.formatMessage({ id: "contact.form.project" })}
-            </FormTag>
-            <Message
-              name="message"
-              placeholder={intl.formatMessage({
-                id: "contact.form.project.placeholder",
-              })}
-            ></Message>
-            {messageError && (
+            <FieldGroup
+              initial={{ x: 200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 3 * 0.06 }}
+            >
+              <FormTag>
+                {intl.formatMessage({ id: "contact.form.email" })}
+              </FormTag>
+              <Input
+                type="email"
+                name="email"
+                placeholder={intl.formatMessage({
+                  id: "contact.form.email.placeholder",
+                })}
+              ></Input>
+            </FieldGroup>
+            {emailError && (
               <Error>
                 <FieldError>
                   {intl.formatMessage({
-                    id: "contact.form.project.errorMessage",
+                    id: "contact.form.email.errorMessage",
                   })}
                 </FieldError>
               </Error>
             )}
-          </FieldGroupArea>
-          <SendButton type="submit">
-            {intl.formatMessage({ id: "contact.form.sendButton" })}{" "}
-            <PaperPlaneTiltIcon size={20} />
-          </SendButton>
-        </Form>
-      </ContactContainer>
+
+            <FieldGroupArea
+              initial={{ x: 200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 4 * 0.06 }}
+            >
+              <FormTag>
+                {intl.formatMessage({ id: "contact.form.project" })}
+              </FormTag>
+              <Message
+                name="message"
+                placeholder={intl.formatMessage({
+                  id: "contact.form.project.placeholder",
+                })}
+              ></Message>
+              {messageError && (
+                <Error>
+                  <FieldError>
+                    {intl.formatMessage({
+                      id: "contact.form.project.errorMessage",
+                    })}
+                  </FieldError>
+                </Error>
+              )}
+            </FieldGroupArea>
+            <SendButton
+              type="submit"
+              initial={{ x: 200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 5 * 0.06, duration: 0.1 }}
+            >
+              {intl.formatMessage({ id: "contact.form.sendButton" })}{" "}
+              <PaperPlaneTiltIcon size={20} />
+            </SendButton>
+          </Form>
+        </ContactContainer>
+      </MotionConfig>
     </Container>
   );
 }
