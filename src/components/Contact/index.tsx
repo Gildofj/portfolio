@@ -35,6 +35,7 @@ import {
 
 export function Contact() {
   const intl = useIntl();
+  const isMobile = matchMedia("(max-width: 500px)").matches;
   const form = useRef<HTMLFormElement | null>(null);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
@@ -80,7 +81,9 @@ export function Contact() {
     <Container id="contact">
       <MotionConfig transition={{ duration: 0.3 }}>
         <TitleContainer
-          initial={{ x: -200, opacity: 0 }}
+          initial={
+            isMobile ? { y: "-10%", opacity: 0 } : { x: "-10%", opacity: 0 }
+          }
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
         >
@@ -90,7 +93,9 @@ export function Contact() {
         <ContactContainer>
           <ContactTypes>
             <Subtitle
-              initial={{ x: -200, opacity: 0 }}
+              initial={
+                isMobile ? { y: "-10%", opacity: 0 } : { x: "-10%", opacity: 0 }
+              }
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.06 }}
@@ -100,7 +105,11 @@ export function Contact() {
             {CONTACT_TYPES.map((c, i) => (
               <CardContact
                 key={i}
-                initial={{ x: -200, opacity: 0 }}
+                initial={
+                  isMobile
+                    ? { y: "-10%", opacity: 0 }
+                    : { x: "-10%", opacity: 0 }
+                }
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: (i + 2) * 0.06 }}
@@ -123,7 +132,9 @@ export function Contact() {
           </ContactTypes>
           <Form ref={form} onSubmit={sendEmail}>
             <Subtitle
-              initial={{ x: 200, opacity: 0 }}
+              initial={
+                isMobile ? { y: "10%", opacity: 0 } : { x: "10%", opacity: 0 }
+              }
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.06 }}
@@ -131,7 +142,9 @@ export function Contact() {
               {intl.formatMessage({ id: "contact.sendProjectTitle" })}
             </Subtitle>
             <FieldGroup
-              initial={{ x: 200, opacity: 0 }}
+              initial={
+                isMobile ? { y: "10%", opacity: 0 } : { x: "10%", opacity: 0 }
+              }
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 2 * 0.06 }}
@@ -155,7 +168,9 @@ export function Contact() {
             )}
 
             <FieldGroup
-              initial={{ x: 200, opacity: 0 }}
+              initial={
+                isMobile ? { y: "10%", opacity: 0 } : { x: "10%", opacity: 0 }
+              }
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 3 * 0.06 }}
@@ -182,7 +197,9 @@ export function Contact() {
             )}
 
             <FieldGroupArea
-              initial={{ x: 200, opacity: 0 }}
+              initial={
+                isMobile ? { y: "10%", opacity: 0 } : { x: "10%", opacity: 0 }
+              }
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 4 * 0.06 }}
@@ -206,16 +223,22 @@ export function Contact() {
                 </Error>
               )}
             </FieldGroupArea>
-            <SendButton
-              type="submit"
-              initial={{ x: 200, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 5 * 0.06, duration: 0.1 }}
-            >
-              {intl.formatMessage({ id: "contact.form.sendButton" })}{" "}
-              <PaperPlaneTiltIcon size={20} />
-            </SendButton>
+            <MotionConfig>
+              <SendButton
+                type="submit"
+                initial={
+                  isMobile
+                    ? { y: "-10%", opacity: 0 }
+                    : { x: "10%", opacity: 0 }
+                }
+                whileInView={{ x: 0, y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 5 * 0.06, duration: 0.1 }}
+              >
+                {intl.formatMessage({ id: "contact.form.sendButton" })}{" "}
+                <PaperPlaneTiltIcon size={20} />
+              </SendButton>
+            </MotionConfig>
           </Form>
         </ContactContainer>
       </MotionConfig>

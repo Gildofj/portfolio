@@ -13,15 +13,15 @@ export function About() {
     <Container id="about">
       <MotionConfig transition={{ duration: 0.3 }}>
         <TitleContainer
-          initial={{ opacity: 0, transform: "translateX(-200px)" }}
-          whileInView={{ opacity: 1, transform: "translateX(0px)" }}
+          initial={{ opacity: 0, x: "-10%" }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
           <Title>{intl.formatMessage({ id: "about.title" })}</Title>
         </TitleContainer>
         <AboutText
-          initial={{ opacity: 0, transform: "translateX(200px)" }}
-          whileInView={{ opacity: 1, transform: "translateX(0px)" }}
+          initial={{ opacity: 0, x: "10%" }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
           <p>

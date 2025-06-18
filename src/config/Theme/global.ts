@@ -26,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: ${({ theme: { fontSize } }) => fontSize.base};
     line-height: ${({ theme: { lineHeight } }) => lineHeight.base};
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
     overflow-wrap: break-word;
     background-color: ${({ theme: { colors } }) => colors.background};
     color: ${({ theme: { colors } }) => colors.text};

@@ -41,7 +41,7 @@ export function Qualification() {
           return (
             <Data
               key={`${i}_${q.title}`}
-              initial={{ x: 200, opacity: 0 }}
+              initial={{ x: "5%", opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: i * 0.06 }}
               exit={{ opacity: 0 }}
@@ -71,7 +71,7 @@ export function Qualification() {
           return (
             <Data
               key={`${i}_${q.title}`}
-              initial={{ x: -200, opacity: 0 }}
+              initial={{ x: "-5%", opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: i * 0.06 }}
               exit={{ opacity: 0 }}
@@ -104,7 +104,7 @@ export function Qualification() {
     <Container id="qualification">
       <MotionConfig transition={{ duration: 0.3 }}>
         <TitleContainer
-          initial={{ x: -200, opacity: 0 }}
+          initial={{ x: "-10%", opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
         >
@@ -116,7 +116,7 @@ export function Qualification() {
             <Tab
               onClick={() => setType(QualificationType.Experience)}
               $active={type === QualificationType.Experience}
-              initial={{ x: -10, opacity: 0 }}
+              initial={{ x: "-1%", opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.1, duration: 0.1 }}
               viewport={{ once: true }}
@@ -128,7 +128,7 @@ export function Qualification() {
             <Tab
               onClick={() => setType(QualificationType.Education)}
               $active={type === QualificationType.Education}
-              initial={{ x: 10, opacity: 0 }}
+              initial={{ x: "1%", opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.1, duration: 0.1 }}
               viewport={{ once: true }}

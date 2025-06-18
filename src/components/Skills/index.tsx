@@ -51,15 +51,15 @@ export function Skills() {
           <MotionConfig transition={{ duration: 0.3 }}>
             <div />
             <Title
-              initial={{ opacity: 0, transform: "translateX(-200px)" }}
-              whileInView={{ opacity: 1, transform: "translateX(0px)" }}
+              initial={{ opacity: 0, x: "-10%" }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
               {intl.formatMessage({ id: "skills.title" })}
             </Title>
             <motion.div
-              initial={{ opacity: 0, transform: "translateX(200px)" }}
-              whileInView={{ opacity: 1, transform: "translateX(0px)" }}
+              initial={{ opacity: 0, x: "10%" }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
               <SkillFilterDropdown
