@@ -1,11 +1,16 @@
-import * as Menu from "@radix-ui/react-dropdown-menu";
 import { useEffect, useMemo, useState } from "react";
 import Flag from "react-flagkit";
 
 import { useLocale, LOCALE } from "../../../contexts/LocaleContext";
 import { usePortfolioTheme } from "../../../contexts/ThemeContext";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownContent,
+  DropdownItem,
+} from "../../_UI/Dropdown";
 
-import { FlagItem, FlagButton, MenuContent } from "./styles";
+import { FlagButton, FlagItem } from "./styles";
 
 export function LocaleDropdownMenu() {
   const [isMounted, setIsMounted] = useState(false);
@@ -19,34 +24,33 @@ export function LocaleDropdownMenu() {
   }, []);
 
   return isMounted ? (
-    <Menu.Root>
-      <Menu.Trigger asChild>
+    <Dropdown>
+      <DropdownTrigger asChild>
         <FlagButton $currentTheme={theme}>
           <Flag country={selectedCountry} />
         </FlagButton>
-      </Menu.Trigger>
+      </DropdownTrigger>
 
-      <Menu.Portal>
-        <MenuContent $currentTheme={theme}>
-          {Object.keys(LOCALE).map(key => {
-            const country = key.split("_")[1];
-            let localeItem = LOCALE.PT_BR;
-            if (key === "EN_US") localeItem = LOCALE.EN_US;
+      <DropdownContent>
+        {Object.keys(LOCALE).map(key => {
+          const country = key.split("_")[1];
+          let localeItem = LOCALE.PT_BR;
+          if (key === "EN_US") localeItem = LOCALE.EN_US;
 
-            return (
-              <Menu.Item asChild key={key}>
-                <FlagItem
-                  $currentTheme={theme}
-                  onClick={() => selectLocale(localeItem)}
-                >
-                  <Flag country={country} />
-                </FlagItem>
-              </Menu.Item>
-            );
-          })}
-        </MenuContent>
-      </Menu.Portal>
-    </Menu.Root>
+          return (
+            <DropdownItem
+              asChild
+              key={key}
+              onClick={() => selectLocale(localeItem)}
+            >
+              <FlagItem>
+                <Flag country={country} />
+              </FlagItem>
+            </DropdownItem>
+          );
+        })}
+      </DropdownContent>
+    </Dropdown>
   ) : (
     <div />
   );

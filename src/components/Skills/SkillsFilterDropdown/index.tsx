@@ -1,21 +1,18 @@
-import { DivideIcon, FunnelSimpleIcon } from "@phosphor-icons/react";
-import { CheckIcon } from "@phosphor-icons/react/dist/ssr";
-import * as Menu from "@radix-ui/react-dropdown-menu";
-import React, { useEffect, useState } from "react";
+import { FunnelSimpleIcon } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
 import { useIntl } from "react-intl";
 import { useTheme } from "styled-components";
 
 import { usePortfolioTheme } from "../../../contexts/ThemeContext";
-import { SkillCategory, SkillType } from "../types";
-
 import {
-  MenuContent,
-  MenuCheckboxItem as StyledMenuCheckboxItem,
-  MenuLabel,
-  MenuSeparator,
-  MenuButton,
-  MenuItemIndicator,
-} from "./styles";
+  Dropdown,
+  DropdownCheckboxItem,
+  DropdownContent,
+  DropdownLabel,
+  DropdownSeparator,
+  DropdownTrigger,
+} from "../../_UI/Dropdown";
+import { SkillCategory, SkillType } from "../types";
 
 const skillTypeKeys = Object.keys(SkillType) as Array<keyof typeof SkillType>;
 const skillCategoryKeys = Object.keys(SkillCategory).sort((a, b) =>
@@ -32,33 +29,6 @@ interface SkillFilterDropdownProps {
   toggleSelectAllTypes: () => void;
   toggleSelectAllCategories: () => void;
 }
-
-type MenuCheckboxItemProps = Menu.DropdownMenuCheckboxItemProps & {
-  children: React.ReactNode;
-  $currentTheme?: string;
-  checkedColor?: string;
-};
-
-export const MenuCheckboxItem = React.forwardRef<
-  HTMLDivElement,
-  MenuCheckboxItemProps
->(({ children, ...props }, forwardedRef) => {
-  return (
-    <StyledMenuCheckboxItem
-      {...props}
-      ref={forwardedRef}
-      onSelect={event => event.preventDefault()}
-    >
-      <MenuItemIndicator forceMount selectedBackground={props.checkedColor}>
-        {props.checked === "indeterminate" && <DivideIcon />}
-        {props.checked === true && <CheckIcon />}
-      </MenuItemIndicator>
-      {children}
-    </StyledMenuCheckboxItem>
-  );
-});
-
-MenuCheckboxItem.displayName = "DropdownMenuCheckboxItem";
 
 export function SkillFilterDropdown({
   selectedTypes,
@@ -80,69 +50,63 @@ export function SkillFilterDropdown({
   }, []);
 
   return isMounted ? (
-    <Menu.Root>
-      <MenuButton asChild>
+    <Dropdown>
+      <DropdownTrigger asChild>
         <FunnelSimpleIcon size={30} />
-      </MenuButton>
+      </DropdownTrigger>
 
-      <Menu.Portal>
-        <MenuContent $currentTheme={theme}>
-          <MenuLabel $currentTheme={theme}>
-            {intl.formatMessage({ id: "skills.types" })}
-          </MenuLabel>
-          <MenuCheckboxItem
-            key={"ALL_TYPES"}
-            $currentTheme={theme}
-            checked={allTypesSelected}
-            onCheckedChange={() => toggleSelectAllTypes()}
-          >
-            All
-          </MenuCheckboxItem>
-          {skillTypeKeys.map(key => {
-            const value = SkillType[key];
-            return (
-              <MenuCheckboxItem
-                key={key}
-                $currentTheme={theme}
-                checked={selectedTypes.includes(value)}
-                onCheckedChange={() => toggleType(value)}
-              >
-                {intl.formatMessage({ id: `skills.type.${value}` })}
-              </MenuCheckboxItem>
-            );
-          })}
+      <DropdownContent width={320}>
+        <DropdownLabel $currentTheme={theme}>
+          {intl.formatMessage({ id: "skills.types" })}
+        </DropdownLabel>
+        <DropdownCheckboxItem
+          key={"ALL_TYPES"}
+          checked={allTypesSelected}
+          onCheckedChange={() => toggleSelectAllTypes()}
+        >
+          All
+        </DropdownCheckboxItem>
+        {skillTypeKeys.map(key => {
+          const value = SkillType[key];
+          return (
+            <DropdownCheckboxItem
+              key={key}
+              checked={selectedTypes.includes(value)}
+              onCheckedChange={() => toggleType(value)}
+            >
+              {intl.formatMessage({ id: `skills.type.${value}` })}
+            </DropdownCheckboxItem>
+          );
+        })}
 
-          <MenuSeparator />
+        <DropdownSeparator />
 
-          <MenuLabel $currentTheme={theme}>
-            {intl.formatMessage({ id: "skills.categories" })}
-          </MenuLabel>
-          <MenuCheckboxItem
-            key={"ALL_CATEGORIES"}
-            $currentTheme={theme}
-            checked={allCategoriesSelected}
-            onCheckedChange={() => toggleSelectAllCategories()}
-          >
-            All
-          </MenuCheckboxItem>
-          {skillCategoryKeys.map(key => {
-            const value = SkillCategory[key];
-            const color = styledTheme.colors.skills[value];
-            return (
-              <MenuCheckboxItem
-                checkedColor={color}
-                key={key}
-                $currentTheme={theme}
-                checked={selectedCategories.includes(value)}
-                onCheckedChange={() => toggleCategory(value)}
-              >
-                {intl.formatMessage({ id: `skills.category.${value}` })}
-              </MenuCheckboxItem>
-            );
-          })}
-        </MenuContent>
-      </Menu.Portal>
-    </Menu.Root>
+        <DropdownLabel $currentTheme={theme}>
+          {intl.formatMessage({ id: "skills.categories" })}
+        </DropdownLabel>
+        <DropdownCheckboxItem
+          key={"ALL_CATEGORIES"}
+          checked={allCategoriesSelected}
+          onCheckedChange={() => toggleSelectAllCategories()}
+        >
+          All
+        </DropdownCheckboxItem>
+        {skillCategoryKeys.map(key => {
+          const value = SkillCategory[key];
+          const color = styledTheme.colors.skills[value];
+          return (
+            <DropdownCheckboxItem
+              checkedColor={color}
+              key={key}
+              checked={selectedCategories.includes(value)}
+              onCheckedChange={() => toggleCategory(value)}
+            >
+              {intl.formatMessage({ id: `skills.category.${value}` })}
+            </DropdownCheckboxItem>
+          );
+        })}
+      </DropdownContent>
+    </Dropdown>
   ) : (
     <div />
   );

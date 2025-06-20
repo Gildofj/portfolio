@@ -1,4 +1,5 @@
 import {
+  Arrow,
   CheckboxItem,
   Content,
   ItemIndicator,
@@ -12,7 +13,7 @@ type DropdownState = {
   $currentTheme?: string | undefined | null;
 };
 
-export const MenuButton = styled(Trigger)`
+export const MenuTrigger = styled(Trigger)`
   color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
 
@@ -23,11 +24,21 @@ export const MenuButton = styled(Trigger)`
   }
 `;
 
-export const MenuContent = styled(Content)<DropdownState>`
+export const MenuArrow = styled(Arrow)<DropdownState>`
+  fill: ${({ theme, $currentTheme }) =>
+    $currentTheme !== "light"
+      ? theme.colors.zinc_800
+      : theme.colors.purple_200};
+`;
+
+type MenuContentProps = DropdownState & {
+  width?: string;
+};
+export const MenuContent = styled(Content)<MenuContentProps>`
   z-index: 99999;
   border-radius: 0.375rem;
   padding: 0.25rem;
-  width: 20rem;
+  width: ${({ width }) => width ?? "auto"};
   background-color: ${({ theme, $currentTheme }) =>
     $currentTheme !== "light"
       ? theme.colors.zinc_800
@@ -61,6 +72,7 @@ export const MenuCheckboxItem = styled(CheckboxItem)<MenuItemProps>`
   padding: 0.5rem 1rem 0.5rem 0.5rem;
   color: ${({ theme, color }) => color ?? theme.colors.text};
   cursor: pointer;
+  border-radius: 0.375rem;
 
   &:hover {
     background-color: ${({ theme, $currentTheme }) =>
@@ -70,10 +82,9 @@ export const MenuCheckboxItem = styled(CheckboxItem)<MenuItemProps>`
   }
 `;
 
-type MenuItemIndicatorProps = DropdownState & {
-  selectedBackground?: string;
+type MenuItemIndicatorProps = {
+  checkedColor?: string;
 };
-
 export const MenuItemIndicator = styled(ItemIndicator)<MenuItemIndicatorProps>`
   border: 1px solid ${({ theme }) => theme.colors.text};
   border-radius: 0.25rem;
@@ -88,8 +99,8 @@ export const MenuItemIndicator = styled(ItemIndicator)<MenuItemIndicatorProps>`
   }
 
   &[data-state="checked"] {
-    background-color: ${({ theme, selectedBackground }) =>
-      selectedBackground ?? theme.colors.purple_100};
-    color: ${({ theme, color }) => color ?? theme.colors.purple_950};
+    background-color: ${({ theme, checkedColor }) =>
+      checkedColor ?? theme.colors.purple_100};
+    color: ${({ theme }) => theme.colors.purple_950};
   }
 `;
