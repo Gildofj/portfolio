@@ -19,6 +19,8 @@ export const ThemeButtonContainer = styled.button<ThemeButtonContainerProps>`
     $currentTheme !== "light"
       ? theme.colors.zinc_600
       : theme.colors.purple_200};
+
+  --webkit-tap-highlight-color: transparent;
 `;
 
 export const ThemeCircle = styled(motion.div)`
