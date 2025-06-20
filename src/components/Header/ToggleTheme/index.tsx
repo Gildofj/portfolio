@@ -1,11 +1,10 @@
 import { Moon, Sun } from "@phosphor-icons/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 import { usePortfolioTheme } from "../../../contexts/ThemeContext";
 
-import { ThemeButton, ThemeButtonContainer } from "./styles";
-
-const themes = ["light", "dark"];
+import { ThemeCircle, ThemeButtonContainer } from "./styles";
 
 export function ToggleThemeButton() {
   const [isMounted, setIsMounted] = useState(false);
@@ -16,20 +15,32 @@ export function ToggleThemeButton() {
   }, []);
 
   return isMounted ? (
-    <ThemeButtonContainer $currentTheme={theme}>
-      {themes.map(t => {
-        const checked = t === theme;
-        const iconColor = theme !== "light" ? "#d4d4d8" : "#18181b";
-        return (
-          <ThemeButton key={t} $checked={checked} onClick={toggleTheme}>
-            {t === "light" ? (
-              <Sun color={checked ? "#000000" : iconColor} size={16} />
-            ) : (
-              <Moon color={checked ? "#000000" : iconColor} size={16} />
-            )}
-          </ThemeButton>
-        );
-      })}
+    <ThemeButtonContainer $currentTheme={theme} onClick={toggleTheme}>
+      <ThemeCircle layout>
+        <AnimatePresence mode="wait" initial={false}>
+          {theme === "light" ? (
+            <motion.div
+              key="light"
+              initial={{ opacity: 0, scale: 0.8, rotate: 90 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              exit={{ opacity: 0, scale: 0.8, rotate: 90 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Sun size={16} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="dark"
+              initial={{ opacity: 0, scale: 0.8, rotate: -90 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              exit={{ opacity: 0, scale: 0.8, rotate: -90 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Moon color="#000000" size={16} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </ThemeCircle>
     </ThemeButtonContainer>
   ) : (
     <div />
