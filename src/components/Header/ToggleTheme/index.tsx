@@ -1,4 +1,4 @@
-import { Moon, Sun } from "@phosphor-icons/react";
+import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
@@ -26,7 +26,7 @@ export function ToggleThemeButton() {
               exit={{ opacity: 0, scale: 0.8, rotate: 90 }}
               transition={{ duration: 0.2 }}
             >
-              <Sun size={16} />
+              <SunIcon size={16} />
             </motion.div>
           ) : (
             <motion.div
@@ -36,7 +36,7 @@ export function ToggleThemeButton() {
               exit={{ opacity: 0, scale: 0.8, rotate: -90 }}
               transition={{ duration: 0.2 }}
             >
-              <Moon color="#000000" size={16} />
+              <MoonIcon color="#000000" size={16} />
             </motion.div>
           )}
         </AnimatePresence>
