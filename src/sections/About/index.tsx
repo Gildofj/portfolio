@@ -1,8 +1,7 @@
+import { Title } from "@components/_UI/Title";
+import { TitleContainer } from "@components/_UI/TitleContainer";
 import { MotionConfig } from "motion/react";
 import { useIntl } from "react-intl";
-
-import { Title } from "../_UI/Title";
-import { TitleContainer } from "../_UI/TitleContainer";
 
 import { AboutText, Container } from "./styles";
 

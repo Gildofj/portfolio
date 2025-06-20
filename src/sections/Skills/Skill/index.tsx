@@ -1,7 +1,7 @@
+import { SvgIcon } from "@components/_UI/SvgIcon";
 import { useMemo } from "react";
 import { useTheme } from "styled-components";
 
-import { SvgIcon } from "../../_UI/SvgIcon";
 import { SkillCategory } from "../types";
 
 import { SkillName, SkillContainer } from "./styles";

@@ -1,13 +1,16 @@
-import { BookOpenText, Suitcase, Calendar } from "@phosphor-icons/react";
+import { Tabs, Tab } from "@components/_UI/Tabs";
+import { Title } from "@components/_UI/Title";
+import { TitleContainer } from "@components/_UI/TitleContainer";
+import { useLocale } from "@contexts/LocaleContext";
+import { usePortfolioTheme } from "@contexts/ThemeContext";
+import {
+  BookOpenTextIcon,
+  SuitcaseIcon,
+  CalendarIcon,
+} from "@phosphor-icons/react";
 import { AnimatePresence, MotionConfig } from "motion/react";
 import { useMemo, useState } from "react";
 import { useIntl } from "react-intl";
-
-import { useLocale } from "../../contexts/LocaleContext";
-import { usePortfolioTheme } from "../../contexts/ThemeContext";
-import { Tabs, Tab } from "../_UI/Tabs";
-import { Title } from "../_UI/Title";
-import { TitleContainer } from "../_UI/TitleContainer";
 
 import { QualificationInfoModal } from "./QualificationInfoModal";
 import {
@@ -60,7 +63,7 @@ export function Qualification() {
                   {q.country} - {q.organization}
                 </DataSubTitle>
                 <DataCalendar>
-                  <Calendar size={20} />
+                  <CalendarIcon size={20} />
                   {q.startDate} - {q.endDate}
                 </DataCalendar>
                 <QualificationInfoModal qualification={q} />
@@ -83,7 +86,7 @@ export function Qualification() {
                   {q.country} - {q.organization}
                 </DataSubTitle>
                 <DataCalendar>
-                  <Calendar size={20} />
+                  <CalendarIcon size={20} />
                   {q.startDate} - {q.endDate}
                 </DataCalendar>
                 <QualificationInfoModal qualification={q} />
@@ -121,7 +124,7 @@ export function Qualification() {
               transition={{ delay: 0.1, duration: 0.1 }}
               viewport={{ once: true }}
             >
-              <Suitcase size={32} />
+              <SuitcaseIcon size={32} />
               {intl.formatMessage({ id: "qualification.experienceTabTitle" })}
             </Tab>
 
@@ -133,7 +136,7 @@ export function Qualification() {
               transition={{ delay: 0.1, duration: 0.1 }}
               viewport={{ once: true }}
             >
-              <BookOpenText size={32} />
+              <BookOpenTextIcon size={32} />
               {intl.formatMessage({ id: "qualification.educationTabTitle" })}
             </Tab>
           </Tabs>

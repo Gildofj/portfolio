@@ -1,14 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
-import Flag from "react-flagkit";
-
-import { useLocale, LOCALE } from "../../../contexts/LocaleContext";
-import { usePortfolioTheme } from "../../../contexts/ThemeContext";
 import {
   Dropdown,
   DropdownTrigger,
   DropdownContent,
   DropdownItem,
-} from "../../_UI/Dropdown";
+} from "@components/_UI/Dropdown";
+import { useLocale, LOCALE } from "@contexts/LocaleContext";
+import { usePortfolioTheme } from "@contexts/ThemeContext";
+import { useEffect, useMemo, useState } from "react";
+import Flag from "react-flagkit";
 
 import { FlagButton, FlagItem } from "./styles";
 

@@ -1,8 +1,8 @@
-import { ArrowSquareOutIcon, X } from "@phosphor-icons/react";
+import { Modal } from "@components/_UI/Modal";
+import { ArrowSquareOutIcon, XIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 import { useTheme } from "styled-components";
 
-import { Modal } from "../../_UI/Modal";
 import { WORK_MODEL } from "../constants";
 import { Qualification } from "../types";
 
@@ -39,7 +39,7 @@ export function QualificationInfoModal({
             <TextTitle>{qualification.title}</TextTitle>
 
             <CloseButton onClick={() => setOpen(!open)}>
-              <X color={theme.colors.primary} size={32} />
+              <XIcon color={theme.colors.primary} size={32} />
             </CloseButton>
           </ModalTitle>
           <ModalContent>

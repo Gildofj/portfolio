@@ -1,9 +1,8 @@
+import { Title } from "@components/_UI/Title";
+import { TitleContainer } from "@components/_UI/TitleContainer";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import { useMemo } from "react";
 import { useIntl } from "react-intl";
-
-import { Title } from "../_UI/Title";
-import { TitleContainer } from "../_UI/TitleContainer";
 
 import { Skill } from "./Skill";
 import { SkillFilterDropdown } from "./SkillsFilterDropdown";

@@ -1,8 +1,7 @@
+import { usePortfolioTheme } from "@contexts/ThemeContext";
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
-
-import { usePortfolioTheme } from "../../../contexts/ThemeContext";
 
 import { ThemeCircle, ThemeButtonContainer } from "./styles";
 

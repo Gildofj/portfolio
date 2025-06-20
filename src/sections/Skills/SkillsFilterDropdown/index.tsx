@@ -1,9 +1,3 @@
-import { FunnelSimpleIcon } from "@phosphor-icons/react";
-import { useEffect, useState } from "react";
-import { useIntl } from "react-intl";
-import { useTheme } from "styled-components";
-
-import { usePortfolioTheme } from "../../../contexts/ThemeContext";
 import {
   Dropdown,
   DropdownCheckboxItem,
@@ -11,7 +5,13 @@ import {
   DropdownLabel,
   DropdownSeparator,
   DropdownTrigger,
-} from "../../_UI/Dropdown";
+} from "@components/_UI/Dropdown";
+import { usePortfolioTheme } from "@contexts/ThemeContext";
+import { FunnelSimpleIcon } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
+import { useIntl } from "react-intl";
+import { useTheme } from "styled-components";
+
 import { SkillCategory, SkillType } from "../types";
 
 const skillTypeKeys = Object.keys(SkillType) as Array<keyof typeof SkillType>;

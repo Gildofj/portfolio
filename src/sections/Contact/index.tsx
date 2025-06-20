@@ -1,4 +1,7 @@
+import { Title } from "@components/_UI/Title";
+import { TitleContainer } from "@components/_UI/TitleContainer";
 import emailjs from "@emailjs/browser";
+import { useToast } from "@hooks/useToast";
 import {
   ArrowRightIcon,
   WhatsappLogoIcon,
@@ -8,10 +11,6 @@ import {
 import { MotionConfig } from "motion/react";
 import { SyntheticEvent, useRef, useState } from "react";
 import { useIntl } from "react-intl";
-
-import { useToast } from "../../hooks/useToast";
-import { Title } from "../_UI/Title";
-import { TitleContainer } from "../_UI/TitleContainer";
 
 import { CONTACT_TYPES } from "./constants";
 import {

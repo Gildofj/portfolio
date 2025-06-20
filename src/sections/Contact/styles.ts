@@ -1,7 +1,6 @@
+import { Section } from "@components/_UI/Section";
 import { motion } from "motion/react";
 import styled from "styled-components";
-
-import { Section } from "../_UI/Section";
 
 export const Container = styled(Section)`
   width: 100%;

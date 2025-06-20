@@ -1,6 +1,5 @@
+import { Section } from "@components/_UI/Section";
 import { useIntl } from "react-intl";
-
-import { Section } from "../_UI/Section";
 
 import {
   AnchorImage,

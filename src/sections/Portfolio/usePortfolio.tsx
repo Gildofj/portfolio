@@ -1,8 +1,7 @@
+import { contentfulClient } from "@config/Contentful";
+import { useLocale } from "@contexts/LocaleContext";
 import moment from "moment";
 import { useEffect, useState } from "react";
-
-import { contentfulClient } from "../../config/Contentful";
-import { useLocale } from "../../contexts/LocaleContext";
 
 import { Portfolio, PortfolioSkeleton } from "./types";
 

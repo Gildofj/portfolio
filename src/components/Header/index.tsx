@@ -1,3 +1,7 @@
+import { Overlay } from "@components/_UI/Overlay";
+import { LOCALE, useLocale } from "@contexts/LocaleContext";
+import { usePortfolioTheme } from "@contexts/ThemeContext";
+import useUrlHash from "@hooks/useUrlHash";
 import {
   GithubLogoIcon,
   InstagramLogoIcon,
@@ -5,16 +9,11 @@ import {
   XLogoIcon,
   ListIcon,
 } from "@phosphor-icons/react";
+import { NAVIGATIONS, SOCIALS } from "@shared/constants";
+import { handleScrollWhenModalIsOpen } from "@utils/scroll";
 import { useEffect, useState } from "react";
 import Flag from "react-flagkit";
 import { useIntl } from "react-intl";
-
-import { LOCALE, useLocale } from "../../contexts/LocaleContext";
-import { usePortfolioTheme } from "../../contexts/ThemeContext";
-import useUrlHash from "../../hooks/useUrlHash";
-import { handleScrollWhenModalIsOpen } from "../../utils/scroll";
-import { Overlay } from "../_UI/Overlay";
-import { NAVIGATIONS, SOCIALS } from "../constants";
 
 import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
 import {

@@ -1,6 +1,5 @@
+import { Section } from "@components/_UI/Section";
 import styled from "styled-components";
-
-import { Section } from "../_UI/Section";
 
 export const Container = styled(Section)`
   gap: 2rem;

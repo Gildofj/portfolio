@@ -1,11 +1,10 @@
+import { Tab, Tabs } from "@components/_UI/Tabs";
+import { Title } from "@components/_UI/Title";
+import { TitleContainer } from "@components/_UI/TitleContainer";
 import { HandshakeIcon, WrenchIcon } from "@phosphor-icons/react";
 import { AnimatePresence, MotionConfig } from "motion/react";
 import { useState } from "react";
 import { useIntl } from "react-intl";
-
-import { Tab, Tabs } from "../_UI/Tabs";
-import { Title } from "../_UI/Title";
-import { TitleContainer } from "../_UI/TitleContainer";
 
 import {
   Container,

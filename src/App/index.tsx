@@ -1,18 +1,17 @@
+import { Footer } from "@components/Footer";
+import { Header } from "@components/Header";
+import { Theme } from "@config/Theme";
+import { LOCALE, useLocale } from "@contexts/LocaleContext";
+import { useScrollHandler } from "@hooks/useScrollHandler";
+import { About } from "@sections/About";
+import { Contact } from "@sections/Contact";
+import { Portfolio } from "@sections/Portfolio";
+import { Profile } from "@sections/Profile";
+import { Qualification } from "@sections/Qualification";
+import { Skills } from "@sections/Skills";
+import { NAVIGATIONS } from "@shared/constants";
 import moment from "moment";
 import { ToastContainer } from "react-toastify";
-
-import { About } from "../components/About";
-import { NAVIGATIONS } from "../components/constants";
-import { Contact } from "../components/Contact";
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
-import { Portfolio } from "../components/Portfolio";
-import { Profile } from "../components/Profile";
-import { Qualification } from "../components/Qualification";
-import { Skills } from "../components/Skills";
-import { Theme } from "../config/Theme";
-import { LOCALE, useLocale } from "../contexts/LocaleContext";
-import { useScrollHandler } from "../hooks/useScrollHandler";
 
 import { Main, Content } from "./styles";
 

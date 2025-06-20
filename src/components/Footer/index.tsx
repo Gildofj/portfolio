@@ -4,9 +4,8 @@ import {
   LinkedinLogoIcon,
   XLogoIcon,
 } from "@phosphor-icons/react";
+import { SOCIALS } from "@shared/constants";
 import { useIntl } from "react-intl";
-
-import { SOCIALS } from "../constants";
 
 import {
   Container,
