@@ -21,6 +21,10 @@ export const ThemeButtonContainer = styled.button<ThemeButtonContainerProps>`
       : theme.colors.purple_200};
 
   --webkit-tap-highlight-color: transparent;
+  --webkit-touch-callout: none;
+  user-select: none;
+  outline: none;
+  touch-action: manipulation;
 `;
 
 export const ThemeCircle = styled(motion.div)`
