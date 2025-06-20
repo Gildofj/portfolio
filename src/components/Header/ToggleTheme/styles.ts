@@ -22,6 +22,7 @@ export const ThemeButtonContainer = styled.button<ThemeButtonContainerProps>`
 
   --webkit-tap-highlight-color: transparent;
   --webkit-touch-callout: none;
+  --webkit-user-select: none;
   user-select: none;
   outline: none;
   touch-action: manipulation;
