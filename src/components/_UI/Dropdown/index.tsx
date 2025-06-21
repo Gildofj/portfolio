@@ -1,5 +1,6 @@
 import { CheckIcon, DivideIcon } from "@phosphor-icons/react";
 import * as Menu from "@radix-ui/react-dropdown-menu";
+import { AnimatePresence, motion, HTMLMotionProps } from "motion/react";
 import { forwardRef } from "react";
 
 import { usePortfolioTheme } from "../../../contexts/ThemeContext";
@@ -20,22 +21,45 @@ export const DropdownTrigger = MenuTrigger;
 
 type DropdownContentProps = Menu.DropdownMenuContentProps & {
   width?: number;
+  forceMountPortal?: true;
+  motionProps?: HTMLMotionProps<"div">;
 };
 
 export const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
-  ({ children, width, ...props }, forwardedRef) => {
+  (
+    { children, width, forceMountPortal, motionProps, ...props },
+    forwardedRef
+  ) => {
     const { theme } = usePortfolioTheme();
+    const defaultMotion = {
+      initial: { opacity: 0, height: 0 },
+      animate: { opacity: 1, height: "auto" },
+      exit: { opacity: 0, height: 0 },
+      transition: { duration: 0.2 },
+    };
+
     return (
-      <Menu.Portal>
-        <MenuContent
-          {...props}
-          width={width ? pxToRem(width) : undefined}
-          $currentTheme={theme}
-          ref={forwardedRef}
-        >
-          {children}
-          <MenuArrow $currentTheme={theme} />
-        </MenuContent>
+      <Menu.Portal forceMount={forceMountPortal}>
+        <Menu.Content {...props} ref={forwardedRef} asChild>
+          <MenuContent
+            {...defaultMotion}
+            {...motionProps}
+            width={width ? pxToRem(width) : undefined}
+            $currentTheme={theme}
+          >
+            <AnimatePresence propagate>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { delay: 0, duration: 0.1 } }}
+                transition={{ delay: 0.2, duration: 0.2 }}
+              >
+                {children}
+              </motion.div>
+            </AnimatePresence>
+            <MenuArrow $currentTheme={theme} />
+          </MenuContent>
+        </Menu.Content>
       </Menu.Portal>
     );
   }

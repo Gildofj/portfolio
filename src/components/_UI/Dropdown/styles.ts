@@ -1,12 +1,12 @@
 import {
   Arrow,
   CheckboxItem,
-  Content,
   ItemIndicator,
   Label,
   Separator,
   Trigger,
 } from "@radix-ui/react-dropdown-menu";
+import { motion } from "motion/react";
 import styled from "styled-components";
 
 type DropdownState = {
@@ -34,7 +34,8 @@ export const MenuArrow = styled(Arrow)<DropdownState>`
 type MenuContentProps = DropdownState & {
   width?: string;
 };
-export const MenuContent = styled(Content)<MenuContentProps>`
+
+export const MenuContent = styled(motion.div)<MenuContentProps>`
   z-index: 99999;
   border-radius: 0.375rem;
   padding: 0.25rem;
@@ -43,8 +44,6 @@ export const MenuContent = styled(Content)<MenuContentProps>`
     $currentTheme !== "light"
       ? theme.colors.zinc_800
       : theme.colors.purple_200};
-
-  transition: all 500ms;
 `;
 
 export const MenuSeparator = styled(Separator)`

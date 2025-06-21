@@ -8,6 +8,7 @@ import {
 } from "@components/_UI/Dropdown";
 import { usePortfolioTheme } from "@contexts/ThemeContext";
 import { FunnelSimpleIcon } from "@phosphor-icons/react";
+import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { useIntl } from "react-intl";
 import { useTheme } from "styled-components";
@@ -43,6 +44,7 @@ export function SkillFilterDropdown({
   const intl = useIntl();
   const styledTheme = useTheme();
   const [isMounted, setIsMounted] = useState(false);
+  const [open, setOpen] = useState(false);
   const { theme } = usePortfolioTheme();
 
   useEffect(() => {
@@ -50,62 +52,66 @@ export function SkillFilterDropdown({
   }, []);
 
   return isMounted ? (
-    <Dropdown>
+    <Dropdown open={open} onOpenChange={setOpen}>
       <DropdownTrigger asChild>
         <FunnelSimpleIcon size={30} />
       </DropdownTrigger>
 
-      <DropdownContent width={320}>
-        <DropdownLabel $currentTheme={theme}>
-          {intl.formatMessage({ id: "skills.types" })}
-        </DropdownLabel>
-        <DropdownCheckboxItem
-          key={"ALL_TYPES"}
-          checked={allTypesSelected}
-          onCheckedChange={() => toggleSelectAllTypes()}
-        >
-          All
-        </DropdownCheckboxItem>
-        {skillTypeKeys.map(key => {
-          const value = SkillType[key];
-          return (
+      <AnimatePresence>
+        {open && (
+          <DropdownContent forceMountPortal width={320}>
+            <DropdownLabel $currentTheme={theme}>
+              {intl.formatMessage({ id: "skills.types" })}
+            </DropdownLabel>
             <DropdownCheckboxItem
-              key={key}
-              checked={selectedTypes.includes(value)}
-              onCheckedChange={() => toggleType(value)}
+              key={"ALL_TYPES"}
+              checked={allTypesSelected}
+              onCheckedChange={() => toggleSelectAllTypes()}
             >
-              {intl.formatMessage({ id: `skills.type.${value}` })}
+              All
             </DropdownCheckboxItem>
-          );
-        })}
+            {skillTypeKeys.map(key => {
+              const value = SkillType[key];
+              return (
+                <DropdownCheckboxItem
+                  key={key}
+                  checked={selectedTypes.includes(value)}
+                  onCheckedChange={() => toggleType(value)}
+                >
+                  {intl.formatMessage({ id: `skills.type.${value}` })}
+                </DropdownCheckboxItem>
+              );
+            })}
 
-        <DropdownSeparator />
+            <DropdownSeparator />
 
-        <DropdownLabel $currentTheme={theme}>
-          {intl.formatMessage({ id: "skills.categories" })}
-        </DropdownLabel>
-        <DropdownCheckboxItem
-          key={"ALL_CATEGORIES"}
-          checked={allCategoriesSelected}
-          onCheckedChange={() => toggleSelectAllCategories()}
-        >
-          All
-        </DropdownCheckboxItem>
-        {skillCategoryKeys.map(key => {
-          const value = SkillCategory[key];
-          const color = styledTheme.colors.skills[value];
-          return (
+            <DropdownLabel $currentTheme={theme}>
+              {intl.formatMessage({ id: "skills.categories" })}
+            </DropdownLabel>
             <DropdownCheckboxItem
-              checkedColor={color}
-              key={key}
-              checked={selectedCategories.includes(value)}
-              onCheckedChange={() => toggleCategory(value)}
+              key={"ALL_CATEGORIES"}
+              checked={allCategoriesSelected}
+              onCheckedChange={() => toggleSelectAllCategories()}
             >
-              {intl.formatMessage({ id: `skills.category.${value}` })}
+              All
             </DropdownCheckboxItem>
-          );
-        })}
-      </DropdownContent>
+            {skillCategoryKeys.map(key => {
+              const value = SkillCategory[key];
+              const color = styledTheme.colors.skills[value];
+              return (
+                <DropdownCheckboxItem
+                  checkedColor={color}
+                  key={key}
+                  checked={selectedCategories.includes(value)}
+                  onCheckedChange={() => toggleCategory(value)}
+                >
+                  {intl.formatMessage({ id: `skills.category.${value}` })}
+                </DropdownCheckboxItem>
+              );
+            })}
+          </DropdownContent>
+        )}
+      </AnimatePresence>
     </Dropdown>
   ) : (
     <div />
