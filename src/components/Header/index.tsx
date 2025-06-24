@@ -113,6 +113,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
             <NavigationItem key={id}>
               <Link
                 key={id}
+                href={href}
                 $open={open}
                 onClick={() => handleHeaderItemClick(href)}
                 title={textId}
