@@ -94,6 +94,16 @@ export const LinkLogo = styled.a`
   align-items: center;
   text-decoration-line: none;
   gap: 0.4rem;
+
+  img {
+    max-width: 9rem;
+    max-height: 60px;
+    padding: 1.2rem 0.3rem;
+  }
+
+  span {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export const NavigationItem = styled(motion.li)`
@@ -120,8 +130,13 @@ export const Link = styled.a<LinkProps>`
     fill: ${({ theme }) => theme.colors.text};
   }
 
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
   &:active {
     font-weight: ${({ theme }) => theme.fontWeight.bold};
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   @media screen and (max-width: 1200px) {
@@ -142,7 +157,7 @@ export const LinkUnderline = styled(motion.div)`
   left: 0;
   right: 0;
   height: 4px;
-  background-color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const HeaderButton = styled.button`

@@ -1,6 +1,5 @@
 import { Overlay } from "@components/_UI/Overlay";
 import { LOCALE, useLocale } from "@contexts/LocaleContext";
-import { usePortfolioTheme } from "@contexts/ThemeContext";
 import useUrlHash from "@hooks/useUrlHash";
 import {
   GithubLogoIcon,
@@ -14,6 +13,7 @@ import { handleScrollWhenModalIsOpen } from "@utils/scroll";
 import { useEffect, useState } from "react";
 import Flag from "react-flagkit";
 import { useIntl } from "react-intl";
+import { useTheme } from "styled-components";
 
 import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
 import {
@@ -42,7 +42,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
   const intl = useIntl();
   const urlHash = useUrlHash();
   const [open, setOpen] = useState(false);
-  const { theme } = usePortfolioTheme();
+  const theme = useTheme();
   const { locale, selectLocale } = useLocale();
 
   useEffect(() => {
@@ -83,11 +83,13 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
         <Logo>
           <LinkLogo href="/portfolio/" title="Go to top of page">
             <LogoIcon
-              color={theme !== "light" ? "#d4d4d8" : "#18181b"}
+              color={theme.colors.text}
               height="1.8rem"
               width="1.8rem"
             />
-            Gildo Junior
+            <div>
+              gildofj<span>.dev</span>
+            </div>
           </LinkLogo>
         </Logo>
         <HeaderList $open={open} onClick={() => setOpen(false)}>
@@ -147,20 +149,13 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               }
             >
               <span className="sr-only">{social.sr}</span>
-              {getIcon(
-                social.id,
-                theme !== "light" ? "#d4d4d8" : "#18181b",
-                32
-              )}
+              {getIcon(social.id, theme.colors.text, 32)}
             </SocialLink>
           ))}
           <ToggleThemeButton />
           <LocaleDropdownMenu />
           <HeaderButton onClick={() => setOpen(!open)}>
-            <ListIcon
-              size={20}
-              color={theme !== "light" ? "#d4d4d8" : "#18181b"}
-            />
+            <ListIcon size={20} color={theme.colors.text} />
           </HeaderButton>
         </HeaderSocial>
       </Nav>
