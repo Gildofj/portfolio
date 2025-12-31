@@ -3,9 +3,9 @@
 ## Seja bem vindo ao meu portfólio! 🎉
 
 <div align="center">
-  
-  ![Welcome](https://media.giphy.com/media/XD9o33QG9BoMis7iM4/giphy.gif)
-  
+
+![Welcome](https://media.giphy.com/media/XD9o33QG9BoMis7iM4/giphy.gif)
+
 </div>
 
 Este é o projeto do meu portfólio que criei com o objetivo de aprimorar minhas habilidades em desenvolvimento web. Se quiser conferir o resultado, basta clicar [aqui](https://gildofj.github.io/portfolio/).

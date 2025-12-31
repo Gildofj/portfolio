@@ -3,7 +3,11 @@
     "baseUrl": ".",
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -16,24 +20,45 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["react", "node"],
+    "types": [
+      "react",
+      "node"
+    ],
     "plugins": [
       {
         "name": "@styled/typescript-styled-plugin"
       }
     ],
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@shared/*": ["src/shared/*"],
-      "@utils/*": ["src/utils/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@contexts/*": ["src/contexts/*"],
-      "@config/*": ["src/config/*"],
-      "@lang/*": ["src/lang/*"],
-      "@sections/*": ["src/sections/*"]
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@contexts/*": [
+        "src/contexts/*"
+      ],
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@lang/*": [
+        "src/lang/*"
+      ],
+      "@sections/*": [
+        "src/sections/*"
+      ]
     }
   },
-  "include": ["src"],
+  "include": [
+    "src"
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"
