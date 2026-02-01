@@ -193,7 +193,7 @@ export const HeaderButton = styled.button`
   }
 `;
 
-export const HeaderSocial = styled.div`
+export const HeaderActions = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -201,19 +201,6 @@ export const HeaderSocial = styled.div`
 
   @media screen and (max-width: 1240px) {
     gap: 0.25rem;
-  }
-`;
-
-interface SocialLinkProps {
-  $hideOnSmall?: boolean;
-}
-
-export const SocialLink = styled.a<SocialLinkProps>`
-  display: inline-block;
-  color: ${({ theme }) => theme.colors.text};
-
-  @media screen and (max-width: 768px) {
-    display: ${({ $hideOnSmall }) => ($hideOnSmall ? "none" : "inline-block")};
   }
 `;
 

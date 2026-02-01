@@ -1,14 +1,8 @@
 import { Overlay } from "@components/_UI/Overlay";
 import { LOCALE, useLocale } from "@contexts/LocaleContext";
 import useUrlHash from "@hooks/useUrlHash";
-import {
-  GithubLogoIcon,
-  InstagramLogoIcon,
-  LinkedinLogoIcon,
-  XLogoIcon,
-  ListIcon,
-} from "@phosphor-icons/react";
-import { NAVIGATIONS, SOCIALS } from "@shared/constants";
+import { GithubLogoIcon, ListIcon } from "@phosphor-icons/react";
+import { NAVIGATIONS } from "@shared/constants";
 import { handleScrollWhenModalIsOpen } from "@utils/scroll";
 import { useEffect, useState } from "react";
 import Flag from "react-flagkit";
@@ -22,8 +16,7 @@ import {
   LinkLogo,
   Logo,
   HeaderButton,
-  HeaderSocial,
-  SocialLink,
+  HeaderActions,
   HeaderList,
   Nav,
   LogoIcon,
@@ -56,19 +49,6 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
   useEffect(() => {
     handleScrollWhenModalIsOpen(open);
   }, [open]);
-
-  const getIcon = (id: string, color: string, size: number) => {
-    switch (id) {
-      case "github":
-        return <GithubLogoIcon color={color} size={size} />;
-      case "linkedin":
-        return <LinkedinLogoIcon color={color} size={size} />;
-      case "instagram":
-        return <InstagramLogoIcon color={color} size={size} />;
-      case "twitter":
-        return <XLogoIcon color={color} size={size} />;
-    }
-  };
 
   return (
     <HeaderContainer>
@@ -138,27 +118,13 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
             </Link>
           </li>
         </HeaderList>
-        <HeaderSocial>
-          {SOCIALS.map((social, i) => (
-            <SocialLink
-              key={i}
-              href={social.urlRedirect}
-              title={`Go to my ${social.id}`}
-              target="_blank"
-              $hideOnSmall={
-                social.id === "twitter" || social.id === "instagram"
-              }
-            >
-              <span className="sr-only">{social.sr}</span>
-              {getIcon(social.id, theme.colors.text, 32)}
-            </SocialLink>
-          ))}
+        <HeaderActions>
           <ToggleThemeButton />
           <LocaleDropdownMenu />
           <HeaderButton onClick={() => setOpen(!open)}>
             <ListIcon size={20} color={theme.colors.text} />
           </HeaderButton>
-        </HeaderSocial>
+        </HeaderActions>
       </Nav>
     </HeaderContainer>
   );
