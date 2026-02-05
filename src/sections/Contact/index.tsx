@@ -148,7 +148,7 @@ export function Contact() {
                 placeholder={intl.formatMessage({
                   id: "contact.form.name.placeholder",
                 })}
-                className="absolute left-0 top-0 z-1 w-full rounded-xl border border-primary bg-purple-50 p-5 text-zinc-900 transition-colors duration-500 dark:bg-zinc-900 dark:text-zinc-300"
+                className="p-5 w-full absolute left-0 top-0 z-[1] rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out dark:bg-zinc-900 dark:text-zinc-300"
               />
             </motion.div>
             {nameError && (
@@ -177,7 +177,7 @@ export function Contact() {
                 placeholder={intl.formatMessage({
                   id: "contact.form.email.placeholder",
                 })}
-                className="absolute left-0 top-0 z-1 w-full rounded-xl border border-primary bg-purple-50 p-5 text-zinc-900 transition-colors duration-500 dark:bg-zinc-900 dark:text-zinc-300"
+                className="p-5 w-full absolute left-0 top-0 z-[1] rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out dark:bg-zinc-900 dark:text-zinc-300"
               />
             </motion.div>
             {emailError && (
@@ -207,7 +207,7 @@ export function Contact() {
                 placeholder={intl.formatMessage({
                   id: "contact.form.project.placeholder",
                 })}
-                className="min-h-52 w-full max-w-125 rounded-xl border border-primary bg-purple-50 p-5 text-zinc-900 transition-colors duration-500 max-[900px]:w-full dark:bg-zinc-900 dark:text-zinc-300"
+                className="p-5 w-[31.25rem] min-h-[13rem] rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out max-[900px]:w-full dark:bg-zinc-900 dark:text-zinc-300"
               />
               {messageError && (
                 <div className="mt-2 w-full text-start">

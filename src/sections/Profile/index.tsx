@@ -67,7 +67,7 @@ export function Profile() {
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="text-center text-2xl font-medium leading-10"
+        className="text-center text-4xl font-medium leading-10"
       >
         {intl.formatMessage({ id: "profile.welcome" })}{" "}
         <span className="text-primary">
