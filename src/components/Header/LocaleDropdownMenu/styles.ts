@@ -6,15 +6,19 @@ interface CurrentThemeState {
 
 export const FlagButton = styled.div<CurrentThemeState>`
   display: inline-block;
-  border-radius: 0.75rem;
-  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   cursor: pointer;
-  background-color: ${({ theme, $currentTheme }) =>
-    $currentTheme !== "light"
-      ? theme.colors.zinc_600
-      : theme.colors.purple_200};
 
   transition: all 500ms;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    transition: transform 0.3s ease;
+  }
 
   @media screen and (max-width: 1200px) {
     display: none;
