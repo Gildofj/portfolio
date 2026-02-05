@@ -6,7 +6,6 @@ import {
   DropdownSeparator,
   DropdownTrigger,
 } from "@components/_UI/Dropdown";
-import { coreColors } from "@config/Theme/core";
 import { FunnelSimpleIcon } from "@phosphor-icons/react";
 import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
@@ -96,10 +95,9 @@ export function SkillFilterDropdown({
             </DropdownCheckboxItem>
             {skillCategoryKeys.map(key => {
               const value = SkillCategory[key];
-              const color = coreColors.skills[value];
               return (
                 <DropdownCheckboxItem
-                  checkedColor={color}
+                  checkedColor={`var(--color-skills-${value})`}
                   key={key}
                   checked={selectedCategories.includes(value)}
                   onCheckedChange={() => toggleCategory(value)}

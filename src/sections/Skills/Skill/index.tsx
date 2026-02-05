@@ -1,5 +1,4 @@
 import { SvgIcon } from "@components/_UI/SvgIcon";
-import { coreColors } from "@config/Theme/core";
 import { useMemo } from "react";
 
 import { SkillCategory } from "../types";
@@ -13,7 +12,7 @@ interface SkillProps {
 export function Skill({ title, categories, icon }: SkillProps) {
   const color = useMemo(() => {
     const category = categories[0];
-    return coreColors.skills[category];
+    return "var(--color-skills-" + category + ")";
   }, [categories]);
 
   return (

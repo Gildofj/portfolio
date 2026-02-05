@@ -118,7 +118,7 @@ export function Contact() {
           <form
             ref={form}
             onSubmit={sendEmail}
-            className="flex w-full flex-col items-center max-md:px-8 max-[400px]:max-w-[20rem] max-[400px]:p-0"
+            className="flex w-full flex-col items-center max-md:px-8 max-sm:max-w-[20rem] max-sm:p-0"
           >
             <motion.h3
               initial={
@@ -140,7 +140,7 @@ export function Contact() {
               transition={{ delay: 2 * 0.06 }}
               className="relative my-8 h-8 w-full"
             >
-              <label className="absolute left-5 top-3 z-10 bg-purple-50 p-1 text-sm text-primary transition-colors duration-500 dark:bg-zinc-900">
+              <label className="absolute left-5 -top-3 z-10 bg-purple-50 p-1 text-sm text-primary transition-colors duration-500 dark:bg-zinc-900">
                 {intl.formatMessage({ id: "contact.form.name" })}
               </label>
               <input
@@ -168,7 +168,7 @@ export function Contact() {
               transition={{ delay: 3 * 0.06 }}
               className="relative my-8 h-8 w-full"
             >
-              <label className="absolute left-5 top-3 z-10 bg-purple-50 p-1 text-sm text-primary transition-colors duration-500 dark:bg-zinc-900">
+              <label className="absolute left-5 -top-3 z-10 bg-purple-50 p-1 text-sm text-primary transition-colors duration-500 dark:bg-zinc-900">
                 {intl.formatMessage({ id: "contact.form.email" })}
               </label>
               <input
@@ -199,7 +199,7 @@ export function Contact() {
               transition={{ delay: 4 * 0.06 }}
               className="relative my-8 min-h-40 w-full"
             >
-              <label className="absolute left-5 top-3 z-10 bg-purple-50 p-1 text-sm text-primary transition-colors duration-500 dark:bg-zinc-900">
+              <label className="absolute left-5 -top-3 z-10 bg-purple-50 p-1 text-sm text-primary transition-colors duration-500 dark:bg-zinc-900">
                 {intl.formatMessage({ id: "contact.form.project" })}
               </label>
               <motion.textarea

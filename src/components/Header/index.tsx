@@ -61,10 +61,10 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
           </a>
         </h2>
         <motion.ul
-          className={`absolute left-1/2 flex -translate-x-1/2 items-center justify-center gap-6 transition-[visibility_0s,opacity_0.5s] 2xl:static 2xl:translate-x-0 max-xl:gap-2 max-[1200px]:absolute max-[1200px]:top-[60px] max-[1200px]:left-0 max-[1200px]:z-10 max-[1200px]:flex max-[1200px]:h-dvh max-[1200px]:w-full max-[1200px]:flex-col max-[1200px]:gap-2 max-[1200px]:rounded-b-xl max-[1200px]:pb-[10%] max-[1200px]:text-lg ${open ? "max-[1200px]:visible max-[1200px]:overflow-y-auto max-[1200px]:opacity-100" : "max-[1200px]:invisible max-[1200px]:overflow-y-hidden max-[1200px]:opacity-0"}`}
+          className={`flex items-center justify-center gap-6 absolute left-1/2 -translate-x-1/2 transition-[visibility,opacity] duration-500 max-2xl:static max-2xl:translate-x-0 max-xl:gap-2 max-lg:absolute max-lg:w-full max-lg:h-screen max-lg:pb-[10%] max-lg:flex-col max-lg:text-lg max-lg:gap-2 max-lg:top-[60px] max-lg:left-0 max-lg:z-10 max-lg:rounded-b-xl ${open ? "max-lg:overflow-y-auto max-lg:visible max-lg:opacity-100" : "max-lg:overflow-hidden max-lg:invisible max-lg:opacity-0"} `}
           onClick={() => setOpen(false)}
         >
-          <div className="hidden gap-4 max-[1200px]:inline-flex">
+          <div className="hidden gap-4 max-lg:inline-flex">
             {Object.keys(LOCALE).map(key => {
               const country = key.split("_")[1];
               let localeItem = LOCALE.PT_BR;
@@ -89,7 +89,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
                 onClick={() => handleHeaderItemClick(href)}
                 title={textId}
                 className={
-                  "inline-block px-2 py-4 text-zinc-900 transition-[0.2s] hover:text-primary active:font-bold active:text-primary dark:text-zinc-300 max-[1200px]:block max-[1200px]:w-full max-[1200px]:text-zinc-300 [&_span_svg]:text-zinc-900 [&_span_svg]:fill-zinc-900 dark:[&_span_svg]:text-zinc-300 dark:[&_span_svg]:fill-zinc-300 max-[1200px]:[&_span_svg]:text-zinc-300 max-[1200px]:[&_span_svg]:fill-zinc-300"
+                  "inline-block px-2 py-4 text-zinc-900 transition-[0.2s] hover:text-primary active:font-bold active:text-primary dark:text-zinc-300 max-xl:block max-xl:w-full max-xl:text-zinc-300 [&_span_svg]:text-zinc-900 [&_span_svg]:fill-zinc-900 dark:[&_span_svg]:text-zinc-300 dark:[&_span_svg]:fill-zinc-300 max-xl:[&_span_svg]:text-zinc-300 max-xl:[&_span_svg]:fill-zinc-300"
                 }
               >
                 {intl.formatMessage({ id: textId })}
@@ -109,7 +109,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
               title="Website source code"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-2 py-4 text-zinc-900 transition-[0.2s] hover:text-primary active:font-bold active:text-primary dark:text-zinc-300 max-[1200px]:flex max-[1200px]:w-full max-[1200px]:text-zinc-300 [&_span_svg]:text-zinc-900 [&_span_svg]:fill-zinc-900 dark:[&_span_svg]:text-zinc-300 dark:[&_span_svg]:fill-zinc-300 max-[1200px]:[&_span_svg]:text-zinc-300 max-[1200px]:[&_span_svg]:fill-zinc-300"
+              className="inline-flex items-center gap-2 px-2 py-4 text-zinc-900 transition-[0.2s] hover:text-primary active:font-bold active:text-primary dark:text-zinc-300 max-xl:flex max-xl:w-full max-xl:text-zinc-300 [&_span_svg]:text-zinc-900 [&_span_svg]:fill-zinc-900 dark:[&_span_svg]:text-zinc-300 dark:[&_span_svg]:fill-zinc-300 max-xl:[&_span_svg]:text-zinc-300 max-xl:[&_span_svg]:fill-zinc-300"
             >
               <GithubLogoIcon size={16} />
               {intl.formatMessage({ id: "header.source" })}
@@ -122,7 +122,7 @@ export function Header({ handleHeaderItemClick }: HeaderProps) {
           <button
             type="button"
             onClick={() => setOpen(!open)}
-            className="hidden max-h-[38px] max-w-[38px] cursor-pointer rounded-md border border-zinc-700 bg-transparent p-2 shadow-[0_0_#0000,0_0_#0000,0_0_#0000,0_1px_2px_0_rgb(0_0_0/0.05)] outline-none transition-[0.2s] hover:bg-zinc-800 focus:outline-2 focus:outline-transparent focus:outline-offset-2 focus:shadow-[0_0_0_2px_#f3f4f6,0_0_0_calc(2px+2px)_rgb(99_102_241/1),0_1px_2px_0_rgb(0_0_0/0.05)] max-[1200px]:inline-block"
+            className="hidden max-h-[38px] max-w-[38px] cursor-pointer rounded-md border border-zinc-700 bg-transparent p-2 shadow-[0_0_#0000,0_0_#0000,0_0_#0000,0_1px_2px_0_rgb(0_0_0/0.05)] outline-none transition-[0.2s] hover:bg-zinc-800 focus:outline-2 focus:outline-transparent focus:outline-offset-2 focus:shadow-[0_0_0_2px_#f3f4f6,0_0_0_calc(2px+2px)_rgb(99_102_241/1),0_1px_2px_0_rgb(0_0_0/0.05)] max-xl:inline-block"
             aria-label="Toggle menu"
           >
             <ListIcon size={20} className="text-zinc-900 dark:text-zinc-300" />

@@ -1,13 +1,26 @@
 @import "tailwindcss";
 
-/* Class-based dark mode (toggle via .dark on html) */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: #a855f7;
-  --color-success: #34d399;
-  --color-alert: #f87171;
+  /* Color Palette */
+  --color-primary: hsl(270 100% 68%);
+  --color-success: hsl(160 84% 52%);
+  --color-alert: hsl(0 96% 70%);
+
+  /* Skill Category Colors */
+  --color-skill-language: hsl(270 100% 68%);
+  --color-skill-framework: hsl(160 85% 40%);
+  --color-skill-tools: hsl(0 93% 66%);
+  --color-skill-database: hsl(120 75% 33%);
+  --color-skill-concept: hsl(240 3% 45%);
+  --color-skill-mobile: hsl(160 85% 45%);
+  --color-skill-design: hsl(45 98% 53%);
+  --color-skill-devops: hsl(30 90% 50%);
+  --color-skill-library: hsl(200 100% 50%);
+
   --animate-profile-image: profile-image 8s ease-in-out infinite 1s;
+
   @keyframes profile-image {
     0% {
       border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -46,8 +59,7 @@
       ui-sans-serif, system-ui, "Segoe UI", Helvetica, Arial, sans-serif,
       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
     -webkit-font-smoothing: antialiased;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: var(--text-base);
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     overflow-wrap: break-word;

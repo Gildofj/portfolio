@@ -1,5 +1,4 @@
 import { Modal } from "@components/_UI/Modal";
-import { coreColors } from "@config/Theme/core";
 import { ArrowSquareOutIcon, XIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 
@@ -38,7 +37,7 @@ export function QualificationInfoModal({
               className="cursor-pointer bg-transparent"
               aria-label="Close"
             >
-              <XIcon color={coreColors.primary} size={32} />
+              <XIcon color="var(--color-primary)" size={32} />
             </button>
           </div>
           <div className="flex flex-col gap-4">

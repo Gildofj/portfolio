@@ -1,6 +1,5 @@
 import { Footer } from "@components/Footer";
 import { Header } from "@components/Header";
-import { Theme } from "@config/Theme";
 import { LOCALE, useLocale } from "@contexts/LocaleContext";
 import { useScrollHandler } from "@hooks/useScrollHandler";
 import { About } from "@sections/About";
@@ -25,7 +24,7 @@ function App() {
   moment.locale(locale === LOCALE.EN_US ? "en-us" : "pt-br");
 
   return (
-    <Theme>
+    <>
       <Header handleHeaderItemClick={handleHeaderItemClick} />
       <main className="h-full max-[700px]:pt-[50px]">
         <article className="mx-auto flex w-full max-w-3xl flex-col items-center justify-center px-8">
@@ -39,7 +38,7 @@ function App() {
       </main>
       <Footer />
       <ToastContainer />
-    </Theme>
+    </>
   );
 }
 
