@@ -13,8 +13,6 @@ import { NAVIGATIONS } from "@shared/constants";
 import moment from "moment";
 import { ToastContainer } from "react-toastify";
 
-import { Main, Content } from "./styles";
-
 import "moment/dist/locale/pt-br";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -29,16 +27,16 @@ function App() {
   return (
     <Theme>
       <Header handleHeaderItemClick={handleHeaderItemClick} />
-      <Main>
-        <Content>
+      <main className="h-full max-[700px]:pt-[50px]">
+        <article className="mx-auto flex w-full max-w-3xl flex-col items-center justify-center px-8">
           <Profile />
           <About />
           <Skills />
           <Qualification />
           <Portfolio />
           <Contact />
-        </Content>
-      </Main>
+        </article>
+      </main>
       <Footer />
       <ToastContainer />
     </Theme>

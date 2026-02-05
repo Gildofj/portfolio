@@ -1,21 +1,12 @@
+import { Section } from "@components/_UI/Section";
 import { Tab, Tabs } from "@components/_UI/Tabs";
 import { Title } from "@components/_UI/Title";
 import { TitleContainer } from "@components/_UI/TitleContainer";
 import { HandshakeIcon, WrenchIcon } from "@phosphor-icons/react";
-import { AnimatePresence, MotionConfig } from "motion/react";
+import { AnimatePresence, MotionConfig, motion } from "motion/react";
 import { useState } from "react";
 import { useIntl } from "react-intl";
 
-import {
-  Container,
-  Image,
-  Description,
-  NameProject,
-  ProjectsList,
-  ImageContainer,
-  ProjectsListItem,
-  CardProject,
-} from "./styles";
 import { ProjectType } from "./types";
 import { usePortfolio } from "./usePortfolio";
 
@@ -25,7 +16,7 @@ export function Portfolio() {
   const [type, setType] = useState<ProjectType>(ProjectType.Personal);
 
   return (
-    <Container id="portfolio">
+    <Section id="portfolio" className="gap-4">
       <MotionConfig transition={{ duration: 0.3 }}>
         <TitleContainer
           initial={{ opacity: 0, x: "-10%" }}
@@ -61,43 +52,54 @@ export function Portfolio() {
           </Tab>
         </Tabs>
 
-        <ProjectsList>
+        <ul className="mt-12 grid gap-4 grid-cols-2 max-md:grid-cols-1">
           <AnimatePresence mode="wait">
             {portfolios
               ?.filter(p => p.type === type)
               ?.map((p, i) => (
-                <ProjectsListItem
+                <motion.li
                   key={`${i}_${p.title}`}
                   initial={{ x: i % 2 === 0 ? -10 : 10, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   exit={{ x: i % 2 === 0 ? -10 : 10, opacity: 0 }}
                   transition={{ delay: i * 0.1 }}
                   viewport={{ once: true }}
+                  className="mb-4 text-center"
                 >
-                  <CardProject
-                    key={p.title}
+                  <a
                     href={p.url}
                     title={p.title}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="inline-flex flex-col items-center"
                   >
-                    <ImageContainer
+                    <motion.div
                       whileHover={{
                         scale: 1.1,
                         transition: { duration: 0.3 },
                       }}
                       whileTap={{ scale: 0.9 }}
+                      className="h-46 w-86 rounded-xl border border-zinc-700"
                     >
-                      <Image src={p.image} alt={p.title} title={p.title} />
-                    </ImageContainer>
-                    <NameProject>{p.title}</NameProject>
-                    <Description>{p.description}</Description>
-                  </CardProject>
-                </ProjectsListItem>
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        title={p.title}
+                        className="h-full w-full rounded-xl bg-white object-contain bg-no-repeat bg-cover"
+                      />
+                    </motion.div>
+                    <div className="mt-3 text-center text-xl leading-7">
+                      {p.title}
+                    </div>
+                    <span className="text-center opacity-70">
+                      {p.description}
+                    </span>
+                  </a>
+                </motion.li>
               ))}
           </AnimatePresence>
-        </ProjectsList>
+        </ul>
       </MotionConfig>
-    </Container>
+    </Section>
   );
 }

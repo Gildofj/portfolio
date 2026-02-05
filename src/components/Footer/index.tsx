@@ -7,13 +7,6 @@ import {
 import { SOCIALS } from "@shared/constants";
 import { useIntl } from "react-intl";
 
-import {
-  Container,
-  FooterContainer,
-  FooterSocial,
-  Link,
-  Authors,
-} from "./styles";
 import { useCopyright } from "./useCopyright";
 
 export function Footer() {
@@ -34,27 +27,28 @@ export function Footer() {
   };
 
   return (
-    <Container>
-      <FooterContainer>
-        <Authors>
+    <footer className="flex w-full flex-col items-center snap-end">
+      <div className="flex flex-col items-center py-8 pb-24">
+        <span className="px-8 text-center text-zinc-500">
           &copy; {startYear}-{currentYear} Gildo Junior.{" "}
           {intl.formatMessage({ id: "footer.copyright" })}
-        </Authors>
-        <FooterSocial>
+        </span>
+        <ul className="my-4 mb-8 flex items-center gap-4">
           {SOCIALS.map(({ id, urlRedirect }, i) => (
             <li key={i}>
-              <Link
+              <a
                 href={urlRedirect}
                 title={`Go to my ${id}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="font-bold text-zinc-900 transition-[0.5s] dark:text-zinc-300 [&_span_svg]:text-zinc-900 [&_span_svg]:fill-zinc-900 [&_span_svg]:transition-[0.5s] dark:[&_span_svg]:text-zinc-300 dark:[&_span_svg]:fill-zinc-300"
               >
                 {getIcon(id, 32)}
-              </Link>
+              </a>
             </li>
           ))}
-        </FooterSocial>
-      </FooterContainer>
-    </Container>
+        </ul>
+      </div>
+    </footer>
   );
 }

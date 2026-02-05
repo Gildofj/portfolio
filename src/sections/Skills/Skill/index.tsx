@@ -1,10 +1,8 @@
 import { SvgIcon } from "@components/_UI/SvgIcon";
+import { coreColors } from "@config/Theme/core";
 import { useMemo } from "react";
-import { useTheme } from "styled-components";
 
 import { SkillCategory } from "../types";
-
-import { SkillName, SkillContainer } from "./styles";
 
 interface SkillProps {
   title: string;
@@ -13,17 +11,17 @@ interface SkillProps {
 }
 
 export function Skill({ title, categories, icon }: SkillProps) {
-  const theme = useTheme();
-
   const color = useMemo(() => {
     const category = categories[0];
-    return theme.colors.skills[category];
-  }, [categories, theme]);
+    return coreColors.skills[category];
+  }, [categories]);
 
   return (
-    <SkillContainer>
+    <div className="flex w-full flex-col items-center gap-1 rounded-xl border border-primary p-4 leading-6 transition-[0.2s] hover:scale-110">
       <SvgIcon icon={icon} color={color} width={48} height={48} />
-      <SkillName>{title}</SkillName>
-    </SkillContainer>
+      <span className="whitespace-nowrap text-xs" style={{ color }}>
+        {title}
+      </span>
+    </div>
   );
 }

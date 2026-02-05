@@ -6,12 +6,11 @@ import {
   DropdownSeparator,
   DropdownTrigger,
 } from "@components/_UI/Dropdown";
-import { usePortfolioTheme } from "@contexts/ThemeContext";
+import { coreColors } from "@config/Theme/core";
 import { FunnelSimpleIcon } from "@phosphor-icons/react";
 import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { useIntl } from "react-intl";
-import { useTheme } from "styled-components";
 
 import { SkillCategory, SkillType } from "../types";
 
@@ -42,10 +41,8 @@ export function SkillFilterDropdown({
   toggleSelectAllCategories,
 }: SkillFilterDropdownProps) {
   const intl = useIntl();
-  const styledTheme = useTheme();
   const [isMounted, setIsMounted] = useState(false);
   const [open, setOpen] = useState(false);
-  const { theme } = usePortfolioTheme();
 
   useEffect(() => {
     setIsMounted(true);
@@ -54,13 +51,15 @@ export function SkillFilterDropdown({
   return isMounted ? (
     <Dropdown open={open} onOpenChange={setOpen}>
       <DropdownTrigger asChild>
-        <FunnelSimpleIcon size={30} />
+        <span className="cursor-pointer text-primary transition-all duration-500 hover:text-purple-600">
+          <FunnelSimpleIcon size={30} />
+        </span>
       </DropdownTrigger>
 
       <AnimatePresence>
         {open && (
           <DropdownContent forceMountPortal width={320}>
-            <DropdownLabel $currentTheme={theme}>
+            <DropdownLabel>
               {intl.formatMessage({ id: "skills.types" })}
             </DropdownLabel>
             <DropdownCheckboxItem
@@ -85,7 +84,7 @@ export function SkillFilterDropdown({
 
             <DropdownSeparator />
 
-            <DropdownLabel $currentTheme={theme}>
+            <DropdownLabel>
               {intl.formatMessage({ id: "skills.categories" })}
             </DropdownLabel>
             <DropdownCheckboxItem
@@ -97,7 +96,7 @@ export function SkillFilterDropdown({
             </DropdownCheckboxItem>
             {skillCategoryKeys.map(key => {
               const value = SkillCategory[key];
-              const color = styledTheme.colors.skills[value];
+              const color = coreColors.skills[value];
               return (
                 <DropdownCheckboxItem
                   checkedColor={color}

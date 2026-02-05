@@ -3,8 +3,6 @@ import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
-import { ThemeCircle, ThemeButtonContainer } from "./styles";
-
 export function ToggleThemeButton() {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, toggleTheme } = usePortfolioTheme();
@@ -14,8 +12,13 @@ export function ToggleThemeButton() {
   }, []);
 
   return isMounted ? (
-    <ThemeButtonContainer $currentTheme={theme} onClick={toggleTheme}>
-      <ThemeCircle layout>
+    <button
+      type="button"
+      onClick={toggleTheme}
+      className={`flex h-10 w-20 cursor-pointer items-center rounded-3xl p-[0.313rem] ${theme === "light" ? "justify-start" : "justify-end"} ${theme !== "light" ? "bg-zinc-600" : "bg-purple-200"}`}
+      aria-label="Toggle theme"
+    >
+      <motion.div layout className="rounded-3xl bg-white p-2">
         <AnimatePresence mode="wait" initial={false}>
           {theme === "light" ? (
             <motion.div
@@ -39,8 +42,8 @@ export function ToggleThemeButton() {
             </motion.div>
           )}
         </AnimatePresence>
-      </ThemeCircle>
-    </ThemeButtonContainer>
+      </motion.div>
+    </button>
   ) : (
     <div />
   );

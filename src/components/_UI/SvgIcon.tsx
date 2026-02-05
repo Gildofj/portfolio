@@ -14,8 +14,7 @@ export function SvgIcon(props: Props) {
       try {
         const mod = await import(`../../assets/${props.icon}.svg?react`);
         setIconComponent(() => mod.default);
-      } catch (e) {
-        console.error(e);
+      } catch {
         setIconComponent(null);
       }
     };

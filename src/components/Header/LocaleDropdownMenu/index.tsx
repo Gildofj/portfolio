@@ -10,8 +10,6 @@ import { AnimatePresence } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 import Flag from "react-flagkit";
 
-import { FlagButton, FlagItem } from "./styles";
-
 export function LocaleDropdownMenu() {
   const [isMounted, setIsMounted] = useState(false);
   const [open, setOpen] = useState(false);
@@ -27,9 +25,9 @@ export function LocaleDropdownMenu() {
   return isMounted ? (
     <Dropdown open={open} onOpenChange={setOpen}>
       <DropdownTrigger asChild>
-        <FlagButton $currentTheme={theme}>
+        <div className="inline-block h-10 w-10 cursor-pointer transition-all duration-500 max-[1200px]:hidden [&>img]:h-full [&>img]:w-full [&>img]:rounded-xl [&>img]:object-cover [&>img]:transition-transform [&>img]:duration-300 [&>img]:ease-[ease]">
           <Flag country={selectedCountry} />
-        </FlagButton>
+        </div>
       </DropdownTrigger>
 
       <AnimatePresence>
@@ -46,9 +44,12 @@ export function LocaleDropdownMenu() {
                   key={key}
                   onClick={() => selectLocale(localeItem)}
                 >
-                  <FlagItem>
+                  <button
+                    type="button"
+                    className={`block cursor-pointer rounded-md bg-transparent px-4 py-2 text-sm leading-5 ${theme !== "light" ? "hover:bg-zinc-700" : "hover:bg-purple-300"}`}
+                  >
                     <Flag country={country} />
-                  </FlagItem>
+                  </button>
                 </DropdownItem>
               );
             })}

@@ -36,6 +36,11 @@ export function PortfolioThemeProvider({ children }: ThemeProviderProps) {
     }
   }, []);
 
+  useEffect(() => {
+    if (typeof document === "undefined" || theme == null) return;
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
+
   const toggleTheme = () => {
     const next = theme === "light" ? "dark" : "light";
     localStorage.setItem("theme", next);

@@ -1,3 +1,4 @@
+import { Section } from "@components/_UI/Section";
 import { Title } from "@components/_UI/Title";
 import { TitleContainer } from "@components/_UI/TitleContainer";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
@@ -6,7 +7,6 @@ import { useIntl } from "react-intl";
 
 import { Skill } from "./Skill";
 import { SkillFilterDropdown } from "./SkillsFilterDropdown";
-import { Container, Grid, Header } from "./styles";
 import { useCategoryFilter } from "./useCategoryFilters";
 import { useSkills } from "./useSkills";
 import { useTypeFilters } from "./useTypeFilters";
@@ -44,9 +44,9 @@ export function Skills() {
   );
 
   return (
-    <Container id="skills">
+    <Section id="skills" className="gap-8">
       <TitleContainer>
-        <Header>
+        <div className="flex w-full items-center justify-between">
           <MotionConfig transition={{ duration: 0.3 }}>
             <div />
             <Title
@@ -73,9 +73,9 @@ export function Skills() {
               />
             </motion.div>
           </MotionConfig>
-        </Header>
+        </div>
       </TitleContainer>
-      <Grid>
+      <div className="grid min-h-128 w-full items-start justify-center gap-4 max-md:grid-cols-3 max-[460px]:grid-cols-[repeat(2,10rem)] max-[460px]:gap-2 grid-cols-[repeat(5,8rem)]">
         <AnimatePresence mode="popLayout">
           {filteredSkills?.map((skill, i) => (
             <motion.div
@@ -94,7 +94,7 @@ export function Skills() {
             </motion.div>
           ))}
         </AnimatePresence>
-      </Grid>
-    </Container>
+      </div>
+    </Section>
   );
 }

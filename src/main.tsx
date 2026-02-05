@@ -1,3 +1,4 @@
+import "./index.css";
 import emailjs from "@emailjs/browser";
 import * as Sentry from "@sentry/react";
 import ReactDOM from "react-dom/client";

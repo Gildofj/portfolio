@@ -1,3 +1,4 @@
+import { Section } from "@components/_UI/Section";
 import { Tabs, Tab } from "@components/_UI/Tabs";
 import { Title } from "@components/_UI/Title";
 import { TitleContainer } from "@components/_UI/TitleContainer";
@@ -8,23 +9,11 @@ import {
   SuitcaseIcon,
   CalendarIcon,
 } from "@phosphor-icons/react";
-import { AnimatePresence, MotionConfig } from "motion/react";
+import { AnimatePresence, MotionConfig, motion } from "motion/react";
 import { useMemo, useState } from "react";
 import { useIntl } from "react-intl";
 
 import { QualificationInfoModal } from "./QualificationInfoModal";
-import {
-  Container,
-  Content,
-  TabContent,
-  TabItem,
-  Data,
-  DataTitle,
-  DataSubTitle,
-  DataCalendar,
-  Rounder,
-  Line,
-} from "./styles";
 import { QualificationType } from "./types";
 import { useQualification } from "./useQualification";
 
@@ -42,61 +31,63 @@ export function Qualification() {
       qualifications?.map((q, i) => {
         if ((i + 1) % 2 === 0) {
           return (
-            <Data
+            <motion.div
               key={`${i}_${q.title}`}
               initial={{ x: "5%", opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: i * 0.06 }}
               exit={{ opacity: 0 }}
               viewport={{ once: true }}
+              className="grid grid-cols-[1.5fr_max-content_1.5fr] gap-6 max-[400px]:grid-cols-[8rem_max-content_8rem] max-[400px]:gap-4"
             >
               <div />
 
               <div>
-                <Rounder />
-                <Line />
+                <div className="inline-block h-[13px] w-[13px] rounded-full bg-primary" />
+                <div className="block h-full w-px -translate-y-2 translate-x-1.5 bg-primary" />
               </div>
 
               <div>
-                <DataTitle>{q.title}</DataTitle>
-                <DataSubTitle>
+                <div className="font-semibold">{q.title}</div>
+                <div className="mb-4 inline-block text-sm leading-5 text-zinc-900 dark:text-zinc-300">
                   {q.country} - {q.organization}
-                </DataSubTitle>
-                <DataCalendar>
+                </div>
+                <div className="flex gap-1 text-sm leading-5 text-zinc-900 dark:text-zinc-300 [&_span_svg]:fill-zinc-900 dark:[&_span_svg]:fill-zinc-300">
                   <CalendarIcon size={20} />
                   {q.startDate} - {q.endDate}
-                </DataCalendar>
+                </div>
                 <QualificationInfoModal qualification={q} />
               </div>
-            </Data>
+            </motion.div>
           );
         } else {
           return (
-            <Data
+            <motion.div
               key={`${i}_${q.title}`}
               initial={{ x: "-5%", opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: i * 0.06 }}
               exit={{ opacity: 0 }}
               viewport={{ once: true }}
+              className="grid grid-cols-[1.5fr_max-content_1.5fr] gap-6 max-[400px]:grid-cols-[8rem_max-content_8rem] max-[400px]:gap-4"
             >
               <div>
-                <DataTitle>{q.title}</DataTitle>
-                <DataSubTitle>
+                <div className="font-semibold">{q.title}</div>
+                <div className="mb-4 inline-block text-sm leading-5 text-zinc-900 dark:text-zinc-300">
                   {q.country} - {q.organization}
-                </DataSubTitle>
-                <DataCalendar>
+                </div>
+                <div className="flex gap-1 text-sm leading-5 text-zinc-900 dark:text-zinc-300 [&_span_svg]:fill-zinc-900 dark:[&_span_svg]:fill-zinc-300">
                   <CalendarIcon size={20} />
                   {q.startDate} - {q.endDate}
-                </DataCalendar>
+                </div>
                 <QualificationInfoModal qualification={q} />
               </div>
 
               <div>
-                <Rounder />
-                <Line />
+                <div className="inline-block h-[13px] w-[13px] rounded-full bg-primary" />
+                <div className="block h-full w-px -translate-y-2 translate-x-1.5 bg-primary" />
               </div>
-            </Data>
+            </motion.div>
           );
         }
       }),
@@ -104,7 +95,7 @@ export function Qualification() {
   );
 
   return (
-    <Container id="qualification">
+    <Section id="qualification" className="w-auto gap-12">
       <MotionConfig transition={{ duration: 0.3 }}>
         <TitleContainer
           initial={{ x: "-10%", opacity: 0 }}
@@ -114,7 +105,7 @@ export function Qualification() {
           <Title>{intl.formatMessage({ id: "qualification.title" })}</Title>
         </TitleContainer>
 
-        <Content>
+        <div className="mx-auto flex max-w-3xl min-h-120 flex-col gap-20 max-[992px]:mx-auto">
           <Tabs>
             <Tab
               onClick={() => setType(QualificationType.Experience)}
@@ -141,13 +132,13 @@ export function Qualification() {
             </Tab>
           </Tabs>
 
-          <TabContent>
-            <TabItem>
+          <div className="grid justify-center max-[576px]:grid-cols-none grid-cols-[1.5fr]">
+            <div className="block">
               <AnimatePresence mode="popLayout">{itens}</AnimatePresence>
-            </TabItem>
-          </TabContent>
-        </Content>
+            </div>
+          </div>
+        </div>
       </MotionConfig>
-    </Container>
+    </Section>
   );
 }

@@ -1,25 +1,14 @@
 import { Section } from "@components/_UI/Section";
+import { motion } from "motion/react";
 import { useIntl } from "react-intl";
-
-import {
-  AnchorImage,
-  Button,
-  ButtonsGroup,
-  ColorizedText,
-  DescriptionProfile,
-  Name,
-  ProfileContainer,
-  ProfileImage,
-  WelcomeText,
-} from "./styles";
 
 export function Profile() {
   const intl = useIntl();
 
   return (
     <Section>
-      <ProfileContainer>
-        <AnchorImage
+      <div className="mb-12 flex flex-col items-center justify-center gap-4">
+        <motion.a
           href="https://github.com/Gildofj"
           target="_blank"
           rel="noopener noreferrer"
@@ -27,55 +16,64 @@ export function Profile() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.3 }}
+          className="flex h-[320px] items-end"
         >
-          <ProfileImage />
-        </AnchorImage>
-        <Name
+          <div
+            className="h-[300px] w-[300px] justify-self-center bg-cover bg-center bg-no-repeat shadow-[inset_0_0_0_9px_rgb(255_255_255/30%)] transition-[0.2s] hover:scale-110 focus:scale-110 active:scale-90 animate-profile-image"
+            style={{ backgroundImage: "url('/portfolio/me.jpg')" }}
+          />
+        </motion.a>
+        <motion.h1
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
+          className="text-5xl font-bold text-primary"
         >
           Gildo Junior
-        </Name>
-        <DescriptionProfile
+        </motion.h1>
+        <motion.span
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
+          className="text-xl"
         >
           {intl.formatMessage({ id: "profile.subtitle" })}
-        </DescriptionProfile>
-        <ButtonsGroup>
-          <Button
+        </motion.span>
+        <div className="flex gap-8 max-[576px]:gap-6 max-[400px]:gap-2">
+          <motion.a
             href="/portfolio/resume-gildo.pdf"
             title="Download my resume"
             download
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
+            className="flex min-w-44 cursor-pointer items-center justify-center rounded-xl border border-zinc-700 bg-transparent px-4 py-4 font-semibold transition-[0.2s] hover:text-primary"
           >
             {intl.formatMessage({ id: "profile.cvButton" })}
-          </Button>
-          <Button
+          </motion.a>
+          <motion.a
             href="#contact"
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
+            className="flex min-w-44 cursor-pointer items-center justify-center rounded-xl border border-zinc-700 bg-transparent px-4 py-4 font-semibold transition-[0.2s] hover:text-primary"
           >
             {intl.formatMessage({ id: "profile.contactMeButton" })}
-          </Button>
-        </ButtonsGroup>
-      </ProfileContainer>
+          </motion.a>
+        </div>
+      </div>
 
-      <WelcomeText
+      <motion.h3
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
+        className="text-center text-2xl font-medium leading-10"
       >
         {intl.formatMessage({ id: "profile.welcome" })}{" "}
-        <ColorizedText>
+        <span className="text-primary">
           {intl.formatMessage({ id: "profile.welcomeHighlight" })}
-        </ColorizedText>
-      </WelcomeText>
+        </span>
+      </motion.h3>
     </Section>
   );
 }
