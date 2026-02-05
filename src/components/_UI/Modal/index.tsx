@@ -36,7 +36,7 @@ export function Modal({
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
-            className="fixed inset-0 z-[10000] m-auto block max-h-[80%] min-h-[70%] w-[70%] min-w-[70%] max-w-[70%] rounded-xl bg-purple-50 p-4 text-zinc-900 shadow-[0_2px_8px_rgba(0,0,0,0.3)] dark:bg-zinc-900 dark:text-zinc-300 max-md:max-h-[95%] max-md:min-h-[95%] max-md:max-w-[95%] max-md:min-w-[95%] max-md:overflow-auto"
+            className="fixed inset-0 z-10000 m-auto block max-h-[80%] min-h-[70%] w-[70%] min-w-[70%] max-w-[70%] rounded-xl bg-purple-50 p-4 text-zinc-900 shadow-[0_2px_8px_rgba(0,0,0,0.3)] dark:bg-zinc-900 dark:text-zinc-300 max-md:max-h-[95%] max-md:min-h-[95%] max-md:max-w-[95%] max-md:min-w-[95%] max-md:overflow-auto"
             style={{
               minWidth: `${width}%`,
               minHeight: `${height}%`,
