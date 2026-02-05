@@ -97,7 +97,7 @@ export function SkillFilterDropdown({
               const value = SkillCategory[key];
               return (
                 <DropdownCheckboxItem
-                  checkedColor={`var(--color-skills-${value})`}
+                  checkedColor={`var(--color-skill-${value})`}
                   key={key}
                   checked={selectedCategories.includes(value)}
                   onCheckedChange={() => toggleCategory(value)}

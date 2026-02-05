@@ -37,7 +37,7 @@ export function QualificationInfoModal({
               className="cursor-pointer bg-transparent"
               aria-label="Close"
             >
-              <XIcon color="var(--color-primary)" size={32} />
+              <XIcon className="text-primary" size={32} />
             </button>
           </div>
           <div className="flex flex-col gap-4">

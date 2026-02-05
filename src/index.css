@@ -2,7 +2,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
+@theme static {
   /* Color Palette */
   --color-primary: hsl(270 100% 68%);
   --color-success: hsl(160 84% 52%);

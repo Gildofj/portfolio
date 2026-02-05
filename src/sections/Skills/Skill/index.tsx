@@ -12,7 +12,7 @@ interface SkillProps {
 export function Skill({ title, categories, icon }: SkillProps) {
   const color = useMemo(() => {
     const category = categories[0];
-    return "var(--color-skills-" + category + ")";
+    return "var(--color-skill-" + category + ")";
   }, [categories]);
 
   return (
