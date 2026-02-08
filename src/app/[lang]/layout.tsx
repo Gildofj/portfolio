@@ -54,11 +54,7 @@ export default async function RootLayout({
   setRequestLocale(lang);
 
   return (
-    <html
-      lang={lang}
-      data-scroll-behavior="smooth"
-      className={`${inter.variable} ${firaCode.variable}`}
-    >
+    <html lang={lang} className={`${inter.variable} ${firaCode.variable}`}>
       <body>
         <GoogleAnalytics gaId="G-EN92JQKDMK" />
         <NextIntlClientProvider>
