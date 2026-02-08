@@ -26,7 +26,11 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "types": [
+      "node",
+      "webpack-env"
+    ],
   },
   "include": [
     "next-env.d.ts",
