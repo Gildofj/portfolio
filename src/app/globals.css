@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme static {
+  /* Font families */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-fira-code);
+
+  /* Color Palette */
+  --color-primary: hsl(270 100% 68%);
+  --color-success: hsl(160 84% 52%);
+  --color-alert: hsl(0 96% 70%);
+
+  /* Skill Category Colors */
+  --color-skill-language: hsl(270 100% 68%);
+  --color-skill-framework: hsl(160 85% 40%);
+  --color-skill-tools: hsl(0 93% 66%);
+  --color-skill-database: hsl(120 75% 33%);
+  --color-skill-concept: hsl(240 3% 45%);
+  --color-skill-mobile: hsl(160 85% 45%);
+  --color-skill-design: hsl(45 98% 53%);
+  --color-skill-devops: hsl(30 90% 50%);
+  --color-skill-library: hsl(200 100% 50%);
+
+  --animate-profile-image: profile-image 8s ease-in-out infinite 1s;
+
+  @keyframes profile-image {
+    0% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    100% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+  }
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    vertical-align: baseline;
+    scroll-behavior: smooth;
+  }
+
+  ::before,
+  ::after {
+    border-width: 0;
+    border-style: solid;
+    border-color: currentColor;
+  }
+
+  html {
+    @apply scroll-smooth font-sans antialiased;
+  }
+
+  body {
+    width: 100%;
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    background-color: #faf5ff;
+    color: #18181b;
+    transition-property:
+      color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+  }
+
+  .dark body {
+    background-color: #18181b;
+    color: #d4d4d8;
+  }
+
+  input,
+  textarea,
+  button,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  #root {
+    width: 100%;
+  }
+
+  blockquote,
+  dl,
+  dd,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr,
+  figure,
+  p,
+  pre {
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}

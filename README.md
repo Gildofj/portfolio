@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio
 
-## Getting Started
+## Seja bem vindo ao meu portfólio! 🎉
 
-First, run the development server:
+<div align="center">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![Welcome](https://media.giphy.com/media/XD9o33QG9BoMis7iM4/giphy.gif)
+
+</div>
+
+Este é o projeto do meu portfólio que criei com o objetivo de aprimorar minhas habilidades em desenvolvimento web. Se quiser conferir o resultado, basta clicar [aqui](https://gildofj.dev/).
+
+### Tópicos
+
+- [Setup necessário](#setup-necessário-)
+
+- [Ferramentas utilizadas](#ferramentas-utilizadas-%EF%B8%8F)
+
+- [Rodando o app](#rodando-o-app-)
+
+### Setup necessário 🧪
+
+Se você deseja executar o projeto em sua máquina para visualizar o seu funcionamento, é necessário que você instale previamente apenas o [NodeJS](https://nodejs.org/en).
+
+### Ferramentas utilizadas 🛠️
+
+- [Typescript](https://www.typescriptlang.org)
+- [Pnpm](https://pnpm.io/pt/)
+- [Vite](https://vitejs.dev)
+- [ESLINT](https://www.npmjs.com/package/eslint)
+- [Contentful](https://www.contentful.com/)
+
+### Rodando o app 🧑🏽‍💻
+
+Para conseguir executar o app em sua maquina é necessário rodar alguns comandos em seu prompt. O primeiro passo é acessar via prompt a pasta onde você clonou o projeto, caso tenha dúvidas em como navegar basta acessar esse [tutorial](https://medium.com/@adsonrocha/como-abrir-e-navegar-entre-pastas-com-o-prompt-de-comandos-do-windows-10-68750eae8f47). Seguindo esses passos o caminho até sua pasta deve ficar algo como:
+
+```
+{{CAMINHO_ATE_A_PASTA}}/portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Estando já na pasta correta você vai instalar as dependencias do projeto com o seguinte comando:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm i // Caso use npm
+ou
+yarn // Caso use yarn
+ou
+pnpm i // Caso use pnpm
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Após terminar a instalação das dependêcias você ja pode executar o projeto com o comando:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+npm run dev // Caso use npm
+ou
+yarn run dev// Caso use yarn
+ou
+pnpm run dev // Caso use pnpm
+```

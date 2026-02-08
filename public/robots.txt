@@ -1,0 +1,6 @@
+# robots.txt para gildofj.dev
+
+User-agent: *
+Allow: /
+
+Sitemap: https://gildofj.dev/sitemap.xml

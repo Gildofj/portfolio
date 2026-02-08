@@ -1,0 +1,83 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "qualification": "Qualification",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "uses": "Uses",
+    "source": "Source"
+  },
+  "profile": {
+    "subtitle": "Full Stack Developer",
+    "cvButton": "Download resume",
+    "contactMeButton": "Contact me",
+    "welcome": "Welcome to my",
+    "welcomeHighlight": "Portfolio"
+  },
+  "about": {
+    "title": "About me",
+    "firstParagraph": "I am originally from Florianópolis, Santa Catarina, and I have a background in Analysis and Systems Development. I have been working in the development field since the beginning of 2020, but I have been studying programming since 2017. Currently, my work mainly involves the use of Kotlin, C# with .NET Core, as well as Javascript and Typescript for the development of web and mobile applications. I have expertise in frameworks such as AngularJS, ReactJS, and NextJS, and I also have knowledge of SQL Server as a database. Additionally, I possess skills in ExpressJS as a backend in node and React Native for mobile development.",
+    "secondParagraph": "During my recent studing process, I have been exploring the use of Docker, as well as important concepts in project architecture, such as Clean Architecture and Domain-Driven Design (DDD)."
+  },
+  "skills": {
+    "title": "Skills",
+    "all": "All",
+    "types": "Types",
+    "type": {
+      "main": "Main",
+      "backend": "BackEnd",
+      "frontend": "FrontEnd",
+      "mobile": "Mobile",
+      "other": "Outros"
+    },
+    "categories": "Categories",
+    "category": {
+      "language": "Language",
+      "framework": "Framework",
+      "tools": "Tools",
+      "database": "Database",
+      "concept": "Concept",
+      "design": "Design",
+      "devops": "Devops",
+      "library": "Library"
+    }
+  },
+  "qualification": {
+    "title": "Qualification",
+    "experienceTabTitle": "Experience",
+    "educationTabTitle": "Education"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "personalTabTitle": "Personal",
+    "colaborationsTabTitle": "Colaborations"
+  },
+  "contact": {
+    "title": "Contact me",
+    "talkMeTitle": "Talk to me",
+    "sendProjectTitle": "Send me your project",
+    "form": {
+      "name": {
+        "title": "Name",
+        "placeholder": "Input your name",
+        "errorMessage": "Name field is required"
+      },
+      "email": {
+        "title": "Email",
+        "placeholder": "Input your email",
+        "errorMessage": "Email field is required"
+      },
+      "project": {
+        "title": "Project",
+        "placeholder": "Describe your project",
+        "errorMessage": "Project field is required"
+      },
+      "sendButton": "Send"
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  }
+}

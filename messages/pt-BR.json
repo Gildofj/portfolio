@@ -1,0 +1,83 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "qualification": "Qualificação",
+    "portfolio": "Portfólio",
+    "contact": "Contato",
+    "uses": "Setup",
+    "source": "Código"
+  },
+  "profile": {
+    "subtitle": "Desevolvedor Full-Stack",
+    "cvButton": "Download CV",
+    "contactMeButton": "Entre em contato",
+    "welcome": "Bem vindo ao meu",
+    "welcomeHighlight": "Portfólio"
+  },
+  "about": {
+    "title": "Sobre mim",
+    "firstParagraph": "Eu sou natural de Florianópolis, Santa Catarina, e tenho formação em Análise e Desenvolvimento de Sistemas. Atuo na área de desenvolvimento desde o início de 2020, mas tenho estudado programação desde 2017. Atualmente, meu trabalho envolve principalmente a utilização de Kotlin para desenvolvimento de aplicativos Android, C# com .NET Core, além de Javascript e Typescript para o desenvolvimento de aplicações web. Eu sou experiente em frameworks como AngularJS, ReactJS e NextJS, e também tenho conhecimentos SQL Server como banco de dados. Além disso, possuo habilidades em ExpressJS como backend em node e React Native como mobile.",
+    "secondParagraph": "Durante o processo de estudo, tenho explorado o uso de Docker, bem como conceitos importantes em arquitetura de projetos, como Clean Architecture e Domain-Driven Design (DDD)."
+  },
+  "skills": {
+    "title": "Habilidades",
+    "all": "Tudo",
+    "types": "Tipos",
+    "type": {
+      "main": "Principal",
+      "backend": "BackEnd",
+      "frontend": "FrontEnd",
+      "mobile": "Mobile",
+      "other": "Outros"
+    },
+    "categories": "Categorias",
+    "category": {
+      "language": "Linguagem",
+      "framework": "Framework",
+      "tools": "Ferramenta",
+      "database": "Banco de dados",
+      "concept": "Conceito",
+      "design": "Design",
+      "devops": "Devops",
+      "library": "Biblioteca"
+    }
+  },
+  "qualification": {
+    "title": "Qualificação",
+    "experienceTabTitle": "Experiência",
+    "educationTabTitle": "Educação"
+  },
+  "portfolio": {
+    "title": "Portfólio",
+    "personalTabTitle": "Pessoal",
+    "colaborationsTabTitle": "Colaborações"
+  },
+  "contact": {
+    "title": "Entre em contato",
+    "talkMeTitle": "Fale comigo",
+    "sendProjectTitle": "Me mande seu projeto",
+    "form": {
+      "name": {
+        "title": "Nome",
+        "placeholder": "Insira seu nome",
+        "errorMessage": "O campo Nome é obrigatório para prosseguir"
+      },
+      "email": {
+        "title": "Email",
+        "placeholder": "Insira seu email",
+        "errorMessage": "O campo Email é obrigatório para prosseguir"
+      },
+      "project": {
+        "title": "Projeto",
+        "placeholder": "Descreva seu projeto",
+        "errorMessage": "O campo Projeto é obrigatório para prosseguir"
+      },
+      "sendButton": "Enviar"
+    }
+  },
+  "footer": {
+    "copyright": "Todos os direitos reservados."
+  }
+}
