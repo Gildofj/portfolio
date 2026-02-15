@@ -12,6 +12,7 @@ import { useCategoryFilter } from "./useCategoryFilters";
 import { useSkills } from "./useSkills";
 import { useTypeFilters } from "./useTypeFilters";
 import { useTranslations } from "next-intl";
+import { IconName } from "@/shared/icons";
 
 export function Skills() {
   const t = useTranslations("skills");
@@ -89,7 +90,7 @@ export function Skills() {
               viewport={{ once: true }}
             >
               <Skill
-                icon={skill.icon}
+                icon={skill.icon.toLowerCase() as IconName}
                 title={skill.title}
                 categories={skill.categories}
               />

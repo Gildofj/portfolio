@@ -1,31 +1,48 @@
-"use client";
+import { type ComponentProps } from "react";
+import { type StaticImageData } from "next/image";
 
-import React, { useEffect, useState } from "react";
-
-type Props = React.SVGProps<SVGSVGElement> & {
-  icon: string;
+type IconProps = Omit<ComponentProps<"img">, "src"> & {
+  src: StaticImageData;
+  nofill?: boolean;
 };
 
-export function SvgIcon(props: Props) {
-  const [IconComponent, setIconComponent] = useState<React.FC<
-    React.SVGProps<SVGSVGElement>
-  > | null>(null);
+const EMPTY_SVG = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E`;
 
-  useEffect(() => {
-    const importIcon = async () => {
-      try {
-        const icons = require.context("../../public/assets", false, /\.svg$/);
-        const mod = icons(`${props.icon}.svg`);
-        setIconComponent(() => mod.default);
-      } catch {
-        setIconComponent(null);
-      }
-    };
+export default function SvgIcon({
+  src,
+  nofill,
+  width,
+  height,
+  alt,
+  style,
+  ...props
+}: IconProps) {
+  if (!src) {
+    console.warn("SvgIcon: No src provided");
+    return null;
+  }
 
-    importIcon();
-  }, [props]);
+  const mainSrc = nofill ? src.src : EMPTY_SVG;
+  width ??= src.width;
+  height ??= src.height;
+  alt ??= "icon";
+  style = nofill
+    ? style
+    : {
+        ...style,
+        backgroundColor: `currentcolor`,
+        mask: `url("${src.src}") no-repeat center / contain`,
+        WebkitMask: `url("${src.src}") no-repeat center / contain`,
+      };
 
-  if (!IconComponent) return null;
-
-  return <IconComponent {...props} />;
+  return (
+    <img
+      src={mainSrc}
+      width={width}
+      height={height}
+      alt={alt}
+      style={style}
+      {...props}
+    />
+  );
 }

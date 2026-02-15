@@ -16,6 +16,7 @@ import { SyntheticEvent, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import { CONTACT_TYPES } from "./constants";
+import { devLogger } from "@/utils/log";
 
 export function Contact() {
   const t = useTranslations("contact");
@@ -58,11 +59,21 @@ export function Contact() {
         return;
 
       try {
-        await emailjs.sendForm(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-          form.current,
-        );
+        const response = await fetch("/api/send-contact-form", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: target.name.value,
+            email: target.email.value,
+            message: target.message.value,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Failed to send email: ${response.body}`);
+        }
 
         setNameError(false);
         setEmailError(false);
@@ -70,7 +81,8 @@ export function Contact() {
 
         showToast("Email enviado com sucesso!");
         form.current.reset();
-      } catch {
+      } catch (error) {
+        devLogger.error(error);
         showToast("Erro ao tentar enviar o e-mail");
       }
     }
