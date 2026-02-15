@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-  return [{ lang: "en-US" }, { lang: "pt-BR" }];
+  return routing.locales.map((locale) => ({ lang: locale }));
 }
 
 export default async function RootLayout({
@@ -57,7 +57,7 @@ export default async function RootLayout({
     <html lang={lang} className={`${inter.variable} ${firaCode.variable}`}>
       <body>
         <GoogleAnalytics gaId="G-EN92JQKDMK" />
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={lang}>
           <AppProvider>{children}</AppProvider>
         </NextIntlClientProvider>
         <div id="modal-root"></div>
