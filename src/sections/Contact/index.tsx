@@ -3,7 +3,6 @@
 import { Section } from "@/components/_UI/Section";
 import { Title } from "@/components/_UI/Title";
 import { TitleContainer } from "@/components/_UI/TitleContainer";
-import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/useToast";
 import {
   ArrowRightIcon,
