@@ -1,8 +1,8 @@
 "use client";
 import { useMemo } from "react";
-import { SkillCategory } from "../types";
 import SvgIcon from "@/components/_UI/SvgIcon"; // adjust path
 import { IconName, ICONS } from "@/shared/icons";
+import { SkillCategory } from "@/models/skill";
 
 interface SkillProps {
   title: string;
@@ -10,7 +10,7 @@ interface SkillProps {
   icon: IconName;
 }
 
-export function Skill({ title, categories, icon }: SkillProps) {
+export function SkillItem({ title, categories, icon }: SkillProps) {
   const color = useMemo(() => {
     const category = categories[0];
     return "var(--color-skill-" + category + ")";

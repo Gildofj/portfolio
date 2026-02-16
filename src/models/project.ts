@@ -5,7 +5,7 @@ export enum ProjectType {
   Colaborations,
 }
 
-export interface Portfolio {
+export interface Project {
   title: string;
   image: string;
   url: string;
@@ -13,7 +13,7 @@ export interface Portfolio {
   type: ProjectType;
 }
 
-export type PortfolioSkeleton = {
+export type ProjectSkeleton = {
   contentTypeId: "portfolios";
   fields: {
     title: EntryFieldTypes.Text;

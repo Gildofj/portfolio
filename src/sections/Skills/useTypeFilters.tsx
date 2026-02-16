@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 
-import { SkillType } from "./types";
+import { SkillType } from "@/models/skill";
 
 const allTypes = [
   SkillType.MAIN,

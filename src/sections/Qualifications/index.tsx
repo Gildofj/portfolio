@@ -11,21 +11,37 @@ import {
   CalendarIcon,
 } from "@phosphor-icons/react";
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { QualificationInfoModal } from "./QualificationInfoModal";
-import { QualificationType } from "./types";
-import { useQualification } from "./useQualification";
+import { Qualification, QualificationType } from "@/models/qualification";
 import { useLocale, useTranslations } from "next-intl";
 
-export function Qualification() {
+export function Qualifications() {
   const t = useTranslations("qualification");
   const locale = useLocale();
   const { theme } = usePortfolioTheme();
+  const [qualifications, setQualifications] = useState<Qualification[]>();
   const [type, setType] = useState<QualificationType>(
     QualificationType.Experience,
   );
-  const { qualifications } = useQualification(type);
+
+  useEffect(() => {
+    const loadQualifications = async () => {
+      const response = await fetch(
+        `/api/qualification?locale=${locale}&type=${type}`,
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch qualifications");
+      }
+
+      const data = await response.json();
+      setQualifications(data);
+    };
+
+    loadQualifications();
+  }, [locale, type]);
 
   const itens = useMemo(
     () =>

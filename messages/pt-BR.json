@@ -4,7 +4,7 @@
     "about": "Sobre",
     "skills": "Habilidades",
     "qualification": "Qualificação",
-    "portfolio": "Portfólio",
+    "projects": "Projetos",
     "contact": "Contato",
     "uses": "Setup",
     "source": "Código"
@@ -49,8 +49,8 @@
     "experienceTabTitle": "Experiência",
     "educationTabTitle": "Educação"
   },
-  "portfolio": {
-    "title": "Portfólio",
+  "projects": {
+    "title": "Projetos",
     "personalTabTitle": "Pessoal",
     "colaborationsTabTitle": "Colaborações"
   },

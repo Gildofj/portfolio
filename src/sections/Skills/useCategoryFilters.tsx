@@ -1,8 +1,7 @@
 "use client";
 
+import { SkillCategory } from "@/models/skill";
 import { useMemo, useState } from "react";
-
-import { SkillCategory } from "./types";
 
 const allCategories = [
   SkillCategory.FRAMEWORK,

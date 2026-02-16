@@ -4,19 +4,20 @@ import { Section } from "@/components/_UI/Section";
 import { Title } from "@/components/_UI/Title";
 import { TitleContainer } from "@/components/_UI/TitleContainer";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
-import { useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
-import { Skill } from "./Skill";
+import { SkillItem } from "./SkillItem";
 import { SkillFilterDropdown } from "./SkillsFilterDropdown";
 import { useCategoryFilter } from "./useCategoryFilters";
-import { useSkills } from "./useSkills";
 import { useTypeFilters } from "./useTypeFilters";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { IconName } from "@/shared/icons";
+import { Skill } from "@/models/skill";
 
 export function Skills() {
   const t = useTranslations("skills");
-  const { skills } = useSkills();
+  const locale = useLocale();
+  const [skills, setSkills] = useState<Skill[]>([]);
   const { selectedTypes, allTypesSelected, toggleType, toggleSelectAllTypes } =
     useTypeFilters();
   const {
@@ -26,25 +27,26 @@ export function Skills() {
     toggleSelectAllCategories,
   } = useCategoryFilter();
 
-  const filteredSkills = useMemo(
-    () =>
-      skills
-        ?.filter((skill) => {
-          const hasMatchingType = skill.types.some((type) =>
-            selectedTypes.includes(type),
-          );
-          const hasMatchingCategory = skill.categories.some((category) =>
-            selectedCategories.includes(category),
-          );
-          return hasMatchingType && hasMatchingCategory;
-        })
-        ?.sort((a, b) => {
-          const categoryA = a.categories[0] ?? "";
-          const categoryB = b.categories[0] ?? "";
-          return categoryA.localeCompare(categoryB);
-        }),
-    [skills, selectedTypes, selectedCategories],
-  );
+  useEffect(() => {
+    const loadSkills = async () => {
+      const response = await fetch(`/api/skill/getByFilter?locale=${locale}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ selectedTypes, selectedCategories }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch skills");
+      }
+
+      const data = await response.json();
+      setSkills(data);
+    };
+
+    loadSkills();
+  }, [locale, selectedTypes, selectedCategories]);
 
   return (
     <Section id="skills" className="gap-8">
@@ -80,7 +82,7 @@ export function Skills() {
       </TitleContainer>
       <div className="grid min-h-128 w-full items-start justify-center gap-4 max-md:grid-cols-3 max-[460px]:grid-cols-[repeat(2,10rem)] max-[460px]:gap-2 grid-cols-[repeat(5,8rem)]">
         <AnimatePresence mode="popLayout">
-          {filteredSkills?.map((skill, i) => (
+          {skills?.map((skill, i) => (
             <motion.div
               key={`${i}_${skill.title}`}
               initial={{ opacity: 0, scale: 0 }}
@@ -89,7 +91,7 @@ export function Skills() {
               transition={{ delay: i * 0.06 }}
               viewport={{ once: true }}
             >
-              <Skill
+              <SkillItem
                 icon={skill.icon.toLowerCase() as IconName}
                 title={skill.title}
                 categories={skill.categories}

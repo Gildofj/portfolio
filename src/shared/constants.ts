@@ -21,8 +21,8 @@ export const NAVIGATIONS = [
   },
   {
     id: 5,
-    href: "#portfolio",
-    textId: "portfolio",
+    href: "#projects",
+    textId: "projects",
   },
   {
     id: 6,

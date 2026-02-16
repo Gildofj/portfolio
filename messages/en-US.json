@@ -4,7 +4,7 @@
     "about": "About",
     "skills": "Skills",
     "qualification": "Qualification",
-    "portfolio": "Portfolio",
+    "projects": "Projects",
     "contact": "Contact",
     "uses": "Uses",
     "source": "Source"
@@ -49,8 +49,8 @@
     "experienceTabTitle": "Experience",
     "educationTabTitle": "Education"
   },
-  "portfolio": {
-    "title": "Portfolio",
+  "projects": {
+    "title": "Projects",
     "personalTabTitle": "Personal",
     "colaborationsTabTitle": "Colaborations"
   },

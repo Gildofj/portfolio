@@ -2,9 +2,9 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { About } from "@/sections/About";
 import { Contact } from "@/sections/Contact";
-import { Portfolio } from "@/sections/Portfolio";
+import { Projects } from "@/sections/Projects";
 import { Profile } from "@/sections/Profile";
-import { Qualification } from "@/sections/Qualification";
+import { Qualifications } from "@/sections/Qualifications";
 import { Skills } from "@/sections/Skills";
 import { ToastContainer } from "react-toastify";
 
@@ -17,8 +17,8 @@ export default function Home() {
           <Profile />
           <About />
           <Skills />
-          <Qualification />
-          <Portfolio />
+          <Qualifications />
+          <Projects />
           <Contact />
         </article>
       </main>

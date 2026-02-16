@@ -8,11 +8,11 @@ import {
   DropdownSeparator,
   DropdownTrigger,
 } from "@/components/_UI/Dropdown";
+import { SkillCategory, SkillType } from "@/models/skill";
 import { FunnelSimpleIcon } from "@phosphor-icons/react";
 import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 
-import { SkillCategory, SkillType } from "../types";
 import { useTranslations } from "next-intl";
 
 const skillTypeKeys = Object.keys(SkillType) as Array<keyof typeof SkillType>;
