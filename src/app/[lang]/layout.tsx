@@ -6,6 +6,7 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import AppProvider from "@/contexts";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "../globals.css";
 
@@ -57,6 +58,7 @@ export default async function RootLayout({
     <html lang={lang} className={`${inter.variable} ${firaCode.variable}`}>
       <body>
         <GoogleAnalytics gaId="G-EN92JQKDMK" />
+        <SpeedInsights />
         <NextIntlClientProvider locale={lang}>
           <AppProvider>{children}</AppProvider>
         </NextIntlClientProvider>
