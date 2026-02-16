@@ -31,7 +31,7 @@ export const NAVIGATIONS = [
   },
   {
     id: 7,
-    href: "https://gildofj.github.io/uses/",
+    href: "https://uses.gildofj.dev/",
     textId: "uses",
     active: false,
   },
