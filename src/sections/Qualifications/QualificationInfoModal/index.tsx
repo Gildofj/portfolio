@@ -5,7 +5,7 @@ import { ArrowSquareOutIcon, XIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 
 import { WORK_MODEL } from "../constants";
-import { Qualification } from "../types";
+import { Qualification } from "@/models/qualification";
 
 interface QualificationInfoModalProps {
   qualification: Qualification;
