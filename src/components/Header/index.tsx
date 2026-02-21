@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { Overlay } from "@/components/_UI/Overlay";
 import useUrlHash from "@/hooks/useUrlHash";
-import { CodeIcon, GithubLogoIcon, ListIcon } from "@phosphor-icons/react";
+import { GithubLogoIcon, ListIcon } from "@phosphor-icons/react";
 import { NAVIGATIONS } from "@/shared/constants";
 import { handleScrollWhenModalIsOpen } from "@/utils/scroll";
 import { useScrollHandler } from "@/hooks/useScrollHandler";
