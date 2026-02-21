@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 import { Overlay } from "@/components/_UI/Overlay";
 import useUrlHash from "@/hooks/useUrlHash";
 import { CodeIcon, GithubLogoIcon, ListIcon } from "@phosphor-icons/react";
@@ -15,12 +16,14 @@ import Flag from "react-flagkit";
 
 import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
 import { ToggleThemeButton } from "./ToggleTheme";
+import { usePortfolioTheme } from "@/contexts/ThemeContext";
 
 export function Header() {
   const t = useTranslations("header");
   const router = useRouter();
   const urlHash = useUrlHash();
   const locale = useLocale();
+  const { theme } = usePortfolioTheme();
   const [isMounted, setIsMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const { handleHeaderItemClick } = useScrollHandler(
@@ -59,10 +62,15 @@ export function Header() {
             title="Go to top of page"
             className="inline-flex items-center gap-1.5 no-underline text-zinc-900 dark:text-zinc-300"
           >
-            <CodeIcon
-              className="inline-flex items-center justify-center pb-[0.1rem] pr-[0.1rem] text-zinc-900 dark:text-zinc-300"
-              height="1.8rem"
-              width="1.8rem"
+            <Image
+              src={
+                theme === "dark"
+                  ? "/assets/logo-light.svg"
+                  : "/assets/logo-dark.svg"
+              }
+              width={28.8}
+              height={28.8}
+              alt="Logo"
             />
             <div>
               gildofj<span className="text-primary">.dev</span>
