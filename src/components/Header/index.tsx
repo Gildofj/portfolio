@@ -2,6 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
+import { usePortfolioTheme } from "@/contexts/ThemeContext";
 import { Overlay } from "@/components/_UI/Overlay";
 import useUrlHash from "@/hooks/useUrlHash";
 import { GithubLogoIcon, ListIcon } from "@phosphor-icons/react";
@@ -11,12 +12,13 @@ import { useScrollHandler } from "@/hooks/useScrollHandler";
 import { Link, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Flag from "react-flagkit";
 
 import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
 import { ToggleThemeButton } from "./ToggleTheme";
-import { usePortfolioTheme } from "@/contexts/ThemeContext";
+
+const subscribe = () => () => {};
 
 export function Header() {
   const t = useTranslations("header");
@@ -24,31 +26,31 @@ export function Header() {
   const urlHash = useUrlHash();
   const locale = useLocale();
   const { theme } = usePortfolioTheme();
-  const [isMounted, setIsMounted] = useState(false);
   const [open, setOpen] = useState(false);
+  const [lastHash, setLastHash] = useState(urlHash);
+  const [lastLocale, setLastLocale] = useState(locale);
   const { handleHeaderItemClick } = useScrollHandler(
     NAVIGATIONS.map((item) => item.href),
   );
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isMounted = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
+
+  if (urlHash !== lastHash) setLastHash(urlHash);
+  if (locale !== lastLocale) setLastLocale(locale);
+
+  const isOpen = open && urlHash === lastHash && locale === lastLocale;
 
   useEffect(() => {
-    setOpen(false);
-  }, [urlHash, locale]);
-
-  useEffect(() => {
-    handleScrollWhenModalIsOpen(open);
-  }, []);
-
-  useEffect(() => {
-    handleScrollWhenModalIsOpen(open);
-  }, [open]);
+    handleScrollWhenModalIsOpen(isOpen);
+  }, [isOpen]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-20 w-full p-2 font-mono backdrop-blur-md transition-all duration-200">
-      {open && (
+      {isOpen && (
         <Overlay
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -134,7 +136,7 @@ export function Header() {
           <LocaleDropdownMenu />
           <button
             type="button"
-            onClick={() => setOpen(!open)}
+            onClick={() => setOpen(!isOpen)}
             className="hidden max-h-[38px] max-w-[38px] cursor-pointer rounded-md border border-zinc-700 bg-transparent p-2 shadow-[0_0_#0000,0_0_#0000,0_0_#0000,0_1px_2px_0_rgb(0_0_0/0.05)] outline-none transition-[0.2s] hover:bg-zinc-800 focus:outline-2 focus:outline-transparent focus:outline-offset-2 focus:shadow-[0_0_0_2px_#f3f4f6,0_0_0_calc(2px+2px)_rgb(99_102_241/1),0_1px_2px_0_rgb(0_0_0/0.05)] max-xl:inline-block"
             aria-label="Toggle menu"
           >
