@@ -11,7 +11,7 @@ import {
 import { SkillCategory, SkillType } from "@/models/skill";
 import { FunnelSimpleIcon } from "@phosphor-icons/react";
 import { AnimatePresence } from "motion/react";
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 
 import { useTranslations } from "next-intl";
 
@@ -31,6 +31,8 @@ interface SkillFilterDropdownProps {
   toggleSelectAllCategories: () => void;
 }
 
+const subscribe = () => () => {};
+
 export function SkillFilterDropdown({
   selectedTypes,
   selectedCategories,
@@ -42,12 +44,13 @@ export function SkillFilterDropdown({
   toggleSelectAllCategories,
 }: SkillFilterDropdownProps) {
   const t = useTranslations("skills");
-  const [isMounted, setIsMounted] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isMounted = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
 
   return isMounted ? (
     <Dropdown open={open} onOpenChange={setOpen}>

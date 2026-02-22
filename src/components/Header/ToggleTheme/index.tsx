@@ -3,15 +3,18 @@
 import { usePortfolioTheme } from "@/contexts/ThemeContext";
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const subscribe = () => () => {};
 
 export function ToggleThemeButton() {
-  const [isMounted, setIsMounted] = useState(false);
   const { theme, toggleTheme } = usePortfolioTheme();
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isMounted = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
 
   return isMounted ? (
     <button

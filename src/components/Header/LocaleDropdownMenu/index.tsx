@@ -11,21 +11,24 @@ import { useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { AnimatePresence } from "motion/react";
 import { useLocale } from "next-intl";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import Flag from "react-flagkit";
+
+const subscribe = () => () => {};
 
 export function LocaleDropdownMenu() {
   const locale = useLocale();
   const router = useRouter();
-  const [isMounted, setIsMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const { theme } = usePortfolioTheme();
 
-  const selectedCountry = useMemo(() => locale.split("-")[1], [locale]);
+  const isMounted = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const selectedCountry = useMemo(() => locale.split("-")[1], [locale]);
 
   return isMounted ? (
     <Dropdown open={open} onOpenChange={setOpen}>
