@@ -6,6 +6,7 @@ import {
   useContext,
   useState,
   useEffect,
+  useSyncExternalStore,
 } from "react";
 
 interface ThemeContextValue {
@@ -22,12 +23,6 @@ const PortfolioThemeContext = createContext<ThemeContextValue>({
   toggleTheme: () => {},
 });
 
-/**
- * Determines the initial theme based on:
- * 1. Saved preference in localStorage
- * 2. System preference via prefers-color-scheme media query
- * 3. Defaults to 'light'
- */
 const getInitialTheme = (): "light" | "dark" => {
   if (typeof window === "undefined") return "light";
 
@@ -39,11 +34,6 @@ const getInitialTheme = (): "light" | "dark" => {
     : "light";
 };
 
-/**
- * Applies theme to the document by:
- * - Setting the 'dark' class on html element for dark mode
- * - Setting color-scheme CSS property for native form elements
- */
 const applyTheme = (theme: "light" | "dark") => {
   if (typeof document === "undefined") return;
 
@@ -52,22 +42,20 @@ const applyTheme = (theme: "light" | "dark") => {
   html.style.colorScheme = theme;
 };
 
+const subscribe = () => () => {};
+
 export function PortfolioThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">(getInitialTheme);
+  const mounted = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
 
-  // Initialize theme from system preference or saved value
   useEffect(() => {
-    const initialTheme = getInitialTheme();
-    setTheme(initialTheme);
-    applyTheme(initialTheme);
-    setMounted(true);
-  }, []);
-
-  // Apply theme changes to DOM
-  useEffect(() => {
-    if (!mounted) return;
-    applyTheme(theme);
+    if (mounted) {
+      applyTheme(theme);
+    }
   }, [theme, mounted]);
 
   const toggleTheme = () => {
