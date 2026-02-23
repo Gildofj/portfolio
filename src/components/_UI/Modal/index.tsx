@@ -18,10 +18,6 @@ export function Modal({
 }: ModalProps) {
   useEffect(() => {
     handleScrollWhenModalIsOpen(open);
-  }, []);
-
-  useEffect(() => {
-    handleScrollWhenModalIsOpen(open);
   }, [open]);
 
   return createPortal(
