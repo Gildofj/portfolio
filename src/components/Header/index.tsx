@@ -12,7 +12,7 @@ import { useScrollHandler } from "@/hooks/useScrollHandler";
 import { Link, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { motion } from "motion/react";
-import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Flag from "react-flagkit";
 
 import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
