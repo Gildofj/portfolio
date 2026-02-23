@@ -56,12 +56,11 @@ export function LocaleDropdownMenu() {
                     key={locale}
                     onClick={() => router.push("/", { locale })}
                   >
-                    <button
-                      type="button"
-                      className="block h-10 w-10 cursor-pointer transition-all duration-500 max-[1200px]:hidden [&>img]:h-full [&>img]:w-full [&>img]:rounded-xl [&>img]:object-cover [&>img]:transition-transform [&>img]:duration-300 [&>img]:ease-[ease]"
-                    >
-                      <Flag country={country} />
-                    </button>
+                    <Flag
+                      country={country}
+                      role="button"
+                      className="block h-10 w-10 cursor-pointer rounded-xl object-cover transition-all duration-500 ease-[ease] max-[1200px]:hidden"
+                    />
                   </DropdownItem>
                 );
               })}

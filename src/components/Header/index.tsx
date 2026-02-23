@@ -12,11 +12,12 @@ import { useScrollHandler } from "@/hooks/useScrollHandler";
 import { Link, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { motion } from "motion/react";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Flag from "react-flagkit";
 
 import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
 import { ToggleThemeButton } from "./ToggleTheme";
+import { cn } from "@/utils/cn";
 
 const subscribe = () => () => {};
 
@@ -80,20 +81,28 @@ export function Header() {
           </Link>
         </h2>
         <motion.ul
-          className={`flex items-center justify-center gap-6 absolute left-1/2 -translate-x-1/2 transition-[visibility,opacity] duration-500 max-2xl:static max-2xl:translate-x-0 max-xl:gap-2 max-lg:absolute max-lg:w-full max-lg:h-screen max-lg:pb-[10%] max-lg:flex-col max-lg:text-lg max-lg:gap-2 max-lg:top-[60px] max-lg:left-0 max-lg:z-10 max-lg:rounded-b-xl ${open ? "max-lg:overflow-y-auto max-lg:visible max-lg:opacity-100" : "max-lg:overflow-hidden max-lg:invisible max-lg:opacity-0"} `}
+          className={cn(
+            "flex items-center justify-center gap-6 absolute left-1/2 -translate-x-1/2",
+            "transition-[visibility,opacity] duration-500 max-2xl:static max-2xl:translate-x-0",
+            "max-xl:gap-2 max-lg:absolute max-lg:w-full max-lg:h-screen max-lg:pb-[10%] max-lg:flex-col max-lg:text-lg max-lg:gap-2 max-lg:top-[60px] max-lg:left-0 max-lg:z-10 max-lg:rounded-b-xl",
+            open
+              ? "max-lg:overflow-y-auto max-lg:visible max-lg:opacity-100"
+              : "max-lg:overflow-hidden max-lg:invisible max-lg:opacity-0",
+          )}
           onClick={() => setOpen(false)}
         >
           <div className="hidden gap-4 max-lg:inline-flex">
             {routing.locales.map((locale) => {
+              const country = locale.split("-")[1];
+
               return (
-                <button
+                <Flag
                   key={locale}
-                  type="button"
+                  country={country}
+                  role="button"
                   onClick={() => router.push("/", { locale })}
-                  className="cursor-pointer"
-                >
-                  <Flag country={locale.split("-")[1]} />
-                </button>
+                  className="block h-10 w-10 cursor-pointer transition-all duration-500 rounded-xl object-cover ease-[ease]"
+                />
               );
             })}
           </div>
@@ -103,9 +112,11 @@ export function Header() {
                 href={href}
                 onClick={() => handleHeaderItemClick(href)}
                 title={textId}
-                className={
-                  "inline-block px-2 py-4 text-zinc-900 transition-[0.2s] hover:text-primary dark:text-zinc-300 max-xl:block max-xl:w-full max-xl:text-zinc-300 [&_span_svg]:text-zinc-900 [&_span_svg]:fill-zinc-900 dark:[&_span_svg]:text-zinc-300 dark:[&_span_svg]:fill-zinc-300 max-xl:[&_span_svg]:text-zinc-300 max-xl:[&_span_svg]:fill-zinc-300"
-                }
+                className={cn(
+                  "inline-block px-2 py-4 text-zinc-900 hover:text-primary dark:text-zinc-300 transition-[0.2s]",
+                  "max-xl:block max-xl:w-full max-xl:text-zinc-300",
+                  "[&_span_svg]:text-zinc-900 [&_span_svg]:fill-zinc-900 dark:[&_span_svg]:text-zinc-300 dark:[&_span_svg]:fill-zinc-300 max-xl:[&_span_svg]:text-zinc-300 max-xl:[&_span_svg]:fill-zinc-300",
+                )}
               >
                 {t(textId)}
               </Link>
