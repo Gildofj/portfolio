@@ -20,7 +20,6 @@ export function LocaleDropdownMenu() {
   const locale = useLocale();
   const router = useRouter();
   const [open, setOpen] = useState(false);
-  const { theme } = usePortfolioTheme();
 
   const isMounted = useSyncExternalStore(
     subscribe,
@@ -40,24 +39,33 @@ export function LocaleDropdownMenu() {
 
       <AnimatePresence>
         {open && (
-          <DropdownContent forceMountPortal>
-            {routing.locales.map((locale) => {
-              const country = locale.split("-")[1];
-              return (
-                <DropdownItem
-                  asChild
-                  key={locale}
-                  onClick={() => router.push("/", { locale })}
-                >
-                  <button
-                    type="button"
-                    className={`block cursor-pointer rounded-md bg-transparent px-4 py-2 text-sm leading-5 ${theme !== "light" ? "hover:bg-zinc-700" : "hover:bg-purple-300"}`}
+          <DropdownContent
+            forceMountPortal
+            hideArrow
+            className="flex pt-1 flex-col items-center justify-center gap-2 bg-transparent"
+          >
+            {routing.locales
+              .filter((locale) => {
+                const country = locale.split("-")[1];
+                return country !== selectedCountry;
+              })
+              .map((locale) => {
+                const country = locale.split("-")[1];
+                return (
+                  <DropdownItem
+                    asChild
+                    key={locale}
+                    onClick={() => router.push("/", { locale })}
                   >
-                    <Flag country={country} />
-                  </button>
-                </DropdownItem>
-              );
-            })}
+                    <button
+                      type="button"
+                      className="block h-10 w-10 cursor-pointer transition-all duration-500 max-[1200px]:hidden [&>img]:h-full [&>img]:w-full [&>img]:rounded-xl [&>img]:object-cover [&>img]:transition-transform [&>img]:duration-300 [&>img]:ease-[ease]"
+                    >
+                      <Flag country={country} />
+                    </button>
+                  </DropdownItem>
+                );
+              })}
           </DropdownContent>
         )}
       </AnimatePresence>

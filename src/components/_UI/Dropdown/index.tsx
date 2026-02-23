@@ -17,12 +17,13 @@ export const DropdownRadioGroup = Menu.RadioGroup;
 type DropdownContentProps = Menu.DropdownMenuContentProps & {
   width?: number;
   forceMountPortal?: true;
+  hideArrow?: true;
   motionProps?: HTMLMotionProps<"div">;
 };
 
 export const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
   (
-    { children, width, forceMountPortal, motionProps, ...props },
+    { children, width, forceMountPortal, motionProps, hideArrow, ...props },
     forwardedRef,
   ) => {
     const { theme } = usePortfolioTheme();
@@ -48,15 +49,18 @@ export const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { delay: 0, duration: 0.1 } }}
                 transition={{ delay: 0.2, duration: 0.2 }}
+                className={props.className}
               >
                 {children}
               </motion.div>
             </AnimatePresence>
-            <Menu.Arrow
-              className={
-                theme !== "light" ? "fill-zinc-800" : "fill-purple-200"
-              }
-            />
+            {!hideArrow && (
+              <Menu.Arrow
+                className={
+                  theme !== "light" ? "fill-zinc-800" : "fill-purple-200"
+                }
+              />
+            )}
           </motion.div>
         </Menu.Content>
       </Menu.Portal>
