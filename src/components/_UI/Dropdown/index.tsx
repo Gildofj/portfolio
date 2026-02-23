@@ -10,6 +10,10 @@ import { pxToRem } from "../../../utils/converters";
 
 export const Dropdown = Menu.Root;
 export const DropdownTrigger = Menu.Trigger;
+export const DropdownItem = Menu.Item;
+export const DropdownGroup = Menu.Group;
+export const DropdownRadioGroup = Menu.RadioGroup;
+
 
 type DropdownContentProps = Menu.DropdownMenuContentProps & {
   width?: number;
@@ -75,9 +79,6 @@ export function DropdownLabel({
   );
 }
 
-export const DropdownItem = Menu.Item;
-export const DropdownGroup = Menu.Group;
-
 type DropdownCheckboxItemProps = Menu.DropdownMenuCheckboxItemProps & {
   checkedColor?: string;
 };
@@ -111,8 +112,6 @@ export const DropdownCheckboxItem = forwardRef<
   );
 });
 DropdownCheckboxItem.displayName = "DropdownCheckboxItem";
-
-export const DropdownRadioGroup = Menu.RadioGroup;
 
 export const DropdownRadioItem = forwardRef<
   HTMLDivElement,
