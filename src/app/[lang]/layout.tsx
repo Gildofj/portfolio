@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
@@ -56,8 +56,9 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} className={`${inter.variable} ${firaCode.variable}`}>
+      <GoogleTagManager gtmId="GTM-KGTZKHVJ" />
+      <GoogleAnalytics gaId="G-EN92JQKDMK" />
       <body>
-        <GoogleAnalytics gaId="G-EN92JQKDMK" />
         <SpeedInsights />
         <NextIntlClientProvider locale={lang}>
           <AppProvider>{children}</AppProvider>
