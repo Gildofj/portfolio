@@ -30,7 +30,8 @@ export function useScrollHandler(sectionIds: string[]) {
           const id = visible.target.id;
           const hash = id ? `#${id}` : "#";
           // update the URL hash without pushing to history
-          window.history.replaceState(null, "", hash === "#" ? "/" : hash);
+          const currentPath = window.location.pathname;
+          window.history.replaceState(null, "", hash === "#" ? currentPath : currentPath + hash);
           // dispatch so useUrlHash hook picks up the change
           window.dispatchEvent(new HashChangeEvent("hashchange"));
         }

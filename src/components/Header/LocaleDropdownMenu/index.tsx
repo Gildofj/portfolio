@@ -6,7 +6,7 @@ import {
   DropdownContent,
   DropdownItem,
 } from "@/components/_UI/Dropdown";
-import { useRouter } from "@/i18n/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { AnimatePresence } from "motion/react";
 import { useLocale } from "next-intl";
@@ -18,6 +18,7 @@ const subscribe = () => () => {};
 export function LocaleDropdownMenu() {
   const locale = useLocale();
   const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const isMounted = useSyncExternalStore(
@@ -54,7 +55,7 @@ export function LocaleDropdownMenu() {
                   <DropdownItem
                     asChild
                     key={locale}
-                    onSelect={() => router.push("/", { locale })}
+                    onSelect={() => router.push(pathname, { locale })}
                   >
                     <Flag
                       country={country}
