@@ -174,7 +174,7 @@ export function Contact() {
               <input
                 name="name"
                 placeholder={t("form.name.placeholder")}
-                className="p-5 w-full absolute left-0 top-0 z-[1] rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out dark:bg-zinc-900 dark:text-zinc-300"
+                className="p-5 w-full absolute left-0 top-0 z-1 rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out dark:bg-zinc-900 dark:text-zinc-300"
               />
             </motion.div>
             {nameError && (
@@ -201,7 +201,7 @@ export function Contact() {
                 type="email"
                 name="email"
                 placeholder={t("form.email.placeholder")}
-                className="p-5 w-full absolute left-0 top-0 z-[1] rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out dark:bg-zinc-900 dark:text-zinc-300"
+                className="p-5 w-full absolute left-0 top-0 z-1 rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out dark:bg-zinc-900 dark:text-zinc-300"
               />
             </motion.div>
             {emailError && (
@@ -227,7 +227,7 @@ export function Contact() {
               <motion.textarea
                 name="message"
                 placeholder={t("form.project.placeholder")}
-                className="p-5 w-[31.25rem] min-h-[13rem] rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out max-[900px]:w-full dark:bg-zinc-900 dark:text-zinc-300"
+                className="p-5 w-125 min-h-52 rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out max-[900px]:w-full dark:bg-zinc-900 dark:text-zinc-300"
               />
               {messageError && (
                 <div className="mt-2 w-full text-start">
