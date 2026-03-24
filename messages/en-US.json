@@ -30,7 +30,7 @@
       "backend": "BackEnd",
       "frontend": "FrontEnd",
       "mobile": "Mobile",
-      "other": "Outros"
+      "other": "Others"
     },
     "categories": "Categories",
     "category": {
@@ -79,5 +79,13 @@
   },
   "footer": {
     "copyright": "All rights reserved."
+  },
+  "manifest": {
+    "name": "Portfolio | Gildo Junior - Full Stack Developer",
+    "description": "Professional portfolio of Gildo Junior, full stack developer (C#, ReactJS, TypeScript, Kotlin). Projects, skills and experience. Open to feedback!"
+  },
+  "metadata": {
+    "title": "Portfolio | Gildo Junior - Full Stack Developer",
+    "description": "Professional portfolio of Gildo Junior, full stack developer (C#, ReactJS, TypeScript, Kotlin). Projects, skills and experience. Open to feedback!"
   }
 }

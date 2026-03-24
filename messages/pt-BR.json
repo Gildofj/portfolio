@@ -79,5 +79,13 @@
   },
   "footer": {
     "copyright": "Todos os direitos reservados."
+  },
+  "manifest": {
+    "name": "Portfólio | Gildo Junior - Desenvolvedor Full-Stack",
+    "description": "Portfólio profissional de Gildo Junior, desenvolvedor full stack (C#, ReactJS, TypeScript, Kotlin). Projetos, skills e experiência. Aberto a feedbacks!"
+  },
+  "metadata": {
+    "title": "Portfólio | Gildo Junior - Desenvolvedor Full-Stack",
+    "description": "Portfólio profissional de Gildo Junior, desenvolvedor full stack (C#, ReactJS, TypeScript, Kotlin). Projetos, skills e experiência. Aberto a feedbacks!"
   }
 }

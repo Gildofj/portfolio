@@ -4,7 +4,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import AppProvider from "@/contexts";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -34,9 +34,38 @@ const firaCode = Fira_Code({
   ],
 });
 
-export const metadata: Metadata = {
-  title: "Portfólio | Gildo Junior - Desenvolvedor Full-Stack",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const t = await getTranslations({ locale: lang, namespace: "metadata" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    robots: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+    alternates: {
+      canonical: `https://gildofj.dev/${lang}/`,
+      languages: {
+        "x-default": `https://gildofj.dev/${routing.defaultLocale}/`,
+        ...Object.fromEntries(
+          routing.locales.map((locale) => [
+            locale,
+            `https://dragonballdle.site/${locale}/`,
+          ]),
+        ),
+      },
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ lang: locale }));
