@@ -107,7 +107,7 @@ export function Projects() {
                       title={p.title}
                       width={500}
                       height={500}
-                      className="h-full w-full rounded-xl bg-white object-contain bg-no-repeat bg-cover"
+                      className="h-full w-full rounded-xl bg-white object-cover bg-no-repeat bg-cover"
                     />
                   </motion.div>
                   <div className="mt-3 text-center text-xl leading-7">
