@@ -54,7 +54,7 @@ export function LocaleDropdownMenu() {
                   <DropdownItem
                     asChild
                     key={locale}
-                    onClick={() => router.push("/", { locale })}
+                    onSelect={() => router.push("/", { locale })}
                   >
                     <Flag
                       country={country}
