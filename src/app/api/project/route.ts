@@ -1,6 +1,5 @@
-import { ProjectSkeleton, ProjectType } from "@/models/project";
+import { ProjectSkeleton, ProjectType } from "@/entities/project/model/project";
 import { contentfulServiceFactory } from "@/services/contentful";
-import moment from "moment";
 import { NextRequest, NextResponse } from "next/server";
 
 const contentfulService = contentfulServiceFactory();
@@ -29,8 +28,10 @@ export async function GET(request: NextRequest) {
     const projectsData = await Promise.all(
       data.items
         .filter(({ fields }) => !type || fields.type === typeValue)
-        .sort((a, b) =>
-          moment(moment(a.sys.createdAt)).diff(moment(b.sys.createdAt)),
+        .sort(
+          (a, b) =>
+            new Date(a.sys.createdAt).getTime() -
+            new Date(b.sys.createdAt).getTime(),
         )
         .flatMap(async ({ fields }) => {
           const image = await contentfulService.getAsset(fields.image.sys.id);

@@ -171,4 +171,42 @@
     clip: auto;
     white-space: normal;
   }
+
+  /* Neumorphic Shadows - Light Mode */
+  .shadow-neu-flat {
+    box-shadow: 
+      8px 8px 16px rgba(0, 0, 0, 0.05),
+      -8px -8px 16px rgba(255, 255, 255, 0.8);
+  }
+
+  .shadow-neu-pressed {
+    box-shadow: 
+      inset 4px 4px 8px rgba(0, 0, 0, 0.05),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+  }
+
+  .shadow-neu-hover {
+    box-shadow: 
+      12px 12px 24px rgba(0, 0, 0, 0.08),
+      -12px -12px 24px rgba(255, 255, 255, 0.9);
+  }
+
+  /* Neumorphic Shadows - Dark Mode */
+  .dark .shadow-neu-flat {
+    box-shadow: 
+      8px 8px 16px rgba(0, 0, 0, 0.4),
+      -8px -8px 16px rgba(255, 255, 255, 0.03);
+  }
+
+  .dark .shadow-neu-pressed {
+    box-shadow: 
+      inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.03);
+  }
+
+  .dark .shadow-neu-hover {
+    box-shadow: 
+      12px 12px 24px rgba(0, 0, 0, 0.5),
+      -12px -12px 24px rgba(255, 255, 255, 0.05);
+  }
 }

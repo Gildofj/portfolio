@@ -3,9 +3,8 @@ import {
   isValidSkillType,
   Skill,
   SkillSkeleton,
-} from "@/models/skill";
+} from "@/entities/skill/model/skill";
 import { contentfulServiceFactory } from "@/services/contentful";
-import moment from "moment";
 import { NextRequest, NextResponse } from "next/server";
 
 const contentfulService = contentfulServiceFactory();
@@ -28,8 +27,10 @@ export async function POST(request: NextRequest) {
     });
 
     const skillsData = data.items
-      .sort((a, b) =>
-        moment(moment(a.sys.createdAt)).diff(moment(b.sys.createdAt)),
+      .sort(
+        (a, b) =>
+          new Date(a.sys.createdAt).getTime() -
+          new Date(b.sys.createdAt).getTime(),
       )
       .flatMap(({ fields }) => ({
         title: fields.title,
