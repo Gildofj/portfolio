@@ -7,10 +7,12 @@ import { Profile } from "@/sections/Profile";
 import { Qualifications } from "@/sections/Qualifications";
 import { Skills } from "@/sections/Skills";
 import { ToastContainer } from "react-toastify";
+import { JsonLd } from "@/components/JsonLd";
 
 export default function Home() {
   return (
     <>
+      <JsonLd />
       <Header />
       <main className="h-full max-[700px]:pt-[50px]">
         <article className="mx-auto flex w-full max-w-3xl flex-col items-center justify-center px-8">

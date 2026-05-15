@@ -42,9 +42,13 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getTranslations({ locale: lang, namespace: "metadata" });
 
+  const title = t("title");
+  const description = t("description");
+
   return {
-    title: t("title"),
-    description: t("description"),
+    metadataBase: new URL("https://gildofj.dev"),
+    title,
+    description,
     robots: {
       index: true,
       follow: true,
@@ -53,16 +57,36 @@ export async function generateMetadata({
       "max-video-preview": -1,
     },
     alternates: {
-      canonical: `https://gildofj.dev/${lang}/`,
+      canonical: `/${lang}`,
       languages: {
-        "x-default": `https://gildofj.dev/${routing.defaultLocale}/`,
+        "x-default": `/${routing.defaultLocale}`,
         ...Object.fromEntries(
-          routing.locales.map((locale) => [
-            locale,
-            `https://dragonballdle.site/${locale}/`,
-          ]),
+          routing.locales.map((locale) => [locale, `/${locale}`]),
         ),
       },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://gildofj.dev/${lang}`,
+      siteName: "Gildo Junior Portfolio",
+      locale: lang,
+      type: "website",
+      images: [
+        {
+          url: "/images/me.jpg",
+          width: 800,
+          height: 600,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      creator: "@gildofj",
+      images: ["/images/me.jpg"],
     },
   };
 }
