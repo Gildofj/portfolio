@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { LazyMotion, domAnimation } from "motion/react";
+import { LazyMotion, domMax } from "motion/react";
 
 import PortfolioThemeProvider from "./ThemeContext";
 
@@ -9,7 +9,7 @@ interface AppProviderProps {
 
 export default function AppProvider({ children }: AppProviderProps) {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domMax} strict>
       <PortfolioThemeProvider>{children}</PortfolioThemeProvider>
     </LazyMotion>
   );

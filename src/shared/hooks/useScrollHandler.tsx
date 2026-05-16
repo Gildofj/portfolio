@@ -23,20 +23,22 @@ export function useScrollHandler(sectionIds: string[]) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries.find(
-          (entry) => entry.isIntersecting && entry.intersectionRatio >= 0.7,
+        const entering = entries.find((entry) => entry.isIntersecting);
+        if (!entering) return;
+
+        const id = entering.target.id;
+        const hash = id ? `#${id}` : "#";
+        if (window.location.hash === (hash === "#" ? "" : hash)) return;
+
+        const currentPath = window.location.pathname;
+        window.history.replaceState(
+          null,
+          "",
+          hash === "#" ? currentPath : currentPath + hash,
         );
-        if (visible) {
-          const id = visible.target.id;
-          const hash = id ? `#${id}` : "#";
-          // update the URL hash without pushing to history
-          const currentPath = window.location.pathname;
-          window.history.replaceState(null, "", hash === "#" ? currentPath : currentPath + hash);
-          // dispatch so useUrlHash hook picks up the change
-          window.dispatchEvent(new HashChangeEvent("hashchange"));
-        }
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
       },
-      { threshold: [0.7] },
+      { rootMargin: "-35% 0px -55% 0px", threshold: 0 },
     );
 
     const ids = sectionIdsRef.current;

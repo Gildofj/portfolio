@@ -14,15 +14,8 @@ export default function useUrlHash(): string {
 
     window.addEventListener("hashchange", onHashChange);
 
-    const interval = setInterval(() => {
-      if (window.location.hash !== hash) setHash(window.location.hash);
-    }, 100);
-
-    return () => {
-      window.removeEventListener("hashchange", onHashChange);
-      clearInterval(interval);
-    };
-  }, [hash]);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   return hash;
 }

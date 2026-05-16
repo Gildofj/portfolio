@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { usePortfolioTheme } from "@/shared/lib/ThemeContext";
 import { Overlay } from "@/shared/ui/Overlay";
@@ -11,7 +11,7 @@ import { handleScrollWhenModalIsOpen } from "@/shared/utils/scroll";
 import { useScrollHandler } from "@/shared/hooks/useScrollHandler";
 import { Link } from "@/i18n/navigation";
 import { AnimatePresence, m, useScroll, useSpring } from "motion/react";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { LocaleDropdownMenu } from "./LocaleDropdownMenu";
 import { ToggleThemeButton } from "./ToggleTheme";
@@ -22,13 +22,9 @@ const subscribe = () => () => {};
 export function Header() {
   const t = useTranslations("header");
   const urlHash = useUrlHash();
-  const locale = useLocale();
   const { theme } = usePortfolioTheme();
   const [open, setOpen] = useState(false);
-  const [lastHash, setLastHash] = useState(urlHash);
-  const [lastLocale, setLastLocale] = useState(locale);
   const [visible, setVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -47,30 +43,34 @@ export function Header() {
     () => false,
   );
 
+  const lastScrollYRef = useRef(0);
+  const tickingRef = useRef(false);
+  const visibleRef = useRef(true);
+
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      if (tickingRef.current) return;
+      tickingRef.current = true;
 
-      // Only hide on mobile/small tablets
-      if (window.innerWidth < 1024) {
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          setVisible(false);
-        } else {
-          setVisible(true);
+      requestAnimationFrame(() => {
+        const currentY = window.scrollY;
+        const shouldShow =
+          window.innerWidth >= 1024 ||
+          !(currentY > lastScrollYRef.current && currentY > 100);
+
+        if (shouldShow !== visibleRef.current) {
+          visibleRef.current = shouldShow;
+          setVisible(shouldShow);
         }
-      } else {
-        setVisible(true);
-      }
 
-      setLastScrollY(currentScrollY);
+        lastScrollYRef.current = currentY;
+        tickingRef.current = false;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
-  if (urlHash !== lastHash) setLastHash(urlHash);
-  if (locale !== lastLocale) setLastLocale(locale);
+  }, []);
 
   const isOpen = open;
 
