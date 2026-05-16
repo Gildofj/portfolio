@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
 
     const projectsData = await Promise.all(
       data.items
-        .filter(({ fields }) => !type || fields.type === typeValue)
+        .filter(({ fields }) => type === null || fields.type === typeValue)
         .sort(
           (a, b) =>
             new Date(a.sys.createdAt).getTime() -

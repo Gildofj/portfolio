@@ -23,21 +23,22 @@ export function SkillItem({ title, categories, icon }: SkillProps) {
 
   return (
     <m.div
-      whileHover={{ scale: 1.1, y: -4 }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      className="flex w-full flex-col items-center gap-2 rounded-2xl bg-zinc-50 dark:bg-zinc-900/40 p-5 leading-6 shadow-neu-flat hover:shadow-neu-hover transition-shadow duration-300 group"
+      whileHover={{ scale: 1.05, y: -2 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="flex w-full flex-col items-center gap-2 rounded-2xl bg-zinc-50 dark:bg-zinc-900/40 p-5 leading-6 shadow-neu-flat hover:shadow-neu-hover transition-all duration-300 group will-change-transform"
     >
       <div className="relative">
         <div 
-          className="absolute inset-0 blur-xl opacity-20 group-hover:opacity-40 transition-opacity" 
+          className="absolute inset-0 blur-lg opacity-10 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none" 
           style={{ backgroundColor: color }} 
         />
         <SvgIcon 
           src={iconSrc} 
+          alt={title}
           width={48} 
           height={48} 
-          className="relative z-10 transition-transform duration-300"
+          className="relative z-10 transition-transform duration-300 will-change-transform"
           style={{ color }} 
         />
       </div>

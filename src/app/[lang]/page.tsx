@@ -14,6 +14,9 @@ import { getProjects } from "@/entities/project/api/getProjects";
 import { getQualifications } from "@/entities/qualification/api/getQualifications";
 import { ProjectType } from "@/entities/project/model/project";
 import { QualificationType } from "@/entities/qualification/model/qualification";
+import { hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
 export default async function Home({
   params,
@@ -22,7 +25,10 @@ export default async function Home({
 }) {
   const { lang } = await params;
 
-  // Fetch initial data on the server
+  if (!hasLocale(routing.locales, lang)) {
+    notFound();
+  }
+
   const [initialSkills, initialProjects, initialQualifications] =
     await Promise.all([
       getSkills(lang),
@@ -35,8 +41,8 @@ export default async function Home({
       <JsonLd />
       <Background />
       <Header />
-      <main className="h-full max-[700px]:pt-12.5">
-        <article className="mx-auto flex w-full max-w-3xl flex-col items-center justify-center px-8">
+      <main className="relative z-10 h-full max-[700px]:pt-12.5">
+        <article className="mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-4 sm:px-8">
           <Profile />
           <About />
           <Skills initialSkills={initialSkills} />

@@ -22,13 +22,13 @@ export function Profile() {
             stiffness: 260,
             damping: 20,
           }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex h-80 items-end"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="flex h-64 sm:h-80 items-end will-change-transform"
         >
           <div
             data-testid="profile-image"
-            className="h-75 w-75 justify-self-center bg-cover bg-center bg-no-repeat shadow-neu-flat hover:shadow-neu-hover animate-profile-image transition-shadow duration-300 ring-[9px] ring-white/30 ring-inset"
+            className="h-60 w-60 sm:h-75 sm:w-75 justify-self-center bg-cover bg-center bg-no-repeat shadow-neu-flat hover:shadow-neu-hover animate-profile-image transition-shadow duration-500 ring-[9px] ring-white/30 ring-inset transform-gpu"
             style={{ backgroundImage: "url('/images/me.jpg')" }}
           />
         </m.a>
@@ -36,7 +36,7 @@ export function Profile() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
-          className="text-5xl font-bold text-primary tracking-tight"
+          className="text-5xl font-bold text-primary tracking-tight text-center"
         >
           Gildo Junior
         </m.h1>
@@ -44,7 +44,7 @@ export function Profile() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
-          className="text-xl font-medium text-zinc-600 dark:text-zinc-400"
+          className="text-xl font-medium text-zinc-600 dark:text-zinc-400 text-center"
         >
           {t("subtitle")}
         </m.span>
@@ -80,7 +80,7 @@ export function Profile() {
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
-        className="text-center text-4xl font-medium leading-tight max-w-2xl"
+        className="text-center text-4xl font-medium leading-tight max-w-2xl px-4 sm:px-0"
       >
         {t("welcome")}{" "}
         <span className="text-primary font-bold">{t("welcomeHighlight")}</span>

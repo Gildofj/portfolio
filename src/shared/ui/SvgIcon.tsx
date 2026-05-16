@@ -1,7 +1,7 @@
 import { type ComponentProps } from "react";
-import { type StaticImageData } from "next/image";
+import Image, { type StaticImageData } from "next/image";
 
-type IconProps = Omit<ComponentProps<"img">, "src"> & {
+type IconProps = Omit<ComponentProps<typeof Image>, "src"> & {
   src: StaticImageData;
   nofill?: boolean;
 };
@@ -36,7 +36,7 @@ export default function SvgIcon({
       };
 
   return (
-    <img
+    <Image
       src={mainSrc}
       width={width}
       height={height}

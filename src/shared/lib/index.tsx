@@ -9,7 +9,7 @@ interface AppProviderProps {
 
 export default function AppProvider({ children }: AppProviderProps) {
   return (
-    <LazyMotion features={domAnimation}>
+    <LazyMotion features={domAnimation} strict>
       <PortfolioThemeProvider>{children}</PortfolioThemeProvider>
     </LazyMotion>
   );

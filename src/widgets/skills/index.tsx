@@ -4,7 +4,7 @@ import { Section } from "@/shared/ui/Section";
 import { Title } from "@/shared/ui/Title";
 import { TitleContainer } from "@/shared/ui/TitleContainer";
 import { AnimatePresence, m, MotionConfig } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { SkillItem } from "./SkillItem";
 import { SkillFilterDropdown } from "./SkillsFilterDropdown";
@@ -21,7 +21,6 @@ interface SkillsProps {
 export function Skills({ initialSkills }: SkillsProps) {
   const t = useTranslations("skills");
   const locale = useLocale();
-  const [skills, setSkills] = useState<Skill[]>(initialSkills);
   const { selectedTypes, allTypesSelected, toggleType, toggleSelectAllTypes } =
     useTypeFilters();
   const {
@@ -31,7 +30,29 @@ export function Skills({ initialSkills }: SkillsProps) {
     toggleSelectAllCategories,
   } = useCategoryFilter();
 
+  const [skills, setSkills] = useState<Skill[]>(() => {
+    return initialSkills.filter((skill) => {
+      const typeMatch = skill.types.some((t) => selectedTypes.includes(t));
+      const categoryMatch = skill.categories.some((c) =>
+        selectedCategories.includes(c),
+      );
+      return typeMatch && categoryMatch;
+    });
+  });
+
+  const typesKey = JSON.stringify(selectedTypes);
+  const categoriesKey = JSON.stringify(selectedCategories);
+  const lastFetchedRef = useRef<string>(
+    JSON.stringify({ locale, typesKey, categoriesKey }),
+  );
+
   useEffect(() => {
+    const currentKey = JSON.stringify({ locale, typesKey, categoriesKey });
+
+    if (lastFetchedRef.current === currentKey) {
+      return;
+    }
+
     const loadSkills = async () => {
       const response = await fetch(`/api/skill/getByFilter?locale=${locale}`, {
         method: "POST",
@@ -47,10 +68,11 @@ export function Skills({ initialSkills }: SkillsProps) {
 
       const data = await response.json();
       setSkills(data);
+      lastFetchedRef.current = currentKey;
     };
 
     loadSkills();
-  }, [locale, selectedTypes, selectedCategories]);
+  }, [locale, typesKey, categoriesKey, selectedTypes, selectedCategories]);
 
   return (
     <Section id="skills" className="gap-8">
@@ -84,7 +106,7 @@ export function Skills({ initialSkills }: SkillsProps) {
           </MotionConfig>
         </div>
       </TitleContainer>
-      <div className="grid min-h-128 w-full items-start justify-center gap-4 max-md:grid-cols-3 max-[460px]:grid-cols-[repeat(2,10rem)] max-[460px]:gap-2 grid-cols-[repeat(5,8rem)]">
+      <div className="flex flex-wrap min-h-128 w-full items-start justify-center gap-4 sm:gap-6">
         <AnimatePresence mode="popLayout">
           {skills?.map((skill, i) => (
             <m.div
@@ -94,6 +116,7 @@ export function Skills({ initialSkills }: SkillsProps) {
               exit={{ opacity: 0, scale: 0 }}
               transition={{ delay: i * 0.06 }}
               viewport={{ once: true }}
+              className="w-[28%] sm:w-32 md:w-36 lg:w-40 flex-shrink-0 max-w-[12rem] min-w-[6.5rem]"
             >
               <SkillItem
                 icon={skill.icon.toLowerCase() as IconName}

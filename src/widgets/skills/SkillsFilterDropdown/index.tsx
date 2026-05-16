@@ -56,7 +56,7 @@ export function SkillFilterDropdown({
   );
 
   return isMounted ? (
-    <Dropdown open={open} onOpenChange={setOpen}>
+    <Dropdown open={open} onOpenChange={setOpen} modal={false}>
       <DropdownTrigger asChild>
         <span className="cursor-pointer text-primary transition-all duration-500 hover:text-purple-600">
           <FunnelSimpleIcon size={30} />

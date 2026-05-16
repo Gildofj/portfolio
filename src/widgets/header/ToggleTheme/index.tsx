@@ -2,8 +2,9 @@
 
 import { usePortfolioTheme } from "@/shared/lib/ThemeContext";
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useSyncExternalStore } from "react";
+import { cn } from "@/shared/utils/cn";
 
 const subscribe = () => () => {};
 
@@ -16,40 +17,58 @@ export function ToggleThemeButton() {
     () => false,
   );
 
+  const isLight = theme === "light";
+
   return isMounted ? (
     <button
       type="button"
       onClick={toggleTheme}
-      className={`flex h-10 w-20 cursor-pointer items-center rounded-3xl p-[0.313rem] ${theme === "light" ? "justify-start" : "justify-end"} ${theme !== "light" ? "bg-zinc-600" : "bg-purple-200"}`}
+      className={cn(
+        "relative flex h-10 w-20 cursor-pointer items-center rounded-2xl p-1 transition-colors duration-500 outline-none overflow-hidden",
+        isLight ? "bg-zinc-200" : "bg-zinc-700"
+      )}
       aria-label="Toggle theme"
     >
-      <motion.div layout className="rounded-3xl bg-white p-2">
+      <m.div 
+        initial={false}
+        animate={{ 
+          x: isLight ? 0 : 40,
+          rotate: isLight ? 0 : 360
+        }}
+        transition={{ 
+          type: "spring", 
+          stiffness: 300, 
+          damping: 25,
+          rotate: { duration: 0.5, ease: "easeInOut" }
+        }}
+        className="flex h-8 w-8 items-center justify-center rounded-xl bg-white dark:bg-zinc-900 shadow-neu-flat"
+      >
         <AnimatePresence mode="wait" initial={false}>
-          {theme === "light" ? (
-            <motion.div
+          {isLight ? (
+            <m.div
               key="light"
               initial={{ opacity: 0, scale: 0.8, rotate: 90 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, scale: 0.8, rotate: 90 }}
               transition={{ duration: 0.2 }}
             >
-              <SunIcon size={16} />
-            </motion.div>
+              <SunIcon size={18} weight="bold" className="text-primary" />
+            </m.div>
           ) : (
-            <motion.div
+            <m.div
               key="dark"
               initial={{ opacity: 0, scale: 0.8, rotate: -90 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, scale: 0.8, rotate: -90 }}
               transition={{ duration: 0.2 }}
             >
-              <MoonIcon color="#000000" size={16} />
-            </motion.div>
+              <MoonIcon size={18} weight="bold" className="text-primary" />
+            </m.div>
           )}
         </AnimatePresence>
-      </motion.div>
+      </m.div>
     </button>
   ) : (
-    <div />
+    <div className="h-10 w-20" />
   );
 }

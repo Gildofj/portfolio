@@ -10,7 +10,7 @@ import {
   EnvelopeIcon,
   PaperPlaneTiltIcon,
 } from "@phosphor-icons/react";
-import { motion, MotionConfig } from "motion/react";
+import { m, MotionConfig } from "motion/react";
 import { SyntheticEvent, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
@@ -88,7 +88,7 @@ export function Contact() {
   };
 
   return (
-    <Section id="contact" className="w-full gap-16">
+    <Section id="contact" className="w-full gap-12 sm:gap-16">
       <MotionConfig transition={{ duration: 0.3 }}>
         <TitleContainer
           initial={
@@ -100,159 +100,155 @@ export function Contact() {
           <Title>{t("title")}</Title>
         </TitleContainer>
 
-        <div className="flex w-full justify-center gap-16 max-md:flex-col max-md:items-center">
-          <div className="flex flex-col items-center gap-8">
-            <motion.h3
+        <div className="grid w-full gap-12 lg:gap-20 grid-cols-1 lg:grid-cols-[auto_1fr] items-start">
+          <div className="flex flex-col items-center lg:items-start gap-8">
+            <m.h3
               initial={
                 isMobile ? { y: "-10%", opacity: 0 } : { x: "-10%", opacity: 0 }
               }
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.06 }}
-              className="text-xl font-medium leading-8"
+              className="text-xl font-bold leading-8 text-zinc-900 dark:text-zinc-100"
             >
               {t("talkMeTitle")}
-            </motion.h3>
-            {CONTACT_TYPES.map((c, i) => (
-              <motion.div
-                key={i}
-                initial={
-                  isMobile
-                    ? { y: "-10%", opacity: 0 }
-                    : { x: "-10%", opacity: 0 }
-                }
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: (i + 2) * 0.06 }}
-                className="flex w-80 flex-col items-center gap-2 rounded-xl border border-primary bg-transparent px-12 py-5 [&_span_svg]:fill-zinc-900 [&_span_svg]:text-zinc-900 dark:[&_span_svg]:fill-zinc-300 dark:[&_span_svg]:text-zinc-300"
-              >
-                {c.type === "Email" && <EnvelopeIcon size={32} />}
-                {c.type === "Whatsapp" && <WhatsappLogoIcon size={32} />}
-                <span className="font-bold">{c.type}</span>
-                <span>{c.contactId}</span>
-                <a
-                  href={c.redirectUrl}
-                  title={`Send me a ${c.type}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 flex items-center gap-1 leading-none transition-[0.2s] hover:text-primary [&_svg]:transition-[0.2s] hover:[&_svg]:translate-x-0.5 hover:[&_svg]:text-primary hover:[&_svg]:fill-primary"
+            </m.h3>
+            <div className="flex flex-col gap-6 w-full sm:w-80">
+              {CONTACT_TYPES.map((c, i) => (
+                <m.div
+                  key={i}
+                  initial={
+                    isMobile
+                      ? { y: "-10%", opacity: 0 }
+                      : { x: "-10%", opacity: 0 }
+                  }
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (i + 2) * 0.06 }}
+                  className="group relative flex w-full flex-col items-center gap-2 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 p-6 shadow-neu-flat hover:shadow-neu-hover transition-all duration-300"
                 >
-                  Falar
-                  <ArrowRightIcon size={23} />
-                </a>
-              </motion.div>
-            ))}
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                    {c.type === "Email" && <EnvelopeIcon size={28} weight="bold" />}
+                    {c.type === "Whatsapp" && <WhatsappLogoIcon size={28} weight="bold" />}
+                  </div>
+                  <span className="mt-2 text-sm font-black uppercase tracking-widest text-zinc-400 dark:text-zinc-500">{c.type}</span>
+                  <span className="font-semibold text-zinc-900 dark:text-zinc-100">{c.contactId}</span>
+                  <a
+                    href={c.redirectUrl}
+                    title={`Send me a ${c.type}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 flex items-center gap-2 text-sm font-bold text-primary transition-all hover:gap-3"
+                  >
+                    Falar
+                    <ArrowRightIcon size={18} weight="bold" />
+                  </a>
+                </m.div>
+              ))}
+            </div>
           </div>
+
           <form
             ref={form}
             onSubmit={sendEmail}
-            className="flex w-full flex-col items-center max-md:px-8 max-sm:max-w-[20rem] max-sm:p-0"
+            className="flex w-full flex-col items-center lg:items-stretch gap-6"
           >
-            <motion.h3
+            <m.h3
               initial={
                 isMobile ? { y: "10%", opacity: 0 } : { x: "10%", opacity: 0 }
               }
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.06 }}
-              className="text-xl font-medium leading-8"
+              className="text-xl font-bold leading-8 lg:text-start text-center"
             >
               {t("sendProjectTitle")}
-            </motion.h3>
-            <motion.div
-              initial={
-                isMobile ? { y: "10%", opacity: 0 } : { x: "10%", opacity: 0 }
-              }
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 2 * 0.06 }}
-              className="relative my-8 h-8 w-full"
-            >
-              <label className="absolute left-5 -top-3 z-10 bg-purple-50 p-1 text-sm text-primary transition-colors duration-500 dark:bg-zinc-900">
-                {t("form.name.title")}
-              </label>
-              <input
-                name="name"
-                placeholder={t("form.name.placeholder")}
-                className="p-5 w-full absolute left-0 top-0 z-1 rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out dark:bg-zinc-900 dark:text-zinc-300"
-              />
-            </motion.div>
-            {nameError && (
-              <div className="mt-2 w-full text-start">
-                <span className="text-alert">
-                  {t("form.name.errorMessage")}
-                </span>
-              </div>
-            )}
+            </m.h3>
 
-            <motion.div
-              initial={
-                isMobile ? { y: "10%", opacity: 0 } : { x: "10%", opacity: 0 }
-              }
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 3 * 0.06 }}
-              className="relative my-8 h-8 w-full"
-            >
-              <label className="absolute left-5 -top-3 z-10 bg-purple-50 p-1 text-sm text-primary transition-colors duration-500 dark:bg-zinc-900">
-                {t("form.email.title")}
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder={t("form.email.placeholder")}
-                className="p-5 w-full absolute left-0 top-0 z-1 rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out dark:bg-zinc-900 dark:text-zinc-300"
-              />
-            </motion.div>
-            {emailError && (
-              <div className="mt-2 w-full text-start">
-                <span className="text-alert">
-                  {t("form.email.errorMessage")}
-                </span>
-              </div>
-            )}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+              <m.div
+                initial={isMobile ? { y: "10%", opacity: 0 } : { x: "10%", opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 2 * 0.06 }}
+                className="relative h-16 w-full"
+              >
+                <label className="absolute left-5 -top-3 z-10 bg-[#faf5ff] px-2 py-0.5 text-xs font-black uppercase tracking-widest text-primary dark:bg-zinc-900">
+                  {t("form.name.title")}
+                </label>
+                <input
+                  name="name"
+                  placeholder={t("form.name.placeholder")}
+                  className="h-full w-full rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 p-5 text-zinc-900 dark:text-zinc-100 shadow-neu-pressed focus:border-primary focus:outline-none transition-all"
+                />
+                {nameError && (
+                  <span className="absolute -bottom-6 left-2 text-[10px] font-bold uppercase tracking-wider text-alert">
+                    {t("form.name.errorMessage")}
+                  </span>
+                )}
+              </m.div>
 
-            <motion.div
-              initial={
-                isMobile ? { y: "10%", opacity: 0 } : { x: "10%", opacity: 0 }
-              }
+              <m.div
+                initial={isMobile ? { y: "10%", opacity: 0 } : { x: "10%", opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 3 * 0.06 }}
+                className="relative h-16 w-full"
+              >
+                <label className="absolute left-5 -top-3 z-10 bg-[#faf5ff] px-2 py-0.5 text-xs font-black uppercase tracking-widest text-primary dark:bg-zinc-900">
+                  {t("form.email.title")}
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder={t("form.email.placeholder")}
+                  className="h-full w-full rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 p-5 text-zinc-900 dark:text-zinc-100 shadow-neu-pressed focus:border-primary focus:outline-none transition-all"
+                />
+                {emailError && (
+                  <span className="absolute -bottom-6 left-2 text-[10px] font-bold uppercase tracking-wider text-alert">
+                    {t("form.email.errorMessage")}
+                  </span>
+                )}
+              </m.div>
+            </div>
+
+            <m.div
+              initial={isMobile ? { y: "10%", opacity: 0 } : { x: "10%", opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 4 * 0.06 }}
-              className="relative my-8 min-h-40 w-full"
+              className="relative mt-4 w-full"
             >
-              <label className="absolute left-5 -top-3 z-10 bg-purple-50 p-1 text-sm text-primary transition-colors duration-500 dark:bg-zinc-900">
+              <label className="absolute left-5 -top-3 z-10 bg-[#faf5ff] px-2 py-0.5 text-xs font-black uppercase tracking-widest text-primary dark:bg-zinc-900">
                 {t("form.project.title")}
               </label>
-              <motion.textarea
+              <textarea
                 name="message"
                 placeholder={t("form.project.placeholder")}
-                className="p-5 w-125 min-h-52 rounded-xl border border-primary bg-purple-50 text-zinc-900 transition-colors duration-500 ease-in-out max-[900px]:w-full dark:bg-zinc-900 dark:text-zinc-300"
+                className="min-h-48 w-full rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 p-5 text-zinc-900 dark:text-zinc-100 shadow-neu-pressed focus:border-primary focus:outline-none transition-all"
               />
               {messageError && (
-                <div className="mt-2 w-full text-start">
-                  <span className="text-alert">
-                    {t("form.project.errorMessage")}
-                  </span>
-                </div>
+                <span className="absolute -bottom-6 left-2 text-[10px] font-bold uppercase tracking-wider text-alert">
+                  {t("form.project.errorMessage")}
+                </span>
               )}
-            </motion.div>
-            <MotionConfig>
-              <motion.button
+            </m.div>
+
+            <m.div
+              initial={isMobile ? { y: "-10%", opacity: 0 } : { x: "10%", opacity: 0 }}
+              whileInView={{ x: 0, y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 5 * 0.06 }}
+              className="mt-6 flex justify-center lg:justify-end"
+            >
+              <button
                 type="submit"
-                initial={
-                  isMobile
-                    ? { y: "-10%", opacity: 0 }
-                    : { x: "10%", opacity: 0 }
-                }
-                whileInView={{ x: 0, y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 5 * 0.06, duration: 0.1 }}
-                className="inline-flex cursor-pointer items-center justify-center gap-4 rounded-xl border border-primary bg-transparent px-8 py-3 font-bold text-zinc-900 transition-[0.2s] hover:scale-110 hover:text-primary active:scale-[0.99] dark:text-zinc-300 [&_span_svg]:text-zinc-900 [&_span_svg]:fill-zinc-900 [&_span_svg]:transition-[0.2s] hover:[&_span_svg]:text-primary hover:[&_span_svg]:fill-primary dark:[&_span_svg]:text-zinc-300 dark:[&_span_svg]:fill-zinc-300"
+                className="inline-flex cursor-pointer items-center justify-center gap-3 rounded-2xl bg-zinc-900 dark:bg-zinc-100 px-10 py-4 text-sm font-black uppercase tracking-widest text-white dark:text-zinc-900 shadow-neu-flat transition-all hover:scale-105 hover:bg-primary dark:hover:bg-primary active:scale-95 group"
               >
-                {t("form.sendButton")} <PaperPlaneTiltIcon size={20} />
-              </motion.button>
-            </MotionConfig>
+                {t("form.sendButton")}
+                <PaperPlaneTiltIcon size={20} weight="bold" className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+              </button>
+            </m.div>
           </form>
         </div>
       </MotionConfig>

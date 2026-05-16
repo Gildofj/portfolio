@@ -23,7 +23,7 @@ export function About() {
           initial={{ opacity: 0, x: "10%" }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center text-justify indent-4 max-[400px]:max-w-88"
+          className="flex flex-col items-center sm:text-justify text-center indent-0 sm:indent-4 px-4 sm:px-0"
         >
           <p>{t("firstParagraph")}</p>
           <p>{t("secondParagraph")}</p>

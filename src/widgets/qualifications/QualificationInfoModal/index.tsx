@@ -21,83 +21,82 @@ export function QualificationInfoModal({
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="mt-2 block cursor-pointer bg-transparent text-sm leading-5 text-primary transition-[0.2s] hover:text-purple-800"
+        className="group mt-2 inline-flex cursor-pointer items-center gap-2 rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary transition-all hover:bg-white hover:shadow-neu-flat active:scale-95 dark:border-zinc-800 dark:bg-zinc-900/50 dark:hover:bg-zinc-800"
       >
         Ver mais
+        <ArrowSquareOutIcon size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       </button>
 
-      <Modal open={open} toggleOpen={() => setOpen(!open)} height={50}>
-        <div className="flex flex-col gap-8">
-          <div className="flex items-center justify-between">
-            <h3 className="text-2xl font-semibold text-primary">
+      <Modal open={open} toggleOpen={() => setOpen(!open)}>
+        <div className="flex flex-col gap-6 sm:gap-8">
+          <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-primary tracking-tight">
               {qualification.title}
             </h3>
 
             <button
               type="button"
               onClick={() => setOpen(!open)}
-              className="cursor-pointer bg-transparent"
+              className="group cursor-pointer rounded-xl p-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800"
               aria-label="Close"
             >
-              <XIcon className="text-primary" size={32} />
+              <XIcon className="text-zinc-500 group-hover:text-primary transition-colors" size={24} />
             </button>
           </div>
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-1">
-              <strong className="font-bold">Empresa:</strong>
-              <span>{qualification.organization}</span>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="flex flex-col gap-1">
+              <span className="text-xs font-black uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Empresa</span>
+              <span className="font-semibold text-zinc-800 dark:text-zinc-200">{qualification.organization}</span>
             </div>
-            <div className="flex items-center gap-1">
-              <strong className="font-bold">Data inicio:</strong>
-              <span>{qualification.startDate}</span>
+            <div className="flex flex-col gap-1">
+              <span className="text-xs font-black uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Período</span>
+              <span className="font-semibold text-zinc-800 dark:text-zinc-200">{qualification.startDate} — {qualification.endDate}</span>
             </div>
-            <div className="flex items-center gap-1">
-              <strong className="font-bold">Data fim:</strong>
-              <span>{qualification.endDate}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <strong className="font-bold">Localização:</strong>
-              <span>
-                {qualification.country}, {qualification.state},{" "}
-                {qualification.city}
+            <div className="flex flex-col gap-1">
+              <span className="text-xs font-black uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Localização</span>
+              <span className="font-semibold text-zinc-800 dark:text-zinc-200">
+                {qualification.country}, {qualification.state}, {qualification.city}
               </span>
             </div>
-            <div className="flex items-center gap-1">
-              <strong className="font-bold">Modelo:</strong>
-              <span>{WORK_MODEL[qualification.workModel]}</span>
+            <div className="flex flex-col gap-1">
+              <span className="text-xs font-black uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Modelo</span>
+              <span className="font-semibold text-zinc-800 dark:text-zinc-200">{WORK_MODEL[qualification.workModel]}</span>
             </div>
-            {qualification.certificateUrl && (
-              <div className="flex items-center gap-1">
-                <strong className="font-bold">Certificado:</strong>
+          </div>
+
+          <div className="flex flex-col gap-4 border-t border-zinc-200 dark:border-zinc-800 pt-6">
+            <div className="flex flex-col gap-2">
+              <span className="text-xs font-black uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Descrição</span>
+              <p className="whitespace-pre-line text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {qualification.description}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-4 mt-2">
+              {qualification.certificateUrl && (
                 <a
                   href={qualification.certificateUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex cursor-pointer items-center gap-1 transition-[0.2s] hover:text-purple-800 [&_svg]:fill-primary [&_svg]:text-primary hover:[&_svg]:fill-purple-800 hover:[&_svg]:text-purple-800"
+                  className="flex items-center gap-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 px-4 py-2 text-sm font-bold text-primary transition-all hover:scale-105 active:scale-95"
                 >
-                  {qualification.certificateId}
-                  <ArrowSquareOutIcon width={20} height={20} />
+                  <ArrowSquareOutIcon size={18} />
+                  Certificado
                 </a>
-              </div>
-            )}
-            {qualification.workedAppUrl && (
-              <div className="flex items-center gap-1">
-                <strong className="font-bold">Projetos Trabalhados:</strong>
+              )}
+              {qualification.workedAppUrl && (
                 <a
                   href={qualification.workedAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex cursor-pointer items-center gap-1 transition-[0.2s] hover:text-purple-800 [&_svg]:fill-primary [&_svg]:text-primary hover:[&_svg]:fill-purple-800 hover:[&_svg]:text-purple-800"
+                  className="flex items-center gap-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 px-4 py-2 text-sm font-bold text-primary transition-all hover:scale-105 active:scale-95"
                 >
-                  {qualification.workedAppName}
-                  <ArrowSquareOutIcon width={20} height={20} />
+                  <ArrowSquareOutIcon size={18} />
+                  Ver Projetos
                 </a>
-              </div>
-            )}
-            <strong className="font-bold">Descrição:</strong>
-            <p className="whitespace-pre-line text-justify">
-              {qualification.description}
-            </p>
+              )}
+            </div>
           </div>
         </div>
       </Modal>

@@ -7,7 +7,7 @@ export function Overlay(props: ComponentProps<typeof m.button>) {
   return (
     <m.button
       type="button"
-      className="fixed left-0 top-[60px] z-20 h-dvh w-dvw bg-black/70"
+      className="fixed inset-0 z-[15] bg-black/60 backdrop-blur-sm"
       {...props}
     />
   );

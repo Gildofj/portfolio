@@ -4,7 +4,7 @@ import { m } from "motion/react";
 import { ComponentProps } from "react";
 
 const sectionClassName =
-  "flex min-h-dvh flex-col items-center justify-center py-40";
+  "flex min-h-dvh flex-col items-center justify-center py-20 sm:py-32";
 
 export function Section({
   className,
