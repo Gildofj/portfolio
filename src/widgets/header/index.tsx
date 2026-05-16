@@ -92,7 +92,8 @@ export function Header() {
       </AnimatePresence>
       <header
         className={cn(
-          "fixed inset-x-0 z-20 w-full px-4 sm:px-6 font-mono transition-all duration-500 pt-[env(safe-area-inset-top,0px)]",
+          "fixed inset-x-0 w-full px-4 sm:px-6 font-mono transition-all duration-500 pt-[env(safe-area-inset-top,0px)]",
+          isOpen ? "z-20" : "z-[11]",
           visible || isOpen ? "top-4 sm:top-6 opacity-100" : "-top-24 opacity-0",
         )}
       >
