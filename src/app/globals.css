@@ -65,15 +65,14 @@
     width: 100%;
     font-family: var(--font-sans);
     font-size: var(--text-base);
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizeSpeed;
     overflow-x: hidden;
     overflow-wrap: break-word;
     background-color: #faf5ff;
     color: #18181b;
-    transition-property:
-      color, background-color, border-color, text-decoration-color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 500ms;
+    transition:
+      color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark body {
@@ -170,5 +169,43 @@
     overflow: visible;
     clip: auto;
     white-space: normal;
+  }
+
+  /* Neumorphic Shadows - Light Mode */
+  .shadow-neu-flat {
+    box-shadow: 
+      8px 8px 16px rgba(0, 0, 0, 0.05),
+      -8px -8px 16px rgba(255, 255, 255, 0.8);
+  }
+
+  .shadow-neu-pressed {
+    box-shadow: 
+      inset 4px 4px 8px rgba(0, 0, 0, 0.05),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+  }
+
+  .shadow-neu-hover {
+    box-shadow: 
+      12px 12px 24px rgba(0, 0, 0, 0.08),
+      -12px -12px 24px rgba(255, 255, 255, 0.9);
+  }
+
+  /* Neumorphic Shadows - Dark Mode */
+  .dark .shadow-neu-flat {
+    box-shadow: 
+      8px 8px 16px rgba(0, 0, 0, 0.4),
+      -8px -8px 16px rgba(255, 255, 255, 0.03);
+  }
+
+  .dark .shadow-neu-pressed {
+    box-shadow: 
+      inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.03);
+  }
+
+  .dark .shadow-neu-hover {
+    box-shadow: 
+      12px 12px 24px rgba(0, 0, 0, 0.5),
+      -12px -12px 24px rgba(255, 255, 255, 0.05);
   }
 }

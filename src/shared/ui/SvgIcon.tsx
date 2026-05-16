@@ -1,0 +1,48 @@
+import { type ComponentProps } from "react";
+import Image, { type StaticImageData } from "next/image";
+
+type IconProps = Omit<ComponentProps<typeof Image>, "src"> & {
+  src: StaticImageData;
+  nofill?: boolean;
+};
+
+const EMPTY_SVG = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E`;
+
+export default function SvgIcon({
+  src,
+  nofill,
+  width,
+  height,
+  alt,
+  style,
+  ...props
+}: IconProps) {
+  if (!src) {
+    console.warn("SvgIcon: No src provided");
+    return null;
+  }
+
+  const mainSrc = nofill ? src.src : EMPTY_SVG;
+  width ??= src.width;
+  height ??= src.height;
+  alt ??= "icon";
+  style = nofill
+    ? style
+    : {
+        ...style,
+        backgroundColor: `currentcolor`,
+        mask: `url("${src.src}") no-repeat center / contain`,
+        WebkitMask: `url("${src.src}") no-repeat center / contain`,
+      };
+
+  return (
+    <Image
+      src={mainSrc}
+      width={width}
+      height={height}
+      alt={alt}
+      style={style}
+      {...props}
+    />
+  );
+}

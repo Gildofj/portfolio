@@ -47,7 +47,8 @@
   "qualification": {
     "title": "Qualification",
     "experienceTabTitle": "Experience",
-    "educationTabTitle": "Education"
+    "educationTabTitle": "Education",
+    "present": "Present"
   },
   "projects": {
     "title": "Projects",
